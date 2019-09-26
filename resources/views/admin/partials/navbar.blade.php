@@ -114,15 +114,15 @@
         </li>
         <li class="nav-item dropdown">
             <a href="#" class="_dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                <img src="https://www.searchpng.com/wp-content/uploads/2019/02/Deafult-Profile-Pitcher.png" class="user-image" alt="User Image" width="30" style="margin: 5px 20px 0px 10px;">
+                <img src="{{asset('backend_assets/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image" width="30" style="margin: 5px 20px 0px 10px;">
 {{--                <span class="hidden-xs">Alexander Pierce</span>--}}
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <span class="dropdown-item dropdown-header">
-                     <img src="https://www.searchpng.com/wp-content/uploads/2019/02/Deafult-Profile-Pitcher.png" width="100" class="img-circle" alt="User Image">
+                     <img src="{{asset('backend_assets/dist/img/user2-160x160.jpg')}}" width="100" class="img-circle" alt="User Image">
                     <p>
-                        Alexander Pierce - Web Developer
-                        <small>Member since Nov. 2012</small>
+                        Admin
+                        <small>Member since Nov. 2018</small>
                     </p>
                 </span>
                 <div class="dropdown-divider"></div>

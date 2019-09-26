@@ -1,6 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
-    
+
 <!-- Mirrored from demo.devitems.com/lion-v2/lion/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Jul 2019 10:22:06 GMT -->
 <head>
         <meta charset="utf-8">
@@ -10,10 +10,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png')}}"">
-		
+
 		<!-- all css here -->
         <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/bootstrap.min.css') }}">
-         
+
         <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/bundle.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/plugins.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/style.css') }}">
@@ -22,10 +22,10 @@
     </head>
     <body>
             <!-- Add your site or application content here -->
-            
+
          <!--header area start-->
         <div class="header_area">
-           
+
             <!--header top start-->
            <!--  <div class="header_top top_two">
                 <div class="container">
@@ -80,24 +80,15 @@
                             <div class="main_menu menu_two d-none d-lg-block">
                                 <nav>
                                     <ul>
-                                        <li class="active"><a href="index.html">Home <i class="fa fa-angle-down"></i></a>
+                                        <li class="active"><a href="index.html">Home</a></li>
+                                        <li class="dropdown_item"><a href="blog.html">Blog <i class="fa fa-angle-down"></i></a>
                                             <ul class="sub_menu">
-                                                <li class="active"><a href="index.html">home shop 1</a></li>
-                                                <li><a href="index-2.html">home shop 2</a></li>
-                                                <li><a href="index-3.html">home shop 3</a></li>
-                                                <li><a href="index-4.html">home shop 4</a></li>
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="blog-fullwidth.html">Blog FullWidth</a></li>
+                                                <li><a href="blog-sidebar.html">Blog  Sidebar</a></li>
+                                                <li><a href="blog-details.html">Blog  Details</a></li>
                                             </ul>
                                         </li>
-
-                                           
-                                            <li class="dropdown_item"><a href="blog.html">Blog <i class="fa fa-angle-down"></i></a>
-                                                <ul class="sub_menu">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="blog-fullwidth.html">Blog FullWidth</a></li>
-                                                    <li><a href="blog-sidebar.html">Blog  Sidebar</a></li>
-                                                    <li><a href="blog-details.html">Blog  Details</a></li>
-                                                </ul>
-                                            </li>
                                         <li><a href="about.html">About Us</a></li>
                                         <li><a href="contact.html">Contact Us</a></li>
                                         <li class="mega_item"><a href="#">Features <i class="fa fa-angle-down"></i></a>
@@ -140,13 +131,13 @@
                                         </li>
                                     </ul>
                                 </nav>
-                            </div> 
+                            </div>
                         </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="header_widget about_widget widget_two text-right">
                                 <ul>
-                                    <li class="shopping_cart"><a href="#" title="View my shopping cart"><i class="fa fa-shopping-bag"></i></a> 
+                                    <li class="shopping_cart"><a href="#" title="View my shopping cart"><i class="fa fa-shopping-bag"></i></a>
                                         <span class="cart__quantity">2</span>
                                         <div class="mini_cart cart_left mini_c_two">
                                             <div class="cart_item">
@@ -186,15 +177,26 @@
                                             <div class="cart_button pt-20">
                                                 <a href="checkout.html"> Check out</a>
                                             </div>
-                                        </div>                                                                                                                                                               
+                                        </div>
                                     </li>
                                     <li><a href="wishlist.html" title="My wishlist"><i class="fa fa-heart-o"></i></a></li>
-                                    <li><a href="#" title="My Compare"><i class="fa fa-exchange"></i></a></li>
+{{--                                    <li><a href="#" title="My Compare"><i class="fa fa-key"></i></a></li>--}}
+
+                                    <li class="account"><a><i class="fa fa-key"></i></a>
+                                        <div class="account_mini mini_c_two" style="position: absolute; width: 300px; background: #fff; -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2); box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2); z-index: 999; padding: 10px 20px 20px; right: 0; top: 100%; display: none;">
+                                            <div class="cart_total cart_button">
+                                                <span class="pull-right">Register</span>
+                                            </div>
+                                            <div class="cart_button pt-20">
+                                                <a href="{{route('login')}}">Login</a>
+                                            </div>
+                                        </div>
+                                    </li>
                                 </ul>
                                 <!--mini cart-->
-                                
+
                             </div>
-                            
+
                             <!--mobail menu start-->
                             <div class="mobile-menu mobile_menu_two d-lg-none">
                                 <nav>
@@ -277,26 +279,26 @@
                                 </nav>
                             </div>
                             <!--mobail menu end-->
-                            
+
                         </div>
                     </div>
                 </div>
-            </div> 
- 
+            </div>
+
         </div>
          <!--header area end-->
-        
-        <!--home two block section start--> 
+
+        <!--home two block section start-->
         <div class="home_two_block_section">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-4">
-                      <!--categories menu start-->  
+                      <!--categories menu start-->
                         <div class="categories_menu categorie_menu_two mb-40">
                             <div class="categories_title ca_title_two">
                                 <h2 class="categori_toggle"><img src="{{ asset('frontend_assets/assets/img/logo/categorie.png')}}" alt=""> All categories</h2>
                             </div>
-                            
+
                             <div class="categories_menu_inner">
                                 <ul>
                                     <li><a href="#"><i class="fa fa-caret-right"></i> Electronics <i class="fa fa-angle-right"></i></a>
@@ -341,7 +343,7 @@
                                                     </ul>
                                                 </div>
                                             </li>
-                                            
+
                                         </ul>
                                     </li>
                                     <li><a href="#"><i class="fa fa-caret-right"></i> Fashion  <i class="fa fa-angle-right"></i></a>
@@ -386,7 +388,7 @@
                                                     </ul>
                                                 </div>
                                             </li>
-                                            
+
                                         </ul>
                                     </li>
                                     <li><a href="#"><i class="fa fa-caret-right"></i> Furnitured & Decor <i class="fa fa-angle-right"></i></a>
@@ -445,7 +447,7 @@
                                                     </ul>
                                                 </div>
                                             </li>
-                                            
+
                                         </ul>
                                     </li>
                                     <li><a href="#"><i class="fa fa-caret-right"></i> Accessories</a></li>
@@ -456,23 +458,23 @@
                                    <li id="cat_toggle" class="has-sub"><a href="#"><i class="fa fa-caret-right"></i> More Categories</a>
                                         <ul class="categorie_sub">
                                             <li><a href="#"><i class="fa fa-caret-right"></i> Computer - Laptop</a></li>
-                                        </ul>   
+                                        </ul>
 
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                      <!--categories menu end--> 
-                      
-                           
-                        
-                      
+                      <!--categories menu end-->
+
+
+
+
                       <!--product banner start-->
                        <div class="product_banner product_banner_two fix mb-40">
 		                    <a href="#"><img src="{{ asset('frontend_assets/assets/img/banner/banner1.jpg')}}" alt=""></a>
 		                </div>
-                      <!--product banner end--> 
-                      
+                      <!--product banner end-->
+
                       <!--Bestseller small product start-->
                        <div class="top_sellers top_seller_two featured mb-40">
                             <div class="top_title">
@@ -600,7 +602,7 @@
                                                 <span class="new_price"> $27.00 </span>
                                             </div>
                                         </div>
-                                    </div>    
+                                    </div>
                                 </div>
                                 <div class="small_product_item">
                                     <div class="small_product">
@@ -725,12 +727,12 @@
                                                 <span class="old_price">  $30.50  </span>
                                             </div>
                                         </div>
-                                    </div>    
-                                </div>  
+                                    </div>
+                                </div>
                             </div>
                         </div>
                       <!--Bestseller small product end-->
-                      
+
                       <!--blog post area start-->
                         <div class="top_title mb-30">
                             <h2> Blog Posts</h2>
@@ -783,9 +785,9 @@
                             </div>
 		                </div>
                       <!--blog post area end-->
-                      
+
                       <!--barnd logo area start-->
-                      <div class="brand_logo brand_logo_two">  
+                      <div class="brand_logo brand_logo_two">
                            <div class="top_title">
                                 <h2> logo brands</h2>
                             </div>
@@ -825,10 +827,10 @@
                                    </div>
                                </div>
                             </div>
-                        </div> 
+                        </div>
                       <!--barnd logo area end-->
-                      
-                      
+
+
                     </div>
                     <div class="col-lg-9 col-md-8">
                         <div class="search_form form_two">
@@ -863,7 +865,7 @@
                                         </select>
                                     </div>
                                     <input placeholder="Enter your search..." type="text">
-                                   
+
                                     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 
                                 </form>
@@ -949,10 +951,10 @@
                                         </li>
                                     </ul>
                                 </nav>
-                            </div> 
+                            </div>
                         </div> -->
                         <!--main menu area end-->
-                        
+
                         <!--banner slider start-->
                         <div class="banner_slider mb-40">
                             <div class="slider_active owl-carousel">
@@ -990,7 +992,7 @@
                             </div>
                         </div>
                         <!--banner slider end-->
-                        
+
                         <!--hot deals product area-->
                         <div class="product_inner product_inner_two mb-40">
 		                    <div class="top_title">
@@ -1044,7 +1046,7 @@
                                        <div class="single_product">
                                             <div class="product_thumb">
                                                 <a href="single-product.html"><img src="{{ asset('frontend_assets/assets/img/product/product2.jpg')}}" alt=""></a>
-                                                
+
                                                 <div class="product_action">
                                                     <ul>
                                                         <li><a href="#" title=" Add to Wishlist "><i class="fa fa-heart"></i></a></li>
@@ -1125,7 +1127,7 @@
                                        <div class="single_product">
                                             <div class="product_thumb">
                                                 <a href="single-product.html"><img src="{{ asset('frontend_assets/assets/img/product/product3.jpg')}}" alt=""></a>
-                                            
+
                                                 <div class="product_action">
                                                     <ul>
                                                         <li><a href="#" title=" Add to Wishlist "><i class="fa fa-heart"></i></a></li>
@@ -1206,7 +1208,7 @@
                                        <div class="single_product">
                                             <div class="product_thumb">
                                                 <a href="single-product.html"><img src="{{ asset('frontend_assets/assets/img/product/product6.jpg')}}" alt=""></a>
-                                            
+
                                                 <div class="product_action">
                                                     <ul>
                                                         <li><a href="#" title=" Add to Wishlist "><i class="fa fa-heart"></i></a></li>
@@ -1242,11 +1244,11 @@
                                         </div>
                                    </div>
                                 </div>
-                               
+
                             </div>
 		                </div>
                         <!--hot deals product end-->
-                        
+
                         <!--banner section two start-->
                         <div class="banner_area">
                             <div class="row">
@@ -1266,11 +1268,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                         <!--banner section two nd-->
-                        
+
                         <!--featured product area-->
-                        <div class="featured_left featured_left_two mb-40">   
+                        <div class="featured_left featured_left_two mb-40">
                             <div class="top_title">
                                 <h2> Featured products</h2>
                             </div>
@@ -1389,7 +1391,7 @@
                                                 </div>
                                             </div>
                                          </div>
-                                        
+
                                     </div>
                                     <div class="single_featured">
                                         <div class="single_product">
@@ -1431,9 +1433,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                         <!--featured product end-->
-                        
+
                         <!--banner section three start-->
                         <div class="featured_banner featured_bn_two mb-10">
                             <div class="row">
@@ -1455,9 +1457,9 @@
                             </div>
                         </div>
                         <!--banner section three end-->
-                        
+
                         <!--New arrivals products start-->
-                        <div class="featured_left mb-40">   
+                        <div class="featured_left mb-40">
                             <div class="top_title">
                                 <h2> New arrivals products</h2>
                             </div>
@@ -1538,7 +1540,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="single_featured">
                                         <div class="single_product">
@@ -1615,13 +1617,13 @@
                                                 </div>
                                             </div>
                                         </div>
-                                      
+
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                         <!--New arrivals products end-->
-                        
+
                         <!--banner section three start-->
                         <div class="banner_area">
                             <div class="row">
@@ -1641,17 +1643,17 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                         <!--banner section three end-->
-                        
+
                         <!--Trending products area start-->
-                        <div class="featured_left featured_left_two mb-40">   
+                        <div class="featured_left featured_left_two mb-40">
                             <div class="top_title">
                                 <h2> Trending products</h2>
                             </div>
                             <div class="featured_produt">
                                 <div class="featured_active_two owl-carousel">
-                                    <div class="single_featured">          
+                                    <div class="single_featured">
                                         <div class="single_product">
                                             <div class="product_thumb">
                                                 <a href="single-product.html"><img src="{{ asset('frontend_assets/assets/img/product/product9.jpg')}}" alt=""></a>
@@ -1806,18 +1808,18 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                         <!--Trending products area end-->
-                        
+
                     </div>
                 </div>
             </div>
-        </div> 
-        <!--home two block section end-->  
+        </div>
+        <!--home two block section end-->
 
 
 
-		
+
 		<!--static area start-->
 		<div class="static_area">
 		    <div class="container">
@@ -1892,7 +1894,7 @@
 		    </div>
 		</div>
 		<!--static area end-->
-		
+
 		<!--newsletter area start-->
 		<div class="newsletter_area">
 		    <div class="container">
@@ -1926,7 +1928,7 @@
 		    </div>
 		</div>
 		<!--newsletter area end-->
-		
+
 		<!--footer area start-->
 		<div class="footer_area">
 		    <div class="container">
@@ -1935,7 +1937,7 @@
 		                <div class="col-lg-3 col-md-6 col-sm-6">
 		                    <div class="single_footer">
 		                        <h4>store information</h4>
-		                        
+
 		                        <ul>
 		                            <li><i class="fa fa-home"></i> PO Box 16122 Collins Street West Victoria 8007 Australia</li>
 		                            <li><i class="fa fa-phone"></i> (+1)866-550-3669</li>
@@ -2020,7 +2022,7 @@
                         </div>
 		            </div>
 		        </div>
-		        
+
 		        <div class="copyright_area">
 		            <div class="row">
 		                <div class="col-lg-6 col-md-6 col-sm-6">
@@ -2038,8 +2040,8 @@
 		    </div>
 		</div>
 		<!--footer area end-->
-		
-		 <!-- modal area start --> 
+
+		 <!-- modal area start -->
            <div class="modal fade" id="modal_box" tabindex="-1" role="dialog"  aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -2050,30 +2052,30 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-5 col-md-5 col-sm-12">
-                                        <div class="modal_tab">  
+                                        <div class="modal_tab">
                                             <div class="tab-content" id="pills-tabContent">
                                                 <div class="tab-pane fade show active" id="tab1" role="tabpanel" >
                                                     <div class="modal_tab_img">
-                                                        <a href="#"><img src="{{ asset('frontend_assets/assets/img/product/product18.jpg')}}" alt=""></a>    
+                                                        <a href="#"><img src="{{ asset('frontend_assets/assets/img/product/product18.jpg')}}" alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane fade" id="tab2" role="tabpanel">
                                                     <div class="modal_tab_img">
-                                                        <a href="#"><img src="{{ asset('frontend_assets/assets/img/product/product23.jpg')}}" alt=""></a>    
+                                                        <a href="#"><img src="{{ asset('frontend_assets/assets/img/product/product23.jpg')}}" alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane fade" id="tab3" role="tabpanel">
                                                     <div class="modal_tab_img">
-                                                        <a href="#"><img src="{{ asset('frontend_assets/assets/img/product/product18.jpg')}}" alt=""></a>    
+                                                        <a href="#"><img src="{{ asset('frontend_assets/assets/img/product/product18.jpg')}}" alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane fade" id="tab4" role="tabpanel">
                                                     <div class="modal_tab_img">
-                                                        <a href="#"><img src="{{ asset('frontend_assets/assets/img/product/product7.jpg')}}" alt=""></a>    
+                                                        <a href="#"><img src="{{ asset('frontend_assets/assets/img/product/product7.jpg')}}" alt=""></a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="modal_tab_button">    
+                                            <div class="modal_tab_button">
                                                 <ul class="nav product_navactive" role="tablist">
                                                     <li >
                                                         <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="{{ asset('frontend_assets/assets/img/cart/cart11.jpg')}}" alt=""></a>
@@ -2088,20 +2090,20 @@
                                                        <a class="nav-link button_three" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab3" aria-selected="false"><img src="{{ asset('frontend_assets/assets/img/cart/cart4.jpg')}}" alt=""></a>
                                                     </li>
                                                 </ul>
-                                            </div>    
-                                        </div>  
-                                    </div> 
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-lg-7 col-md-7 col-sm-12">
                                         <div class="modal_right">
                                             <div class="modal_title mb-15">
-                                                <h2>Handbag feugiat</h2> 
+                                                <h2>Handbag feugiat</h2>
                                             </div>
                                             <div class="modal_price mb-10">
-                                                <span class="new_price">$64.99</span>    
-                                                <span class="old_price" >$78.99</span>    
+                                                <span class="new_price">$64.99</span>
+                                                <span class="old_price" >$78.99</span>
                                             </div>
                                             <div class="modal_content mb-10">
-                                                <p>Short-sleeved blouse with feminine draped sleeve detail.</p>    
+                                                <p>Short-sleeved blouse with feminine draped sleeve detail.</p>
                                             </div>
                                             <div class="modal_size mb-15">
                                                <h2>size</h2>
@@ -2118,10 +2120,10 @@
                                                     <input min="0" max="100" step="2" value="1" type="number">
                                                     <button type="submit">add to cart</button>
                                                 </form>
-                                            </div>   
+                                            </div>
                                             <div class="modal_description mb-15">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>    
-                                            </div> 
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                                            </div>
                                             <div class="modal_social">
                                                 <h2>Share this product</h2>
                                                 <ul>
@@ -2130,21 +2132,21 @@
                                                     <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                                </ul>    
-                                            </div>      
-                                        </div>    
-                                    </div>    
-                                </div>     
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>    
+                        </div>
                     </div>
                 </div>
-            </div> 
-            
-    
-          <!-- modal area end --> 
-	
-		
+            </div>
+
+
+          <!-- modal area end -->
+
+
 		<!-- all js here -->
         <script src="{{ asset('frontend_assets/assets/js/vendor/jquery-1.12.0.min.js')}}"></script>
         <script src="{{ asset('frontend_assets/assets/js/popper.js')}}"></script>
