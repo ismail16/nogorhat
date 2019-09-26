@@ -1,4 +1,4 @@
-/*-----------------------------------------------------------------------------------
+.header_middle.middle_two/*-----------------------------------------------------------------------------------
 
     Template Name: Lion - eCommerce Bootstrap4 Template
     Description: This is html5 template
@@ -186,7 +186,7 @@
 /* 2.3 header middle css here */
 .header_middle {
 	background: #03a9f4;
-	padding: 27px 0 28px;
+	padding: 10px 0 11px;
 }
 .search_form form {
 	display: -webkit-box;
@@ -506,7 +506,7 @@
 	background: #fff;
 }
 .categories_title {
-	background: #ea3a3c;
+	background: #c3bcbc;
 	text-align: center;
 }
 .categories_menu.categorie_page_menu.right_categorie {
@@ -1640,10 +1640,10 @@
     color: #fff;
 }
 .header_middle.middle_two {
-	background: #fff;
+	background: #d0d0d0;
 }
 .search_form.form_two form {
-	border: 1px solid #ddd;
+	border: 6px solid #c3bcbc;
 }
 .search_form.form_two form input {
 	border-right: 1px solid #ddd;
