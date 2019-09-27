@@ -13,9 +13,14 @@ class PagesController extends Controller
         return view('frontend.pages.index');
     }
 
-    public function create()
+    public function contact()
     {
-        //
+        return view('frontend.pages.contact');
+    }
+
+    public function about()
+    {
+        return view('frontend.pages.about');
     }
 
     /**

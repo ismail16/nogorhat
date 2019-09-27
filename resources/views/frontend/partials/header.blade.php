@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png')}}"">
+    <link rel="shortcut icon" type="image/x-icon" href="{{('frontend_assets/assets/img/favicon.png')}}"">
     <!-- all css here -->
     <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/bundle.css') }}">
@@ -25,7 +25,7 @@
                 <div class="col-lg-3">
                     <div class="logo">
                         <h2>NOGORHAT</h2>
-{{--                        <a href="index.html"><img src="{{ asset('frontend_assets/assets/img/logo/logo2.png')}}" alt=""></a>--}}
+{{--                        <a href="{{route('index')}}"><img src="{{ asset('frontend_assets/assets/img/logo/logo2.png')}}" alt=""></a>--}}
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -33,15 +33,15 @@
                         <div class="main_menu menu_two d-none d-lg-block">
                             <nav>
                                 <ul>
-                                    <li class="_active"><a href="index.html">Home</a></li>
+                                    <li class="_active"><a href="{{route('index')}}">Home</a></li>
                                     <li class="dropdown_item"><a href="blog.html">Blog <i class="fa fa-angle-down"></i></a>
                                         <ul class="sub_menu">
                                             <li><a href="blog.html">Blog</a></li>
                                             <li><a href="blog-fullwidth.html">Blog FullWidth</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="{{ route('about') }}">About Us</a></li>
+                                    <li><a href="{{ route('contact') }}">Contact Us</a></li>
                                     <li class="mega_item"><a href="#">Features <i class="fa fa-angle-down"></i></a>
                                         <ul class="mega_menu">
                                             <li><a href="#">Column1</a>
@@ -113,15 +113,16 @@
                                 </div>
                             </li>
                             <li><a href="wishlist.html" title="My wishlist"><i class="fa fa-heart-o"></i></a></li>
-                            {{--                                    <li><a href="#" title="My Compare"><i class="fa fa-key"></i></a></li>--}}
-
                             <li class="account"><a><i class="fa fa-key"></i></a>
                                 <div class="account_mini mini_c_two" style="position: absolute; width: 300px; background: #fff; -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2); box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2); z-index: 999; padding: 10px 20px 20px; right: 0; top: 100%; display: none;">
                                     <div class="cart_total cart_button">
                                         <span class="pull-right">Register</span>
                                     </div>
                                     <div class="cart_button pt-20">
-                                        <a href="{{route('login')}}">Login</a>
+                                        <a href="{{route('authorRegister')}}">Register</a>
+                                    </div>
+                                    <div class="cart_button pt-20">
+                                        <a href="{{route('authorLogin')}}">Login</a>
                                     </div>
                                 </div>
                             </li>

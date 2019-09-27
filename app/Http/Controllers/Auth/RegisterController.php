@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -17,6 +18,11 @@ class RegisterController extends Controller
 
     public function __construct()
     {
+        if (Auth::check() && Auth::user()->role->id == 1){
+            $this->redirectTo == route('admin.dashboard');
+        }else{
+            $this->redirectTo == route('index');
+        }
         $this->middleware('guest');
     }
 
@@ -32,6 +38,7 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
+//        dd($data);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -40,6 +47,9 @@ class RegisterController extends Controller
             'thana' => $data['thana'],
             'address' => $data['address'],
             'password' => Hash::make($data['password']),
+            'role' => $data['role'],
+            'status' => $data['status'],
+
         ]);
     }
 }
