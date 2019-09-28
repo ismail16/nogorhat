@@ -19,7 +19,7 @@
 
                 <li class="nav-header pt-2">Categories</li>
                 <li class="nav-item">
-                    <a href="https://adminlte.io/docs" class="nav-link">
+                    <a href="{{ route('admin.category.index') }}" class="nav-link">
                         <i class="nav-icon far fa-plus-square"></i>
                         <p>Category</p>
                     </a>
@@ -90,3 +90,20 @@
         </nav>
     </div>
 </aside>
+
+<div class="content-wrapper">
+    <div class="content-header" style="padding: 5px;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                <h5 class="text-dark">@yield('title')</h5>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb breadcrumb-sm float-right">
+                        <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
+                        <li class="breadcrumb-item active">@yield('title')</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>

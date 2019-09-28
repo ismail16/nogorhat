@@ -218,5 +218,5 @@
     </div>
 </div>
 <div class="home_two_block_section">
-    <div class="container">
+{{--    <div class="container">--}}
 

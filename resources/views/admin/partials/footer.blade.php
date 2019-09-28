@@ -50,5 +50,6 @@
         <script src="{{asset('backend_assets/dist/js/pages/dashboard.js')}}"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="{{asset('backend_assets/dist/js/demo.js')}}"></script>
+        @stack('scripts')
     </body>
 </html>
