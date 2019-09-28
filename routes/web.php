@@ -1,11 +1,5 @@
 <?php
 
-use App\Jobs\ProcessPodcast;
-
-// Route::get('/', function () {
-//    return dd('hello');
-// });
-
 //===================== Registration route======================
 Route::get('customer/register', 'Author\AuthorRegisterController@index')->name('authorRegister');
 Route::get('customer/login', 'Author\AuthorRegisterController@login')->name('authorLogin');
@@ -19,13 +13,10 @@ Route::get('/contact', 'frontend\PagesController@contact')->name('contact');
 Route::get('/about', 'frontend\PagesController@about')->name('about');
 Auth::routes();
 
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
 //======================================== Admin route==================================
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    Route::resource('category', 'CategoryController');
 });
 
 //======================================== Author route==================================
