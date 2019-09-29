@@ -8,6 +8,13 @@
 @section('content')
     <section class="content">
         <div class="row">
+            @if(session()->has('message'))
+                <div class="col-lg-12 col-xl-12 d-flex justify-content-center">
+                    <div class="alert alert-success text-center pr-3 pl-3 p-1 mb-1">
+                        {{session('message')}}
+                    </div>
+                </div>
+            @endif
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
@@ -21,61 +28,51 @@
                                 <th>#SL</th>
                                 <th>Name</th>
                                 <th>Photo</th>
-                                <th>Shop</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach($categories as $category)
                             <tr>
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 4.0
+                                <td>{{ $loop->index+1 }}</td>
+                                <td>{{ $category->name }}</td>
+                                <td><img height="65" width="100" src="{{asset('images/category_image/'.$category->image)}}"
+                                         alt="{{$category->name}}"></td>
+                                <td>{{ $category->status }}</td>
+                                <td class="text-center">
+                                    <a href="{{route('admin.category.edit', $category->id)}}"
+                                       class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
+
+                                    <a href="#" class="btn btn-sm btn-danger table-action-btn on_delete"
+                                       data-content="{{$loop->index+1}}"><i
+                                                class="fa fa-trash"></i></a>
+
+                                    <form id="on_delete{{$loop->index+1}}"
+                                          action="{{route('admin.category.destroy', $category->id)}}"
+                                          method="post" class="delete"
+                                          data-content="{{$category->id}}"
+                                          style="display: none;">
+                                        {{csrf_field()}}
+                                        {{method_field('DELETE')}}
+                                    </form>
                                 </td>
-                                <td>Win 95+</td>
-                                <td> 4</td>
-                                <td>X</td>
-                                <td>X</td>
                             </tr>
-                            <tr>
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 5.0
-                                </td>
-                                <td>Win 95+</td>
-                                <td>5</td>
-                                <td>C</td>
-                                <td>C</td>
-                            </tr>
-                            <tr>
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 5.5
-                                </td>
-                                <td>Win 95+</td>
-                                <td>5.5</td>
-                                <td>A</td>
-                                <td>A</td>
-                            </tr>
+                            @endforeach
 
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </section>
-    <!-- /.content -->
-</div>
 @endsection
 
 @push('scripts')
     <script src="{{asset('backend_assets/plugins/datatables/jquery.dataTables.js')}}"></script>
     <script src="{{asset('backend_assets/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
+    <script src="{{asset('js/bootbox.min.js')}}"></script>
     <script>
         $(function () {
             $("#example1").DataTable();
@@ -86,6 +83,30 @@
                 "ordering": true,
                 "info": true,
                 "autoWidth": false,
+            });
+        });
+    </script>
+    <script>
+        $(document).on("click", ".on_delete", function (e) {
+            var index = $(this).data('content');
+
+            bootbox.confirm({
+                message: "Do you want to remove this?",
+                buttons: {
+                    confirm: {
+                        label: 'Yes',
+                        className: 'btn-vinndo'
+                    },
+                    cancel: {
+                        label: 'No',
+                        className: 'btn-default'
+                    }
+                },
+                callback: function (result) {
+                    if (result) {
+                        $("#on_delete" + index).submit();
+                    }
+                }
             });
         });
     </script>

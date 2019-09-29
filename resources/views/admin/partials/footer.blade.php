@@ -1,3 +1,4 @@
+        </div>
         <footer class="main-footer">
             <strong>Copyright &copy; 2019 <a href="#">nogorhat</a>.</strong>
             All rights reserved.

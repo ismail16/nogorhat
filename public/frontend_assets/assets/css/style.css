@@ -1800,7 +1800,7 @@
 	height: 45px;
 }
 .search_form.form_three form input {
-	border-right: 1px solid #131313;
+	border-left: 1px solid #131313;
 }
 
 /*slider css here*/
