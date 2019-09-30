@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title','Create New Category')
+@section('title','Create New Sub-Category')
 
 @push('css')
 
@@ -23,9 +23,9 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <a href="{{route('admin.category.index')}}" class="btn btn-sm btn-info float-right"> <i class="fa fa-list"></i> All Category</a>
+                            <a href="{{route('admin.subcategory.index')}}" class="btn btn-sm btn-info float-right"> <i class="fa fa-list"></i> All Sub-Category</a>
                         </div>
-                        <form method="POST" action="{{route('admin.category.store')}}" enctype="multipart/form-data">
+                        <form method="POST" action="{{route('admin.subcategory.store')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group row">
@@ -38,9 +38,13 @@
 
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 control-label">Image</label>
+                                    <label class="col-sm-2 control-label">Category</label>
                                     <div class="form-group col-sm-4">
-                                        <input type="file" name="image">
+                                        <select class="form-control" name="category_id" id="">
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
                                     <label for="status" class="col-sm-2 control-label">Status</label>
@@ -55,7 +59,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href="{{route('admin.category.index')}}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Cancel</a>
+                                <a href="{{route('admin.subcategory.index')}}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Cancel</a>
                                 <button type="submit" class="btn btn-sm btn-info float-right"><i class="fa fa-plus"></i> Add</button>
                             </div>
                         </form>

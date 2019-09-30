@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title','All Category')
+@section('title','All Product')
 
 @push('css')
     <link rel="stylesheet" href="{{asset('backend_assets/plugins/datatables/dataTables.bootstrap4.css')}}">
@@ -8,74 +8,69 @@
 @section('content')
     <section class="content">
         <div class="row">
+            @if(session()->has('message'))
+                <div class="col-lg-12 col-xl-12 d-flex justify-content-center">
+                    <div class="alert alert-success text-center pr-3 pl-3 p-1 mb-1">
+                        {{session('message')}}
+                    </div>
+                </div>
+            @endif
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <div class="text-right mb-2">
-                            <a href="{{route('admin.category.create')}}" class="pull-right btn btn-sm btn-primary"> <i
+                        <a href="{{route('admin.product.create')}}" class="pull-right btn btn-sm btn-primary float-right"> <i
                                     class="fa fa-plus"></i> Add New</a>
-                        </div>
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
                                 <th>#SL</th>
                                 <th>Name</th>
                                 <th>Photo</th>
-                                <th>Shop</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach($products as $product)
                             <tr>
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 4.0
+                                <td>{{ $loop->index+1 }}</td>
+                                <td>{{ $product->name }}</td>
+                                <td><img height="65" width="100" src="{{asset('images/product_image/'.$product->image)}}"
+                                         alt="{{$product->name}}"></td>
+                                <td>{{ $product->status }}</td>
+                                <td class="text-center">
+                                    <a href="{{route('admin.category.edit', $product->id)}}"
+                                       class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
+
+                                    <a href="#" class="btn btn-sm btn-danger table-action-btn on_delete"
+                                       data-content="{{$loop->index+1}}"><i
+                                                class="fa fa-trash"></i></a>
+
+                                    <form id="on_delete{{$loop->index+1}}"
+                                          action="{{route('admin.category.destroy', $product->id)}}"
+                                          method="post" class="delete"
+                                          data-content="{{$product->id}}"
+                                          style="display: none;">
+                                        {{csrf_field()}}
+                                        {{method_field('DELETE')}}
+                                    </form>
                                 </td>
-                                <td>Win 95+</td>
-                                <td> 4</td>
-                                <td>X</td>
-                                <td>X</td>
                             </tr>
-                            <tr>
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 5.0
-                                </td>
-                                <td>Win 95+</td>
-                                <td>5</td>
-                                <td>C</td>
-                                <td>C</td>
-                            </tr>
-                            <tr>
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 5.5
-                                </td>
-                                <td>Win 95+</td>
-                                <td>5.5</td>
-                                <td>A</td>
-                                <td>A</td>
-                            </tr>
+                            @endforeach
 
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </section>
-    <!-- /.content -->
-</div>
 @endsection
 
 @push('scripts')
     <script src="{{asset('backend_assets/plugins/datatables/jquery.dataTables.js')}}"></script>
     <script src="{{asset('backend_assets/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
+    <script src="{{asset('js/bootbox.min.js')}}"></script>
     <script>
         $(function () {
             $("#example1").DataTable();
@@ -86,6 +81,30 @@
                 "ordering": true,
                 "info": true,
                 "autoWidth": false,
+            });
+        });
+    </script>
+    <script>
+        $(document).on("click", ".on_delete", function (e) {
+            var index = $(this).data('content');
+
+            bootbox.confirm({
+                message: "Do you want to remove this?",
+                buttons: {
+                    confirm: {
+                        label: 'Yes',
+                        className: 'btn-sm btn-danger'
+                    },
+                    cancel: {
+                        label: 'No',
+                        className: 'btn-sm btn-default'
+                    }
+                },
+                callback: function (result) {
+                    if (result) {
+                        $("#on_delete" + index).submit();
+                    }
+                }
             });
         });
     </script>

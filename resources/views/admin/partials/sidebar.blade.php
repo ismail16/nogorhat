@@ -20,72 +20,46 @@
                 <li class="nav-header pt-2">Categories</li>
                 <li class="nav-item">
                     <a href="{{ route('admin.category.index') }}" class="nav-link">
-                        <i class="nav-icon far fa-plus-square"></i>
+                        <i class="nav-icon far fa fa-bars"></i>
                         <p>Category</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://adminlte.io/docs" class="nav-link">
-                        <i class="nav-icon far fa-plus-square"></i>
+                    <a href="{{ route('admin.subcategory.index') }}" class="nav-link">
+                        <i class="nav-icon far fa fa-list-ol"></i>
                         <p>Sub-Category</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://adminlte.io/docs" class="nav-link">
-                        <i class="nav-icon far fa-plus-square"></i>
+                    <a href="{{ route('admin.supplier.index') }}" class="nav-link">
+                        <i class="nav-icon far fa fa-list-ol"></i>
                         <p>Brand/Supplier</p>
                     </a>
                 </li>
                 <li class="nav-header pt-2">Products</li>
                 <li class="nav-item">
-                    <a href="https://adminlte.io/docs" class="nav-link">
+                    <a href="{{ route('admin.product.index') }}" class="nav-link">
                         <i class="nav-icon far fa-plus-square"></i>
                         <p>Product</p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-plus-square"></i>
-                        <p>
-                            Product
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add Product</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-header">MISCELLANEOUS</li>
-                <li class="nav-item">
-                    <a href="https://adminlte.io/docs" class="nav-link">
-                        <i class="nav-icon fas fa-file"></i>
-                        <p>Documentation</p>
-                    </a>
-                </li>
-                <li class="nav-header">LABELS</li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-circle text-danger"></i>
-                        <p class="text">Important</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-circle text-warning"></i>
-                        <p>Warning</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-circle text-info"></i>
-                        <p>Informational</p>
-                    </a>
-                </li>
+{{--                <li class="nav-item has-treeview">--}}
+{{--                    <a href="#" class="nav-link">--}}
+{{--                        <i class="nav-icon far fa-plus-square"></i>--}}
+{{--                        <p>--}}
+{{--                            Product--}}
+{{--                            <i class="fas fa-angle-left right"></i>--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                    <ul class="nav nav-treeview">--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a href="#" class="nav-link">--}}
+{{--                                <i class="far fa-circle nav-icon"></i>--}}
+{{--                                <p>Add Product</p>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
             </ul>
         </nav>
     </div>

@@ -18,10 +18,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <div class="text-right mb-2">
-                            <a href="{{route('admin.category.create')}}" class="pull-right btn btn-sm btn-primary"> <i
-                                    class="fa fa-plus"></i> Add New</a>
-                        </div>
+                        <a href="{{route('admin.category.create')}}" class="pull-right btn btn-sm btn-primary float-right"> <i
+                                class="fa fa-plus"></i> Add New</a>
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
@@ -95,11 +93,11 @@
                 buttons: {
                     confirm: {
                         label: 'Yes',
-                        className: 'btn-vinndo'
+                        className: 'btn-sm btn-danger'
                     },
                     cancel: {
                         label: 'No',
-                        className: 'btn-default'
+                        className: 'btn-sm btn-default'
                     }
                 },
                 callback: function (result) {

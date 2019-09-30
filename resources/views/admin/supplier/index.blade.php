@@ -1,11 +1,12 @@
 @extends('admin.layouts.master')
-@section('title','All Sub-Category')
+@section('title','All Supplier')
 
 @push('css')
     <link rel="stylesheet" href="{{asset('backend_assets/plugins/datatables/dataTables.bootstrap4.css')}}">
 @endpush
 
 @section('content')
+
     <section class="content">
         <div class="row">
             @if(session()->has('message'))
@@ -18,27 +19,29 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{route('admin.subcategory.create')}}" class="pull-right btn btn-sm btn-primary float-right"> <i
+                        <a href="{{route('admin.supplier.create')}}" class="pull-right btn btn-sm btn-primary float-right"> <i
                                 class="fa fa-plus"></i> Add New</a>
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
                                 <th>#SL</th>
-                                <th>Sub Category</th>
-                                <th>Category</th>
+                                <th>Suppliers Name</th>
+                                <th>Phone</th>
+                                <th>Email</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($subcategories as $subcategory)
+                            @foreach($suppliers as $supplier)
                             <tr>
                                 <td>{{ $loop->index+1 }}</td>
-                                <td>{{ $subcategory->name }}</td>
-                                <td>{{ $subcategory->category->name }}</td>
-                                <td>{{ $subcategory->status }}</td>
+                                <td>{{ $supplier->name }}</td>
+                                <td>{{ $supplier->phone }}</td>
+                                <td>{{ $supplier->email }}</td>
+                                <td>{{ $supplier->status }}</td>
                                 <td class="text-center">
-                                    <a href="{{route('admin.subcategory.edit', $subcategory->id)}}"
+                                    <a href="{{route('admin.supplier.edit', $supplier->id)}}"
                                        class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
 
                                     <a href="#" class="btn btn-sm btn-danger table-action-btn on_delete"
@@ -46,9 +49,9 @@
                                                 class="fa fa-trash"></i></a>
 
                                     <form id="on_delete{{$loop->index+1}}"
-                                          action="{{route('admin.subcategory.destroy', $subcategory->id)}}"
+                                          action="{{route('admin.supplier.destroy', $supplier->id)}}"
                                           method="post" class="delete"
-                                          data-content="{{$subcategory->id}}"
+                                          data-content="{{$supplier->id}}"
                                           style="display: none;">
                                         {{csrf_field()}}
                                         {{method_field('DELETE')}}
