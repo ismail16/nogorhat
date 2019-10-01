@@ -23,9 +23,9 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <a href="{{route('admin.category.index')}}" class="btn btn-sm btn-info float-right"> <i class="fa fa-list"></i> All Category</a>
+                            <a href="{{route('admin.product.index')}}" class="btn btn-sm btn-info float-right"> <i class="fa fa-list"></i> All Category</a>
                         </div>
-                        <form method="POST" action="{{route('admin.category.store')}}" enctype="multipart/form-data">
+                        <form method="POST" action="{{route('admin.product.store')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="row">
@@ -40,17 +40,19 @@
                                         <div class="form-group">
                                             <label>Category</label>
                                             <select name="category_id" id="" class="form-control">
-                                                <option value="">Hello</option>
+                                                @foreach($categories as $category)
+                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Sub Category</label>
-                                            <select name="subcategory_id" id="" class="form-control">
-                                                <option value="">Hello</option>
-                                                <option value="">Hello</option>
-                                                <option value="">Hello</option>
+                                            <select name="sub_category_id" id="" class="form-control">
+                                                @foreach($subcategories as $subcategory)
+                                                    <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -58,24 +60,31 @@
                                         <div class="form-group">
                                             <label>Supplier</label>
                                             <select name="supplier_id" id="" class="form-control">
-                                                <option value="">Hello</option>
-                                                <option value="">Hello</option>
-                                                <option value="">Hello</option>
+                                                @foreach($suppliers as $supplier)
+                                                    <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Old Price</label>
-                                            <input type="number" class="form-control" name="price">
+                                            <input type="number"  name="old_price" class="form-control">
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label>Price</label>
-                                            <input type="number" class="form-control" name="price">
+                                            <label>New Price</label>
+                                            <input type="number" name="price" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Quantity</label>
+                                            <input type="number"  name="quantity" class="form-control">
                                         </div>
                                     </div>
 
@@ -87,37 +96,58 @@
                                     </div>
                                 </div>
 
-
-
-
                                 <div class="form-group row">
-{{--                                    <label class="col-sm-2 control-label">Image</label>--}}
-{{--                                    <div class="form-group col-sm-4">--}}
-{{--                                        <input type="file" name="image">--}}
-{{--                                    </div>--}}
-
-                                    <label for="status" class="col-sm-2 control-label">Status</label>
-                                    <div class="col-md-1 col-sm-4" style="padding-left: 25px;">
-                                        <input type="radio" name="status" value="1" required class="form-check-input" id="active">
-                                        <label class="form-check-label text-success font-weight-bold" for="active">Active</label>
+                                    <div class="col-md-4 ">
+                                        <div class="form-group">
+                                            <h5>Image 1</h5>
+                                            <input type="file" name="image[]" class="form-control p-1" id="myFile">
+                                        </div>
                                     </div>
-                                    <div class="col-md-3 col-sm-4">
-                                        <input type="radio" name="status" value="0" class="form-check-input" id="deactive">
-                                        <label class="form-check-label text-danger font-weight-bold" for="deactive">Deactive</label>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <h5>Image 2</h5>
+                                            <input type="file" name="image[]" class="form-control p-1" id="myFile">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <h5>Image 3</h5>
+                                            <input type="file" name="image[]" class="form-control p-1" id="myFile">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <h5>Image 4</h5>
+                                            <input type="file" name="image[]" class="form-control p-1" id="myFile">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <h5>Image 5</h5>
+                                            <input type="file" name="image[]" class="form-control p-1" id="myFile">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                        </div>
+                                        <div class="">
+                                            <div class="form-check-inline ml-3">
+                                                <label class="form-check-label">
+                                                    <input type="radio" name="status" class="form-check-input">
+                                                    <span class="form-check-label text-danger font-weight-bold" for="deactive">Active</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input type="radio" name="status" class="form-check-input">
+                                                    <span class="form-check-label text-success font-weight-bold">Active</span>
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Meta Title</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Meta Description</label>
-                                    <div class="col-sm-10">
-                                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                    </div>
-                                </div>
+
                             </div>
                             <div class="card-footer">
                                 <a href="{{route('admin.category.index')}}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Cancel</a>

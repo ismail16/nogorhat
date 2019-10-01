@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    //
+    public function product_image(){
+        return $this->hasMany('App\Models\ProductImage');
+    }
 }
