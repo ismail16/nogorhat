@@ -105,6 +105,6 @@ class CategoryController extends Controller
             unlink('images/category_image/'.$category->image);
         }
         $category->delete();
-        return back()->with('message', 'Category Deleted Successfully !');;
+        return back()->with('message', 'Category Deleted Successfully !');
     }
 }

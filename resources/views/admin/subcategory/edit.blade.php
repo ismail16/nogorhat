@@ -55,7 +55,7 @@
                             </div>
                             <div class="card-footer">
                                 <a href="{{route('admin.subcategory.index')}}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Cancel</a>
-                                <button type="submit" class="btn btn-sm btn-info float-right"><i class="fa fa-recycle"></i> Update</button>
+                                <button type="submit" class="btn btn-sm btn-info float-right"><i class="fa fa-sync"></i> Update</button>
                             </div>
                         </form>
                     </div>

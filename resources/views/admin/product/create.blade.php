@@ -91,7 +91,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>Descriptions</label>
-                                            <textarea class="textarea"  name="description" placeholder="Product Descriptions" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                            <textarea class="textarea"  name="description" rows="20" placeholder="Product Descriptions" style="width: 100%; height: 400px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -134,13 +134,13 @@
                                         <div class="">
                                             <div class="form-check-inline ml-3">
                                                 <label class="form-check-label">
-                                                    <input type="radio" name="status" class="form-check-input">
-                                                    <span class="form-check-label text-danger font-weight-bold" for="deactive">Active</span>
+                                                    <input type="radio" name="status" value="0" class="form-check-input">
+                                                    <span class="form-check-label text-danger font-weight-bold" for="deactive">Deactive</span>
                                                 </label>
                                             </div>
                                             <div class="form-check-inline">
                                                 <label class="form-check-label">
-                                                    <input type="radio" name="status" class="form-check-input">
+                                                    <input type="radio" name="status" value="1" class="form-check-input">
                                                     <span class="form-check-label text-success font-weight-bold">Active</span>
                                                 </label>
                                             </div>

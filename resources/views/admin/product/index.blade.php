@@ -24,22 +24,37 @@
                             <thead>
                             <tr>
                                 <th>#SL</th>
-                                <th>Name</th>
-                                <th>Photo</th>
+                                <th>Title</th>
+                                <th>Image</th>
+                                <th>Category</th>
+                                <th>Price</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($products as $product)
+                            <?php
+                                $product_images = App\Models\ProductImage::where('product_id', $product->id )->get();
+                                $product_image = $product_images->toArray();
+                            ?>
                             <tr>
                                 <td>{{ $loop->index+1 }}</td>
-                                <td>{{ $product->name }}</td>
-                                <td><img height="65" width="100" src="{{asset('images/product_image/'.$product->image)}}"
+                                <td>{{ $product->title }}</td>
+                                <td><img height="65" width="100" src="{{asset('images/product_image/'.$product_image[0]['image'])}}"
                                          alt="{{$product->name}}"></td>
-                                <td>{{ $product->status }}</td>
+                                <td>{{ \App\Models\Category::find($product->category_id)->name }}</td>
+                                <td>{{ $product->price }}</td>
+                                <td>
+                                    @if($product->status == 1)
+                                        <a href="" class="btn btn-sm btn-success">Active</a>
+                                    @else
+                                        <a href="" class="btn btn-sm btn-danger">Deactive</a>
+                                    @endif
+
+                                </td>
                                 <td class="text-center">
-                                    <a href="{{route('admin.category.edit', $product->id)}}"
+                                    <a href="{{route('admin.product.edit', $product->id)}}"
                                        class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
 
                                     <a href="#" class="btn btn-sm btn-danger table-action-btn on_delete"
@@ -47,7 +62,7 @@
                                                 class="fa fa-trash"></i></a>
 
                                     <form id="on_delete{{$loop->index+1}}"
-                                          action="{{route('admin.category.destroy', $product->id)}}"
+                                          action="{{route('admin.product.destroy', $product->id)}}"
                                           method="post" class="delete"
                                           data-content="{{$product->id}}"
                                           style="display: none;">

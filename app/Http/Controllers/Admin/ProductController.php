@@ -9,6 +9,7 @@ use App\Models\Subcategory;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use File;
 
 class ProductController extends Controller
 {
@@ -59,7 +60,7 @@ class ProductController extends Controller
                 $image_no++;
             }
         }
-        return back();
+        return back()->with('message', 'Product Saved Successfully !');
     }
 
     public function show($id)
@@ -78,45 +79,122 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'image' => 'mimes:jpeg,jpg,png',
-            'name' => 'required',
-        ]);
+        $product = Product::find($id);
+        $product->title = $request->title;
+        $product->old_price = $request->old_price;
+        $product->price = $request->price;
+        $product->quantity = $request->quantity;
+        $product->category_id = $request->category_id;
+        $product->sub_category_id = $request->sub_category_id;
+        $product->supplier_id = $request->supplier_id;
+        $product->description = $request->description;
+        $product->slug =  str_slug($product->title);
+        $product->author =  'admin';
+        $product->publisher =  'admin';
+        $product->status =  1;
+        $product->save();
 
-        $category = Category::find($id);
-        $image = $request->file('image');
-        $slug = str_slug($request->name);
-        if (isset($image)){
-            unlink('images/category_image/'.$category->image);
-            $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-
-            if (!file_exists('images/category_image')){
-                mkdir('images/category_image', 777, true);
+        $image0 = $request->file('product_image0');
+        if ($image0) {
+            if(File::exists('images/product_image/'.$request->product_image00))
+            {
+                File::delete('images/product_image/'.$request->product_image00);
             }
-            $image->move('images/category_image',$imagename);
-        }else{
-            $imagename = $category->image;
+            $ext = strtolower($image0->getClientOriginalExtension());
+            $image_full_name = $product->slug.'-image-'. '0' .'.' . $ext;
+            $upload_path = 'images/product_image/';
+            $success = $image0->move($upload_path, $image_full_name);
+            if ($success) {
+                $product_image = ProductImage::find($request->product_id00);
+                $product_image->image = $image_full_name;
+                $product_image->save();
+            }
+        }
+        $image1 = $request->file('product_image1');
+        if ($image1) {
+            if(File::exists('images/product_image/'.$request->product_image11))
+            {
+                File::delete('images/product_image/'.$request->product_image11);
+            }
+            $ext = strtolower($image1->getClientOriginalExtension());
+            $image_full_name = $product->slug.'-image-'. '1' .'.' . $ext;
+            $upload_path = 'images/product_image/';
+            $success = $image1->move($upload_path, $image_full_name);
+            if ($success) {
+
+                $product_image = ProductImage::find($request->product_id11);
+                $product_image->image = $image_full_name;
+                $product_image->save();
+            }
         }
 
-        $category->update(
-            [
-                'name' => $request->name,
-                'slug' => $slug,
-                'image' => $imagename,
-                'status' => $request->status,
-            ]
-        );
+        $image2 = $request->file('product_image2');
+        if ($image2) {
+            if(File::exists('images/product_image/'.$request->product_image22))
+            {
+                File::delete('images/product_image/'.$request->product_image22);
+            }
+            $ext = strtolower($image2->getClientOriginalExtension());
+            $image_full_name = $product->slug.'-image-'. '2' .'.' . $ext;
+            $upload_path = 'images/product_image/';
+            $success = $image2->move($upload_path, $image_full_name);
+            if ($success) {
+                $product_image = ProductImage::find($request->product_id22);
+                $product_image->image = $image_full_name;
+                $product_image->save();
+            }
+        }
 
-        return redirect()->route('admin.product.index');
+        $image3 = $request->file('product_image3');
+        if ($image3) {
+            if(File::exists('images/product_image/'.$request->product_image33))
+            {
+                File::delete('images/product_image/'.$request->product_image33);
+            }
+            $ext = strtolower($image3->getClientOriginalExtension());
+            $image_full_name = $product->slug.'-image-'. '3' .'.' . $ext;
+            $upload_path = 'images/product_image/';
+            $success = $image3->move($upload_path, $image_full_name);
+            if ($success) {
+                $product_image = ProductImage::find($request->product_id33);
+                $product_image->image = $image_full_name;
+                $product_image->save();
+            }
+        }
+
+        $image4 = $request->file('product_image4');
+        if ($image4) {
+            if(File::exists('images/product_image/'.$request->product_image44))
+            {
+                File::delete('images/product_image/'.$request->product_image44);
+            }
+            $ext = strtolower($image4->getClientOriginalExtension());
+            $image_full_name = $product->slug.'-image-'. '4' .'.' . $ext;
+            $upload_path = 'images/product_image/';
+            $success = $image4->move($upload_path, $image_full_name);
+            if ($success) {
+                $product_image = ProductImage::find($request->product_id44);
+                $product_image->image = $image_full_name;
+                $product_image->save();
+            }
+        }
+        return back()->with('message', 'Product Updated Successfully !');
     }
 
     public function destroy($id)
     {
-        $category = Category::find($id);
-        if (file_exists('images/category_image/'.$category->image)){
-            unlink('images/category_image/'.$category->image);
+        $ProductImages=ProductImage::where('product_id',$id)->get();
+        if (!is_null($ProductImages)) {
+            foreach ($ProductImages as  $ProductImage) {
+                if(File::exists('images/product_image/'.$ProductImage->image))
+                {
+                    File::delete('images/product_image/'.$ProductImage->image);
+                }
+                $ProductImage->delete();
+            }
         }
-        $category->delete();
-        return back()->with('message', 'Category Deleted Successfully !');;
+        $Product = Product::find($id);
+        $Product->delete();
+        return back()->with('message', 'Product Deleted Successfully !');
     }
 }
