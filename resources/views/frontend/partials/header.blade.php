@@ -115,15 +115,35 @@
                             <li><a href="wishlist.html" title="My wishlist"><i class="fa fa-heart-o"></i></a></li>
                             <li class="account"><a><i class="fa fa-key"></i></a>
                                 <div class="account_mini mini_c_two" style="position: absolute; width: 300px; background: #fff; -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2); box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2); z-index: 999; padding: 10px 20px 20px; right: 0; top: 100%; display: none;">
+
                                     <div class="cart_total cart_button">
                                         <span class="pull-right">Register</span>
                                     </div>
-                                    <div class="cart_button pt-20">
-                                        <a href="{{route('authorRegister')}}">Register</a>
-                                    </div>
-                                    <div class="cart_button pt-20">
-                                        <a href="{{route('authorLogin')}}">Login</a>
-                                    </div>
+                                    @if (Route::has('login'))
+                                        @auth
+                                            <div class="text-center pt-20">
+                                                <a href="" class="btn-primary btn-block btn-lg">Dashboard</a>
+                                            </div>
+                                            <div class="cart_button pt-20">
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+                                                    @csrf
+                                                    <div class="cart_button">
+                                                        <button class="btn-danger btn-block btn-lg border-0" type="submit">Logout</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        @else
+                                            @if (Route::has('register'))
+                                                <div class="cart_button pt-20">
+                                                    <a href="{{route('authorRegister')}}">Register</a>
+                                                </div>
+                                            @endif
+                                            <div class="cart_button pt-20">
+                                                <a href="{{route('authorLogin')}}">Login</a>
+                                            </div>
+                                        @endauth
+                                    @endif
+
                                 </div>
                             </li>
                         </ul>
