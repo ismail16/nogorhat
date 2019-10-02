@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'role_id' => 2,
-            'name' => 'Admin',
+            'name' => 'author',
             'email' => 'author@email.com',
             'phone' => '987654321',
             'address' => 'Dhaka',

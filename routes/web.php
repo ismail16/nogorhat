@@ -23,8 +23,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 });
 
 //======================================== Author route==================================
-Route::group(['as' => 'author.', 'prefix' => 'author', 'namespace' => 'Author', 'middleware' => ['auth', 'Author']], function () {
+Route::group(['as' => 'author.', 'prefix' => 'author', 'namespace' => 'Author', 'middleware' => ['auth', 'author']], function () {
     Route::get('dashboard', 'AuthorRegisterController@index')->name('dashboard');
+    Route::get('profile/{id}', 'frontend\PagesController@profile')->name('profile');
 });
 
 Route::get('/sendemail', 'SendEmailController@index');

@@ -11,7 +11,12 @@ class AuthorRegisterController extends Controller
 {
     public function index()
     {
-        return view('author.register');
+        return view('author.pages.dashboard');
+    }
+
+    public function  profile($id){
+        $customer = User::find($id)->first();
+        return view('author.pages.customer_profile',compact('customer'));
     }
 
     public function login()

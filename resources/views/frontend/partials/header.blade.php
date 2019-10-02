@@ -122,7 +122,7 @@
                                     @if (Route::has('login'))
                                         @auth
                                             <div class="text-center pt-20">
-                                                <a href="" class="btn-primary btn-block btn-lg">Dashboard</a>
+                                                <a href="" class="btn-primary btn-block btn-lg">Dashboard {{ Auth::user()->role->id }}</a>
                                             </div>
                                             <div class="cart_button pt-20">
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" >
