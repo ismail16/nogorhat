@@ -29,7 +29,7 @@
         autoplay: true,
 		loop: true,
         nav: false,
-        autoplay: false,
+        autoplay: true,
         autoplayTimeout: 8000,
         items: 1,
         dots:true,
@@ -148,7 +148,7 @@
         autoplay: true,
 		loop: true,
         nav: true,
-        autoplay: false,
+        autoplay: true,
         autoplayTimeout: 8000,
         items: 3,
         navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
@@ -162,7 +162,7 @@
 			},
 
 			768:{
-				items:3,
+				items:4,
 			},
 
 		  }

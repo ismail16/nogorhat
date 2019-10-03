@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\frontend;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -10,7 +11,11 @@ class PagesController extends Controller
 
     public function index()
     {
-        return view('frontend.pages.index');
+        $products = Product::all();
+
+//        return $products;
+
+        return view('frontend.pages.index',compact('products'));
     }
 
     public function contact()

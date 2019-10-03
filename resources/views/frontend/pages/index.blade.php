@@ -51,35 +51,37 @@
             </div>
         </div>
         <div class="row">
+            @foreach( \App\Models\Category::all() as $category)
             <div class="col-lg-12 col-md-12">
                 <div class="featured_area featured_three mb-40">
                     <div class="container">
                         <div class="top_title title_three">
-                            <h2> shop by electronic</h2>
+                            <h2> shop by {{ $category->name }}</h2>
                         </div>
                         <div class="row no-gutters">
                             <div class="col-lg-2 col-md-6">
-                                <div class="hot_category hot_ct_three" style="background-image: url(frontend_assets/assets/img/banner/banner11.jpg)">
-                                    <h2>Hot Category</h2>
-                                    <ul>
-                                        <li><a href="#">Digital Cameras</a></li>
-                                        <li><a href="#">TV, Audio & Home Theater</a></li>
-                                        <li><a href="#">Camera, Photo & Video</a></li>
-                                        <li><a href="#">Computers & Accessories</a></li>
-                                        <li><a href="#">Cell Phones & Accessories</a></li>
-                                        <li><a href="#">Business & Office Electronics</a></li>
-                                        <li><a href="#">Software</a></li>
+                                <div class="hot_category hot_ct_three">
+                                    <h4>Sub Category</h4>
+                                    <ul style="border-bottom: 1px solid #dddddd; padding-bottom: 10px;">
+                                        @foreach( \App\Models\Subcategory::Where('category_id', $category->id)->get() as $subcategory)
+                                            <li><a href="#">{{ $subcategory->name }}</a></li>
+                                        @endforeach
                                     </ul>
+                                    <img src="{{asset('images/category_image/'.$category->image)}}" alt="">
                                 </div>
                             </div>
                             <div class="col-lg-10 col-md-12">
                                 <div class="featured_left fetured_l_three">
                                     <div class="featured_produt featured_product_three">
                                         <div class="featured_active_three owl-carousel">
-                                            <div class="single_featured">
+                                            @foreach( \App\Models\Product::Where('category_id', $category->id)->get() as $prodect)
+                                                <div class="single_featured ">
                                                 <div class="single_product s_product_three">
                                                     <div class="product_thumb">
-                                                        <a href="single-product.html"><img src="{{ asset('frontend_assets/assets/img/product/product40.jpg') }}" alt=""></a>
+                                                        @php
+                                                            $product_image = \App\Models\ProductImage::Where('product_id',$prodect->id)->first()->image
+                                                        @endphp
+                                                        <a href="single-product.html"><img src="{{ asset('images/product_image/'.$product_image) }}" alt=""></a>
                                                         <div class="product_discount">
                                                             <span>New</span>
                                                         </div>
@@ -106,438 +108,15 @@
                                                             </ul>
                                                         </div>
                                                         <div class="small_product_name">
-                                                            <a title="Printed Summer Dress" href="single-product.html">Aliquam furniture</a>
+                                                            <a title="Printed Summer Dress" href="single-product.html">{{ $prodect->title }}</a>
                                                         </div>
                                                         <div class="small_product_price s_price_three">
-                                                            <span class="new_price"> $140.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="single_product s_product_three">
-                                                    <div class="product_thumb">
-                                                        <a href="single-product.html"><img src="{{ asset('frontend_assets/assets/img/product/product41.jpg')}}" alt=""></a>
-                                                        <div class="product_discount">
-                                                            <span>-10%</span>
-                                                        </div>
-                                                        <div class="product_action">
-                                                            <ul>
-                                                                <li><a href="#" title=" Add to Wishlist "><i class="fa fa-heart"></i></a></li>
-                                                                <li><a href="#" title=" Add to Compare "><i class="fa fa-retweet"></i></a></li>
-                                                                <li><a href="#" title=" Add to cart "><i class="fa fa-shopping-cart"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="quick_view">
-                                                            <a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view"><i class="fa fa-search"></i></a>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="product_content p_content_three">
-                                                        <div class="samll_product_ratting">
-                                                            <ul>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="small_product_name">
-                                                            <a title="Printed Summer Dress" href="single-product.html">Dignissim venenatis</a>
-                                                        </div>
-                                                        <div class="small_product_price s_price_three">
-                                                            <span class="new_price"> $140.00 </span>
-                                                            <span class="old_price">  $150.50  </span>
+                                                            <span class="new_price"> Tk {{ $prodect->price }} </span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="single_featured">
-                                                <div class="single_product s_product_three">
-                                                    <div class="product_thumb">
-                                                        <a href="single-product.html"><img src="{{ asset('frontend_assets/assets/img/product/product42.jpg')}}" alt=""></a>
-                                                        <div class="product_discount">
-                                                            <span>New</span>
-                                                        </div>
-                                                        <div class="product_action">
-                                                            <ul>
-                                                                <li><a href="#" title=" Add to Wishlist "><i class="fa fa-heart"></i></a></li>
-                                                                <li><a href="#" title=" Add to Compare "><i class="fa fa-retweet"></i></a></li>
-                                                                <li><a href="#" title=" Add to cart "><i class="fa fa-shopping-cart"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="quick_view">
-                                                            <a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view"><i class="fa fa-search"></i></a>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="product_content p_content_three">
-                                                        <div class="samll_product_ratting">
-                                                            <ul>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="small_product_name">
-                                                            <a title="Printed Summer Dress" href="single-product.html">Aliquam lobortis</a>
-                                                        </div>
-                                                        <div class="small_product_price s_price_three">
-                                                            <span class="new_price"> $140.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="single_product s_product_three">
-                                                    <div class="product_thumb">
-                                                        <a href="single-product.html"><img src="{{ asset('frontend_assets/assets/img/product/product43.jpg')}}" alt=""></a>
-                                                        <div class="product_discount">
-                                                            <span>-10%</span>
-                                                        </div>
-                                                        <div class="product_action">
-                                                            <ul>
-                                                                <li><a href="#" title=" Add to Wishlist "><i class="fa fa-heart"></i></a></li>
-                                                                <li><a href="#" title=" Add to Compare "><i class="fa fa-retweet"></i></a></li>
-                                                                <li><a href="#" title=" Add to cart "><i class="fa fa-shopping-cart"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="quick_view">
-                                                            <a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view"><i class="fa fa-search"></i></a>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="product_content p_content_three">
-                                                        <div class="samll_product_ratting">
-                                                            <ul>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="small_product_name">
-                                                            <a title="Printed Summer Dress" href="single-product.html">Dignissim furniture</a>
-                                                        </div>
-                                                        <div class="small_product_price s_price_three">
-                                                            <span class="new_price"> $130.00 </span>
-                                                            <span class="old_price">  $150.50  </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="single_featured">
-                                                <div class="single_product s_product_three">
-                                                    <div class="product_thumb">
-                                                        <a href="single-product.html"><img src="{{ asset('frontend_assets/assets/img/product/product9.jpg')}}" alt=""></a>
-                                                        <div class="product_discount">
-                                                            <span>New</span>
-                                                        </div>
-                                                        <div class="product_action">
-                                                            <ul>
-                                                                <li><a href="#" title=" Add to Wishlist "><i class="fa fa-heart"></i></a></li>
-                                                                <li><a href="#" title=" Add to Compare "><i class="fa fa-retweet"></i></a></li>
-                                                                <li><a href="#" title=" Add to cart "><i class="fa fa-shopping-cart"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="quick_view">
-                                                            <a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view"><i class="fa fa-search"></i></a>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="product_content p_content_three">
-                                                        <div class="samll_product_ratting">
-                                                            <ul>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="small_product_name">
-                                                            <a title="Printed Summer Dress" href="single-product.html">hanbag flit</a>
-                                                        </div>
-                                                        <div class="small_product_price s_price_three">
-                                                            <span class="new_price"> $140.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="single_product s_product_three">
-                                                    <div class="product_thumb">
-                                                        <a href="single-product.html"><img src="{{ asset('frontend_assets/assets/img/product/product10.jpg')}}" alt=""></a>
-                                                        <div class="product_discount">
-                                                            <span>-10%</span>
-                                                        </div>
-                                                        <div class="product_action">
-                                                            <ul>
-                                                                <li><a href="#" title=" Add to Wishlist "><i class="fa fa-heart"></i></a></li>
-                                                                <li><a href="#" title=" Add to Compare "><i class="fa fa-retweet"></i></a></li>
-                                                                <li><a href="#" title=" Add to cart "><i class="fa fa-shopping-cart"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="quick_view">
-                                                            <a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view"><i class="fa fa-search"></i></a>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="product_content p_content_three">
-                                                        <div class="samll_product_ratting">
-                                                            <ul>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="small_product_name">
-                                                            <a title="Printed Summer Dress" href="single-product.html">Dignissim furniture</a>
-                                                        </div>
-                                                        <div class="small_product_price s_price_three">
-                                                            <span class="new_price"> $140.00 </span>
-                                                            <span class="old_price">  $150.50  </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="single_featured">
-                                                <div class="single_product s_product_three">
-                                                    <div class="product_thumb">
-                                                        <a href="single-product.html"><img src="{{ asset('frontend_assets/assets/img/product/product11.jpg')}}" alt=""></a>
-                                                        <div class="product_discount">
-                                                            <span>New</span>
-                                                        </div>
-                                                        <div class="product_action">
-                                                            <ul>
-                                                                <li><a href="#" title=" Add to Wishlist "><i class="fa fa-heart"></i></a></li>
-                                                                <li><a href="#" title=" Add to Compare "><i class="fa fa-retweet"></i></a></li>
-                                                                <li><a href="#" title=" Add to cart "><i class="fa fa-shopping-cart"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="quick_view">
-                                                            <a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view"><i class="fa fa-search"></i></a>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="product_content p_content_three">
-                                                        <div class="samll_product_ratting">
-                                                            <ul>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="small_product_name">
-                                                            <a title="Printed Summer Dress" href="single-product.html">Aliquam lobortis</a>
-                                                        </div>
-                                                        <div class="small_product_price s_price_three">
-                                                            <span class="new_price"> $130.00 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="single_product s_product_three">
-                                                    <div class="product_thumb">
-                                                        <a href="single-product.html"><img src="{{ asset('frontend_assets/assets/img/product/product12.jpg')}}" alt=""></a>
-                                                        <div class="product_discount">
-                                                            <span>-10%</span>
-                                                        </div>
-                                                        <div class="product_action">
-                                                            <ul>
-                                                                <li><a href="#" title=" Add to Wishlist "><i class="fa fa-heart"></i></a></li>
-                                                                <li><a href="#" title=" Add to Compare "><i class="fa fa-retweet"></i></a></li>
-                                                                <li><a href="#" title=" Add to cart "><i class="fa fa-shopping-cart"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="quick_view">
-                                                            <a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view"><i class="fa fa-search"></i></a>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="product_content p_content_three">
-                                                        <div class="samll_product_ratting">
-                                                            <ul>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="small_product_name">
-                                                            <a title="Printed Summer Dress" href="single-product.html">Dignissim venenatis</a>
-                                                        </div>
-                                                        <div class="small_product_price s_price_three">
-                                                            <span class="new_price"> $140.00 </span>
-                                                            <span class="old_price">  $150.50  </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="featured_left featured_left_two mb-40">
-                    <div class="top_title">
-                        <h2> Featured products</h2>
-                    </div>
-                    <div class="featured_produt featured_p_two">
-                        <div class="featured_active_two owl-carousel">
-                            <div class="single_featured">
-                                <div class="single_product">
-                                    <div class="product_thumb">
-                                        <a href="single-product.html"><img src="{{ asset('frontend_assets/assets/img/product/product13.jpg')}}" alt=""></a>
-                                        <div class="product_discount">
-                                            <span>New</span>
-                                        </div>
-                                        <div class="product_action">
-                                            <ul>
-                                                <li><a href="#" title=" Add to Wishlist "><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#" title=" Add to Compare "><i class="fa fa-retweet"></i></a></li>
-                                                <li><a href="#" title=" Add to cart "><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="quick_view">
-                                            <a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view"><i class="fa fa-search"></i></a>
-                                        </div>
-
-                                    </div>
-                                    <div class="product_content">
-                                        <div class="samll_product_ratting">
-                                            <ul>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="small_product_name">
-                                            <a title="Printed Summer Dress" href="single-product.html">Aliquam lobortis</a>
-                                        </div>
-                                        <div class="small_product_price">
-                                            <span class="new_price"> $140.00 </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single_featured">
-                                <div class="single_product">
-                                    <div class="product_thumb">
-                                        <a href="single-product.html"><img src="{{ asset('frontend_assets/assets/img/product/product7.jpg')}}" alt=""></a>
-                                        <div class="product_discount">
-                                            <span>New</span>
-                                        </div>
-                                        <div class="product_action">
-                                            <ul>
-                                                <li><a href="#" title=" Add to Wishlist "><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#" title=" Add to Compare "><i class="fa fa-retweet"></i></a></li>
-                                                <li><a href="#" title=" Add to cart "><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="quick_view">
-                                            <a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view"><i class="fa fa-search"></i></a>
-                                        </div>
-
-                                    </div>
-                                    <div class="product_content">
-                                        <div class="samll_product_ratting">
-                                            <ul>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="small_product_name">
-                                            <a title="Printed Summer Dress" href="single-product.html">coat men</a>
-                                        </div>
-                                        <div class="small_product_price">
-                                            <span class="new_price"> $142.00 </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single_featured">
-                                <div class="single_product">
-                                    <div class="product_thumb">
-                                        <a href="single-product.html"><img src="{{ asset('frontend_assets/assets/img/product/product9.jpg')}}" alt=""></a>
-                                        <div class="product_discount">
-                                            <span>New</span>
-                                        </div>
-                                        <div class="product_action">
-                                            <ul>
-                                                <li><a href="#" title=" Add to Wishlist "><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#" title=" Add to Compare "><i class="fa fa-retweet"></i></a></li>
-                                                <li><a href="#" title=" Add to cart "><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="quick_view">
-                                            <a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view"><i class="fa fa-search"></i></a>
-                                        </div>
-
-                                    </div>
-                                    <div class="product_content">
-                                        <div class="samll_product_ratting">
-                                            <ul>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="small_product_name">
-                                            <a title="Printed Summer Dress" href="single-product.html">chair furniture</a>
-                                        </div>
-                                        <div class="small_product_price">
-                                            <span class="new_price"> $140.00 </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="single_featured">
-                                <div class="single_product">
-                                    <div class="product_thumb">
-                                        <a href="single-product.html"><img src="{{ asset('frontend_assets/assets/img/product/product11.jpg')}}" alt=""></a>
-                                        <div class="product_discount">
-                                            <span>New</span>
-                                        </div>
-                                        <div class="product_action">
-                                            <ul>
-                                                <li><a href="#" title=" Add to Wishlist "><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#" title=" Add to Compare "><i class="fa fa-retweet"></i></a></li>
-                                                <li><a href="#" title=" Add to cart "><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="quick_view">
-                                            <a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view"><i class="fa fa-search"></i></a>
-                                        </div>
-
-                                    </div>
-                                    <div class="product_content">
-                                        <div class="samll_product_ratting">
-                                            <ul>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="small_product_name">
-                                            <a title="Printed Summer Dress" href="single-product.html">coareet lobortis</a>
-                                        </div>
-                                        <div class="small_product_price">
-                                            <span class="new_price"> $140.00 </span>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -546,5 +125,6 @@
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
 @endsection
