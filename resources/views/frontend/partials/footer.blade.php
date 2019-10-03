@@ -1,5 +1,5 @@
 {{--        </div>--}}
-        </div>
+
         </div>
         <div class="">
             <div class="newsletter_area">
