@@ -22,7 +22,7 @@
 </div>
 
 <div class="about_section_aera">
-    <div class="container-fluid about_container">
+    <div class="container about_container">
         <div class="row no-gutters align-items-center">
             <div class="col-lg-6 col-md-6">
                 <div class="about_thumb">
