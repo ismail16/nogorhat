@@ -70,47 +70,48 @@
                 <div class="col-lg-3">
                     <div class="header_widget about_widget widget_two text-right">
                         <ul>
-                            <li class="shopping_cart"><a href="#" title="View my shopping cart"><i class="fa fa-shopping-bag"></i></a>
-                                <span class="cart__quantity">2</span>
-                                <div class="mini_cart cart_left mini_c_two">
-                                    <div class="cart_item">
-                                        <div class="cart_img">
-                                            <a href="#"><img src="{{ asset('frontend_assets/assets/img/cart/mini_cart1.jpg') }}" alt=""></a>
-                                        </div>
-                                        <div class="cart_info">
-                                            <a href="#">Handbag feugiat</a>
-                                            <span class="cart_price">$115.00</span>
-                                            <span class="quantity">Qty: 1</span>
-                                        </div>
-                                        <div class="cart_remove">
-                                            <a title="Remove this item" href="#"><i class="fa fa-times-circle"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="cart_item">
-                                        <div class="cart_img">
-                                            <a href="#"><img src="{{ asset('frontend_assets/assets/img/cart/mini_cart2.jpg')}}" alt=""></a>
-                                        </div>
-                                        <div class="cart_info">
-                                            <a href="#">Handbag fringilla</a>
-                                            <span class="cart_price">$115.00</span>
-                                            <span class="quantity">Qty: 1</span>
-                                        </div>
-                                        <div class="cart_remove">
-                                            <a title="Remove this item" href="#"><i class="fa fa-times-circle"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="cart_price_line">
-                                        <span> Shipping </span>
-                                        <span class="prices">  $7.00  </span>
-                                    </div>
-                                    <div class="cart_total">
-                                        <span> Shipping </span>
-                                        <span class="prices">  $7.00  </span>
-                                    </div>
-                                    <div class="cart_button pt-20">
-                                        <a href="checkout.html"> Check out</a>
-                                    </div>
-                                </div>
+                            <li class="shopping_cart">
+                                <a href="{{ route('card.index') }}" title="View my shopping cart"><i class="fa fa-shopping-bag"></i></a>
+                                <span class="cart__quantity">{{ App\Models\Cart::totalItems() }}</span>
+{{--                                <div class="mini_cart cart_left mini_c_two">--}}
+{{--                                    <div class="cart_item">--}}
+{{--                                        <div class="cart_img">--}}
+{{--                                            <a href="#"><img src="{{ asset('frontend_assets/assets/img/cart/mini_cart1.jpg') }}" alt=""></a>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="cart_info">--}}
+{{--                                            <a href="#">Handbag feugiat</a>--}}
+{{--                                            <span class="cart_price">$115.00</span>--}}
+{{--                                            <span class="quantity">Qty: 1</span>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="cart_remove">--}}
+{{--                                            <a title="Remove this item" href="#"><i class="fa fa-times-circle"></i></a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="cart_item">--}}
+{{--                                        <div class="cart_img">--}}
+{{--                                            <a href="#"><img src="{{ asset('frontend_assets/assets/img/cart/mini_cart2.jpg')}}" alt=""></a>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="cart_info">--}}
+{{--                                            <a href="#">Handbag fringilla</a>--}}
+{{--                                            <span class="cart_price">$115.00</span>--}}
+{{--                                            <span class="quantity">Qty: 1</span>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="cart_remove">--}}
+{{--                                            <a title="Remove this item" href="#"><i class="fa fa-times-circle"></i></a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="cart_price_line">--}}
+{{--                                        <span> Shipping </span>--}}
+{{--                                        <span class="prices">  $7.00  </span>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="cart_total">--}}
+{{--                                        <span> Shipping </span>--}}
+{{--                                        <span class="prices">  $7.00  </span>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="cart_button pt-20">--}}
+{{--                                        <a href="checkout.html"> Check out</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                             </li>
                             <li><a href="wishlist.html" title="My wishlist"><i class="fa fa-heart-o"></i></a></li>
                             <li class="account"><a><i class="fa fa-key"></i></a>

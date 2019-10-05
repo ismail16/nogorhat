@@ -118,9 +118,9 @@
                                                                 <button class="btn btn-outline-primary"><i class="fa fa-eye"></i> View</button>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <form class="" action="{{ route('cart.store') }}" method="post">
+                                                                <form class="" action="{{ route('card.store') }}" method="post">
                                                                     @csrf
-                                                                    <input type="hidden" name="product_id" value="">
+                                                                    <input type="hidden" name="product_id" value="{{ $prodect->id  }}">
                                                                     <button class="btn btn-outline-primary"><i class="fa fa-shopping-cart"></i> ADD</button>
                                                                 </form>
                                                             </div>
