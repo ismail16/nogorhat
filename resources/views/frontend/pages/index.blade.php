@@ -54,29 +54,28 @@
             @foreach( \App\Models\Category::all() as $category)
             <div class="col-lg-12 col-md-12">
                 <div class="featured_area featured_three mb-40">
-                    <div class="container">
-                        <div class="top_title title_three">
-                            <h2> shop by {{ $category->name }}</h2>
-                        </div>
-                        <div class="row no-gutters">
-                            <div class="col-lg-2 col-md-6">
-                                <div class="hot_category hot_ct_three">
-                                    <h4>Sub Category</h4>
-                                    <ul style="border-bottom: 1px solid #dddddd; padding-bottom: 10px;">
-                                        @foreach( \App\Models\Subcategory::Where('category_id', $category->id)->get() as $subcategory)
-                                            <li><a href="#">{{ $subcategory->name }}</a></li>
-                                        @endforeach
-                                    </ul>
-                                    <img src="{{asset('images/category_image/'.$category->image)}}" alt="">
-                                </div>
+                    <div class="top_title title_three">
+                        <h2> shop by {{ $category->name }}</h2>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-lg-2 col-md-6">
+                            <div class="hot_category hot_ct_three">
+                                <h4>Sub Category</h4>
+                                <ul style="border-bottom: 1px solid #dddddd; padding-bottom: 10px;">
+                                    @foreach( \App\Models\Subcategory::Where('category_id', $category->id)->get() as $subcategory)
+                                        <li><a href="#">{{ $subcategory->name }}</a></li>
+                                    @endforeach
+                                </ul>
+                                <img src="{{asset('images/category_image/'.$category->image)}}" alt="">
                             </div>
-                            <div class="col-lg-10 col-md-12">
-                                <div class="featured_left fetured_l_three">
-                                    <div class="featured_produt featured_product_three">
-                                        <div class="featured_active_three owl-carousel">
-                                            @foreach( \App\Models\Product::Where('category_id', $category->id)->get() as $prodect)
-                                                <div class="single_featured ">
-                                                <div class="single_product s_product_three">
+                        </div>
+                        <div class="col-lg-10 col-md-12">
+                            <div class="featured_left fetured_l_three">
+                                <div class="featured_produt featured_product_three">
+                                    <div class="featured_active_three owl-carousel">
+                                        @foreach( \App\Models\Product::Where('category_id', $category->id)->get() as $prodect)
+                                            <div class="single_featured ">
+                                                <div class="single_product s_product_three card mr-2">
                                                     <div class="product_thumb">
                                                         @php
                                                             $product_image = \App\Models\ProductImage::Where('product_id',$prodect->id)->first()->image
@@ -95,7 +94,6 @@
                                                         <div class="quick_view">
                                                             <a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view"><i class="fa fa-search"></i></a>
                                                         </div>
-
                                                     </div>
                                                     <div class="product_content p_content_three">
                                                         <div class="samll_product_ratting">
@@ -107,17 +105,30 @@
                                                                 <li><a href="#"><i class="fa fa-star"></i></a></li>
                                                             </ul>
                                                         </div>
-                                                        <div class="small_product_name">
+                                                        <div class="small_product_name" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;">
                                                             <a title="Printed Summer Dress" href="single-product.html">{{ $prodect->title }}</a>
                                                         </div>
                                                         <div class="small_product_price s_price_three">
                                                             <span class="new_price"> Tk {{ $prodect->price }} </span>
                                                         </div>
                                                     </div>
+                                                    <div class="_card-footer" style="padding: 5px !important;">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <button class="btn btn-outline-primary"><i class="fa fa-eye"></i> View</button>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <form class="" action="{{ route('cart.store') }}" method="post">
+                                                                    @csrf
+                                                                    <input type="hidden" name="product_id" value="">
+                                                                    <button class="btn btn-outline-primary"><i class="fa fa-shopping-cart"></i> ADD</button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            @endforeach
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>

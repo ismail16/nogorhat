@@ -148,7 +148,7 @@
         autoplay: true,
 		loop: true,
         nav: true,
-        autoplay: true,
+        autoplay: false,
         autoplayTimeout: 8000,
         items: 3,
         navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],

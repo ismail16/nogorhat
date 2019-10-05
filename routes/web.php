@@ -25,7 +25,17 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 //======================================== Author route==================================
 Route::group(['as' => 'author.', 'prefix' => 'author', 'namespace' => 'Author', 'middleware' => ['auth', 'author']], function () {
     Route::get('dashboard', 'AuthorRegisterController@index')->name('dashboard');
-    Route::get('profile/{id}', 'frontend\PagesController@profile')->name('profile');
+//    Route::get('profile/{id}', 'frontend\PagesController@profile')->name('profile');
+});
+
+//======================================== Cart route==================================
+Route::group(['prefix' => 'cards'], function(){
+    Route::resource('cart', 'frontend\CartsController');
+//    Route::get('/', 'frontend\CartsController@index')->name('carts');
+//    Route::post('/store', 'frontend\CartsController@store')->name('cards.store');
+//    Route::post('/update/{id}', 'frontend\CartsController@update')->name('carts.update');
+//    Route::post('/delete/{id}', 'frontend\CartsController@delete')->name('carts.delete');
+//    Route::post('/delete/{id}', 'frontend\CartsController@delete')->name('carts.delete');
 });
 
 Route::get('/sendemail', 'SendEmailController@index');
