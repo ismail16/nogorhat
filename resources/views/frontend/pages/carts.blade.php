@@ -43,7 +43,7 @@
                                 @endphp
                                 @if(count($cards) > 0)
                                 @foreach($cards as $cart)
-                                    <tr>
+                                    <tr id="update_order">
                                         <td class="product_remove">
                                             <form class="form-inline d-flex justify-content-center" action="{{ route('card.destroy',$cart->id) }}" method="POST">
                                                 @csrf
@@ -56,12 +56,12 @@
                                         <td class="product-price">Tk {{ $cart->product->price }}</td>
                                         <td class="product_quantity">
                                             <div class="input-group">
-                                                <form class="form-inline" action="{{ route('card.update',$cart->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <input type="number" name="product_quantity" class="form-control" value="{{ $cart->product_quantity }}"/>
-                                                    <button class="btn btn-info btn-md ml-2"><i class="fa fa-refresh"></i></button>
-                                                </form>
+{{--                                                <form class="form-inline" action="{{ route('card.update',$cart->id) }}" method="POST">--}}
+{{--                                                    @csrf--}}
+{{--                                                    @method('PUT')--}}
+<input type="number" name="product_quantity" class="form-control" value="{{ $cart->product_quantity }}"/>
+<button class="btn btn-info btn-md ml-2" @click.prevent="card_update({{ $cart->id }})"><i class="fa fa-refresh"></i></button>
+{{--                                                </form>--}}
                                             </div>
                                         </td>
                                         <td class="product_total">Tk {{ $cart->product->price * $cart->product_quantity }} </td>
@@ -120,3 +120,43 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+{{--        var csrf_token = '{{ csrf_token() }}';--}}
+                {{--        var update_req = '{{ route('card.update') }}';--}}
+{{--        var cards = '{{App\Models\Cart::totalCarts()}}'--}}
+
+        var app = new Vue({
+            el: '#update_order',
+            data: {
+                // cards: [],
+                // card:{
+                //     product_quantity: 45
+                // }
+                // console.log(cards);
+            },
+            // props: ['data_2'],
+
+            mounted(){
+                // console.log(this.data_2);
+                // this.$http.get(update_req + '/',data)
+                //     .then( function (res) {
+                //         console.log(res)
+                //     })
+            },
+            methods:{
+                card_update:function (data) {
+                    // data._token = csrf_token
+
+                    console.log(data);
+
+                    // this.$http.put(update_req + '/',data)
+                    //     .then( function (res) {
+                    //         console.log(res)
+                    //     })
+                }
+            }
+        })
+    </script>
+@endpush
