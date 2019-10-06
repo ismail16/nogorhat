@@ -224,5 +224,8 @@
         <script src="{{ asset('frontend_assets/assets/js/bootstrap.min.js')}}"></script>
         <script src="{{ asset('frontend_assets/assets/js/plugins.js')}}"></script>
         <script src="{{ asset('frontend_assets/assets/js/main.js')}}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+        @stack('scripts')
     </body>
 </html>

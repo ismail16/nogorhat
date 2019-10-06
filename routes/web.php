@@ -29,14 +29,10 @@ Route::group(['as' => 'author.', 'prefix' => 'author', 'namespace' => 'Author', 
 });
 
 //======================================== Cart route==================================
-//Route::group(['as' => 'card.'], function(){
-    Route::resource('card', 'frontend\CartsController');
-//    Route::get('/', 'frontend\CartsController@index')->name('carts');
-//    Route::post('/store', 'frontend\CartsController@store')->name('cards.store');
-//    Route::post('/update/{id}', 'frontend\CartsController@update')->name('carts.update');
-//    Route::post('/delete/{id}', 'frontend\CartsController@delete')->name('carts.delete');
-//    Route::post('/delete/{id}', 'frontend\CartsController@delete')->name('carts.delete');
-//});
+Route::resource('card', 'frontend\CartsController');
+Route::resource('checkout', 'frontend\CheckoutsController');
+
+
 
 Route::get('/sendemail', 'SendEmailController@index');
 Route::get('/sendmail', 'SendEmailController@sendmail');

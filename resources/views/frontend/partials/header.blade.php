@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/responsive.css') }}">
     <script src="{{ asset('frontend_assets/assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+
 </head>
 <body>
 
