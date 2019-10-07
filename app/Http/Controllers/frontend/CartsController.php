@@ -73,22 +73,24 @@ class CartsController extends Controller
 
     public function update(Request $request, $id)
     {
-        return response($id);
         $cart = Cart::find($id);
+
+
 
         if (!is_null($cart)) {
             $cart->product_quantity = $request->product_quantity;
             $cart->save();
+//            return $cart;
         }else {
             return back();
         }
         session()->flash('success', 'Cart item has updated successfully !!');
-        return back();
+        return $cart;
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
-        return response($id);
+//        return $id;
         $cart = Cart::find($id);
         if (!is_null($cart)) {
             $cart->delete();
@@ -96,6 +98,6 @@ class CartsController extends Controller
             return back();
         }
         session()->flash('success', 'Cart item has deleted !!');
-        return back();
+        return $cart;
     }
 }

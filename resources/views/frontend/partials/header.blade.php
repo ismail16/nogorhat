@@ -72,7 +72,7 @@
                     <div class="header_widget about_widget widget_two text-right">
                         <ul>
                             <li class="shopping_cart">
-                                <a href="{{ route('card.index') }}" title="View my shopping cart"><i class="fa fa-shopping-bag"></i></a>
+                                <a href="{{ route('cart.index') }}" title="View my shopping cart"><i class="fa fa-shopping-bag"></i></a>
                                 <span class="cart__quantity">{{ App\Models\Cart::totalItems() }}</span>
 {{--                                <div class="mini_cart cart_left mini_c_two">--}}
 {{--                                    <div class="cart_item">--}}

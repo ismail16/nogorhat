@@ -29,7 +29,15 @@ Route::group(['as' => 'author.', 'prefix' => 'author', 'namespace' => 'Author', 
 });
 
 //======================================== Cart route==================================
-Route::resource('card', 'frontend\CartsController');
+//Route::resource('card', 'frontend\CartsController');
+
+Route::group(['prefix' => 'cards'], function(){
+    Route::get('/', 'frontend\CartsController@index')->name('cart.index');
+    Route::post('/store', 'frontend\CartsController@store')->name('card.store');
+    Route::post('/update/{id}', 'frontend\CartsController@update')->name('carts.update');
+    Route::get('/delete/{id}', 'frontend\CartsController@delete')->name('carts.delete');
+});
+
 Route::resource('checkout', 'frontend\CheckoutsController');
 
 

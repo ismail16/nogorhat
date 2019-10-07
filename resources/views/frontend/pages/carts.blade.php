@@ -45,23 +45,19 @@
                                 @foreach($cards as $cart)
                                     <tr id="update_order">
                                         <td class="product_remove">
-                                            <form class="form-inline d-flex justify-content-center" action="{{ route('card.destroy',$cart->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
-                                            </form>
+{{--                                            <form class="form-inline d-flex justify-content-center" action="{{ route('carts.delete',$cart->id) }}" method="POST">--}}
+{{--                                                @csrf--}}
+{{--                                                @method('DELETE')--}}
+                                                <button class="btn btn-danger" onclick="delete_cart({{$cart->id}})"><i class="fa fa-trash-o"></i></button>
+{{--                                            </form>--}}
                                         </td>
                                         <td class="product_name"><a href="#">{{ $cart->product->title }}</a></td>
                                         <td class="product_thumb"><a href="#"><img src="{{ asset('images/product_image/'.$cart->product->product_image->first()->image) }}" height="50" alt=""></a></td>
                                         <td class="product-price">Tk {{ $cart->product->price }}</td>
                                         <td class="product_quantity">
                                             <div class="input-group">
-{{--                                                <form class="form-inline" action="{{ route('card.update',$cart->id) }}" method="POST">--}}
-{{--                                                    @csrf--}}
-{{--                                                    @method('PUT')--}}
-                                                    <input type="number" name="product_quantity" class="form-control" id="product_quantity" value="{{ $cart->product_quantity }}"/>
-                                                    <button class="btn btn-info btn-md ml-2" onclick="update_product_qnt({{ $cart->id }})"><i class="fa fa-refresh"></i></button>
-{{--                                                </form>--}}
+                                                <input type="number" min="1" name="product_quantity" class="form-control product_quantity_{{$cart->id}}" value="{{ $cart->product_quantity }}"/>
+                                                <button class="btn btn-info btn-md ml-2" onclick="update_product_qnt({{$cart->id}},{{$cart->product_quantity}})"><i class="fa fa-refresh"></i></button>
                                             </div>
                                         </td>
                                         <td class="product_total">Tk {{ $cart->product->price * $cart->product_quantity }} </td>
@@ -98,10 +94,8 @@
                                     <div class="flat_rate ">
                                         <div class="shipping_flat_rate">
                                             <p class="subtotal">Shipping</p>
-{{--                                            <p class="cart_amount"><span>Flat Rate:</span>100 Tk</p>--}}
                                             <p class="cart_amount"> 100 Tk</p>
                                         </div>
-{{--                                        <a href="#">Calculate shipping</a>--}}
                                     </div>
 
                                     <div class="cart_subtotal order">
@@ -125,18 +119,30 @@
     <script>
         var token = '{{ csrf_token() }}'
         function update_product_qnt(id) {
-            var product_quantity = $('#product_quantity').val()
-            var url = "{{ url('card') }}"+'/'+product_quantity
+            var product_quantity =$('.product_quantity_'+id)[0].valueAsNumber
+            var url = "{{ url('cards/update/') }}"+'/'+id
             console.log(url)
             $.ajax({
                 url: url,
-                _method: 'PATCH',
-                data: {_token: token, _method: 'PATCH', id: id, product_quantity: product_quantity},
-
+                type: 'POST',
+                data: {_token: token, id: id, product_quantity: product_quantity},
                 success: function(data){
+                    console.log(data.product_quantity);
+                    window.location="{{ url('cards') }}"
+                }
+            });
+        }
 
+        function delete_cart(id) {
+            var url = "{{ url('cards/delete/') }}"+'/'+id
+            console.log(url)
+            $.ajax({
+                url: url,
+                type: 'get',
+                // data: {id: id},
+                success: function(data){
                     console.log(data);
-{{--                    window.location="{{ url('card') }}"--}}
+                    window.location="{{ url('cards') }}"
                 }
             });
         }
