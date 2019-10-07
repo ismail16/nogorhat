@@ -62,17 +62,20 @@ class CartsController extends Controller
 
     public function show($id)
     {
-        //
+        return response("shoe");
     }
 
     public function edit($id)
     {
-        //
+         return response("edit");
+
     }
 
     public function update(Request $request, $id)
     {
+        return response($id);
         $cart = Cart::find($id);
+
         if (!is_null($cart)) {
             $cart->product_quantity = $request->product_quantity;
             $cart->save();
@@ -85,6 +88,7 @@ class CartsController extends Controller
 
     public function destroy($id)
     {
+        return response($id);
         $cart = Cart::find($id);
         if (!is_null($cart)) {
             $cart->delete();

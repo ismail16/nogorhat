@@ -59,8 +59,8 @@
 {{--                                                <form class="form-inline" action="{{ route('card.update',$cart->id) }}" method="POST">--}}
 {{--                                                    @csrf--}}
 {{--                                                    @method('PUT')--}}
-<input type="number" name="product_quantity" class="form-control" value="{{ $cart->product_quantity }}"/>
-<button class="btn btn-info btn-md ml-2" @click.prevent="card_update({{ $cart->id }})"><i class="fa fa-refresh"></i></button>
+                                                    <input type="number" name="product_quantity" class="form-control" id="product_quantity" value="{{ $cart->product_quantity }}"/>
+                                                    <button class="btn btn-info btn-md ml-2" onclick="update_product_qnt({{ $cart->id }})"><i class="fa fa-refresh"></i></button>
 {{--                                                </form>--}}
                                             </div>
                                         </td>
@@ -123,40 +123,22 @@
 
 @push('scripts')
     <script>
-{{--        var csrf_token = '{{ csrf_token() }}';--}}
-                {{--        var update_req = '{{ route('card.update') }}';--}}
-{{--        var cards = '{{App\Models\Cart::totalCarts()}}'--}}
+        var token = '{{ csrf_token() }}'
+        function update_product_qnt(id) {
+            var product_quantity = $('#product_quantity').val()
+            var url = "{{ url('card') }}"+'/'+product_quantity
+            console.log(url)
+            $.ajax({
+                url: url,
+                _method: 'PATCH',
+                data: {_token: token, _method: 'PATCH', id: id, product_quantity: product_quantity},
 
-        var app = new Vue({
-            el: '#update_order',
-            data: {
-                // cards: [],
-                // card:{
-                //     product_quantity: 45
-                // }
-                // console.log(cards);
-            },
-            // props: ['data_2'],
-
-            mounted(){
-                // console.log(this.data_2);
-                // this.$http.get(update_req + '/',data)
-                //     .then( function (res) {
-                //         console.log(res)
-                //     })
-            },
-            methods:{
-                card_update:function (data) {
-                    // data._token = csrf_token
+                success: function(data){
 
                     console.log(data);
-
-                    // this.$http.put(update_req + '/',data)
-                    //     .then( function (res) {
-                    //         console.log(res)
-                    //     })
+{{--                    window.location="{{ url('card') }}"--}}
                 }
-            }
-        })
+            });
+        }
     </script>
 @endpush
