@@ -1,24 +1,9 @@
 @extends('frontend/layouts/master')
+@section('title','Contact us')
 
 @section('content')
-    <div class="breadcrumbs_area contact_bread contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumb_content">
-                        <div class="breadcrumb_header">
-                            <a href="index.html"><i class="fa fa-home"></i></a>
-                            <span><i class="fa fa-angle-right"></i></span>
-                            <span> Contact</span>
-                        </div>
-                        <div class="breadcrumb_title">
-                            <h2>Contact</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('frontend/partials/content_top')
+
     <div class="contact_area mb-40">
         <div class="container">
             <div class="row">

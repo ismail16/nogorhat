@@ -16,8 +16,6 @@
                                 <ul>
                                     <li><a href="#" title="facebook"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#" title="twitter"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#" title="feed"><i class="fa fa-feed"></i></a></li>
-                                    <li><a href="#" title="linkedin"><i class="fa fa-linkedin"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -51,25 +49,22 @@
                             </div>
                             <div class="col-lg-3 col-md-6 col-sm-6">
                                 <div class="single_footer">
-                                    <h4>Information</h4>
+                                    <h4>GET IN TOUCH WITH US</h4>
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-circle"></i> Our Blog</a></li>
-                                        <li><a href="#"><i class="fa fa-circle"></i> About Our Shop</a></li>
-                                        <li><a href="#"><i class="fa fa-circle"></i> Secure Shopping</a></li>
-                                        <li><a href="#"><i class="fa fa-circle"></i> Delivery infomation</a></li>
-                                        <li><a href="#"><i class="fa fa-circle"></i> Store Locations</a></li>
+                                        <li><a href="{{ route('contact') }}"><i class="fa fa-circle"></i> Contact Us</a></li>
+                                        <li><a href="{{ route('author.dashboard') }}"><i class="fa fa-circle"></i> Your Account</a></li>
+                                        <li><a href="{{ route('faq') }}"><i class="fa fa-circle"></i> FAQ</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 col-sm-6">
                                 <div class="single_footer">
-                                    <h4>My account</h4>
+                                    <h4>GET TO KNOW US</h4>
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-circle"></i> My orders</a></li>
-                                        <li><a href="#"><i class="fa fa-circle"></i> About Us</a></li>
-                                        <li><a href="#"><i class="fa fa-circle"></i> Contact</a></li>
-                                        <li><a href="#"><i class="fa fa-circle"></i> Shopping cart</a></li>
-                                        <li><a href="#"><i class="fa fa-circle"></i> Checkout</a></li>
+                                        <li><a href="{{ route('about') }}"><i class="fa fa-circle"></i>About Us</a></li>
+                                        <li><a href="{{ route('terms.conditions') }}"><i class="fa fa-circle"></i> Terms & Conditions</a></li>
+                                        <li><a href="{{ route('returns.replacement') }}"><i class="fa fa-circle"></i> Returns and Replacement</a></li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -83,18 +78,6 @@
                                         <div class="single_instagram_img">
                                             <a href="#"><img src="{{ asset('frontend_assets/assets/img/instagram/instagram2.jpg')}}" alt=""></a>
                                         </div>
-                                        <div class="single_instagram_img">
-                                            <a href="#"><img src="{{ asset('frontend_assets/assets/img/instagram/instagram3.jpg')}}" alt=""></a>
-                                        </div>
-                                        <div class="single_instagram_img">
-                                            <a href="#"><img src="{{ asset('frontend_assets/assets/img/instagram/instagram4.jpg')}}" alt=""></a>
-                                        </div>
-                                        <div class="single_instagram_img">
-                                            <a href="#"><img src="{{ asset('frontend_assets/assets/img/instagram/instagram5.jpg')}}" alt=""></a>
-                                        </div>
-                                        <div class="single_instagram_img">
-                                            <a href="#"><img src="{{ asset('frontend_assets/assets/img/instagram/instagram6.jpg')}}" alt=""></a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -102,16 +85,12 @@
                     </div>
                     <div class="copyright_area">
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="col-md-12 d-flex justify-content-center">
                                 <div class="widget_copyright">
                                     <p>copyright &copy; 2018 <a href="#">Lionshop</a>. all right reserved</p>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="payment">
-                                    <a href="#"><img src="{{ asset('frontend_assets/assets/img/visha/payment.png')}}"" alt=""></a>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>

@@ -50,6 +50,9 @@ class CartsController extends Controller
 
             $cart->ip_address = request()->ip();
             $cart->product_id = $request->product_id;
+            if ($request->product_quantity){
+                $cart->product_quantity = $request->product_quantity;
+            }
             $cart->save();
         }
         session()->flash('success', 'Product has add to cart !!');
@@ -74,8 +77,6 @@ class CartsController extends Controller
     public function update(Request $request, $id)
     {
         $cart = Cart::find($id);
-
-
 
         if (!is_null($cart)) {
             $cart->product_quantity = $request->product_quantity;

@@ -9,8 +9,13 @@ Route::resource('registration', 'Author\AuthorRegisterController');
 
 
 Route::get('/', 'frontend\PagesController@index')->name('index');
+Route::get('/products', 'frontend\PagesController@products')->name('products');
+Route::get('/producs/{id}', 'frontend\PagesController@producs1')->name('single.producs');
 Route::get('/contact', 'frontend\PagesController@contact')->name('contact');
 Route::get('/about', 'frontend\PagesController@about')->name('about');
+Route::get('/faq', 'frontend\PagesController@faq')->name('faq');
+Route::get('/terms-conditions', 'frontend\PagesController@terms_conditions')->name('terms.conditions');
+Route::get('/returns-replacement', 'frontend\PagesController@returns_replacement')->name('returns.replacement');
 Auth::routes();
 
 //======================================== Admin route==================================

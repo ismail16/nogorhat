@@ -1,25 +1,9 @@
 @extends('frontend/layouts/master')
+@section('title','Checkout')
+
 
 @section('content')
-    <div class="breadcrumbs_area contact_bread">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumb_content">
-                        <div class="breadcrumb_header">
-                            <a href="index.html"><i class="fa fa-home"></i></a>
-                            <span><i class="fa fa-angle-right"></i></span>
-                            <span> Checkout</span>
-                        </div>
-                        <div class="breadcrumb_title">
-                            <h2>Checkout</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--breadcrumbs area end-->
+    @include('frontend/partials/content_top')
 
     <!--Checkout page section-->
     <div class="Checkout_page_section">

@@ -1,5 +1,5 @@
 @extends('frontend/layouts/master')
-@section('title','About us')
+@section('title','Faq')
 
 @section('content')
     @include('frontend/partials/content_top')

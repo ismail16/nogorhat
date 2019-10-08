@@ -1,24 +1,9 @@
 @extends('frontend/layouts/master')
+@section('title','Cards')
 
 @section('content')
-    <div class="breadcrumbs_area contact_bread">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumb_content">
-                        <div class="breadcrumb_header">
-                            <a href="index.html"><i class="fa fa-home"></i></a>
-                            <span><i class="fa fa-angle-right"></i></span>
-                            <span> Shopping Cart</span>
-                        </div>
-                        <div class="breadcrumb_title">
-                            <h2>Shopping Cart</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('frontend/partials/content_top')
+
     <div class="shopping_cart_details">
         <div class="container">
             <div class="row">
@@ -45,11 +30,7 @@
                                 @foreach($cards as $cart)
                                     <tr id="update_order">
                                         <td class="product_remove">
-{{--                                            <form class="form-inline d-flex justify-content-center" action="{{ route('carts.delete',$cart->id) }}" method="POST">--}}
-{{--                                                @csrf--}}
-{{--                                                @method('DELETE')--}}
-                                                <button class="btn btn-danger" onclick="delete_cart({{$cart->id}})"><i class="fa fa-trash-o"></i></button>
-{{--                                            </form>--}}
+                                            <button class="btn btn-danger" onclick="delete_cart({{$cart->id}})"><i class="fa fa-trash-o"></i></button>
                                         </td>
                                         <td class="product_name"><a href="#">{{ $cart->product->title }}</a></td>
                                         <td class="product_thumb"><a href="#"><img src="{{ asset('images/product_image/'.$cart->product->product_image->first()->image) }}" height="50" alt=""></a></td>
@@ -79,11 +60,11 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
-                                <div class="coupon_code_inner">
-                                    <p>Enter your coupon code if you have one.</p>
-                                    <input placeholder="Coupon code" type="text">
-                                    <button type="submit">Apply coupon</button>
-                                </div>
+{{--                                <div class="coupon_code_inner">--}}
+{{--                                    <p>Enter your coupon code if you have one.</p>--}}
+{{--                                    <input placeholder="Coupon code" type="text">--}}
+{{--                                    <button type="submit">Apply coupon</button>--}}
+{{--                                </div>--}}
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="cart_total_amount">

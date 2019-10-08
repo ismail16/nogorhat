@@ -1,4 +1,5 @@
 @extends('frontend/layouts/master')
+@section('title','Home')
 
 @section('content')
 {{--    @include('frontend/partials/navbar')--}}
@@ -73,12 +74,12 @@
                             <div class="featured_left fetured_l_three">
                                 <div class="featured_produt featured_product_three">
                                     <div class="featured_active_three owl-carousel">
-                                        @foreach( \App\Models\Product::Where('category_id', $category->id)->get() as $prodect)
+                                        @foreach( \App\Models\Product::Where('category_id', $category->id)->get() as $product)
                                             <div class="single_featured ">
                                                 <div class="single_product s_product_three card mr-2">
                                                     <div class="product_thumb">
                                                         @php
-                                                            $product_image = \App\Models\ProductImage::Where('product_id',$prodect->id)->first()->image
+                                                            $product_image = \App\Models\ProductImage::Where('product_id',$product->id)->first()->image
                                                         @endphp
                                                         <a href="single-product.html"><img src="{{ asset('images/product_image/'.$product_image) }}" alt=""></a>
                                                         <div class="product_discount">
@@ -106,21 +107,21 @@
                                                             </ul>
                                                         </div>
                                                         <div class="small_product_name" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;">
-                                                            <a title="Printed Summer Dress" href="single-product.html">{{ $prodect->title }}</a>
+                                                            <a title="Printed Summer Dress" href="single-product.html">{{ $product->title }}</a>
                                                         </div>
                                                         <div class="small_product_price s_price_three">
-                                                            <span class="new_price"> Tk {{ $prodect->price }} </span>
+                                                            <span class="new_price"> Tk {{ $product->price }} </span>
                                                         </div>
                                                     </div>
                                                     <div class="_card-footer" style="padding: 5px !important;">
                                                         <div class="row">
                                                             <div class="col-md-6">
-                                                                <button class="btn btn-outline-primary"><i class="fa fa-eye"></i> View</button>
+                                                                <a href="{{ route('single.producs',$product->id) }}" class="btn btn-outline-primary"><i class="fa fa-eye"></i> View</a>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-6 text-right">
                                                                 <form class="" action="{{ route('card.store') }}" method="post">
                                                                     @csrf
-                                                                    <input type="hidden" name="product_id" value="{{ $prodect->id  }}">
+                                                                    <input type="hidden" name="product_id" value="{{ $product->id  }}">
                                                                     <button class="btn btn-outline-primary"><i class="fa fa-shopping-cart"></i> ADD</button>
                                                                 </form>
                                                             </div>
