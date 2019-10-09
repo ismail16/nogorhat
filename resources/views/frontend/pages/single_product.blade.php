@@ -14,7 +14,7 @@
                             <ul class="nav product_navactive" role="tablist">
                                 @foreach($productImage as $image)
                                     <li >
-                                        <a class="nav-link" data-toggle="tab" href="#p_d_tab{{ $loop->index }}" role="tab" aria-controls="{{ $loop->index }}" aria-selected="false"><img src="{{ asset('images/product_image/'.$image->image) }}" alt=""></a>
+                                        <a class="nav-link" data-toggle="tab" href="#p_d_tab{{ $loop->index }}" role="tab" aria-controls="{{ $loop->index }}" aria-selected="false"><img src="{{ asset('public/images/product_image/'.$image->image) }}" alt=""></a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -24,12 +24,12 @@
                             @foreach($productImage as $image)
                                 <div class="tab-pane fade show {{ $loop->index == 0? 'active':'' }}" id="p_d_tab{{ $loop->index }}" role="tabpanel" >
                                     <div class="modal_tab_img">
-                                        <a href="#"><img src="{{ asset('images/product_image/'.$image->image) }}" alt=""></a>
+                                        <a href="#"><img src="{{ asset('public/images/product_image/'.$image->image) }}" alt=""></a>
                                         <div class="product_discount">
                                             <span>New</span>
                                         </div>
                                         <div class="view_img">
-                                            <a class="view_large_img" href="{{ asset('images/product_image/'.$image->image) }}">View larger <i class="fa fa-search-plus"></i></a>
+                                            <a class="view_large_img" href="{{ asset('public/images/product_image/'.$image->image) }}">View larger <i class="fa fa-search-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>

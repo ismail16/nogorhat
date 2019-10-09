@@ -1,4 +1,7 @@
 <IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{HTTP_HOST} ^dev.nogorhat.com [NC]
+    RewriteRule ^(.*)$ http://dev.nogorhat.com/$1 [L,R=301,NC]
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
