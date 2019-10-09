@@ -2,7 +2,7 @@
 @section('title','All Supplier')
 
 @push('css')
-    <link rel="stylesheet" href="{{asset('backend_assets/plugins/datatables/dataTables.bootstrap4.css')}}">
+    <link rel="stylesheet" href="{{asset('public/backend_assets/plugins/datatables/dataTables.bootstrap4.css')}}">
 @endpush
 
 @section('content')
@@ -70,8 +70,8 @@
 @endsection
 
 @push('scripts')
-    <script src="{{asset('backend_assets/plugins/datatables/jquery.dataTables.js')}}"></script>
-    <script src="{{asset('backend_assets/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
+    <script src="{{asset('public/backend_assets/plugins/datatables/jquery.dataTables.js')}}"></script>
+    <script src="{{asset('public/backend_assets/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
     <script src="{{asset('js/bootbox.min.js')}}"></script>
     <script>
         $(function () {
