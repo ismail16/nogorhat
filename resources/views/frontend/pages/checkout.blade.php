@@ -9,8 +9,8 @@
     <div class="Checkout_page_section">
         <div class="container">
             <div class="checkout_form" id="confirm_order">
-{{--                <form action="{{ route('checkout.store') }}" method="POST">--}}
-{{--                    @csrf--}}
+               {{-- <form action="{{ route('checkout.store') }}" method="POST"> --}}
+                   {{-- @csrf --}}
                     <div class="row">
                             <div class="col-lg-6 col-md-6">
                                     <h3>Billing Details</h3>
@@ -148,7 +148,7 @@
                             </div>
 
                     </div>
-{{--                </form>--}}
+               {{-- </form> --}}
             </div>
 
         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Order_detail;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
