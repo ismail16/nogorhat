@@ -30,131 +30,121 @@
                 <div class="row invoice-info card-body pt-1 pb-0">
                     <div class="col-sm-4 invoice-col">
                     From
-                    <address>
-                        <strong>Admin, Inc.</strong><br>
-                        795 Folsom Ave, Suite 600<br>
-                        San Francisco, CA 94107<br>
-                        Phone: (804) 123-5432<br>
-                        Email: info@almasaeedstudio.com
-                    </address>
+                        <address>
+                            <strong>{{ $order->name }}</strong><br>
+                            {{ $order->shipping_address }}<br>
+                            Phone: {{ $order->phone_no }}<br>
+                            Email: {{ $order->email }}
+                        </address>
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-4 invoice-col">
                     To
-                    <address>
-                        <strong>John Doe</strong><br>
-                        795 Folsom Ave, Suite 600<br>
-                        San Francisco, CA 94107<br>
-                        Phone: (555) 539-1037<br>
-                        Email: john.doe@example.com
-                    </address>
+                        <address>
+                            <strong>{{ $order->name }}</strong><br>
+                            {{ $order->shipping_address }}<br>
+                            Phone: {{ $order->phone_no }}<br>
+                            Email: {{ $order->email }}
+                        </address>
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-4 invoice-col text-right">
-                    <b>Invoice #007612</b><br>
-                    <br>
-                    <b>Order ID:</b> 4F3S8J<br>
-                    <b>Payment Due:</b> 2/22/2014<br>
-                    <b>Account:</b> 968-34567
+                        <b>Invoice #00{{ $order->id }}</b><br>
+                        <br>
+                        <b>Order ID:</b> 4F3S8J<br>
+                        <b>Payment:</b> {{ $order->is_paid }}
                     </div>
                     <!-- /.col -->
                 </div>
                 <div class="row card-body pt-0">
                     <div class="col-12 table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                        <th>Qty</th>
-                        <th>Product</th>
-                        <th>Serial #</th>
-                        <th>Description</th>
-                        <th>Subtotal</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                        <td>1</td>
-                        <td>Call of Duty</td>
-                        <td>455-981-221</td>
-                        <td>El snort testosterone trophy driving gloves handsome</td>
-                        <td>$64.50</td>
-                        </tr>
-                        <tr>
-                        <td>1</td>
-                        <td>Need for Speed IV</td>
-                        <td>247-925-726</td>
-                        <td>Wes Anderson umami biodiesel</td>
-                        <td>$50.00</td>
-                        </tr>
-                        <tr>
-                        <td>1</td>
-                        <td>Monsters DVD</td>
-                        <td>735-845-642</td>
-                        <td>Terry Richardson helvetica tousled street art master</td>
-                        <td>$10.70</td>
-                        </tr>
-                        <tr>
-                        <td>1</td>
-                        <td>Grown Ups Blue Ray</td>
-                        <td>422-568-642</td>
-                        <td>Tousled lomo letterpress</td>
-                        <td>$25.99</td>
-                        </tr>
-                        </tbody>
-                    </table>
+                        <div class="col-12 table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Q.n</th>
+                                    <th>Product</th>
+                                    <th>Image</th>
+                                    <th>Quantity</th>
+                                    <th></th>
+                                    <th>Price</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @php $total = 0 @endphp
+                                @foreach(\App\Models\Order_detail::where('order_id',$order->id)->get() as $order)
+                                    @php
+                                        $product = \App\Models\Product::where('id',$order->product_id)->first();
+                                        $image = \App\Models\ProductImage::where('product_id',$order->product_id)->first();
+                                    @endphp
+                                    <tr>
+                                        <td>{{ $loop->index+1 }}</td>
+                                        <td>{{ $product->title }}</td>
+                                        <td>
+                                            <img src="{{ asset('images/product_image/'.$image->image) }}" height="50" alt="">
+                                        </td>
+                                        <td class="text-center">{{ $order->product_quantity }} </td>
+                                        <td>x</td>
+                                        <td>{{ $product->price }} Tk</td>
+                                        <td>{{ $order->product_quantity * $product->price}} Tk</td>
+                                    </tr>
+                                    @php $total+= $order->product_quantity * $product->price @endphp
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <div class="col-7">
-                    <p class="lead">Payment Methods:</p>
-                    <img src="{{ asset('backend_assets/dist/img/credit/visa.png') }}" alt="Visa">
-                    <img src="{{ asset('backend_assets/dist/img/credit/mastercard.png') }}" alt="Mastercard">
-                    <img src="{{ asset('backend_assets/dist/img/credit/american-express.png') }}" alt="American Express">
-                    <img src="{{ asset('backend_assets/dist/img/credit/paypal2.png') }}" alt="Paypal">
+                        <p class="lead">Payment Methods:</p>
+                        <img src="{{ asset('backend_assets/dist/img/credit/visa.png') }}" alt="Visa">
+                        <img src="{{ asset('backend_assets/dist/img/credit/mastercard.png') }}" alt="Mastercard">
+                        <img src="{{ asset('backend_assets/dist/img/credit/american-express.png') }}" alt="American Express">
+                        <img src="{{ asset('backend_assets/dist/img/credit/paypal2.png') }}" alt="Paypal">
 
-                    <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem
-                        plugg
-                        dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
-                    </p>
+                        <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
+                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem
+                            plugg
+                            dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+                        </p>
                     </div>
-                    <!-- /.col -->
                     <div class="col-5">
-                    <div class="table-responsive">
-                        <table class="table">
-                        <tbody>
-                            <tr>
-                                <td>Subtotal:</td>
-                                <th style="width:40%"></th>
-                                <td>$250.30</td>
-                            </tr>
-                            <tr>
-                                <th>Tax (9.3%)</th>
-                                <th></th>
-                                <td>$10.34</td>
-                            </tr>
-                            <tr>
-                                <th>Shipping:</th>
-                                <th></th>
-                                <td>$5.80</td>
-                            </tr>
-                            <tr>
-                                <th>Total:</th>
-                                <th></th>
-                                <td>$265.24</td>
-                            </tr>
-                        </tbody></table>
-                    </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td>Subtotal:</td>
+                                    <th style="width:40%"></th>
+                                    <td>{{ $total }} Tk</td>
+                                </tr>
+                                <tr>
+                                    <th>Tax (0.0%)</th>
+                                    <th></th>
+                                    <td>0.00 Tk</td>
+                                </tr>
+                                <tr>
+                                    <th>Shipping:</th>
+                                    <th></th>
+                                    <td>100 Tk</td>
+                                </tr>
+                                <tr>
+                                    <th>Total:</th>
+                                    <th></th>
+                                    <td class="text-red text-bold">{{ $total+100 }} Tk</td>
+                                </tr>
+                                </tbody></table>
+                        </div>
                     </div>
                 </div>
+                  <div class="row no-print card-footer">
+                      <div class="col-12">
 
-                <div class="row no-print card-footer">
-                    <div class="col-12">
-                    <button onclick="window.print()" class="btn btn-default"><i class="fa fa-print"></i> Print</button>
-                    <button type="button" class="btn btn-success float-right"><i class="fa fa-credit-card"></i> Submit
-                        Payment
-                    </button>
-                    <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
-                        <i class="fa fa-download"></i> Generate PDF
-                    </button>
+                          <button onclick="window.print()" class="btn btn-success float-right"><i class="fa fa-print"></i>
+                              Print
+                          </button>
+
+                      </div>
+                  </div>
                     </div>
                 </div>
                 </div>

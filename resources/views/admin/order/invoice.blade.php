@@ -8,19 +8,20 @@
 @section('content')
     <div class="container" id="printarea">
         <div class="row">
-          <div class="col-12">
-            <div class="invoice p-3 mb-3 card">
-
+          <div class="col-12" style="padding: 0px 50px">
+              <form action="{{ route('admin.order.update',$order->id) }}" method="post">
+                  @csrf
+                  @method('PUT')
+            <div class="invoice p-5 mb-3 card">
               <div>
                   <div class="row card-header">
                     <div class="col-12">
                     <h4>
-                        <i class="fa fa-globe"></i> AdminLTE, Inc.
-                        <small class="float-right">Date: {{ $order->created_at }}</small>
+                        <i class="fa fa-globe"></i> NOGORHAT
+                        <small class="float-right">Date: {{ date('d M Y h:i A', strtotime($order->created_at)) }}</small>
                     </h4>
                     </div>
                 </div>
-
                 <div class="row invoice-info card-body pt-1 pb-0">
                     <div class="col-sm-4 invoice-col">
                     From
@@ -55,105 +56,98 @@
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                        <th>Qty</th>
-                        <th>Product</th>
-                        <th>Serial #</th>
-                        <th>Description</th>
-                        <th>Subtotal</th>
+                            <th>Q.n</th>
+                            <th>Product</th>
+                            <th>Image</th>
+                            <th>Quantity</th>
+                            <th></th>
+                            <th>Price</th>
+                            <th>Subtotal</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                        <td>1</td>
-                        <td>Call of Duty</td>
-                        <td>455-981-221</td>
-                        <td>El snort testosterone trophy driving gloves handsome</td>
-                        <td>$64.50</td>
-                        </tr>
-                        <tr>
-                        <td>1</td>
-                        <td>Need for Speed IV</td>
-                        <td>247-925-726</td>
-                        <td>Wes Anderson umami biodiesel</td>
-                        <td>$50.00</td>
-                        </tr>
-                        <tr>
-                        <td>1</td>
-                        <td>Monsters DVD</td>
-                        <td>735-845-642</td>
-                        <td>Terry Richardson helvetica tousled street art master</td>
-                        <td>$10.70</td>
-                        </tr>
-                        <tr>
-                        <td>1</td>
-                        <td>Grown Ups Blue Ray</td>
-                        <td>422-568-642</td>
-                        <td>Tousled lomo letterpress</td>
-                        <td>$25.99</td>
-                        </tr>
+                            @php $total = 0 @endphp
+                            @foreach(\App\Models\Order_detail::where('order_id',$order->id)->get() as $order)
+                                @php
+                                    $product = \App\Models\Product::where('id',$order->product_id)->first();
+                                    $image = \App\Models\ProductImage::where('product_id',$order->product_id)->first();
+                                @endphp
+                                <tr>
+                                    <td>{{ $loop->index+1 }}</td>
+                                    <td>{{ $product->title }}</td>
+                                    <td>
+                                        <img src="{{ asset('images/product_image/'.$image->image) }}" height="50" alt="">
+                                    </td>
+                                    <td class="text-center">{{ $order->product_quantity }} </td>
+                                    <td>x</td>
+                                    <td>{{ $product->price }} Tk</td>
+                                    <td>{{ $order->product_quantity * $product->price}} Tk</td>
+                                </tr>
+                                @php $total+= $order->product_quantity * $product->price @endphp
+                            @endforeach
                         </tbody>
                     </table>
                     </div>
                     <div class="col-7">
-                    <p class="lead">Payment Methods:</p>
-                    <img src="{{ asset('backend_assets/dist/img/credit/visa.png') }}" alt="Visa">
-                    <img src="{{ asset('backend_assets/dist/img/credit/mastercard.png') }}" alt="Mastercard">
-                    <img src="{{ asset('backend_assets/dist/img/credit/american-express.png') }}" alt="American Express">
-                    <img src="{{ asset('backend_assets/dist/img/credit/paypal2.png') }}" alt="Paypal">
+                        <p class="lead">Payment Methods:</p>
+                        <img src="{{ asset('backend_assets/dist/img/credit/visa.png') }}" alt="Visa">
+                        <img src="{{ asset('backend_assets/dist/img/credit/mastercard.png') }}" alt="Mastercard">
+                        <img src="{{ asset('backend_assets/dist/img/credit/american-express.png') }}" alt="American Express">
+                        <img src="{{ asset('backend_assets/dist/img/credit/paypal2.png') }}" alt="Paypal">
 
-                    <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem
-                        plugg
-                        dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
-                    </p>
+                        <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
+                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem
+                            plugg
+                            dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+                        </p>
                     </div>
                     <!-- /.col -->
                     <div class="col-5">
-                    <div class="table-responsive">
-                        <table class="table">
-                        <tbody>
-                            <tr>
-                                <td>Subtotal:</td>
-                                <th style="width:40%"></th>
-                                <td>$250.30</td>
-                            </tr>
-                            <tr>
-                                <th>Tax (9.3%)</th>
-                                <th></th>
-                                <td>$10.34</td>
-                            </tr>
-                            <tr>
-                                <th>Shipping:</th>
-                                <th></th>
-                                <td>$5.80</td>
-                            </tr>
-                            <tr>
-                                <th>Total:</th>
-                                <th></th>
-                                <td>$265.24</td>
-                            </tr>
-                        </tbody></table>
+                        <div class="table-responsive">
+                            <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Subtotal:</td>
+                                    <th style="width:40%"></th>
+                                    <td>{{ $total }} Tk</td>
+                                </tr>
+                                <tr>
+                                    <th>Tax (0.0%)</th>
+                                    <th></th>
+                                    <td>0.00 Tk</td>
+                                </tr>
+                                <tr>
+                                    <th>Shipping:</th>
+                                    <th></th>
+                                    <td>100 Tk</td>
+                                </tr>
+                                <tr>
+                                    <th>Total:</th>
+                                    <th></th>
+                                    <td class="text-red text-bold">{{ $total+100 }} Tk</td>
+                                </tr>
+                            </tbody></table>
+                        </div>
+                        </div>
                     </div>
-                    </div>
-                </div>
 
                 <div class="row no-print card-footer">
                     <div class="col-12">
                     <button onclick="window.print()" class="btn btn-default"><i class="fa fa-print"></i> Print</button>
-                    <button type="button" class="btn btn-success float-right"><i class="fa fa-credit-card"></i> Submit
-                        Payment
-                    </button>
-                    <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
-                        <i class="fa fa-download"></i> Generate PDF
-                    </button>
+
+                         <button type="submit" class="btn btn-success float-right"><i class="fa fa-credit-card"></i>
+                             Order Confirmed
+                         </button>
+
                     </div>
                 </div>
                 </div>
 
                 </div>
-            </div>
-            </div>
-      </div>
+              </form>
+          </div>
+        </div>
+    </div>
 @endsection
 
 

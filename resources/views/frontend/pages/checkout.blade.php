@@ -9,8 +9,8 @@
     <div class="Checkout_page_section">
         <div class="container">
             <div class="checkout_form" id="confirm_order">
-               {{-- <form action="{{ route('checkout.store') }}" method="POST"> --}}
-                   {{-- @csrf --}}
+                <form action="{{ route('checkout.store') }}" method="POST">
+                    @csrf
                     <div class="row">
                             <div class="col-lg-6 col-md-6">
                                     <h3>Billing Details</h3>
@@ -62,8 +62,8 @@
                                                                 <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;">
                                                                     <span> {{ $cart->product->title }}</span>
                                                                 </div>
-                                                                <input type="hidden" name="product_quantity[]" value="{{ $cart->product_quantity }}">
-							                                    <input type="hidden" name="order_products[]" value="{{ $cart->product->id }}">
+                                                                <input type="text" name="product_quantity[]" v-model="order.product_quantity[]" value="{{ $cart->product_quantity }}">
+							                                    <input type="text" name="order_products[]" v-model="order.order_products[]" value="{{ $cart->product->id }}">
                                                             </td>
                                                             <td class="">
                                                                 <strong> × 2</strong>
@@ -143,12 +143,12 @@
                                     </div>
                                 </div>
                                 <div class="order_button">
-                                    <button type="submit" @click="store(order)">Order Confirmed</button>
+                                    <button type="submit" _@click="store(order)">Order Confirmed</button>
                                 </div>
                             </div>
 
                     </div>
-               {{-- </form> --}}
+                </form>
             </div>
 
         </div>
@@ -158,34 +158,36 @@
 
 @push('scripts')
 <script>
-    var csrf_token = '{{ csrf_token() }}';
-    var store_req = '{{ route('checkout.store') }}';
+    {{--var csrf_token = '{{ csrf_token() }}';--}}
+    {{--var store_req = '{{ route('checkout.store') }}';--}}
 
-    var app = new Vue({
-        el: '#confirm_order',
-        data: {
-            order: {
-                payment_id:'',
-                name:'',
-                phone_no:'',
-                shipping_address:'',
-                email:'',
-                message:'',
-                transaction_id:'',
-                product_quantity:[],
-                order_products:[]
-            }
-        },
-        methods:{
-            store:function (data) {
-                data._token = csrf_token
-                this.$http.post(store_req + '/',data)
-                    .then( function (res) {
-                        console.log(res)
-                    })
-            }
-        }
-    })
+    {{--var app = new Vue({--}}
+    {{--    el: '#confirm_order',--}}
+    {{--    data: {--}}
+    {{--        order: {--}}
+    {{--            payment_id:'',--}}
+    {{--            name:'',--}}
+    {{--            phone_no:'',--}}
+    {{--            shipping_address:'',--}}
+    {{--            email:'',--}}
+    {{--            message:'',--}}
+    {{--            transaction_id:'',--}}
+    {{--            product_quantity:[],--}}
+    {{--            order_products:[]--}}
+    {{--        }--}}
+    {{--    },--}}
+    {{--    methods:{--}}
+    {{--        store:function (data) {--}}
+
+    {{--            console.log(data);--}}
+    {{--            // data._token = csrf_token--}}
+    {{--            // this.$http.post(store_req + '/',data)--}}
+    {{--            //     .then( function (res) {--}}
+    {{--            //         console.log(res)--}}
+    {{--            //     })--}}
+    {{--        }--}}
+    {{--    }--}}
+    // })
 </script>
 
 <script type="text/javascript">

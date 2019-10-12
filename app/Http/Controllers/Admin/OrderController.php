@@ -65,38 +65,14 @@ class OrderController extends Controller
         return view('admin.category.edit', compact('category'));
     }
 
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        $this->validate($request, [
-            'image' => 'mimes:jpeg,jpg,png',
-            'name' => 'required',
-        ]);
+        $order = Order::find($id);
 
-        $category = Category::find($id);
-        $image = $request->file('image');
-        $slug = str_slug($request->name);
-        if (isset($image)) {
-            unlink('images/category_image/' . $category->image);
-            $imagename = $slug . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
+        $order->is_seen_by_admin = 1;
+        $order->save();
+        return redirect()->route('admin.order.index')->with('message', 'Order Seen And Confirmed by Admin Successfully !');
 
-            if (!file_exists('images/category_image')) {
-                mkdir('images/category_image', 777, true);
-            }
-            $image->move('images/category_image', $imagename);
-        } else {
-            $imagename = $category->image;
-        }
-
-        $category->update(
-            [
-                'name' => $request->name,
-                'slug' => $slug,
-                'image' => $imagename,
-                'status' => $request->status,
-            ]
-        );
-
-        return redirect()->route('admin.category.index');
     }
 
     public function destroy($id)
