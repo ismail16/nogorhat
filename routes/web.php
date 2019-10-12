@@ -25,6 +25,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::resource('subcategory', 'SubcategoryController');
     Route::resource('supplier', 'SupplierController');
     Route::resource('product', 'ProductController');
+    Route::resource('order', 'OrderController');
+
 });
 
 //======================================== Author route==================================

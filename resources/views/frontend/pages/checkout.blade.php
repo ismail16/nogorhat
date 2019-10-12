@@ -62,6 +62,8 @@
                                                                 <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;">
                                                                     <span> {{ $cart->product->title }}</span>
                                                                 </div>
+                                                                <input type="hidden" name="product_quantity[]" value="{{ $cart->product_quantity }}">
+							                                    <input type="hidden" name="order_products[]" value="{{ $cart->product->id }}">
                                                             </td>
                                                             <td class="">
                                                                 <strong> × 2</strong>
@@ -169,7 +171,9 @@
                 shipping_address:'',
                 email:'',
                 message:'',
-                transaction_id:''
+                transaction_id:'',
+                product_quantity:[],
+                order_products:[]
             }
         },
         methods:{

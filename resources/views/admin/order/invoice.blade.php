@@ -1,18 +1,12 @@
-<!doctype html>
-<html class="no-js" lang="zxx">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@yield('title')</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{('frontend_assets/assets/img/favicon.png')}}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-<div class="container" id="printarea">
+@extends('admin.layouts.master')
+@section('title','Invoice')
+
+@push('css')
+
+@endpush
+
+@section('content')
+    <div class="container" id="printarea">
         <div class="row">
           <div class="col-12">
             <div class="invoice p-3 mb-3 card">
@@ -22,7 +16,7 @@
                     <div class="col-12">
                     <h4>
                         <i class="fa fa-globe"></i> AdminLTE, Inc.
-                        <small class="float-right">Date: 2/10/2014</small>
+                        <small class="float-right">Date: {{ $order->created_at }}</small>
                     </h4>
                     </div>
                 </div>
@@ -31,31 +25,28 @@
                     <div class="col-sm-4 invoice-col">
                     From
                     <address>
-                        <strong>Admin, Inc.</strong><br>
-                        795 Folsom Ave, Suite 600<br>
-                        San Francisco, CA 94107<br>
-                        Phone: (804) 123-5432<br>
-                        Email: info@almasaeedstudio.com
+                    <strong>{{ $order->name }}</strong><br>
+                        {{ $order->shipping_address }}<br>
+                        Phone: {{ $order->phone_no }}<br>
+                        Email: {{ $order->email }}
                     </address>
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-4 invoice-col">
                     To
                     <address>
-                        <strong>John Doe</strong><br>
-                        795 Folsom Ave, Suite 600<br>
-                        San Francisco, CA 94107<br>
-                        Phone: (555) 539-1037<br>
-                        Email: john.doe@example.com
+                    <strong>{{ $order->name }}</strong><br>
+                        {{ $order->shipping_address }}<br>
+                        Phone: {{ $order->phone_no }}<br>
+                        Email: {{ $order->email }}
                     </address>
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-4 invoice-col text-right">
-                    <b>Invoice #007612</b><br>
+                    <b>Invoice #00{{ $order->id }}</b><br>
                     <br>
                     <b>Order ID:</b> 4F3S8J<br>
-                    <b>Payment Due:</b> 2/22/2014<br>
-                    <b>Account:</b> 968-34567
+                    <b>Payment:</b> {{ $order->is_paid }}
                     </div>
                     <!-- /.col -->
                 </div>
@@ -163,8 +154,9 @@
             </div>
             </div>
       </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    </body>
-</html>
+@endsection
+
+
+@push('scripts')
+
+@endpush
