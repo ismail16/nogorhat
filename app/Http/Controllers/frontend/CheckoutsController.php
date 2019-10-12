@@ -18,6 +18,12 @@ class CheckoutsController extends Controller
         return view('frontend.pages.checkout', compact('payments'));
     }
 
+    public function invoice()
+    {
+        // $payments = Payment::orderBy('priority', 'desc')->get();
+        return view('frontend.pages.invoice');
+    }
+
     public function create()
     {
         //

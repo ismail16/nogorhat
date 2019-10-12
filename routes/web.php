@@ -44,6 +44,7 @@ Route::group(['prefix' => 'cards'], function(){
 });
 
 Route::resource('checkout', 'frontend\CheckoutsController');
+Route::get('/invoice', 'frontend\CheckoutsController@invoice')->name('card.invoice');
 
 
 
