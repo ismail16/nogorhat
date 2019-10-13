@@ -12,6 +12,7 @@ Route::get('/', 'frontend\PagesController@index')->name('index');
 Route::get('/products', 'frontend\PagesController@products')->name('products');
 Route::get('/producs/{id}', 'frontend\PagesController@producs1')->name('single.producs');
 Route::get('/contact', 'frontend\PagesController@contact')->name('contact');
+Route::post('/contact-store', 'frontend\ContactController@contact_store')->name('contact.store');
 Route::get('/about', 'frontend\PagesController@about')->name('about');
 Route::get('/faq', 'frontend\PagesController@faq')->name('faq');
 Route::get('/terms-conditions', 'frontend\PagesController@terms_conditions')->name('terms.conditions');

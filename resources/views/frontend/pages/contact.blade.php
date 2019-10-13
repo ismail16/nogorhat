@@ -12,10 +12,11 @@
                         <div class="contact_title">
                             <h2>Tell us your project</h2>
                         </div>
-                        <form id="contact-form" method="POST" action="http://demo.devitems.com/lion-v2/lion/assets/mail.php">
+                        <form id="contact-form" method="POST" action="{{ route('contact.store') }}">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <input name="name" placeholder="Name *" type="text">
+                                    <input name="name" placeholder="Name *" type="text" required>
                                 </div>
                                 <div class="col-lg-6">
                                     <input name="email" placeholder="Email *" type="email">
@@ -29,7 +30,7 @@
 
                                 <div class="col-12">
                                     <div class="contact_textarea">
-                                        <textarea placeholder="Message *" name="message" class="form-control2"></textarea>
+                                        <textarea placeholder="Message *" name="message" class="form-control2" required></textarea>
                                     </div>
                                     <button type="submit"> Send Message </button>
                                 </div>

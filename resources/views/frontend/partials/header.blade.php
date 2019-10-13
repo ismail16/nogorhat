@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/responsive.css') }}">
     <script src="{{ asset('frontend_assets/assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+    <style>
+
+    </style>
 
     @stack('css')
 
@@ -53,7 +56,7 @@
                                 <span class="cart__quantity">{{ App\Models\Cart::totalItems() }}</span>
                             </li>
                             <li class="account"><a><i class="fa fa-key"></i></a>
-                                <div class="account_mini mini_c_two" style="position: absolute; width: 200px; background: #fff; -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2); box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2); z-index: 999; padding: 10px 20px 20px; right: 0; top: 100%; display: none;">
+                                <div class="account_mini mini_c_two  account_dropdown" style="">
                                     @if (Route::has('login'))
                                         @auth
                                             @if(Auth::user()->role->id == 1)
@@ -90,7 +93,7 @@
                         </ul>
                     </div>
 
-                    <!--mobail menu start-->
+                    <!--mobile menu start-->
                     <div class="mobile-menu mobile_menu_two d-lg-none">
                         <nav>
                             <ul>
@@ -106,13 +109,16 @@
             </div>
         </div>
     </div>
+
     <div class="header_bottom bottom_three">
         <div class="container">
             <div class="row" style="border: 3px solid #131313;">
                 <div class="col-lg-3 col-md-5">
                     <div class="categories_menu categorie__three">
                         <div class="categories_title ca_title_two">
-                            <h2 class="categori_toggle"><img src="{{ asset('frontend_assets/assets/img/logo/categorie.png')}}" alt=""> All categories</h2>
+                            <h2 class="categori_toggle">
+                                <img src="{{ asset('frontend_assets/assets/img/logo/categorie.png')}}" alt=""> All categories
+                            </h2>
                         </div>
                         <div class="categories_menu_inner categorie_inner_three">
                             <ul>
@@ -134,11 +140,6 @@
                                     </li>
                                 @endforeach
 
-{{--                                <li><a href="#"><i class="fa fa-caret-right"></i> Accessories</a></li>--}}
-{{--                                <li><a href="#"><i class="fa fa-caret-right"></i> Jewelry &amp; Watches</a></li>--}}
-{{--                                <li><a href="#"><i class="fa fa-caret-right"></i> Health &amp; Beauty</a></li>--}}
-{{--                                <li><a href="#"><i class="fa fa-caret-right"></i> Books &amp; Office</a></li>--}}
-{{--                                <li><a href="#"><i class="fa fa-caret-right"></i> Sport &amp; Outdoor</a></li>--}}
                                 <li id="cat_toggle" class="has-sub" style="border-top: 1px solid #c3bcbc;">
                                     <a href="#"><i class="fa fa-caret-right"></i> More Categories</a>
                                     <ul class="categorie_sub">
@@ -151,27 +152,26 @@
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-7">
-                    <div class="search_form form_three">
+                    <div class="_search_form form_three">
                         <form action="#">
-                            <div class="select_categories select_three">
-                                <select name="select" id="categorie" style="display: none;">
-                                    <option selected="" value="1">All Categories</option>
-                                    @foreach( \App\Models\Subcategory::all() as $subcategory )
-                                        <option value="2">{{ $subcategory->name }}</option>
-                                    @endforeach
-                                </select>
-                                <div class="nice-select" tabindex="0">
-                                    <span class="current">All Categories</span>
-                                    <ul class="list">
-                                        <li data-value="1" class="option selected">All Categories</li>
+                            <div class="row pr-3 pl-3">
+                                <div class="col-md-3 col-sm-12 p-0 mb-1">
+                                    <select  style="height: 45px;" name="select" id="categorie" class="form-control rounded-0">
+                                        <option selected="" value="1">All Categories</option>
                                         @foreach( \App\Models\Subcategory::all() as $subcategory )
-                                            <li data-value="2" class="option">--{{ $subcategory->name }}</li>
+                                            <option value="2">{{ $subcategory->name }}</option>
                                         @endforeach
-                                    </ul>
+                                    </select>
+                                </div>
+                                <div class="col-md-8 col-sm-10 p-0  mb-1">
+                                    <input class="form-control rounded-0" placeholder="Enter your search..." type="text">
+                                </div>
+                                <div class="col-md-1 col-sm-2 p-0">
+                                    <button style="height: 45px;" class="form-control rounded-0 btn btn-outline-warning" type="submit">
+                                        <i class="fa fa-search font-weight-bold" style="font-size: 18px;" aria-hidden="true"></i>
+                                    </button>
                                 </div>
                             </div>
-                            <input placeholder="Enter your search..." type="text">
-                            <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                         </form>
                     </div>
                 </div>
@@ -179,6 +179,6 @@
         </div>
     </div>
 </div>
-<div class="home_two_block_section">
+<div class="home_two_block_section mt-1">
 {{--    <div class="container">--}}
 
