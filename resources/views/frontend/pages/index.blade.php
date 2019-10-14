@@ -10,9 +10,9 @@
                 <!--banner slider start-->
                 <div class="banner_slider mb-40">
                     <div class="slider_active owl-carousel">
-                        <!--   <div class="single_slider single_sl_two" style="background-image: url(/public/frontend_assets/assets/img/slider/slider3.jpg)"> -->
+                        <!--   <div class="single_slider single_sl_two" style="background-image: url(/frontend_assets/assets/img/slider/slider3.jpg)"> -->
 
-                        <div class="single_slider single_sl_two" style="background-image: url('{{ asset('public/frontend_assets/assets/img/slider/slider3.jpg')}}');">
+                        <div class="single_slider single_sl_two" style="background-image: url('{{ asset('frontend_assets/assets/img/slider/slider3.jpg')}}');">
                             <div class="row">
                                 <div class="col-lg-7 offset-lg-5 col-md-8 offset-md-4">
                                     <div class="slider_content slider_c_two">
@@ -25,7 +25,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="single_slider single_sl_two" style="background-image: url('{{ asset('public/frontend_assets/assets/img/slider/slider4.jpg')}}');">
+                        <div class="single_slider single_sl_two" style="background-image: url('{{ asset('frontend_assets/assets/img/slider/slider4.jpg')}}');">
                             <div class="row">
                                 <div class="col-lg-6 offset-lg-5 col-md-8 offset-md-4">
                                     <div class="slider_content sale_c_two sale">
@@ -47,7 +47,7 @@
             </div>
             <div class="col-lg-3 col-md-4">
                 <div class="product_banner product_banner_two fix mb-40">
-                    <a href="#"><img src="{{ asset('public/frontend_assets/assets/img/banner/banner1.jpg') }}" alt=""></a>
+                    <a href="#"><img src="{{ asset('frontend_assets/assets/img/banner/banner1.jpg') }}" alt=""></a>
                 </div>
             </div>
         </div>
@@ -81,7 +81,7 @@
                                                         @php
                                                             $product_image = \App\Models\ProductImage::Where('product_id',$product->id)->first()->image
                                                         @endphp
-                                                        <a href="single-product.html"><img src="{{ asset('public/images/product_image/'.$product_image) }}" alt=""></a>
+                                                        <a href="single-product.html"><img src="{{ asset('images/product_image/'.$product_image) }}" alt=""></a>
                                                         <div class="product_discount">
                                                             <span>New</span>
                                                         </div>

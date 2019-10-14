@@ -9,7 +9,7 @@
             <div class="row no-gutters align-items-center">
                 <div class="col-lg-6 col-md-6">
                     <div class="about_thumb">
-                        <img src="{{ asset('public/frontend_assets/assets/img/ship/about1.jpg') }}" alt="">
+                        <img src="{{ asset('frontend_assets/assets/img/ship/about1.jpg') }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
@@ -31,7 +31,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single_counterup">
                         <div class="counter_img">
-                            <img src="{{ asset('public/frontend_assets/assets/img/cart/count.png')}}" alt="">
+                            <img src="{{ asset('frontend_assets/assets/img/cart/count.png')}}" alt="">
                         </div>
                         <div class="counter_info">
                             <h2 class="counter_number">2170</h2>
@@ -42,7 +42,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single_counterup count-two">
                         <div class="counter_img">
-                            <img src="{{ asset('public/frontend_assets/assets/img/cart/count2.png')}}" alt="">
+                            <img src="{{ asset('frontend_assets/assets/img/cart/count2.png')}}" alt="">
                         </div>
                         <div class="counter_info">
                             <h2 class="counter_number">8080</h2>
@@ -53,7 +53,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single_counterup">
                         <div class="counter_img">
-                            <img src="{{ asset('public/frontend_assets/assets/img/cart/count3.png')}}" alt="">
+                            <img src="{{ asset('frontend_assets/assets/img/cart/count3.png')}}" alt="">
                         </div>
                         <div class="counter_info">
                             <h2 class="counter_number">2150</h2>
@@ -64,7 +64,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single_counterup count-two">
                         <div class="counter_img">
-                            <img src="{{ asset('public/frontend_assets/assets/img/cart/cart5.png')}}" alt="">
+                            <img src="{{ asset('frontend_assets/assets/img/cart/cart5.png')}}" alt="">
                         </div>
                         <div class="counter_info">
                             <h2 class="counter_number">2170</h2>
@@ -124,7 +124,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="about__img">
-                        <img src="{{ asset('public/frontend_assets/assets/img/ship/about3.jpg')}}" alt="">
+                        <img src="{{ asset('frontend_assets/assets/img/ship/about3.jpg')}}" alt="">
                     </div>
                 </div>
             </div>

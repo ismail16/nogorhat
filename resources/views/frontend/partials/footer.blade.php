@@ -8,7 +8,7 @@
                         <div class="col-lg-2 col-md-6">
                             <div class="footer_logo">
                                 <h3 class="text-red">NOGORHAT</h3>
-                                {{--                            <a href="#"><img src="{{ asset('public/frontend_assets/assets/img/logo/logo.png')}}"" alt=""></a>--}}
+                                {{--                            <a href="#"><img src="{{ asset('frontend_assets/assets/img/logo/logo.png')}}"" alt=""></a>--}}
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6">
@@ -73,10 +73,10 @@
                                     <h4>instagram</h4>
                                     <div class="instagram_img">
                                         <div class="single_instagram_img">
-                                            <a href="#"><img src="{{ asset('public/frontend_assets/assets/img/instagram/instagram1.jpg')}}" alt=""></a>
+                                            <a href="#"><img src="{{ asset('frontend_assets/assets/img/instagram/instagram1.jpg')}}" alt=""></a>
                                         </div>
                                         <div class="single_instagram_img">
-                                            <a href="#"><img src="{{ asset('public/frontend_assets/assets/img/instagram/instagram2.jpg')}}" alt=""></a>
+                                            <a href="#"><img src="{{ asset('frontend_assets/assets/img/instagram/instagram2.jpg')}}" alt=""></a>
                                         </div>
                                     </div>
                                 </div>
@@ -110,38 +110,38 @@
                                             <div class="tab-content" id="pills-tabContent">
                                                 <div class="tab-pane fade show active" id="tab1" role="tabpanel" >
                                                     <div class="modal_tab_img">
-                                                        <a href="#"><img src="{{ asset('public/frontend_assets/assets/img/product/product18.jpg')}}" alt=""></a>
+                                                        <a href="#"><img src="{{ asset('frontend_assets/assets/img/product/product18.jpg')}}" alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane fade" id="tab2" role="tabpanel">
                                                     <div class="modal_tab_img">
-                                                        <a href="#"><img src="{{ asset('public/frontend_assets/assets/img/product/product23.jpg')}}" alt=""></a>
+                                                        <a href="#"><img src="{{ asset('frontend_assets/assets/img/product/product23.jpg')}}" alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane fade" id="tab3" role="tabpanel">
                                                     <div class="modal_tab_img">
-                                                        <a href="#"><img src="{{ asset('public/frontend_assets/assets/img/product/product18.jpg')}}" alt=""></a>
+                                                        <a href="#"><img src="{{ asset('frontend_assets/assets/img/product/product18.jpg')}}" alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane fade" id="tab4" role="tabpanel">
                                                     <div class="modal_tab_img">
-                                                        <a href="#"><img src="{{ asset('public/frontend_assets/assets/img/product/product7.jpg')}}" alt=""></a>
+                                                        <a href="#"><img src="{{ asset('frontend_assets/assets/img/product/product7.jpg')}}" alt=""></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="modal_tab_button">
                                                 <ul class="nav product_navactive" role="tablist">
                                                     <li >
-                                                        <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="{{ asset('public/frontend_assets/assets/img/cart/cart11.jpg')}}" alt=""></a>
+                                                        <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="{{ asset('frontend_assets/assets/img/cart/cart11.jpg')}}" alt=""></a>
                                                     </li>
                                                     <li>
-                                                        <a class="nav-link" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="{{ asset('public/frontend_assets/assets/img/cart/cart8.jpg')}}" alt=""></a>
+                                                        <a class="nav-link" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="{{ asset('frontend_assets/assets/img/cart/cart8.jpg')}}" alt=""></a>
                                                     </li>
                                                     <li>
-                                                        <a class="nav-link button_three" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="{{ asset('public/frontend_assets/assets/img/cart/cart2.jpg')}}" alt=""></a>
+                                                        <a class="nav-link button_three" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="{{ asset('frontend_assets/assets/img/cart/cart2.jpg')}}" alt=""></a>
                                                     </li>
                                                     <li>
-                                                        <a class="nav-link button_three" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab3" aria-selected="false"><img src="{{ asset('public/frontend_assets/assets/img/cart/cart4.jpg')}}" alt=""></a>
+                                                        <a class="nav-link button_three" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab3" aria-selected="false"><img src="{{ asset('frontend_assets/assets/img/cart/cart4.jpg')}}" alt=""></a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -198,11 +198,11 @@
             </div>
         </div>
 
-        <script src="{{ asset('public/frontend_assets/assets/js/vendor/jquery-1.12.0.min.js')}}"></script>
-        <script src="{{ asset('public/frontend_assets/assets/js/popper.js')}}"></script>
-        <script src="{{ asset('public/frontend_assets/assets/js/bootstrap.min.js')}}"></script>
-        <script src="{{ asset('public/frontend_assets/assets/js/plugins.js')}}"></script>
-        <script src="{{ asset('public/frontend_assets/assets/js/main.js')}}"></script>
+        <script src="{{ asset('frontend_assets/assets/js/vendor/jquery-1.12.0.min.js')}}"></script>
+        <script src="{{ asset('frontend_assets/assets/js/popper.js')}}"></script>
+        <script src="{{ asset('frontend_assets/assets/js/bootstrap.min.js')}}"></script>
+        <script src="{{ asset('frontend_assets/assets/js/plugins.js')}}"></script>
+        <script src="{{ asset('frontend_assets/assets/js/main.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
         @stack('scripts')

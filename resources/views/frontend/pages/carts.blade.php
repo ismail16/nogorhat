@@ -33,7 +33,7 @@
                                             <button class="btn btn-danger" onclick="delete_cart({{$cart->id}})"><i class="fa fa-trash-o"></i></button>
                                         </td>
                                         <td class="product_name"><a href="#">{{ $cart->product->title }}</a></td>
-                                        <td class="product_thumb"><a href="#"><img src="{{ asset('public/images/product_image/'.$cart->product->product_image->first()->image) }}" height="50" alt=""></a></td>
+                                        <td class="product_thumb"><a href="#"><img src="{{ asset('images/product_image/'.$cart->product->product_image->first()->image) }}" height="50" alt=""></a></td>
                                         <td class="product-price">Tk {{ $cart->product->price }}</td>
                                         <td class="product_quantity">
                                             <div class="input-group">

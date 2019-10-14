@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="categorie_d_right mt-1">
-                    <div class="single_slider single_sl_categorie" style="background-image: url({{ asset('public/frontend_assets/assets/img/slider/slider9.jpg')}}">
+                    <div class="single_slider single_sl_categorie" style="background-image: url({{ asset('frontend_assets/assets/img/slider/slider9.jpg')}}">
 
                     </div>
                     <div class="categorie_product_toolbar mb-30">
@@ -50,7 +50,7 @@
                                     <div class="col-lg-3 col-md-4 col-sm-6">
                                         <div class="single_product categorie card">
                                             <div class="product_thumb">
-                                                <a href="single-product.html"><img src="{{ asset('public/images/product_image/'.$product_image) }}" alt=""></a>
+                                                <a href="single-product.html"><img src="{{ asset('images/product_image/'.$product_image) }}" alt=""></a>
                                                 <div class="product_discount">
                                                     <span>-10%</span>
                                                 </div>
@@ -112,7 +112,7 @@
                                 <div class="row cate_tab_product">
                                     <div class="col-lg-4 col-md-6 col-sm-6">
                                         <div class="product_thumb">
-                                            <a href="single-product.html"><img src="{{ asset('public/images/product_image/'.$product_image) }}" alt=""></a>
+                                            <a href="single-product.html"><img src="{{ asset('images/product_image/'.$product_image) }}" alt=""></a>
                                             <div class="product_discount">
                                                 <span>-10%</span>
                                             </div>

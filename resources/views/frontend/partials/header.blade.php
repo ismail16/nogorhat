@@ -7,14 +7,14 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{('public/frontend_assets/assets/img/favicon.png')}}"">
+    <link rel="shortcut icon" type="image/x-icon" href="{{('frontend_assets/assets/img/favicon.png')}}">
     <!-- all css here -->
-    <link rel="stylesheet" href="{{ asset('public/frontend_assets/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/frontend_assets/assets/css/bundle.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/frontend_assets/assets/css/plugins.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/frontend_assets/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/frontend_assets/assets/css/responsive.css') }}">
-    <script src="{{ asset('public/frontend_assets/assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/bundle.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/plugins.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend_assets/assets/css/responsive.css') }}">
+    <script src="{{ asset('frontend_assets/assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
 
 </head>
 <body>
@@ -26,7 +26,7 @@
                 <div class="col-lg-3">
                     <div class="logo">
                         <h2>NOGORHAT</h2>
-{{--                        <a href="{{route('index')}}"><img src="{{ asset('public/frontend_assets/assets/img/logo/logo2.png')}}" alt=""></a>--}}
+{{--                        <a href="{{route('index')}}"><img src="{{ asset('frontend_assets/assets/img/logo/logo2.png')}}" alt=""></a>--}}
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -110,7 +110,7 @@
                 <div class="col-lg-3 col-md-5">
                     <div class="categories_menu categorie__three">
                         <div class="categories_title ca_title_two">
-                            <h2 class="categori_toggle"><img src="{{ asset('public/frontend_assets/assets/img/logo/categorie.png')}}" alt=""> All categories</h2>
+                            <h2 class="categori_toggle"><img src="{{ asset('frontend_assets/assets/img/logo/categorie.png')}}" alt=""> All categories</h2>
                         </div>
                         <div class="categories_menu_inner categorie_inner_three">
                             <ul>

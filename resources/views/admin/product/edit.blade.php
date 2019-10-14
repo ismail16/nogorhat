@@ -2,7 +2,7 @@
 @section('title','Edit Product')
 
 @push('css')
-    <link rel="stylesheet" href="{{asset('public/backend_assets/plugins/summernote/summernote-bs4.css')}}">
+    <link rel="stylesheet" href="{{asset('backend_assets/plugins/summernote/summernote-bs4.css')}}">
 @endpush
 
 @section('content')
@@ -200,7 +200,7 @@
 
 
 @push('scripts')
-    <script src="{{asset('public/backend_assets/plugins/summernote/summernote-bs4.min.js')}}"></script>
+    <script src="{{asset('backend_assets/plugins/summernote/summernote-bs4.min.js')}}"></script>
     <script>
         $(function () {
             // Summernote
