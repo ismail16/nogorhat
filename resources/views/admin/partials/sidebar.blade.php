@@ -20,7 +20,7 @@
                 <li class="nav-header pt-2">Orders</li>
                 <li class="nav-item">
                     <a href="{{ route('admin.order.index') }}" class="nav-link">
-                        <i class="nav-icon far fa fa-bars"></i>
+                        <i class="nav-icon far fa fa-cart-plus"></i>
                         <p>Order</p>
                     </a>
                 </li>

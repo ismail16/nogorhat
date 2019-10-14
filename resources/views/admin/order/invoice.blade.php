@@ -12,7 +12,7 @@
               <form action="{{ route('admin.order.update',$order->id) }}" method="post">
                   @csrf
                   @method('PUT')
-            <div class="invoice p-5 mb-3 card">
+                  <div class="invoice p-5 mb-3 card">
               <div>
                   <div class="row card-header">
                     <div class="col-12">
@@ -132,20 +132,24 @@
                     </div>
 
                 <div class="row no-print card-footer">
-                    <div class="col-12">
-                    <button onclick="window.print()" class="btn btn-default"><i class="fa fa-print"></i> Print</button>
-
-                         <button type="submit" class="btn btn-success float-right"><i class="fa fa-credit-card"></i>
-                             Order Confirmed
-                         </button>
-
+                    <div class="col-12 text-right">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a href="{{route('admin.order.index')}}" type="button" class="btn btn-default mr-2">Cancel</a>
+                            <button type="submit" class="btn btn-success float-right"><i class="fa fa-credit-card"></i>
+                                Confirmed
+                            </button>
+                        </div>
                     </div>
                 </div>
                 </div>
 
                 </div>
               </form>
+              <div class="text-right" style="margin: -15px 0px 10px 0px;">
+                  <button onclick="window.print()" class="btn btn-default"><i class="fa fa-print"></i> Print</button>
+              </div>
           </div>
+
         </div>
     </div>
 @endsection

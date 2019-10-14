@@ -2,7 +2,7 @@
 
         </div>
         <div class="">
-            <div class="newsletter_area">
+            <div class="newsletter_area" style="background-color: #d0d0d0 !important;">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-2 col-md-6">
@@ -14,8 +14,8 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="social_icone">
                                 <ul>
-                                    <li><a href="#" title="facebook"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#" title="twitter"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a target="_blank" href="https://www.facebook.com/nogorhatbd1, " title="facebook"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a target="_blank" href=" https://www.youtube.com/channel/UCRshBFxljqZRB1cY1ldKkgQ/ " title="Youtube"><i class="fa fa-youtube"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                 </div>
             </div>
 
-            <div class="footer_area">
+            <div class="footer_area" style="background-color: #695b5b !important;">
                 <div class="container">
                     <div class="footer_top">
                         <div class="row">
@@ -51,20 +51,19 @@
                                 <div class="single_footer">
                                     <h4>GET IN TOUCH WITH US</h4>
                                     <ul>
+                                        <li><a href="{{ route('about') }}"><i class="fa fa-circle"></i>About Us</a></li>
                                         <li><a href="{{ route('contact') }}"><i class="fa fa-circle"></i> Contact Us</a></li>
-                                        <li><a href="{{ route('author.dashboard') }}"><i class="fa fa-circle"></i> Your Account</a></li>
-                                        <li><a href="{{ route('faq') }}"><i class="fa fa-circle"></i> FAQ</a></li>
+{{--                                        <li><a href="{{ route('author.dashboard') }}"><i class="fa fa-circle"></i> Your Account</a></li>--}}
+{{--                                        <li><a href="{{ route('faq') }}"><i class="fa fa-circle"></i> FAQ</a></li>--}}
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 col-sm-6">
                                 <div class="single_footer">
-                                    <h4>GET TO KNOW US</h4>
+                                    <h4>GET TO KNOW</h4>
                                     <ul>
-                                        <li><a href="{{ route('about') }}"><i class="fa fa-circle"></i>About Us</a></li>
                                         <li><a href="{{ route('terms.conditions') }}"><i class="fa fa-circle"></i> Terms & Conditions</a></li>
                                         <li><a href="{{ route('returns.replacement') }}"><i class="fa fa-circle"></i> Returns and Replacement</a></li>
-
                                     </ul>
                                 </div>
                             </div>
@@ -83,11 +82,15 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="footer_area" style="background-color: #d0d0d0 !important;">
+                <div class="container">
                     <div class="copyright_area">
                         <div class="row">
                             <div class="col-md-12 d-flex justify-content-center">
                                 <div class="widget_copyright">
-                                    <p>copyright &copy; 2018 <a href="#">Lionshop</a>. all right reserved</p>
+                                    <p style="color: black;">copyright &copy; 2019 <a href="{{ route('index') }}">NogorHat</a>. all right reserved</p>
                                 </div>
                             </div>
 

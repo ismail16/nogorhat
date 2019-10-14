@@ -18,7 +18,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{route('admin.category.create')}}" class="pull-right btn btn-sm btn-primary float-right"> <i
+                        <a href="#" class="pull-right btn btn-sm btn-primary float-right"> <i
                                 class="fa fa-plus"></i> Add New</a>
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
@@ -52,7 +52,7 @@
                                                 class="fa fa-trash"></i></a>
 
                                     <form id="on_delete{{$loop->index+1}}"
-                                          action="{{route('admin.category.destroy', $order->id)}}"
+                                          action="{{route('admin.order.destroy', $order->id)}}"
                                           method="post" class="delete"
                                           data-content="{{$order->id}}"
                                           style="display: none;">

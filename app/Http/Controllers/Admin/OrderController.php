@@ -77,11 +77,8 @@ class OrderController extends Controller
 
     public function destroy($id)
     {
-        $category = Category::find($id);
-        if (file_exists('images/category_image/' . $category->image)) {
-            unlink('images/category_image/' . $category->image);
-        }
-        $category->delete();
-        return back()->with('message', 'Category Deleted Successfully !');
+        $order = Order::find($id);
+        $order->delete();
+        return back()->with('message', 'Order Deleted Successfully !');
     }
 }

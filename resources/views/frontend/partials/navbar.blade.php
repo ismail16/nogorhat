@@ -1,5 +1,5 @@
 <div class="home_two_block_section">
-    <div class="container">
+    <div class="container" >
         <div class="row">
             <div class="col-lg-9 col-md-8">
                 <!--banner slider start-->
