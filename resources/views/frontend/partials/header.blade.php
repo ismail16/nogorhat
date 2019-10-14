@@ -138,9 +138,7 @@
                 <div class="col-lg-3 col-md-5">
                     <div class="categories_menu categorie__three">
                         <div class="categories_title ca_title_two">
-                            <h2 class="categori_toggle">
-                                <img src="{{ asset('frontend_assets/assets/img/logo/categorie.png')}}" alt=""> All categories
-                            </h2>
+                            <h2 class="categori_toggle"><img src="{{ asset('frontend_assets/assets/img/logo/categorie.png')}}" alt=""> All categories</h2>
                         </div>
                         <div class="categories_menu_inner categorie_inner_three">
                             <ul>
