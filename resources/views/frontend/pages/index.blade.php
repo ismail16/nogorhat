@@ -8,35 +8,33 @@
         <div class="row">
             <div class="col-lg-9 col-md-8">
                 <!--banner slider start-->
-                <div class="banner_slider mb-40">
+                <div class="banner_slider mb-10">
                     <div class="slider_active owl-carousel">
-                        <!--   <div class="single_slider single_sl_two" style="background-image: url(/frontend_assets/assets/img/slider/slider3.jpg)"> -->
-
-                        <div class="single_slider single_sl_two" style="background-image: url('{{ asset('frontend_assets/assets/img/slider/slider3.jpg')}}');">
+                        <div class="single_slider single_sl_two" style="background-image: url('{{ asset('images/slider_image/1.png')}}');">
                             <div class="row">
                                 <div class="col-lg-7 offset-lg-5 col-md-8 offset-md-4">
                                     <div class="slider_content slider_c_two">
-                                        <h2>new furniture !</h2>
+                                     <!--    <h2>new furniture !</h2>
                                         <h1>50 % off</h1>
                                         <div class="slider_button">
                                             <a href="#">shop it! </a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="single_slider single_sl_two" style="background-image: url('{{ asset('frontend_assets/assets/img/slider/slider4.jpg')}}');">
+                        <div class="single_slider single_sl_two" style="background-image: url('{{ asset('images/slider_image/2.png')}}');">
                             <div class="row">
                                 <div class="col-lg-6 offset-lg-5 col-md-8 offset-md-4">
                                     <div class="slider_content sale_c_two sale">
-                                        <h2>Tablets </h2>
+                                       <!--  <h2>Tablets </h2>
                                         <h1>Sale </h1>
                                         <div class="slider_desc_up ">
                                             <p>Up to 40 % off on all tablets </p>
                                         </div>
                                         <div class="slider_button">
                                             <a href="#">shop it! </a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -44,10 +42,792 @@
                     </div>
                 </div>
                 <!--banner slider end-->
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="single_shipping">
+                            <div class="shippin_icone">
+                                <i class="fa fa-truck"></i>
+                            </div>
+                            <div class="shipping_content">
+                                <h3>Free shipping on orders over $100</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="single_shipping">
+                            <div class="shippin_icone">
+                                <i class="fa fa-history"></i>
+                            </div>
+                            <div class="shipping_content">
+                                <h3>30-day returns money back guarantee</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="single_shipping box3">
+                            <div class="shippin_icone">
+                                <i class="fa fa-headphones"></i>
+                            </div>
+                            <div class="shipping_content">
+                                <h3>24/7 online support consultations</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-3 col-md-4">
-                <div class="product_banner product_banner_two fix mb-40">
+               <!--  <div class="product_banner product_banner_two fix mb-40">
                     <a href="#"><img src="{{ asset('frontend_assets/assets/img/banner/banner1.jpg') }}" alt=""></a>
+                </div> -->
+                <div class="top_sellers top_seller_two featured">
+                    <div class="top_title">
+                        <h2> Bestseller</h2>
+                    </div>
+                    <div class="small_product_active owl-carousel owl-loaded owl-drag">
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage" style="transform: translate3d(-536px, 0px, 0px); transition: all 0s ease 0s; width: 1608px;">
+                                <div class="owl-item cloned" style="width: 268px;">
+                                    <div class="small_product_item">
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart13.jpg" alt=""></a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html"> Summer Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart1.jpg" alt=""></a>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Faded T-shirt</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart2.jpg" alt=""></a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Printed Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart3.jpg" alt=""></a>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Summer Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item cloned" style="width: 268px;">
+                                    <div class="small_product_item">
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart4.jpg" alt=""></a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Printed Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart10.jpg" alt=""></a>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html"> Summer Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart8.jpg" alt=""></a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Printed Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart7.jpg" alt=""></a>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Summer Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart8.jpg" alt=""></a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Printed  Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item active" style="width: 268px;">
+                                    <div class="small_product_item">
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart13.jpg" alt=""></a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html"> Summer Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart1.jpg" alt=""></a>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Faded T-shirt</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart2.jpg" alt=""></a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Printed Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart3.jpg" alt=""></a>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Summer Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart5.jpg" alt=""></a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Summer Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item" style="width: 268px;">
+                                    <div class="small_product_item">
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart4.jpg" alt=""></a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Printed Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart10.jpg" alt=""></a>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html"> Summer Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart8.jpg" alt=""></a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Printed Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart7.jpg" alt=""></a>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Summer Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart8.jpg" alt=""></a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Printed  Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item cloned" style="width: 268px;">
+                                    <div class="small_product_item">
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart13.jpg" alt=""></a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html"> Summer Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart1.jpg" alt=""></a>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Faded T-shirt</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart2.jpg" alt=""></a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Printed Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart3.jpg" alt=""></a>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Summer Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart5.jpg" alt=""></a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Summer Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item cloned" style="width: 268px;">
+                                    <div class="small_product_item">
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart4.jpg" alt=""></a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Printed Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart10.jpg" alt=""></a>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html"> Summer Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart8.jpg" alt=""></a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Printed Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart7.jpg" alt=""></a>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Summer Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="single-product.html"><img src="assets/img/cart/cart8.jpg" alt=""></a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="single-product.html">Printed  Dress</a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> $27.00 </span>
+                                                    <span class="old_price">  $30.50  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-nav">
+                            <div class="owl-prev"><i class="fa fa-angle-left"></i></div>
+                            <div class="owl-next"><i class="fa fa-angle-right"></i></div>
+                        </div>
+                        <div class="owl-dots">
+                            <div class="owl-dot active"><span></span></div>
+                            <div class="owl-dot"><span></span></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

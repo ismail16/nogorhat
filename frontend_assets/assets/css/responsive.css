@@ -1,26 +1,4 @@
-.account_dropdown{
-    position: absolute;
-    width: 200px;
-    background: #fff;
-    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2);
-    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.2);
-    z-index: 999;
-    padding: 10px 20px 20px;
-    right: 0; top: 100%;
-    display: none;
-}
-@media(max-width: 767px) {
-    .account_dropdown{
-        left: 0;
-    }
-}
-@media(max-width: 479px) {
-    .account_dropdown{
-        width: 200px;
-        z-index: 9999;
-        left: -50px;
-    }
-}
+
 /* Medium desktop :1366px. */
 @media (min-width: 1200px) and (max-width: 1680px) {
 
