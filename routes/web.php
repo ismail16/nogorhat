@@ -12,6 +12,7 @@ Route::get('/', 'frontend\PagesController@index')->name('index');
 Route::get('/products', 'frontend\PagesController@products')->name('products');
 Route::get('/producs/{id}', 'frontend\PagesController@producs1')->name('single.producs');
 Route::get('/contact', 'frontend\PagesController@contact')->name('contact');
+Route::post('/contact-store', 'frontend\ContactController@contact_store')->name('contact.store');
 Route::get('/about', 'frontend\PagesController@about')->name('about');
 Route::get('/faq', 'frontend\PagesController@faq')->name('faq');
 Route::get('/terms-conditions', 'frontend\PagesController@terms_conditions')->name('terms.conditions');
@@ -25,6 +26,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::resource('subcategory', 'SubcategoryController');
     Route::resource('supplier', 'SupplierController');
     Route::resource('product', 'ProductController');
+    Route::resource('order', 'OrderController');
+
 });
 
 //======================================== Author route==================================
@@ -44,6 +47,7 @@ Route::group(['prefix' => 'cards'], function(){
 });
 
 Route::resource('checkout', 'frontend\CheckoutsController');
+Route::get('/invoice/{id}', 'frontend\CheckoutsController@invoice')->name('card.invoice');
 
 
 
