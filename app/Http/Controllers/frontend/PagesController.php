@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 
 class PagesController extends Controller
 {
@@ -13,10 +14,8 @@ class PagesController extends Controller
     public function index()
     {
         $products = Product::all();
-
-//        return $products;
-
-        return view('frontend.pages.index',compact('products'));
+        $orders = Order::orderBy('id', 'desc')->get();
+        return view('frontend.pages.index',compact('products','orders'));
     }
 
     public function products()
@@ -24,11 +23,11 @@ class PagesController extends Controller
         return view('frontend.pages.products');
     }
 
-    public function producs1($id)
+    public function single_product($slug)
     {
-        $product = Product::find($id);
-        $productImage = ProductImage::where('product_id',$id)->get();
-//        return $productImage;
+        $product = Product::where('slug', $slug)->first();
+        $product_id = $product->id;
+        $productImage = ProductImage::where('product_id',$product_id)->get();
         return view('frontend.pages.single_product',compact('product','productImage'));
     }
 

@@ -52,7 +52,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-3">
                     <div class="logo">
-                        <h2 class="m-0">NOGORHAT</h2>
+                        <h2 class="m-0">shop</h2>
                         <span style="font-style: italic;color: #ab0400;font-weight: bold;">Forget the Rules, if you like it, wear it!</span>
 {{--                        <a href="{{route('index')}}"><img src="{{ asset('frontend_assets/assets/img/logo/logo2.png')}}" alt=""></a>--}}
                     </div>

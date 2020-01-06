@@ -66,8 +66,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @php $total = 0 @endphp
-                            @foreach(\App\Models\Order_detail::where('order_id',$order->id)->get() as $order)
+                            @php $total = 0 ; @endphp
+
+                            @foreach( \App\Models\Order_detail::where('order_id',$order->id)->get() as $order)
                                 @php
                                     $product = \App\Models\Product::where('id',$order->product_id)->first();
                                     $image = \App\Models\ProductImage::where('product_id',$order->product_id)->first();

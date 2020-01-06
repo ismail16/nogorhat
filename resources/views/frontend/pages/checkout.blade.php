@@ -8,6 +8,18 @@
     <!--Checkout page section-->
     <div class="Checkout_page_section">
         <div class="container">
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div class="col-12">
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{$error}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
             <div class="checkout_form" id="confirm_order">
                 <form action="{{ route('checkout.store') }}" method="POST">
                     @csrf

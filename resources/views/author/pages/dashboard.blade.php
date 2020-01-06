@@ -28,7 +28,7 @@
                                         <a href="#"><i class="fa fa-cart-plus fa-lg "></i> Orders </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('author.profile',Auth::user()->id) }}"><i class="fa fa-user-circle fa-lg"></i> Profile </a>
+                                        {{-- <a href="{{ route('author.profile',Auth::user()->id) }}"><i class="fa fa-user-circle fa-lg"></i> Profile </a> --}}
                                     </li>
                                     <li>
                                         <a href="#"><i class="fa fa-key fa-lg"></i> Logout </a>

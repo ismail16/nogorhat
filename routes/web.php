@@ -10,7 +10,7 @@ Route::resource('registration', 'Author\AuthorRegisterController');
 
 Route::get('/', 'frontend\PagesController@index')->name('index');
 Route::get('/products', 'frontend\PagesController@products')->name('products');
-Route::get('/producs/{id}', 'frontend\PagesController@producs1')->name('single.producs');
+Route::get('/producs/{slug}', 'frontend\PagesController@single_product')->name('single.producs');
 Route::get('/contact', 'frontend\PagesController@contact')->name('contact');
 Route::post('/contact-store', 'frontend\ContactController@contact_store')->name('contact.store');
 Route::get('/about', 'frontend\PagesController@about')->name('about');
@@ -33,7 +33,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 //======================================== Author route==================================
 Route::group(['as' => 'author.', 'prefix' => 'author', 'namespace' => 'Author', 'middleware' => ['auth', 'author']], function () {
     Route::get('dashboard', 'AuthorRegisterController@index')->name('dashboard');
-//    Route::get('profile/{id}', 'frontend\PagesController@profile')->name('profile');
+   Route::get('profile/{id}', 'frontend\PagesController@profile')->name('profile');
 });
 
 //======================================== Cart route==================================

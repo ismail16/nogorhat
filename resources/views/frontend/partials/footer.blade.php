@@ -7,14 +7,14 @@
                     <div class="row align-items-center">
                         <div class="col-lg-2 col-md-6">
                             <div class="footer_logo">
-                                <h3 class="text-red">NOGORHAT</h3>
+                                <h3 class="text-red">shop</h3>
                                 {{--                            <a href="#"><img src="{{ asset('frontend_assets/assets/img/logo/logo.png')}}"" alt=""></a>--}}
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="social_icone">
                                 <ul>
-                                    <li><a target="_blank" href="https://www.facebook.com/nogorhatbd1, " title="facebook"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a target="_blank" href="https://www.facebook.com/shopbd1, " title="facebook"><i class="fa fa-facebook"></i></a></li>
                                     <li><a target="_blank" href=" https://www.youtube.com/channel/UCRshBFxljqZRB1cY1ldKkgQ/ " title="Youtube"><i class="fa fa-youtube"></i></a></li>
                                 </ul>
                             </div>
@@ -90,7 +90,7 @@
                         <div class="row">
                             <div class="col-md-12 d-flex justify-content-center">
                                 <div class="widget_copyright">
-                                    <p style="color: black;">copyright &copy; 2019 <a href="{{ route('index') }}">NogorHat</a>. all right reserved</p>
+                                    <p style="color: black;">copyright &copy; 2019 <a href="{{ route('index') }}">shop</a>. all right reserved</p>
                                 </div>
                             </div>
 

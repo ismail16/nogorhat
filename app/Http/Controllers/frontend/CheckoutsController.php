@@ -32,6 +32,7 @@ class CheckoutsController extends Controller
 
     public function store(Request $request)
     {
+
         $this->validate($request, [
             'name'  => 'required',
             'phone_no'  => 'required',
@@ -40,7 +41,7 @@ class CheckoutsController extends Controller
         ]);
 
         $order = new Order();
-        if ($request->payment_method_id != 'cash_in') {
+        if ($request->payment_method != 'cash_in') {
             if ($request->transaction_id == NULL || empty($request->transaction_id)) {
                 session()->flash('sticky_error', 'Please give transaction ID for your payment');
                 return back();
@@ -55,6 +56,7 @@ class CheckoutsController extends Controller
 
         $order->ip_address = request()->ip();
         $order->transaction_id = $request->transaction_id;
+
         if (Auth::check()) {
             $order->user_id = Auth::id();
         }
@@ -83,7 +85,7 @@ class CheckoutsController extends Controller
             }
         }
 
-//        session()->flash('success', 'Your order has taken successfully !!! Please wait admin will soon confirm it.');
+       session()->flash('success', 'Your order has taken successfully !!! Please wait admin will soon confirm it.');
 
         return view('frontend.pages.order_confirmation',compact('order_id'));
 //        return redirect()->route('checkout.show',$order_id);
