@@ -82,46 +82,47 @@
                     </div>
                     <div class="small_product_active owl-carousel">
                         <div class="small_product_item">
-
-                            @foreach( \App\Models\Order_detail::all() as $orders)
-                                @php
-                                    $product = \App\Models\Product::where('id',$orders->product_id)->first();
-                                    $image = \App\Models\ProductImage::where('product_id',$orders->product_id)->first();
-                                @endphp
-                           
-
-                                <div class="small_product">
-                                    <div class="small_product_thumb">
-                                        <a href="{{ route('single.producs',$product->slug) }}">
-                                            <img src="{{ asset('images/product_image/'.$image->image) }}" alt="">
-                                        </a>
-                                        <div class="product_discount">
-                                            <span>-10%</span>
+                            <?php  $order_no = 0;
+                                foreach(\App\Models\Order_detail::all() as $orders){
+                                        $product = \App\Models\Product::where('id',$orders->product_id)->first();
+                                        $image = \App\Models\ProductImage::where('product_id',$orders->product_id)->first();
+                                    if( $order_no < 4){
+                                        ?>
+                                        <div class="small_product">
+                                            <div class="small_product_thumb">
+                                                <a href="{{ route('single.producs',$product->slug) }}">
+                                                    <img src="{{ asset('images/product_image/'.$image->image) }}" alt="">
+                                                </a>
+                                                <div class="product_discount">
+                                                    <span>-10%</span>
+                                                </div>
+                                            </div>
+                                            <div class="small_product_content">
+                                                <div class="samll_product_ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="small_product_name" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;">
+                                                    <a title="Printed Summer Dress" href="{{ route('single.producs',$product->slug) }}">
+                                                        {{ $product->title }}
+                                                    </a>
+                                                </div>
+                                                <div class="small_product_price">
+                                                    <span class="new_price"> {{ $product->price }} </span>
+                                                    <span class="old_price">  {{ $product->old_price }}  </span>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="small_product_content">
-                                        <div class="samll_product_ratting">
-                                            <ul>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="small_product_name" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;">
-                                            <a title="Printed Summer Dress" href="{{ route('single.producs',$product->slug) }}">
-                                                {{ $product->title }}
-                                            </a>
-                                        </div>
-                                        <div class="small_product_price">
-                                            <span class="new_price"> {{ $product->price }} </span>
-                                            <span class="old_price">  {{ $product->old_price }}  </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-
+                                        <?php
+                                     }
+                                    $order_no++;
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
