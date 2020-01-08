@@ -1,7 +1,7 @@
 <?php
 
 //===================== Registration route======================
-Route::get('customer/register', 'Author\AuthorRegisterController@index')->name('authorRegister');
+Route::get('customer/register', 'Author\AuthorRegisterController@register')->name('authorRegister');
 Route::get('customer/login', 'Author\AuthorRegisterController@login')->name('authorLogin');
 Route::get('customer/registration/verification', 'Auth\RegisterController@authormailverification')->name('authormailverification');
 Route::get('customer-registration-verification-done/{token}/{id}', 'Auth\RegisterController@authormailverificationdone')->name('authormailverificationdone');
@@ -27,6 +27,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::resource('supplier', 'SupplierController');
     Route::resource('product', 'ProductController');
     Route::resource('order', 'OrderController');
+    Route::resource('customer', 'CustomerController');
 
 });
 

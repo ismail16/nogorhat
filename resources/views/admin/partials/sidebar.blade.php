@@ -19,6 +19,12 @@
 
                 <li class="nav-header pt-2">Orders</li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.customer.index') }}" class="nav-link">
+                        <i class="nav-icon far fa fa-users"></i>
+                        <p>Customer</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.order.index') }}" class="nav-link">
                         <i class="nav-icon far fa fa-cart-plus"></i>
                         <p>Order</p>

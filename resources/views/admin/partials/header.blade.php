@@ -27,6 +27,15 @@
     <link rel="stylesheet" href="{{asset('backend_assets/plugins/summernote/summernote-bs4.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <style type="text/css" media="screen">
+        .btn-xs{
+            padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+        }
+    </style>
     @stack('css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

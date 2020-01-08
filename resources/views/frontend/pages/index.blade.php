@@ -83,9 +83,12 @@
                     <div class="small_product_active owl-carousel">
                         <div class="small_product_item">
                             <?php  $order_no = 0;
-                                foreach(\App\Models\Order_detail::all() as $orders){
-                                        $product = \App\Models\Product::where('id',$orders->product_id)->first();
-                                        $image = \App\Models\ProductImage::where('product_id',$orders->product_id)->first();
+                                foreach($orders as $order){
+
+                                        $product = \App\Models\Product::where('id',$order->order_detail->product_id)->first();
+
+                                        $image = \App\Models\ProductImage::where('product_id',$order->order_detail->product_id)->first();
+
                                     if( $order_no < 4){
                                         ?>
                                         <div class="small_product">

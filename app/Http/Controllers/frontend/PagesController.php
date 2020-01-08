@@ -15,12 +15,14 @@ class PagesController extends Controller
     {
         $products = Product::all();
         $orders = Order::orderBy('id', 'desc')->get();
+
         return view('frontend.pages.index',compact('products','orders'));
     }
 
     public function products()
     {
-        return view('frontend.pages.products');
+        $products = Product::paginate(4);
+        return view('frontend.pages.products',compact('products'));
     }
 
     public function single_product($slug)

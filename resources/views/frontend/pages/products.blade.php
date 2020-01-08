@@ -34,7 +34,23 @@
                                 <option value="1">In stock</option>
                                 <option value="1">Reference: Lowest first</option>
                                 <option value="1">Reference: Highest first</option>
-                            </select><div class="nice-select" tabindex="0"><span class="current">Default sorting</span><ul class="list"><li data-value="1" class="option selected">Default sorting</li><li data-value="1" class="option">Sort by popularity</li><li data-value="1" class="option">Sort by average rating</li><li data-value="1" class="option">Sort by rating</li><li data-value="1" class="option">Sort by price: low to high</li><li data-value="1" class="option">Sort by price: high to low</li><li data-value="1" class="option">Price: Lowest first</li><li data-value="1" class="option">Product Name: A to Z</li><li data-value="1" class="option">In stock</li><li data-value="1" class="option">Reference: Lowest first</li><li data-value="1" class="option">Reference: Highest first</li></ul></div>
+                            </select>
+                            <div class="nice-select" tabindex="0">
+                                <span class="current">Default sorting</span>
+                                <ul class="list">
+                                    <li data-value="1" class="option selected">Default sorting</li>
+                                    <li data-value="1" class="option">Sort by popularity</li>
+                                    <li data-value="1" class="option">Sort by average rating</li>
+                                    <li data-value="1" class="option">Sort by rating</li>
+                                    <li data-value="1" class="option">Sort by price: low to high</li>
+                                    <li data-value="1" class="option">Sort by price: high to low</li>
+                                    <li data-value="1" class="option">Price: Lowest first</li>
+                                    <li data-value="1" class="option">Product Name: A to Z</li>
+                                    <li data-value="1" class="option">In stock</li>
+                                    <li data-value="1" class="option">Reference: Lowest first</li>
+                                    <li data-value="1" class="option">Reference: Highest first</li>
+                                </ul>
+                            </div>
                         </form>
                         <p>Showing 1–12 of 46 results</p>
                     </div>
@@ -43,22 +59,33 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="large" role="tabpanel">
                             <div class="row cate_tab_product">
-                                @foreach(\App\Models\Product::all() as $product)
-                                    @php
-                                        $product_image = \App\Models\ProductImage::Where('product_id',$product->id)->first()->image
-                                    @endphp
+                                @foreach($products as $product)
                                     <div class="col-lg-3 col-md-4 col-sm-6">
                                         <div class="single_product categorie card">
                                             <div class="product_thumb">
-                                                <a href="single-product.html"><img src="{{ asset('images/product_image/'.$product_image) }}" alt=""></a>
+                                                <a href="single-product.html">
+                                                    <img src="{{ asset('images/product_image/'.$product->product_image->first()->image) }}" alt="">
+                                                </a>
                                                 <div class="product_discount">
                                                     <span>-10%</span>
                                                 </div>
                                                 <div class="product_action">
                                                     <ul>
-                                                        <li><a href="#" title=" Add to Wishlist "><i class="fa fa-heart"></i></a></li>
-                                                        <li><a href="#" title=" Add to Compare "><i class="fa fa-retweet"></i></a></li>
-                                                        <li><a href="#" title=" Add to cart "><i class="fa fa-shopping-cart"></i></a></li>
+                                                        <li>
+                                                            <a href="#" title=" Add to Wishlist ">
+                                                                <i class="fa fa-heart"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" title=" Add to Compare ">
+                                                                <i class="fa fa-retweet"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" title=" Add to cart ">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                                 <div class="quick_view">
@@ -104,15 +131,12 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="list" role="tabpanel">
-                            @foreach(\App\Models\Product::all() as $product)
-                                @php
-                                    $product_image = \App\Models\ProductImage::Where('product_id',$product->id)->first()->image
-                                @endphp
+                            @foreach($products as $product)
                                 <div class="single_product categorie">
                                 <div class="row cate_tab_product">
                                     <div class="col-lg-4 col-md-6 col-sm-6">
                                         <div class="product_thumb">
-                                            <a href="single-product.html"><img src="{{ asset('images/product_image/'.$product_image) }}" alt=""></a>
+                                            <a href="single-product.html"><img src="{{ asset('images/product_image/'.$product->product_image->first()->image) }}" alt=""></a>
                                             <div class="product_discount">
                                                 <span>-10%</span>
                                             </div>
@@ -171,14 +195,8 @@
                         </div>
                     </div>
 
-                    <div class="page_numbers_toolbar">
-                        <ul>
-                            <li><a class="current_page" href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a class="next_page" href="#">next</a></li>
-                        </ul>
+                    <div class="card-footer d-flex justify-content-center">
+                        {{ $products->links() }}
                     </div>
 
                 </div>

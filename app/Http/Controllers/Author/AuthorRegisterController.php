@@ -19,6 +19,11 @@ class AuthorRegisterController extends Controller
         return view('author.pages.customer_profile',compact('customer'));
     }
 
+    public function register()
+    {
+        return view('author.register');
+    }
+
     public function login()
     {
         return view('author.login');
