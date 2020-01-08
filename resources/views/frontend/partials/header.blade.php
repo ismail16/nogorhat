@@ -145,7 +145,7 @@
                             <ul>
                                 @foreach( \App\Models\Category::all() as $category )
                                     <li>
-                                        <a href="#"><i class="fa fa-caret-right"></i> {{ $category->name }} <i class="fa fa-angle-right"></i></a>
+                                        <a href="{{ route('category',$category->id) }}"><i class="fa fa-caret-right"></i> {{ $category->name }} <i class="fa fa-angle-right"></i></a>
                                         <ul class="categories_mega_menu categorie_mega_two" style="width: 100% !important;">
                                             <li style="width: 100%">
                                                 <a href="#">Sub-Category</a>

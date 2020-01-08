@@ -22,7 +22,8 @@ class PagesController extends Controller
     public function products()
     {
         $products = Product::paginate(4);
-        return view('frontend.pages.products',compact('products'));
+        $categories = Product::all();
+        return view('frontend.pages.products',compact('products','categories'));
     }
 
     public function single_product($slug)
@@ -31,6 +32,12 @@ class PagesController extends Controller
         $product_id = $product->id;
         $productImage = ProductImage::where('product_id',$product_id)->get();
         return view('frontend.pages.single_product',compact('product','productImage'));
+    } 
+
+    public function category($id)
+    {
+        $products = Product::where('id', $id)->get();
+        return view('frontend.pages.category',compact('products'));
     }
 
     public function contact()

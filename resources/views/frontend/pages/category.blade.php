@@ -6,9 +6,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="categorie_d_right mt-1">
-                    <div class="single_slider single_sl_categorie" style="background-image: url({{ asset('frontend_assets/assets/img/slider/slider9.jpg')}}">
-
-                    </div>
                     <div class="categorie_product_toolbar mb-30">
                         <div class="categorie_product_button">
                             <ul class="nav" role="tablist">
@@ -20,12 +17,39 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="float-right">
-                            <select name="orderby" id="short" class="form-control">
-                                <option selected="" value="1">All Category</option>
+                        <form action="#">
+                            <label>Sort By</label>
+                            <select name="orderby" id="short" style="display: none;">
+                                <option selected="" value="1">Default sorting</option>
                                 <option value="1">Sort by popularity</option>
+                                <option value="1">Sort by average rating</option>
+                                <option value="1">Sort by rating</option>
+                                <option value="1">Sort by price: low to high</option>
+                                <option value="1">Sort by price: high to low</option>
+                                <option value="1">Price: Lowest first</option>
+                                <option value="1">Product Name: A to Z</option>
+                                <option value="1">In stock</option>
+                                <option value="1">Reference: Lowest first</option>
+                                <option value="1">Reference: Highest first</option>
                             </select>
-                        </div>
+                            <div class="nice-select" tabindex="0">
+                                <span class="current">Default sorting</span>
+                                <ul class="list">
+                                    <li data-value="1" class="option selected">Default sorting</li>
+                                    <li data-value="1" class="option">Sort by popularity</li>
+                                    <li data-value="1" class="option">Sort by average rating</li>
+                                    <li data-value="1" class="option">Sort by rating</li>
+                                    <li data-value="1" class="option">Sort by price: low to high</li>
+                                    <li data-value="1" class="option">Sort by price: high to low</li>
+                                    <li data-value="1" class="option">Price: Lowest first</li>
+                                    <li data-value="1" class="option">Product Name: A to Z</li>
+                                    <li data-value="1" class="option">In stock</li>
+                                    <li data-value="1" class="option">Reference: Lowest first</li>
+                                    <li data-value="1" class="option">Reference: Highest first</li>
+                                </ul>
+                            </div>
+                        </form>
+                        <p>Showing 1–12 of 46 results</p>
                     </div>
 
 

@@ -11,6 +11,7 @@ Route::resource('registration', 'Author\AuthorRegisterController');
 Route::get('/', 'frontend\PagesController@index')->name('index');
 Route::get('/products', 'frontend\PagesController@products')->name('products');
 Route::get('/producs/{slug}', 'frontend\PagesController@single_product')->name('single.producs');
+Route::get('/category/{id}', 'frontend\PagesController@category')->name('category');
 Route::get('/contact', 'frontend\PagesController@contact')->name('contact');
 Route::post('/contact-store', 'frontend\ContactController@contact_store')->name('contact.store');
 Route::get('/about', 'frontend\PagesController@about')->name('about');
