@@ -84,17 +84,13 @@
                         <div class="small_product_item">
                             <?php  $order_no = 0;
                                 foreach($orders as $order){
-
                                         $product = \App\Models\Product::where('id',$order->order_detail->product_id)->first();
-
-                                        $image = \App\Models\ProductImage::where('product_id',$order->order_detail->product_id)->first();
-
-                                    if( $order_no < 4){
+                                    if( $order_no < 6){
                                         ?>
                                         <div class="small_product">
                                             <div class="small_product_thumb">
                                                 <a href="{{ route('single.producs',$product->slug) }}">
-                                                    <img src="{{ asset('images/product_image/'.$image->image) }}" alt="">
+                                                <img src="{{ asset('images/product_image/'.$product->product_image->first()->image) }}" alt="" style="width: 85%;">
                                                 </a>
                                                 <div class="product_discount">
                                                     <span>-10%</span>
@@ -122,7 +118,7 @@
                                             </div>
                                         </div>
                                         <?php
-                                     }
+                                    }
                                     $order_no++;
                                 }
                             ?>
@@ -141,10 +137,9 @@
                     <div class="row no-gutters">
                         <div class="col-lg-2 col-md-6">
                             <div class="hot_category hot_ct_three">
-                                <h4>Sub Category</h4>
-                                <ul style="border-bottom: 1px solid #dddddd; padding-bottom: 10px;">
+                                <ul style="padding-bottom: 10px;">
                                     @foreach( \App\Models\Subcategory::Where('category_id', $category->id)->get() as $subcategory)
-                                        <li><a href="#">{{ $subcategory->name }}</a></li>
+                                        <li style="border-bottom: 1px solid #dddddd;"><a class="border-bottom" href="#">{{ $subcategory->name }}</a></li>
                                     @endforeach
                                 </ul>
                                 <img src="{{asset('images/category_image/'.$category->image)}}" alt="">
@@ -158,10 +153,7 @@
                                             <div class="single_featured ">
                                                 <div class="single_product s_product_three card mr-2">
                                                     <div class="product_thumb">
-                                                        @php
-                                                            $product_image = \App\Models\ProductImage::Where('product_id',$product->id)->first()->image
-                                                        @endphp
-                                                        <a href="{{ route('single.producs',$product->slug) }}"><img src="{{ asset('images/product_image/'.$product_image) }}" alt=""></a>
+                                                        <a href="{{ route('single.producs',$product->slug) }}"><img src="{{ asset('images/product_image/'.$product->product_image->first()->image) }}" alt=""></a>
                                                         <div class="product_discount">
                                                             <span>New</span>
                                                         </div>

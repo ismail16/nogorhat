@@ -10,6 +10,7 @@ class ContactController extends Controller
 {
     public function contact_store(Request $request){
 
+
         $contact = new Contact();
 
         $contact->name = $request->name;
@@ -17,6 +18,8 @@ class ContactController extends Controller
         $contact->phone = $request->phone;
         $contact->subject = $request->subject;
         $contact->message = $request->message;
+
+
         $contact->save();
 
         return redirect()->route('index');
