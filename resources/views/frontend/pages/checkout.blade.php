@@ -43,12 +43,12 @@
                                         </div>
                                         <div class="col-lg-12 mb-30">
                                             <label>Shipping Address<span>*</span></label>
-                                            <textarea id="shipping_address" class="form-control" rows="4" name="shipping_address" v-model="order.shipping_address" spellcheck="false"></textarea>
+                                            <textarea id="shipping_address" class="form-control" rows="2" name="shipping_address" v-model="order.shipping_address" spellcheck="false"></textarea>
                                         </div>
 
                                         <div class="col-lg-12 mb-30">
                                             <label>Additional Message (optional)<span>*</span></label>
-                                            <textarea id="message" class="form-control" rows="4" name="message" v-model="order.message" spellcheck="false"></textarea>
+                                            <textarea id="message" class="form-control" rows="2" name="message" v-model="order.message" spellcheck="false"></textarea>
                                         </div>
                                     </div>
                             </div>
@@ -104,16 +104,15 @@
                                                 </tfoot>
                                             </table>
                                     </div>
-                                    <div class="form-group mt-2">
+                                  {{--   <div class="form-group mt-2">
                                         <h5>Select a payment method</h5>
                                         <div class="_col-md-6">
                                             <select class="form-control" name="payment_method" v-model="order.payment_method" required id="payments">
                                                 <option value="cash_in">Select a payment method please</option>
                                                 @foreach($payments as $payment)
-                                                    <option value="{{ $payment->short_name }}">{{ $payment->name }}</option>
+                                                <option value="{{ $payment->short_name }}">{{ $payment->name }}</option>
                                                 @endforeach
                                             </select>
-
                                             @foreach($payments as $payment)
                                                 @if($payment->short_name == "cash_in")
                                                     <div id="payment_{{ $payment->short_name }}" class="alert alert-success mt-2 text-center">
@@ -149,14 +148,14 @@
                                                         </div>
                                                     </div>
                                                 @endif
-                                            @endforeach
-                                            <input type="text" name="transaction_id" v-model="order.transaction_id" id="transaction_id"  class="form-control hidden" placeholder="Enter transaction code" style="display: none;">
+                                                @endforeach
+                                                <input type="text" name="transaction_id" v-model="order.transaction_id" id="transaction_id"  class="form-control hidden" placeholder="Enter transaction code" style="display: none;">
+                                            </div>
                                         </div>
+                                    </div> --}}
+                                    <div class="order_button">
+                                        <button type="submit" _@click="store(order)">Order Confirmed</button>
                                     </div>
-                                </div>
-                                <div class="order_button">
-                                    <button type="submit" _@click="store(order)">Order Confirmed</button>
-                                </div>
                             </div>
 
                     </div>
@@ -206,7 +205,14 @@
     $("#payments").change(function(){
         $payment_method = $("#payments").val();
 
-        if ($payment_method == "cash_in") {
+        if ($payment_method == "stripe") {
+            console.log('stripe');
+            $("#payment_stripe").css('display','block');
+            $("#payment_cash_in").css('display','none');
+            $("#payment_bkash").css('display','none');
+            $("#payment_rocket").css('display','none');
+            $("#transaction_id").css('display','none');
+        }else if ($payment_method == "cash_in") {
             console.log('cash_in');
             $("#payment_cash_in").css('display','block');
             $("#payment_bkash").css('display','none');
@@ -227,4 +233,58 @@
         }
     })
 </script>
+ <script type="text/javascript">
+        $(function() {
+            var $form = $(".require-validation");
+            $('form.require-validation').bind('submit', function(e) {
+                var $form         = $(".require-validation"),
+                    inputSelector = ['input[type=email]', 'input[type=password]',
+                        'input[type=text]', 'input[type=file]',
+                        'textarea'].join(', '),
+                    $inputs       = $form.find('.required').find(inputSelector),
+                    $errorMessage = $form.find('div.error'),
+                    valid         = true;
+                $errorMessage.addClass('hide');
+
+                $('.has-error').removeClass('has-error');
+                $inputs.each(function(i, el) {
+                    var $input = $(el);
+                    if ($input.val() === '') {
+                        $input.parent().addClass('has-error');
+                        $errorMessage.removeClass('hide');
+                        e.preventDefault();
+                    }
+                });
+
+                if (!$form.data('cc-on-file')) {
+                    e.preventDefault();
+                    Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+                    Stripe.createToken({
+                        number: $('.card-number').val(),
+                        cvc: $('.card-cvc').val(),
+                        exp_month: $('.card-expiry-month').val(),
+                        exp_year: $('.card-expiry-year').val()
+                    }, stripeResponseHandler);
+                }
+
+            });
+
+            function stripeResponseHandler(status, response) {
+                if (response.error) {
+                    $('.error')
+                        .removeClass('hide')
+                        .find('.alert')
+                        .text(response.error.message);
+                } else {
+                    // res ponse token contains id, last4, and card type
+                    var token = response['id'];
+                    // insert the token into the form so it gets submitted to the server
+                    $form.find('input[type=text]').empty();
+                    $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+                    $form.get(0).submit();
+                }
+            }
+
+        });
+    </script>
 @endpush

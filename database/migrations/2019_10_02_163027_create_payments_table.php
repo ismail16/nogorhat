@@ -15,12 +15,17 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('image')->nullable();
-            $table->tinyInteger('priority')->default(1);
-            $table->string('short_name')->unique();
-            $table->string('no')->nullable()->comment('Payment No');
-            $table->string('type')->nullable()->comment('agent|personal');
+            $table->string('order_id');
+            $table->string('name')->nullable();
+            $table->integer('user_id')->nullable();
+            $table->string('payment_id')->nullable();
+            $table->string('transaction_id')->nullable();
+            $table->string('payment_method')->nullable();
+            $table->string('amount')->nullable();
+            $table->string('receipt_url')->nullable();
+            $table->string('pay_type')->nullable();
+            $table->string('card_type')->nullable();
+            $table->string('last4')->nullable();
             $table->timestamps();
         });
     }

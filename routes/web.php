@@ -51,6 +51,8 @@ Route::group(['prefix' => 'cards'], function(){
 });
 
 Route::resource('checkout', 'frontend\CheckoutsController');
+Route::get('payment-pay-now', 'frontend\PayNowController@payment_pay_now')->name('payment_pay_now');
+Route::post('payment-pay-store', 'frontend\PayNowController@payment_pay_store')->name('payment_pay_store');
 Route::get('/invoice/{id}', 'frontend\CheckoutsController@invoice')->name('card.invoice');
 
 
