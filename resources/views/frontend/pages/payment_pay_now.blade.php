@@ -183,36 +183,7 @@
 
 @push('scripts')
 <script>
-    {{--var csrf_token = '{{ csrf_token() }}';--}}
-    {{--var store_req = '{{ route('checkout.store') }}';--}}
 
-    {{--var app = new Vue({--}}
-    {{--    el: '#confirm_order',--}}
-    {{--    data: {--}}
-    {{--        order: {--}}
-    {{--            payment_id:'',--}}
-    {{--            name:'',--}}
-    {{--            phone_no:'',--}}
-    {{--            shipping_address:'',--}}
-    {{--            email:'',--}}
-    {{--            message:'',--}}
-    {{--            transaction_id:'',--}}
-    {{--            product_quantity:[],--}}
-    {{--            order_products:[]--}}
-    {{--        }--}}
-    {{--    },--}}
-    {{--    methods:{--}}
-    {{--        store:function (data) {--}}
-
-    {{--            console.log(data);--}}
-    {{--            // data._token = csrf_token--}}
-    {{--            // this.$http.post(store_req + '/',data)--}}
-    {{--            //     .then( function (res) {--}}
-    {{--            //         console.log(res)--}}
-    {{--            //     })--}}
-    {{--        }--}}
-    {{--    }--}}
-    // })
 </script>
 
 <script type="text/javascript">
@@ -259,6 +230,10 @@
  <script type="text/javascript">
         $(function() {
             var $form = $(".require-validation");
+            
+
+            console.log($form.data('stripe-publishable-key'))
+
             $('form.require-validation').bind('submit', function(e) {
                 var $form         = $(".require-validation"),
                     inputSelector = ['input[type=email]', 'input[type=password]',

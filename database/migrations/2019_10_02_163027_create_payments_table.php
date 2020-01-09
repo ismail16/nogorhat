@@ -17,12 +17,12 @@ class CreatePaymentsTable extends Migration
             $table->increments('id');
             $table->string('order_id');
             $table->string('name')->nullable();
-            $table->integer('user_id')->nullable();
+            $table->string('user_id')->nullable();
             $table->string('payment_id')->nullable();
             $table->string('transaction_id')->nullable();
             $table->string('payment_method')->nullable();
             $table->string('amount')->nullable();
-            $table->string('receipt_url')->nullable();
+            $table->text('receipt_url')->nullable();
             $table->string('pay_type')->nullable();
             $table->string('card_type')->nullable();
             $table->string('last4')->nullable();

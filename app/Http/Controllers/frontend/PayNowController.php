@@ -24,8 +24,13 @@ class PayNowController extends Controller
 
     public function payment_pay_store(Request $request){
 
-        // return $request;
-        // return $request->stripeToken;
+        // $this->validate($request, [
+        //     'name'  => 'required',
+        //     'phone_no'  => 'required',
+        //     'shipping_address'  => 'required',
+        //     'payment_method'  => 'required'
+        // ]);
+
         Stripe\Stripe::setApiKey('sk_test_HETvnHVWPE2yxioaiobPi25k00uvh64zC3');
         try{
             $data = Stripe\Charge::create ([
@@ -35,71 +40,67 @@ class PayNowController extends Controller
                 "description" => "Pay Against this Paper ID: ".$request->order_id
             ]);
         }catch (\Exception $e){
-
             return  $e;
             Session::flash('danger', 'The system is not accepting your card/payment method!');
             return back();
         }
 
-        return $data;
-
-
-
+        $order_id = $request->order_id;
         $billing_name = $request->holder_name;
         if (Auth::check()) {
-            $order->user_id = Auth::id();
-            $email = Auth::user()->email;
+            $user_id = Auth::id();
+        }else{
+            $user_id = request()->ip();
         }
-        $ip_address = request()->ip();
-        $order_id = $request->order_id;
-
         $payment_id = $data->id;
         $transaction_id = $data->balance_transaction;
         $payment_method = $data->payment_method;
-        $info = $data->receipt_url;
         $amount = $data->amount;
+        $receipt_url = $data->receipt_url;
         $pay_type = $data->source->object;
         $card_type = $data->source->brand;
-        $fingerprint = $data->source->fingerprint;
         $last4 = $data->source->last4;
 
+        $payment = new Payment;
+        $payment->order_id = $order_id;
+        $payment->name = $billing_name;
+        $payment->user_id = $user_id;
+        $payment->payment_id = $payment_id;
+        $payment->transaction_id = $transaction_id;
+        $payment->payment_method = $payment_method;
+        $payment->amount = $amount;
+        $payment->receipt_url = $receipt_url;
+        $payment->pay_type = $pay_type;
+        $payment->card_type = $card_type;
+        $payment->last4 = $last4;
+        $payment->save();
+
+        foreach (Cart::totalCarts() as $cart) {
+            if (Auth::check()) {
+                if ($cart->user_id == Auth::id()) {
+                    $cart->delete();
+                }
+            }else if ($cart->ip_address == $user_id) {
+                $cart->delete();
+            }
+        }
+
+        return view('frontend.pages.order_confirmation', compact('order_id'));
 
 
-        $stripe = new \App\Models\Stripe();
-        $stripe->user_id = Auth::user()->id;
-        $stripe->order_id = $order_id;
-        $stripe->card_holder_name = $billing_name;
-        $stripe->payment_id = $payment_id;
-        $stripe->transaction_id = $transaction_id;
-        $stripe->payment_method = $payment_method;
-        $stripe->amount = $amount;
-        $stripe->receipt_url = $info;
-        $stripe->pay_type = $pay_type;
-        $stripe->card_type = $card_type;
-        $stripe->fingerprint = $fingerprint;
-        $stripe->last4 = $last4;
-        $stripe->save();
+        // return redirect()->route('checkout.show',$order_id);
 
-        DB::table('submits')->where('paper_id', $paper_id)->update(['is_payment' => 1]);
-        Mail::to($email)->queue(new PaymentConfirm($paper_id, $payment_id, $billing_name, $amount, $info));
-        Session::flash('success', 'Payment Successful! Please check your email');
-        return redirect()->route('author.paper-submission.index');
+
+        // DB::table('submits')->where('paper_id', $paper_id)->update(['is_payment' => 1]);
+        // Mail::to($email)->queue(new PaymentConfirm($paper_id, $payment_id, $billing_name, $amount, $info));
+        // Session::flash('success', 'Payment Successful! Please check your email');
+        // return redirect()->route('author.paper-submission.index');
     }
 
     public function payment_pay_store00(Request $request)
     {
 
         $request->name;
-
-
-
-
-
-
-
-
-
-
 
 
         $this->validate($request, [

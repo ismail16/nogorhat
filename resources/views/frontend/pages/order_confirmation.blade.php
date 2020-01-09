@@ -4,11 +4,7 @@
 @section('content')
     <div class="container" id="printarea">
         <div class="row">
-            @php
 
-
-            @endphp
-{{--            $order = \App\Models\Order::find(2)->first();--}}
             <div class="col-12" style="padding: 0px 50px">
                <div class="card m-3">
                    @if(session()->has('message'))

@@ -38,16 +38,16 @@
                             <tr>
                                 <td>{{ $loop->index+1 }}</td>
                                 <td>{{ $order->name }}</td>
-                                <td>{{$order->phone_no}}</td>
-                                <td>{{$order->shipping_address}}</td>
+                                <td>{{ $order->phone_no }}</td>
+                                <td>{{ $order->shipping_address }}</td>
                                 <td>{{ $order->is_paid }}</td>
                                 <td>{{ $order->is_completed }}</td>
                                 <td>{{ $order->is_seen_by_admin }}</td>
                                 <td class="text-center">
                                     <a href="{{route('admin.order.show', $order->id)}}"
-                                       class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
+                                       class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
 
-                                    <a href="#" class="btn btn-sm btn-danger table-action-btn on_delete"
+                                    <a href="#" class="btn btn-xs btn-danger table-action-btn on_delete"
                                        data-content="{{$loop->index+1}}"><i
                                                 class="fa fa-trash"></i></a>
 
@@ -56,8 +56,8 @@
                                           method="post" class="delete"
                                           data-content="{{$order->id}}"
                                           style="display: none;">
-                                        {{csrf_field()}}
-                                        {{method_field('DELETE')}}
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
                                     </form>
                                 </td>
                             </tr>

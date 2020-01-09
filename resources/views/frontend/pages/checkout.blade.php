@@ -34,7 +34,6 @@
                                         <div class="col-lg-6 mb-30">
                                             <label> Email Address   <span>*</span></label>
                                             <input type="email" name="email" v-model="order.email">
-
                                         </div>
                                         <div class="col-lg-6 mb-30">
                                             <label>Phone<span>*</span></label>
@@ -104,55 +103,6 @@
                                                 </tfoot>
                                             </table>
                                     </div>
-                                  {{--   <div class="form-group mt-2">
-                                        <h5>Select a payment method</h5>
-                                        <div class="_col-md-6">
-                                            <select class="form-control" name="payment_method" v-model="order.payment_method" required id="payments">
-                                                <option value="cash_in">Select a payment method please</option>
-                                                @foreach($payments as $payment)
-                                                <option value="{{ $payment->short_name }}">{{ $payment->name }}</option>
-                                                @endforeach
-                                            </select>
-                                            @foreach($payments as $payment)
-                                                @if($payment->short_name == "cash_in")
-                                                    <div id="payment_{{ $payment->short_name }}" class="alert alert-success mt-2 text-center">
-                                                        <h3>
-                                                            For Cash in there is nothing necessary. Just click Finish Order.
-                                                            <br>
-                                                            <small>
-                                                                You will get your product in two or three business days.
-                                                            </small>
-                                                        </h3>
-                                                        <div class="row">
-                                                            <div class="col-md-12 text-center alert-warning">
-                                                                <p style="font-size: 11px;">[N.B Shipping Cost In Dhaka 50 Tk and Outside Of Dhaka 100 Tk]</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @else
-                                                    <div id="payment_{{ $payment->short_name }}" class="alert alert-success mt-2 text-center" style="display: none">
-                                                        <h3>Payment</h3>
-                                                        <p>
-                                                            <strong>{{ $payment->name }}</strong>
-                                                            <br>
-                                                            <strong>Account Type: {{$payment->type}}</strong><br>
-                                                            <strong>Bkash Number: 01983783387 Personal</strong>
-                                                        </p>
-                                                        <div class="alert alert-success">
-                                                            Please send the above money to this Bkash Number and write your transaction code below there..
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12 text-center alert-warning">
-                                                                <p style="font-size: 11px;">[N.B Shipping Cost In Dhaka 50 Tk and Outside Of Dhaka 100 Tk]</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endif
-                                                @endforeach
-                                                <input type="text" name="transaction_id" v-model="order.transaction_id" id="transaction_id"  class="form-control hidden" placeholder="Enter transaction code" style="display: none;">
-                                            </div>
-                                        </div>
-                                    </div> --}}
                                     <div class="order_button">
                                         <button type="submit" _@click="store(order)">Order Confirmed</button>
                                     </div>

@@ -15,8 +15,8 @@ class CheckoutsController extends Controller
 
     public function index()
     {
-        $payments = Payment::orderBy('priority', 'desc')->get();
-        return view('frontend.pages.checkout', compact('payments'));
+        // $payments = Payment::orderBy('priority', 'desc')->get();
+        return view('frontend.pages.checkout');
     }
 
     public function invoice($id)
