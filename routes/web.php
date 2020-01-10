@@ -52,7 +52,12 @@ Route::group(['prefix' => 'cards'], function(){
 
 Route::resource('checkout', 'frontend\CheckoutsController');
 Route::get('payment-pay-now', 'frontend\PayNowController@payment_pay_now')->name('payment_pay_now');
+
 Route::post('payment-pay-store', 'frontend\PayNowController@payment_pay_store')->name('payment_pay_store');
+Route::post('payment-pay-cash-in', 'frontend\PayNowController@payment_pay_cash_in')->name('payment_pay_cash_in');
+// Route::post('payment-pay-bkash', 'frontend\PayNowController@payment_pay_bkash')->name('payment_pay_bkash');
+// Route::post('payment-pay-rocket', 'frontend\PayNowController@payment_pay_rocket')->name('payment_pay_rocket');
+
 Route::get('/invoice/{id}', 'frontend\CheckoutsController@invoice')->name('card.invoice');
 
 

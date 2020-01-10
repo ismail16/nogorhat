@@ -9,6 +9,7 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Order_detail;
 use App\Models\Payment;
+use App\User;
 use Auth;
 use Session;
 use Stripe;
@@ -29,7 +30,7 @@ class PayNowController extends Controller
         //     'phone_no'  => 'required',
         //     'shipping_address'  => 'required',
         //     'payment_method'  => 'required'
-        // ]);
+        // ]); 
 
         Stripe\Stripe::setApiKey('sk_test_HETvnHVWPE2yxioaiobPi25k00uvh64zC3');
         try{
@@ -86,78 +87,71 @@ class PayNowController extends Controller
         }
 
         return view('frontend.pages.order_confirmation', compact('order_id'));
-
-
-        // return redirect()->route('checkout.show',$order_id);
-
-
-        // DB::table('submits')->where('paper_id', $paper_id)->update(['is_payment' => 1]);
-        // Mail::to($email)->queue(new PaymentConfirm($paper_id, $payment_id, $billing_name, $amount, $info));
-        // Session::flash('success', 'Payment Successful! Please check your email');
-        // return redirect()->route('author.paper-submission.index');
     }
 
-    public function payment_pay_store00(Request $request)
-    {
+    public function payment_pay_cash_in(Request $request){
 
-        $request->name;
+        // $this->validate($request, [
+        //     'name'  => 'required',
+        //     'phone_no'  => 'required',
+        //     'shipping_address'  => 'required',
+        //     'payment_method'  => 'required'
+        // ]);
 
+        // if ($request->payment_method != 'cash_in') {
+        //     if ($request->transaction_id == NULL || empty($request->transaction_id)) {
+        //         session()->flash('sticky_error', 'Please give transaction ID for your payment');
+        //         return back();
+        //     }
+        // }      
 
-        $this->validate($request, [
-            'name'  => 'required',
-            'phone_no'  => 'required',
-            'shipping_address'  => 'required',
-            'payment_method'  => 'required'
-        ]);
-
-        $order = new Order();
-        if ($request->payment_method != 'cash_in') {
-            if ($request->transaction_id == NULL || empty($request->transaction_id)) {
-                session()->flash('sticky_error', 'Please give transaction ID for your payment');
-                return back();
-            }
-        }
-
-        $order->name = $request->name;
-        $order->email = $request->email;
-        $order->phone_no = $request->phone_no;
-        $order->shipping_address = $request->shipping_address;
-        $order->message  = $request->message;
-
-        $order->ip_address = request()->ip();
-        $order->transaction_id = $request->transaction_id;
-
+        $order_id = $request->order_id;
         if (Auth::check()) {
-            $order->user_id = Auth::id();
-        }
+            $user_id = Auth::id();
+            $user = User::find($user_id);
 
-        $order->payment_id = Payment::where('short_name', $request->payment_method)->first()->id;
-        $order->save();
+            $billing_name = $user->name;
+            if ($request->transaction_id) {
+               $transaction_id  = $request->transaction_id;
+            }else{
+                $transaction_id  = 'cash-in-delivery';
+            }
 
-        $order_id = $order->id;
-        if (isset($request->order_products)) {
-            foreach(array_combine($request->order_products, $request->product_quantity) as $product_id=>$quantity) {
-                $order_details = new Order_detail();
-                $order_details->order_id = $order_id;
-                $order_details->product_id = $product_id;
-                $order_details->product_quantity = $quantity;
-                $order_details->save();
+        }else{
+            $order = Order::find($order_id);
+            $billing_name = $order->name;
+            $user_id = request()->ip();
+             if ($request->transaction_id) {
+               $transaction_id  = $request->transaction_id;
+            }else{
+                $transaction_id  = 'cash-in-delivery';
             }
         }
+        $payment_method = $request->payment_method;
+        $amount = $request->totalAmount;
+
+        $payment = new Payment;
+        $payment->order_id = $order_id;
+        $payment->name = $billing_name;
+        $payment->user_id = $user_id;
+        $payment->transaction_id = $transaction_id;
+        $payment->payment_method = $payment_method;
+        $payment->amount = $amount;
+
+        $payment->save();
 
         foreach (Cart::totalCarts() as $cart) {
             if (Auth::check()) {
                 if ($cart->user_id == Auth::id()) {
                     $cart->delete();
                 }
-            }else if ($cart->ip_address == $order->ip_address) {
+            }else if ($cart->ip_address == $user_id) {
                 $cart->delete();
             }
         }
 
-       session()->flash('success', 'Your order has taken successfully !!! Please wait admin will soon confirm it.');
-
-        return view('frontend.pages.order_confirmation',compact('order_id'));
-//        return redirect()->route('checkout.show',$order_id);
+        return view('frontend.pages.order_confirmation', compact('order_id'));
     }
+
+
 }

@@ -9,13 +9,13 @@ use App\Models\Payment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\User;
 
 class CheckoutsController extends Controller
 {
 
     public function index()
     {
-        // $payments = Payment::orderBy('priority', 'desc')->get();
         return view('frontend.pages.checkout');
     }
 
@@ -27,41 +27,38 @@ class CheckoutsController extends Controller
 
     public function create()
     {
-        //
+        
     }
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name'  => 'required',
-            'phone_no'  => 'required',
-            'shipping_address'  => 'required',
-            // 'payment_method'  => 'required'
-        ]);
-
         $order = new Order();
-        // if ($request->payment_method != 'cash_in') {
-        //     if ($request->transaction_id == NULL || empty($request->transaction_id)) {
-        //         session()->flash('sticky_error', 'Please give transaction ID for your payment');
-        //         return back();
-        //     }
-        // }
 
-        $order->name = $request->name;
-        $order->email = $request->email;
-        $order->phone_no = $request->phone_no;
-        $order->shipping_address = $request->shipping_address;
-        $order->message  = $request->message;
+        if($request->sell_my_self == 1 && Auth::check()){
+            $user_id = Auth::id();
+            $user = User::find($user_id);
 
-        $order->ip_address = request()->ip();
-        // $order->transaction_id = $request->transaction_id;
+            $order->name = $user->name;
+            $order->email = $user->email;
+            $order->phone_no = $user->phone;
+            $order->shipping_address = $user->address;
+            $order->ip_address = request()->ip();
 
-        if (Auth::check()) {
-            $order->user_id = Auth::id();
-        }
-
-        // $order->payment_id = Payment::where('short_name', $request->payment_method)->first()->id;
-        $order->save();
+            $order->save();
+        }else{
+            $this->validate($request, [
+                'name'  => 'required',
+                'phone_no'  => 'required',
+                'shipping_address'  => 'required'
+            ]);
+            $order->name = $request->name;
+            $order->email = $request->email;
+            $order->phone_no = $request->phone_no;
+            $order->shipping_address = $request->shipping_address;
+            $order->message  = $request->message;
+            $order->ip_address = request()->ip();
+            $order->save();
+        } 
 
         $order_id = $order->id;
         if (isset($request->order_products)) {
@@ -73,22 +70,8 @@ class CheckoutsController extends Controller
                 $order_details->save();
             }
         }
-        // return $order_details;
-
-        // foreach (Cart::totalCarts() as $cart) {
-        //     if (Auth::check()) {
-        //         if ($cart->user_id == Auth::id()) {
-        //             $cart->delete();
-        //         }
-        //     }else if ($cart->ip_address == $order->ip_address) {
-        //         $cart->delete();
-        //     }
-        // }
-
-       session()->flash('success', 'Your order has taken successfully !!! Please wait admin will soon confirm it.');
-
+        session()->flash('success', 'Your order has taken successfully !!! Please wait admin will soon confirm it.');
         return view('frontend.pages.payment_pay_now',compact('order_id'));
-//        return redirect()->route('checkout.show',$order_id);
     }
 
     public function show($id)

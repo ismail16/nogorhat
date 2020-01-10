@@ -85,7 +85,7 @@
                             <?php  $order_no = 0;
                                 foreach($orders as $order){
                                         $product = \App\Models\Product::where('id',$order->order_detail->product_id)->first();
-                                    if( $order_no < 6){
+                                    if( $order_no < 5){
                                         ?>
                                         <div class="small_product">
                                             <div class="small_product_thumb">
