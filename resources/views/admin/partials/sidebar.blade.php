@@ -30,6 +30,12 @@
                         <p>Order</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.payment.index') }}" class="nav-link">
+                        <i class="nav-icon far fa fa-cart-plus"></i>
+                        <p>Payment</p>
+                    </a>
+                </li>
                  <li class="nav-header pt-2">Categories</li>
                 <li class="nav-item">
                     <a href="{{ route('admin.category.index') }}" class="nav-link">

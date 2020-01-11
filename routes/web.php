@@ -31,13 +31,14 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::resource('product', 'ProductController');
     Route::resource('order', 'OrderController');
     Route::resource('customer', 'CustomerController');
+    Route::resource('payment', 'PaymentController');
 
 });
 
 //======================================== Author route==================================
 Route::group(['as' => 'author.', 'prefix' => 'author', 'namespace' => 'Author', 'middleware' => ['auth', 'author']], function () {
     Route::get('dashboard', 'AuthorRegisterController@index')->name('dashboard');
-   Route::get('profile/{id}', 'frontend\PagesController@profile')->name('profile');
+   // Route::get('profile/{id}', 'frontend\PagesController@profile')->name('profile');
 });
 
 //======================================== Cart route==================================

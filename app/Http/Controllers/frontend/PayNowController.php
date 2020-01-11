@@ -141,10 +141,8 @@ class PayNowController extends Controller
         $payment->save();
 
         foreach (Cart::totalCarts() as $cart) {
-            if (Auth::check()) {
-                if ($cart->user_id == Auth::id()) {
-                    $cart->delete();
-                }
+            if (Auth::check() && $cart->user_id == Auth::id()) {
+                $cart->delete();
             }else if ($cart->ip_address == $user_id) {
                 $cart->delete();
             }
