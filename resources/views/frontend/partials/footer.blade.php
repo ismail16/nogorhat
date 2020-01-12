@@ -1,6 +1,5 @@
-{{--        </div>--}}
-
-        </div>
+{{--</div>--}}
+    </div>
         <div class="">
             <div class="newsletter_area" style="background-color: #d0d0d0 !important;">
                 <div class="container">
@@ -8,7 +7,7 @@
                         <div class="col-lg-2 col-md-6">
                             <div class="footer_logo">
                                 <h3 class="text-red">shop</h3>
-                                {{--                            <a href="#"><img src="{{ asset('frontend_assets/assets/img/logo/logo.png')}}"" alt=""></a>--}}
+                                {{--<a href="#"><img src="{{ asset('frontend_assets/assets/img/logo/logo.png')}}"" alt=""></a>--}}
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6">
@@ -41,9 +40,9 @@
                                     <h4>store information</h4>
 
                                     <ul>
-                                        <li><i class="fa fa-home"></i> PO Box 16122 Collins Street West Victoria 8007 Australia</li>
                                         <li><i class="fa fa-phone"></i> (+1)866-550-3669</li>
                                         <li><a href="#"><i class="fa fa-envelope-square"></i> demo@posthemes.com</a></li>
+                                        <li><i class="fa fa-home"></i> PO Box 16122 Collins Street West Victoria 8007 Australia</li>
                                     </ul>
                                 </div>
                             </div>
@@ -53,8 +52,8 @@
                                     <ul>
                                         <li><a href="{{ route('about') }}"><i class="fa fa-circle"></i>About Us</a></li>
                                         <li><a href="{{ route('contact') }}"><i class="fa fa-circle"></i> Contact Us</a></li>
-{{--                                        <li><a href="{{ route('author.dashboard') }}"><i class="fa fa-circle"></i> Your Account</a></li>--}}
-{{--                                        <li><a href="{{ route('faq') }}"><i class="fa fa-circle"></i> FAQ</a></li>--}}
+                                        <!-- <li><a href="{{ route('author.dashboard') }}"><i class="fa fa-circle"></i> Your Account</a></li>
+                                        <li><a href="{{ route('faq') }}"><i class="fa fa-circle"></i> FAQ</a></li> -->
                                     </ul>
                                 </div>
                             </div>

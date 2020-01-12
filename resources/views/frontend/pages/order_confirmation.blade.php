@@ -21,7 +21,7 @@
                                    <h4 align="center" style="color: green;">Thank You !!<br> Your Order Successfully Placed.<br>We will contact with you shortly </h4>
                                </div>
                                <h3 class="text-center">Collect Your Invoice</h3>
-                               <a href="{{ route('card.invoice',$order_id) }}" class="btn btn-primary btn-sm text-white"><i class="fa fa-download"></i> Download</a>
+                               <a href="{{ route('card.invoice',$order_id) }}" target="_blank" class="btn btn-primary btn-sm text-white"><i class="fa fa-download"></i> Download</a>
                            </div>
                        </div><br>
                        <div class="d-flex justify-content-center">

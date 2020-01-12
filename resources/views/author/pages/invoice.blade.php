@@ -61,7 +61,7 @@
                             @endphp
                             <tr>
                                 <td class="text-center">{{ $loop->index+1 }}</td>
-                                <td class="text-center">{{ $product->title }}</td>
+                                <td class="text-center w-25">{{ $product->title }}</td>
                                 <td class="text-center">
                                     <img src="{{ asset('images/product_image/'.$image->image) }}" height="50" alt="">
                                 </td>
