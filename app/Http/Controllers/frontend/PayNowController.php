@@ -137,8 +137,14 @@ class PayNowController extends Controller
         $payment->transaction_id = $transaction_id;
         $payment->payment_method = $payment_method;
         $payment->amount = $amount;
-
         $payment->save();
+
+
+        $order = Order::find($order_id);
+        $order->payment_id = $payment->id;
+        $order->transaction_id = $transaction_id;
+        $order->save();
+
 
         foreach (Cart::totalCarts() as $cart) {
             if (Auth::check() && $cart->user_id == Auth::id()) {

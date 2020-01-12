@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="215026b1-86f4-466f-a42e-7789efd758b8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/nogorhat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/nogorhat.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/frontend/CheckoutsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/frontend/CheckoutsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_02_163027_create_payments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_02_163027_create_payments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/checkout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +32,24 @@
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="nogorhat_db@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="nogorhat_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="nogorhat_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="nogorhat_db: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="nogorhat_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="nogorhat_db: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="migrations: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -168,7 +178,6 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -184,7 +193,17 @@
       <list>
         <serviceView>
           <treeState>
-            <expand />
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:nogorhat_db@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:nogorhat_db@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@36a64180" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
             <select />
           </treeState>
         </serviceView>
@@ -208,6 +227,8 @@
       <workItem from="1573043118049" duration="36000" />
       <workItem from="1578564499121" duration="487000" />
       <workItem from="1578565450812" duration="37000" />
+      <workItem from="1578799503859" duration="179000" />
+      <workItem from="1578802421759" duration="197000" />
     </task>
     <servers />
   </component>
@@ -223,9 +244,13 @@
       <screen x="0" y="27" width="1366" height="698" />
     </state>
     <state width="263" height="500" key="HiddenNamespacesPopup/0.27.1366.698/1366.0.1366.768@0.27.1366.698" timestamp="1578564585956" />
-    <state x="339" y="202" key="com.intellij.ide.util.TipDialog" timestamp="1578565452493">
+    <state x="494" y="224" width="367" height="302" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1578802530587">
       <screen x="0" y="27" width="1366" height="698" />
     </state>
-    <state x="339" y="202" key="com.intellij.ide.util.TipDialog/0.27.1366.698/1366.0.1366.768@0.27.1366.698" timestamp="1578565452493" />
+    <state x="494" y="224" width="367" height="302" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.27.1366.698/1366.0.1366.768@0.27.1366.698" timestamp="1578802530587" />
+    <state x="339" y="202" key="com.intellij.ide.util.TipDialog" timestamp="1578802421038">
+      <screen x="0" y="27" width="1366" height="698" />
+    </state>
+    <state x="339" y="202" key="com.intellij.ide.util.TipDialog/0.27.1366.698/1366.0.1366.768@0.27.1366.698" timestamp="1578802421038" />
   </component>
 </project>

@@ -18,53 +18,53 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <a href="#" class="pull-right btn btn-sm btn-primary float-right"> <i
-                                class="fa fa-plus"></i> Add New</a>
-                        <table id="example1" class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                                <th>#SL</th>
-                                <th>Name</th>
-                                <th>phone_no</th>
-                                <th>shipping_address</th>
-                                <th>is_paid</th>
-                                <th>is_completed</th>
-                                <th>is_seen_by_admin</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($orders as $order)
-                            <tr>
-                                <td>{{ $loop->index+1 }}</td>
-                                <td>{{ $order->name }}</td>
-                                <td>{{ $order->phone_no }}</td>
-                                <td>{{ $order->shipping_address }}</td>
-                                <td>{{ $order->is_paid }}</td>
-                                <td>{{ $order->is_completed }}</td>
-                                <td>{{ $order->is_seen_by_admin }}</td>
-                                <td class="text-center">
-                                    <a href="{{route('admin.order.show', $order->id)}}"
-                                       class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
+                        <div class="table-responsive">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>#SL</th>
+                                    <th>Name</th>
+                                    <th>phone_no</th>
+                                    <th>shipping_address</th>
+                                    <th>is_paid</th>
+                                    <th>is_completed</th>
+                                    <th>is_seen_by_admin</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($orders as $order)
+                                <tr>
+                                    <td>{{ $loop->index+1 }}</td>
+                                    <td>{{ $order->name }}</td>
+                                    <td>{{ $order->phone_no }}</td>
+                                    <td>{{ $order->shipping_address }}</td>
+                                    <td>{{ $order->is_paid }}</td>
+                                    <td>{{ $order->is_completed }}</td>
+                                    <td>{{ $order->is_seen_by_admin }}</td>
+                                    <td class="text-center">
+                                        <a href="{{route('admin.order.show', $order->id)}}"
+                                           class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
 
-                                    <a href="#" class="btn btn-xs btn-danger table-action-btn on_delete"
-                                       data-content="{{$loop->index+1}}"><i
-                                                class="fa fa-trash"></i></a>
+                                        <a href="#" class="btn btn-xs btn-danger table-action-btn on_delete"
+                                           data-content="{{$loop->index+1}}"><i
+                                                    class="fa fa-trash"></i></a>
 
-                                    <form id="on_delete{{$loop->index+1}}"
-                                          action="{{route('admin.order.destroy', $order->id)}}"
-                                          method="post" class="delete"
-                                          data-content="{{$order->id}}"
-                                          style="display: none;">
-                                        {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
+                                        <form id="on_delete{{$loop->index+1}}"
+                                              action="{{route('admin.order.destroy', $order->id)}}"
+                                              method="post" class="delete"
+                                              data-content="{{$order->id}}"
+                                              style="display: none;">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
 
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

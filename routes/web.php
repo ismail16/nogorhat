@@ -37,8 +37,10 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 
 //======================================== Author route==================================
 Route::group(['as' => 'author.', 'prefix' => 'author', 'namespace' => 'Author', 'middleware' => ['auth', 'author']], function () {
-    Route::get('dashboard', 'AuthorRegisterController@index')->name('dashboard');
-   // Route::get('profile/{id}', 'frontend\PagesController@profile')->name('profile');
+    Route::get('dashboard', 'PagesController@index')->name('dashboard');
+    Route::get('orders', 'PagesController@orders')->name('orders');
+    Route::get('invoice/{id}', 'PagesController@invoice')->name('invoice');
+    Route::get('profile/{id}', 'PagesController@profile')->name('profile');
 });
 
 //======================================== Cart route==================================

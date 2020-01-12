@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title','All Category')
+@section('title','All Customer')
 
 @push('css')
     <link rel="stylesheet" href="{{asset('backend_assets/plugins/datatables/dataTables.bootstrap4.css')}}">
@@ -19,8 +19,6 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <a href="#" class="pull-right btn btn-sm btn-primary float-right ml-2"> <i
-                                class="fa fa-plus"></i> Add New</a>
                             <table id="example1" class="table table-sm table-bordered table-striped">
                                 <thead>
                                 <tr>

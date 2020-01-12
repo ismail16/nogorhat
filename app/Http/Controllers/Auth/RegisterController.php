@@ -14,16 +14,24 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    protected $redirectTo = '/home';
+    // protected $redirectTo;
+
+    // public function __construct()
+    // {
+    //     if (Auth::check() && Auth::user()->role->id == 1){
+    //         $this->redirectTo == route('admin.dashboard');
+    //     }else{
+    //         $this->redirectTo == route('author.dashboard');
+    //     }
+    //     $this->middleware('guest');
+    // }
+
+    protected $redirectTo = '/author/dashboard';
 
     public function __construct()
     {
-        if (Auth::check() && Auth::user()->role->id == 1){
-            $this->redirectTo == route('admin.dashboard');
-        }else{
-            $this->redirectTo == route('index');
-        }
         $this->middleware('guest');
+
     }
 
     protected function validator(array $data)
@@ -38,8 +46,9 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
-//        dd($data);
+
         return User::create([
+            'role_id' => 2,
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
@@ -47,7 +56,6 @@ class RegisterController extends Controller
             'thana' => $data['thana'],
             'address' => $data['address'],
             'password' => Hash::make($data['password']),
-            'role' => $data['role'],
             'status' => $data['status'],
 
         ]);

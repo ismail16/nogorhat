@@ -38,6 +38,7 @@ class CheckoutsController extends Controller
             $user_id = Auth::id();
             $user = User::find($user_id);
 
+            $order->user_id = Auth::id();
             $order->name = $user->name;
             $order->email = $user->email;
             $order->phone_no = $user->phone;
@@ -45,6 +46,21 @@ class CheckoutsController extends Controller
             $order->ip_address = request()->ip();
 
             $order->save();
+        }else if(Auth::check()){
+            $this->validate($request, [
+                'name'  => 'required',
+                'phone_no'  => 'required',
+                'shipping_address'  => 'required'
+            ]);
+            $order->user_id = Auth::id();
+            $order->name = $request->name;
+            $order->email = $request->email;
+            $order->phone_no = $request->phone_no;
+            $order->shipping_address = $request->shipping_address;
+            $order->message  = $request->message;
+            $order->ip_address = request()->ip();
+            $order->save();
+
         }else{
             $this->validate($request, [
                 'name'  => 'required',

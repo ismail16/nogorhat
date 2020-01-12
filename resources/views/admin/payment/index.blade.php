@@ -18,68 +18,68 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <a href="#" class="pull-right btn btn-sm btn-primary float-right"> <i
-                                class="fa fa-plus"></i> Add New</a>
-                        <table id="example1" class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
+                        <div class="table-responsive">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
 
-                                <th>#SL</th>
-                                <th>Name</th>
-                                <th>Order Id</th>
-                                <th>User ID</th>
-                                <th>transaction_id</th>
-                                <th>payment_method</th>
-                                <th>amount</th>
-                                <!-- <th>receipt_url</th> -->
-                                <th>pay_type</th>
-                                <th>card_type</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($payments as $payment)
-                            <tr>
-                                <td>{{ $loop->index+1 }}</td>
-                                <td>{{ $payment->name }}</td>
-                                <td>{{ $payment->order_id }}</td>
-                                <td>{{ $payment->user_id }}</td>
-                                <td>
-                                    <span style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; width: 80px;">
-                                        {{ $payment->transaction_id }}
-                                    </span>
-                                </td>
-                                <td>
-                                    <span style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; width: 50px;">
-                                        {{ $payment->payment_method }}
-                                    </span>
-                                </td>
-                                <td>{{ $payment->amount }}</td>
-                                <!-- <td>{{ $payment->receipt_url }}</td> -->
-                                <td>{{ $payment->pay_type }}</td>
-                                <td>{{ $payment->card_type }}</td>
-                                <td class="text-center">
-                                    <a href="{{route('admin.payment.show', $payment->id)}}"
-                                       class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
+                                    <th>#SL</th>
+                                    <th>Name</th>
+                                    <th>Order Id</th>
+                                    <th>User ID</th>
+                                    <th>transaction_id</th>
+                                    <th>payment_method</th>
+                                    <th>amount</th>
+                                    <!-- <th>receipt_url</th> -->
+                                    <th>pay_type</th>
+                                    <th>card_type</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($payments as $payment)
+                                <tr>
+                                    <td>{{ $loop->index+1 }}</td>
+                                    <td>{{ $payment->name }}</td>
+                                    <td>{{ $payment->order_id }}</td>
+                                    <td>{{ $payment->user_id }}</td>
+                                    <td>
+                                        <span style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; width: 80px;">
+                                            {{ $payment->transaction_id }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; width: 50px;">
+                                            {{ $payment->payment_method }}
+                                        </span>
+                                    </td>
+                                    <td>{{ $payment->amount }}</td>
+                                    <!-- <td>{{ $payment->receipt_url }}</td> -->
+                                    <td>{{ $payment->pay_type }}</td>
+                                    <td>{{ $payment->card_type }}</td>
+                                    <td class="text-center">
+                                        <a href="{{route('admin.payment.show', $payment->id)}}"
+                                           class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
 
-                                    <a href="#" class="btn btn-xs btn-danger table-action-btn on_delete"
-                                       data-content="{{$loop->index+1}}"><i
-                                                class="fa fa-trash"></i></a>
+                                        <a href="#" class="btn btn-xs btn-danger table-action-btn on_delete"
+                                           data-content="{{$loop->index+1}}"><i
+                                                    class="fa fa-trash"></i></a>
 
-                                    <form id="on_delete{{$loop->index+1}}"
-                                          action="{{route('admin.payment.destroy', $payment->id)}}"
-                                          method="post" class="delete"
-                                          data-content="{{$payment->id}}"
-                                          style="display: none;">
-                                        {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
+                                        <form id="on_delete{{$loop->index+1}}"
+                                              action="{{route('admin.payment.destroy', $payment->id)}}"
+                                              method="post" class="delete"
+                                              data-content="{{$payment->id}}"
+                                              style="display: none;">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
 
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

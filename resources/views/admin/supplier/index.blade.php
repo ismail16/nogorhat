@@ -19,49 +19,50 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{route('admin.supplier.create')}}" class="pull-right btn btn-sm btn-primary float-right"> <i
-                                class="fa fa-plus"></i> Add New</a>
-                        <table id="example1" class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                                <th>#SL</th>
-                                <th>Suppliers Name</th>
-                                <th>Phone</th>
-                                <th>Email</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($suppliers as $supplier)
-                            <tr>
-                                <td>{{ $loop->index+1 }}</td>
-                                <td>{{ $supplier->name }}</td>
-                                <td>{{ $supplier->phone }}</td>
-                                <td>{{ $supplier->email }}</td>
-                                <td>{{ $supplier->status }}</td>
-                                <td class="text-center">
-                                    <a href="{{route('admin.supplier.edit', $supplier->id)}}"
-                                       class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
+                        <div class="table-responsive">
+                            <a href="{{route('admin.supplier.create')}}" class="pull-right btn btn-sm btn-primary float-right ml-2"> <i class="fa fa-plus"></i> Add New</a>
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>#SL</th>
+                                    <th>Suppliers Name</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($suppliers as $supplier)
+                                <tr>
+                                    <td>{{ $loop->index+1 }}</td>
+                                    <td>{{ $supplier->name }}</td>
+                                    <td>{{ $supplier->phone }}</td>
+                                    <td>{{ $supplier->email }}</td>
+                                    <td>{{ $supplier->status }}</td>
+                                    <td class="text-center">
+                                        <a href="{{route('admin.supplier.edit', $supplier->id)}}"
+                                           class="btn btn-xs btn-success"><i class="fa fa-edit"></i></a>
 
-                                    <a href="#" class="btn btn-sm btn-danger table-action-btn on_delete"
-                                       data-content="{{$loop->index+1}}"><i
-                                                class="fa fa-trash"></i></a>
+                                        <a href="#" class="btn btn-xs btn-danger table-action-btn on_delete"
+                                           data-content="{{$loop->index+1}}"><i
+                                                    class="fa fa-trash"></i></a>
 
-                                    <form id="on_delete{{$loop->index+1}}"
-                                          action="{{route('admin.supplier.destroy', $supplier->id)}}"
-                                          method="post" class="delete"
-                                          data-content="{{$supplier->id}}"
-                                          style="display: none;">
-                                        {{csrf_field()}}
-                                        {{method_field('DELETE')}}
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
+                                        <form id="on_delete{{$loop->index+1}}"
+                                              action="{{route('admin.supplier.destroy', $supplier->id)}}"
+                                              method="post" class="delete"
+                                              data-content="{{$supplier->id}}"
+                                              style="display: none;">
+                                            {{csrf_field()}}
+                                            {{method_field('DELETE')}}
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
 
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

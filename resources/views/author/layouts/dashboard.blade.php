@@ -10,7 +10,7 @@
                     <div class="breadcrumb_header">
                         <a href="index.html"><i class="fa fa-home"></i></a>
                         <span><i class="fa fa-angle-right"></i></span>
-                        <span> Portfolio</span>
+                        <span> Customer Dashboard</span>
                     </div>
                 </div>
             </div>
@@ -20,57 +20,40 @@
                 <div class="row">
                     <div class="col-sm-2">
                         <div class="nav-side-menu">
-                            <div class="brand">Customer Dashboard</div>
+                            <div class="brand bg-dark">
+                                <a class="text-white" href="{{ route('author.dashboard') }}">Customer Dashboard</a>
+                            </div>
                             <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
                             <div class="menu-list">
                                 <ul id="menu-content" class="menu-content collapse out">
                                     <li>
-                                        <a href="#"><i class="fa fa-cart-plus fa-lg "></i> Orders </a>
+                                        <a href="{{ route('author.orders') }}" class="btn-transparent btn-block">
+                                            <i class="fa fa-cart-plus fa-lg "></i> Orders 
+                                        </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('author.profile',Auth::user()->id) }}"><i class="fa fa-user-circle fa-lg"></i> Profile </a>
+                                        <a href="{{ route('author.profile', Auth::user()->id) }}" class="btn-transparent btn-block">
+                                            <i class="fa fa-user-circle fa-lg"></i> Profile 
+                                        </a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-key fa-lg"></i> Logout </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+                                            @csrf
+                                            <div class="">
+                                                <button class="btn-danger btn-sm btn-block" type="submit">
+                                                    <i class="fa fa-key fa-lg"></i> Logout
+                                                </button>
+                                            </div>
+                                        </form>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-10 col-sm-offset-1 card">
-                        <h4 class="text-center">Welcome To Customer Dashboard Panel :)</h4>
-                        {{ Auth::user()->name }}
-                        <div class="row w-100 mb-4">
-                            <div class="col-md-3">
-                                <div class="card border-info mx-sm-1 p-3">
-                                    <div class="card border-info shadow text-info p-3 my-card" ><span class="fa fa-car" aria-hidden="true"></span></div>
-                                    <div class="text-info text-center mt-3"><h4>Cars</h4></div>
-                                    <div class="text-info text-center mt-2"><h1>234</h1></div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card border-success mx-sm-1 p-3">
-                                    <div class="card border-success shadow text-success p-3 my-card"><span class="fa fa-eye" aria-hidden="true"></span></div>
-                                    <div class="text-success text-center mt-3"><h4>Eyes</h4></div>
-                                    <div class="text-success text-center mt-2"><h1>9332</h1></div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card border-danger mx-sm-1 p-3">
-                                    <div class="card border-danger shadow text-danger p-3 my-card" ><span class="fa fa-heart" aria-hidden="true"></span></div>
-                                    <div class="text-danger text-center mt-3"><h4>Hearts</h4></div>
-                                    <div class="text-danger text-center mt-2"><h1>346</h1></div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card border-warning mx-sm-1 p-3">
-                                    <div class="card border-warning shadow text-warning p-3 my-card" ><span class="fa fa-inbox" aria-hidden="true"></span></div>
-                                    <div class="text-warning text-center mt-3"><h4>Inbox</h4></div>
-                                    <div class="text-warning text-center mt-2"><h1>346</h1></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    @yield('author-content')
+
+
                     <style>
                         .my-card
                         {
