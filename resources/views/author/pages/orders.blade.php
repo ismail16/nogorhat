@@ -13,26 +13,33 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>#SL</th>
-                        <th>Name</th>
-                        <th>phone_no</th>
-                        <th>shipping_address</th>
-                        <th>is_paid</th>
-                        <th>is_completed</th>
-                        <th>is_seen_by_admin</th>
-                        <th>Action</th>
+                        <th class="text-center">#SL</th>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">phone_no</th>
+                        <th class="text-center">Shipping Address</th>
+                        <th class="text-center">Payment</th>
+                        <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($orders as $order)
                     <tr>
-                        <td>{{ $loop->index+1 }}</td>
-                        <td>{{ $order->name }}</td>
-                        <td>{{ $order->phone_no }}</td>
-                        <td>{{ $order->shipping_address }}</td>
-                        <td>{{ $order->is_paid }}</td>
-                        <td>{{ $order->is_completed }}</td>
-                        <td>{{ $order->is_seen_by_admin }}</td>
+                        <td class="text-center">{{ $loop->index+1 }}</td>
+                        <td class="text-center">{{ $order->name }}</td>
+                        <td class="text-center">{{ $order->phone_no }}</td>
+                        <td class="text-center">{{ $order->shipping_address }}</td>
+                        <td class="text-center">
+                          @if($order->payment_id != null )
+                            <span class="badge badge-success p-2">
+                              <i class="fa fa-check-circle"></i> Paid
+                            </span>
+                          @else
+                            <span class="badge badge-warning p-2">
+                              <i class="fa fa-times-circle"></i> Not Paid
+                            </span>
+                          @endif
+
+                        </td>
                         <td class="text-center">
                             <a href="{{route('author.invoice', $order->id)}}"
                              class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>

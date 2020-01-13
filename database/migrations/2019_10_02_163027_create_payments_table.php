@@ -26,6 +26,7 @@ class CreatePaymentsTable extends Migration
             $table->string('pay_type')->nullable();
             $table->string('card_type')->nullable();
             $table->string('last4')->nullable();
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

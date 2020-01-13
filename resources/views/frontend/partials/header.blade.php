@@ -139,7 +139,9 @@
                 <div class="col-lg-3 col-md-5">
                     <div class="categories_menu categorie__three">
                         <div class="categories_title ca_title_two">
-                            <h2 class="categori_toggle"><img src="{{ asset('frontend_assets/assets/img/logo/categorie.png')}}" alt=""> All categories</h2>
+                            <h2 class="categori_toggle">
+                                <img src="{{ asset('frontend_assets/assets/img/logo/categorie.png')}}" alt=""> All categories
+                            </h2>
                         </div>
                         <div class="categories_menu_inner categorie_inner_three">
                             <ul>
@@ -152,7 +154,7 @@
                                                 <div class="categorie_sub_menu">
                                                     <ul>
                                                         @foreach( \App\Models\Subcategory::where('category_id',$category->id)->get() as $subcategory )
-                                                            <li><a href="#"></a>{{ $subcategory->name }}</li>
+                                                            <li><a href="{{ route('sub_category', [$category->slug, $subcategory->slug] ) }}">{{ $subcategory->name }}</a></li>
                                                         @endforeach
                                                     </ul>
                                                 </div>
@@ -166,7 +168,6 @@
                                     <ul class="categorie_sub">
                                         <li><a href="#"><i class="fa fa-caret-right"></i> Computer - Laptop</a></li>
                                     </ul>
-
                                 </li>
                             </ul>
                         </div>
@@ -174,18 +175,18 @@
                 </div>
                 <div class="col-lg-9 col-md-7">
                     <div class="_search_form form_three">
-                        <form action="#">
+                        <form action="{{ route('search') }}">
                             <div class="row pr-3 pl-3">
                                 <div class="col-md-3 col-sm-12 p-0 mb-1">
-                                    <select  style="height: 45px;" name="select" id="categorie" class="form-control rounded-0">
-                                        <option selected="" value="1">All Categories</option>
+                                    <select  style="height: 45px;" name="category" id="categorie" class="form-control rounded-0">
+                                        <option value="">All Categories</option>
                                         @foreach( \App\Models\Subcategory::all() as $subcategory )
-                                            <option value="2">{{ $subcategory->name }}</option>
+                                            <option value="{{ $subcategory->slug }}">{{ $subcategory->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="col-md-8 col-sm-10 p-0  mb-1">
-                                    <input class="form-control rounded-0" placeholder="Enter your search..." type="text">
+                                    <input class="form-control rounded-0" name="query" placeholder="Enter your search..." type="text">
                                 </div>
                                 <div class="col-md-1 col-sm-2 p-0">
                                     <button style="height: 45px;" class="form-control rounded-0 btn btn-outline-warning" type="submit">

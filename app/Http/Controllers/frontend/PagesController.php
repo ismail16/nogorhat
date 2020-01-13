@@ -7,6 +7,8 @@ use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Category;
+use App\Models\Subcategory;
 
 class PagesController extends Controller
 {
@@ -34,11 +36,42 @@ class PagesController extends Controller
         return view('frontend.pages.single_product',compact('product','productImage'));
     } 
 
-    public function category($id)
+    public function category($cat_id)
     {
-        $products = Product::where('id', $id)->get();
+        $products = Product::where('category_id', $cat_id)->paginate(4);
         return view('frontend.pages.category',compact('products'));
     }
+
+    public function sub_category($sub_slug, $sub_cat_slug)
+    {
+        $subcategory = Subcategory::where('slug', $sub_cat_slug)->first();
+        $products = Product::where('sub_category_id', $subcategory->id)->paginate(4);
+        return view('frontend.pages.sub_category',compact('products'));
+    }
+
+    public function search(Request $request)
+    {
+
+        $sub_cat_slug = $request->category;
+        $title = $request['query'];
+        $subcategory = Subcategory::where('slug', $sub_cat_slug)->first();
+
+        $products = Product::orderByDesc('id')
+                        ->Where('sub_category_id', 'LIKE', '%' . $subcategory->id . '%')
+                        ->Where(function ($query) use ($title) {
+                            $query->where('title', 'LIKE', '%' . $title . '%')
+                                    ->orWhere('price', 'LIKE', '%' . $title . '%');
+                            })
+                        ->Where([
+                            ['status',1]
+                        ])
+                        ->paginate(5);
+        $products->appends ( array (
+                'title' => $title
+        ));
+        return view('frontend.pages.search_product',compact('products'));
+    }
+
 
     public function contact()
     {

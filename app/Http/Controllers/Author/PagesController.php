@@ -13,8 +13,9 @@ class PagesController extends Controller
 
     public function index()
     {
-        $orders = Order::orderBy('id', 'desc')->get();
-        return view('author.pages.index',compact('orders'));
+        $orders = Order::orderBy('id', 'desc')->where('user_id', Auth::id())->get();
+        $payments = Order::orderBy('id', 'desc')->where('user_id', Auth::id())->whereNull('payment_id')->get();
+        return view('author.pages.index',compact('orders','payments'));
     }
     
     public function orders()

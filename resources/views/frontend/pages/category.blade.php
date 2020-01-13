@@ -1,5 +1,5 @@
 @extends('frontend/layouts/master')
-@section('title','All products')
+@section('title','All products by Category')
 
 @section('content')
     <div class="container">
@@ -56,6 +56,7 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="large" role="tabpanel">
                             <div class="row cate_tab_product">
+                                @if(count($products)>0)
                                 @foreach($products as $product)
                                     <div class="col-lg-3 col-md-4 col-sm-6">
                                         <div class="single_product categorie card">
@@ -107,7 +108,7 @@
                                                     <span class="new_price"> {{ $product->price }} Tk</span>
                                                     <span class="old_price">  {{ $product->old_price }}  Tk</span>
                                                 </div>
-{{--                                                <div class="_card-footer">--}}
+                                                {{-- <div class="_card-footer"> --}}
                                                     <div class="row">
                                                         <div class="col-sm-6">
                                                             <a href="{{ route('single.producs',$product->id) }}" class="btn btn-outline-primary"><i class="fa fa-eye"></i> View</a>
@@ -120,11 +121,25 @@
                                                             </form>
                                                         </div>
                                                     </div>
-{{--                                                </div>--}}
+                                                {{-- </div> --}}
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
+                                @else
+                                <div class="col-md-12 well">
+                                    <div class="item" style="text-align: center;">
+                                       <h1 style="color: red">Opps !!</h1>
+                                       <h3>No data Found</h3><br>
+                                        <div class="abstract-div">
+                                            <div class="abstract-cropped" style="display:block; text-align: center;">
+                                                Go to <a href="/">Home</a>
+                                            </div>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
                             </div>
                         </div>
                         <div class="tab-pane fade" id="list" role="tabpanel">

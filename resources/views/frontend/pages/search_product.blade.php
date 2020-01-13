@@ -32,6 +32,7 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="large" role="tabpanel">
                             <div class="row cate_tab_product">
+                                @if(count($products)>0)
                                 @foreach($products as $product)
                                     <div class="col-lg-3 col-md-4 col-sm-6">
                                         <div class="single_product categorie card">
@@ -42,7 +43,7 @@
                                                 <div class="product_discount">
                                                     <span>-10%</span>
                                                 </div>
-                                               {{--  <div class="product_action">
+                                                {{-- <div class="product_action">
                                                     <ul>
                                                         <li>
                                                             <a href="#" title=" Add to Wishlist ">
@@ -101,6 +102,20 @@
                                         </div>
                                     </div>
                                 @endforeach
+                                @else
+                                <div class="col-md-12 well">
+                                    <div class="item" style="text-align: center;">
+                                       <h1 style="color: red">Opps !!</h1>
+                                       <h3>No data Found</h3><br>
+                                        <div class="abstract-div">
+                                            <div class="abstract-cropped" style="display:block; text-align: center;">
+                                                Go to <a href="/">Home</a>
+                                            </div>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
                             </div>
                         </div>
                         <div class="tab-pane fade" id="list" role="tabpanel">

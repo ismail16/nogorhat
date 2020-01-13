@@ -139,7 +139,9 @@
                             <div class="hot_category hot_ct_three">
                                 <ul style="padding-bottom: 10px;">
                                     @foreach( \App\Models\Subcategory::Where('category_id', $category->id)->get() as $subcategory)
-                                        <li style="border-bottom: 1px solid #dddddd;"><a class="border-bottom" href="#">{{ $subcategory->name }}</a></li>
+                                        <li style="border-bottom: 1px solid #dddddd;">
+                                            <a class="border-bottom" href="{{ route('sub_category', [$category->slug, $subcategory->slug] ) }}">{{ $subcategory->name }}</a>
+                                        </li>
                                     @endforeach
                                 </ul>
                                 <img src="{{asset('images/category_image/'.$category->image)}}" alt="">
@@ -157,7 +159,7 @@
                                                         <div class="product_discount">
                                                             <span>New</span>
                                                         </div>
-                                                        <div class="product_action">
+                                                        {{-- <div class="product_action">
                                                             <ul>
                                                                 <li><a href="#" title=" Add to Wishlist "><i class="fa fa-heart"></i></a></li>
                                                                 <li><a href="#" title=" Add to Compare "><i class="fa fa-retweet"></i></a></li>
@@ -166,7 +168,7 @@
                                                         </div>
                                                         <div class="quick_view">
                                                             <a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view"><i class="fa fa-search"></i></a>
-                                                        </div>
+                                                        </div> --}}
                                                     </div>
 
                                                     <div class="product_content p_content_three">

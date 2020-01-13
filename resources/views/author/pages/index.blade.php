@@ -19,7 +19,7 @@
                     <span class="fa fa-cart-plus" aria-hidden="true"></span>
                 </div>
                 <div class="text-info text-center mt-3"><h4>Orders</h4></div>
-                <div class="text-info text-center mt-2"><h1>234</h1></div>
+                <div class="text-info text-center mt-2"><h1>{{ count($orders) }}</h1></div>
             </div>
         </div>
         <div class="col-md-3">
@@ -28,7 +28,7 @@
                     <span class="fa fa-money" aria-hidden="true"></span>
                 </div>
                 <div class="text-success text-center mt-3"><h4>Payments</h4></div>
-                <div class="text-success text-center mt-2"><h1>9332</h1></div>
+                <div class="text-success text-center mt-2"><h1>{{ count($payments) }}</h1></div>
             </div>
         </div>
         <div class="col-md-3">
