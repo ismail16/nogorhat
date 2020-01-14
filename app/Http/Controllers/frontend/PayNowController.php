@@ -76,15 +76,7 @@ class PayNowController extends Controller
         $payment->last4 = $last4;
         $payment->save();
 
-        foreach (Cart::totalCarts() as $cart) {
-            if (Auth::check()) {
-                if ($cart->user_id == Auth::id()) {
-                    $cart->delete();
-                }
-            }else if ($cart->ip_address == $user_id) {
-                $cart->delete();
-            }
-        }
+        Cart::orWhere('user_id', Auth::id())->orWhere('ip_address', request()->ip())->delete();
 
         return view('frontend.pages.order_confirmation', compact('order_id'));
     }
@@ -139,20 +131,12 @@ class PayNowController extends Controller
         $payment->amount = $amount;
         $payment->save();
 
-
         $order = Order::find($order_id);
         $order->payment_id = $payment->id;
         $order->transaction_id = $transaction_id;
         $order->save();
 
-
-        foreach (Cart::totalCarts() as $cart) {
-            if (Auth::check() && $cart->user_id == Auth::id()) {
-                $cart->delete();
-            }else if ($cart->ip_address == $user_id) {
-                $cart->delete();
-            }
-        }
+        Cart::orWhere('user_id', Auth::id())->orWhere('ip_address', request()->ip())->delete();
 
         return view('frontend.pages.order_confirmation', compact('order_id'));
     }

@@ -41,6 +41,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 Route::group(['as' => 'author.', 'prefix' => 'author', 'namespace' => 'Author', 'middleware' => ['auth', 'author']], function () {
     Route::get('dashboard', 'PagesController@index')->name('dashboard');
     Route::get('orders', 'PagesController@orders')->name('orders');
+    Route::get('order-delete/{id}', 'PagesController@order_delete')->name('order_delete');
     Route::get('invoice/{id}', 'PagesController@invoice')->name('invoice');
     Route::get('profile/{id}', 'PagesController@profile')->name('profile');
 });

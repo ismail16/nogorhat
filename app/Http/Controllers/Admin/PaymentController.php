@@ -28,17 +28,23 @@ class PaymentController extends Controller
 
     public function show($id)
     {
-
+        $payment = Payment::find($id);
+        return view('admin.payment.index', compact('payment'));
     }
 
     public function edit($id)
     {
-
+        $payment = Payment::find($id);
+        return view('admin.payment.edit', compact('payment'));
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
-       
+        $payment = Payment::find($id);
+        $payment->status = $request->payment_status;
+        $payment->save();
+
+        return redirect()->route('admin.order.index');
     }
 
     public function destroy($id)

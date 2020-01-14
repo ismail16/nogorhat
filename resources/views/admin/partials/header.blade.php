@@ -31,9 +31,9 @@
     <style type="text/css" media="screen">
         .btn-xs{
             padding: 1px 5px;
-    font-size: 12px;
-    line-height: 1.5;
-    border-radius: 3px;
+            font-size: 12px;
+            line-height: 1.5;
+            border-radius: 3px;
         }
     </style>
     @stack('css')

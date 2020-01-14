@@ -10,4 +10,9 @@ class Order extends Model
     {
         return $this->hasOne(Order_detail::class);
     }
+
+    public function payment()
+    {
+        return $this->hasOne(Payment::class);
+    }
 }

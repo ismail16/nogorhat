@@ -207,6 +207,31 @@
         <script src="{{ asset('frontend_assets/assets/js/main.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+        <script src="{{asset('js/bootbox.min.js')}}"></script>
+        <script>
+            $(document).on("click", ".on_delete", function (e) {
+                var index = $(this).data('content');
+
+                bootbox.confirm({
+                    message: "Do you want to remove this?",
+                    buttons: {
+                        confirm: {
+                            label: 'Yes',
+                            className: 'btn-sm btn-danger'
+                        },
+                        cancel: {
+                            label: 'No',
+                            className: 'btn-sm btn-default'
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            $("#on_delete" + index).submit();
+                        }
+                    }
+                });
+            });
+        </script>
         @stack('scripts')
     </body>
 </html>

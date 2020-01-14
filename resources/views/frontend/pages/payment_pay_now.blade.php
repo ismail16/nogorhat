@@ -138,6 +138,8 @@
                                                 @csrf
                                                 <input type="hidden" name="order_id" value="{{$order_id}}">
                                                 <input type="hidden" name="totalAmount" value="{{$totalAmount + 100}}">
+                                                <input type="hidden" name="payment_method" value="cash_in_delivery">
+
 
                                                 <div class="alert alert-success mt-2 mb-2 text-center">
                                                     <div class="text-center alert-warning">
@@ -155,6 +157,8 @@
                                                 @csrf
                                                 <input type="hidden" name="order_id" value="{{$order_id}}">
                                                 <input type="hidden" name="totalAmount" value="{{$totalAmount + 100}}">
+                                                <input type="hidden" name="payment_method" value="bkash">
+
 
                                                 <div class="alert alert-success mt-2 text-center">
                                                     <h3>Payment</h3>
@@ -186,9 +190,9 @@
                                                 @csrf
                                                 <input type="hidden" name="order_id" value="{{$order_id}}">
                                                 <input type="hidden" name="totalAmount" value="{{$totalAmount + 100}}">
+                                                <input type="hidden" name="payment_method" value="rocket">
 
                                                 <div class="alert alert-success mt-2 text-center">
-
                                                     <h3>Payment</h3>
                                                     <p>
                                                         <strong>payment_rocket</strong>

@@ -22,43 +22,37 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-
-                                    <th>#SL</th>
-                                    <th>Name</th>
-                                    <th>Order Id</th>
-                                    <th>User ID</th>
-                                    <th>transaction_id</th>
-                                    <th>payment_method</th>
-                                    <th>amount</th>
-                                    <!-- <th>receipt_url</th> -->
-                                    <th>pay_type</th>
-                                    <th>card_type</th>
-                                    <th>Action</th>
+                                    <th class="text-center">#SL</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Order Id</th>
+                                    <th class="text-center">User ID</th>
+                                    <th class="text-center">Transaction ID</th>
+                                    <th class="text-center">Payment Method</th>
+                                    <th class="text-center">Ammount</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($payments as $payment)
                                 <tr>
-                                    <td>{{ $loop->index+1 }}</td>
-                                    <td>{{ $payment->name }}</td>
-                                    <td>{{ $payment->order_id }}</td>
-                                    <td>{{ $payment->user_id }}</td>
-                                    <td>
+                                    <td class="text-center">{{ $loop->index+1 }}</td>
+                                    <td class="text-center">{{ $payment->name }}</td>
+                                    <td class="text-center">{{ $payment->order_id }}</td>
+                                    <td class="text-center">{{ $payment->user_id }}</td>
+                                    <td class="text-center">
                                         <span style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; width: 80px;">
                                             {{ $payment->transaction_id }}
                                         </span>
                                     </td>
-                                    <td>
-                                        <span style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; width: 50px;">
+                                    <td class="text-center">
+                                        <span style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; width: 50px; ">
                                             {{ $payment->payment_method }}
                                         </span>
                                     </td>
-                                    <td>{{ $payment->amount }}</td>
+                                    <td class="text-center">{{ $payment->amount }}</td>
                                     <!-- <td>{{ $payment->receipt_url }}</td> -->
-                                    <td>{{ $payment->pay_type }}</td>
-                                    <td>{{ $payment->card_type }}</td>
                                     <td class="text-center">
-                                        <a href="{{route('admin.payment.show', $payment->id)}}"
+                                        <a href="{{route('admin.payment.edit', $payment->id)}}"
                                            class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
 
                                         <a href="#" class="btn btn-xs btn-danger table-action-btn on_delete"

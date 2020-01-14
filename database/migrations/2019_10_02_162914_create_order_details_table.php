@@ -18,7 +18,7 @@ class CreateOrderDetailsTable extends Migration
             $table->unsignedInteger('order_id');
             $table->unsignedInteger('product_id');
             $table->integer('product_quantity');
-            $table->tinyInteger('status')->default(1);
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

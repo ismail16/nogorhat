@@ -24,32 +24,30 @@
                 </div>
                 <div class="row invoice-info card-body pt-1 pb-0">
                     <div class="col-sm-4 invoice-col">
-                    From
-                    <address>
-                    <strong>{{ $order->name }}</strong><br>
-                        {{ $order->shipping_address }}<br>
-                        Phone: {{ $order->phone_no }}<br>
-                        Email: {{ $order->email }}
-                    </address>
+                        From
+                        <address>
+                        <strong>{{ $order->name }}</strong><br>
+                            {{ $order->shipping_address }}<br>
+                            Phone: {{ $order->phone_no }}<br>
+                            Email: {{ $order->email }}
+                        </address>
                     </div>
-                    <!-- /.col -->
+
                     <div class="col-sm-4 invoice-col">
-                    To
-                    <address>
-                    <strong>{{ $order->name }}</strong><br>
-                        {{ $order->shipping_address }}<br>
-                        Phone: {{ $order->phone_no }}<br>
-                        Email: {{ $order->email }}
-                    </address>
+                        To
+                        <address>
+                        <strong>{{ $order->name }}</strong><br>
+                            {{ $order->shipping_address }}<br>
+                            Phone: {{ $order->phone_no }}<br>
+                            Email: {{ $order->email }}
+                        </address>
                     </div>
-                    <!-- /.col -->
+
                     <div class="col-sm-4 invoice-col text-right">
-                    <b>Invoice #00{{ $order->id }}</b><br>
-                    <br>
-                    <b>Order ID:</b> 4F3S8J<br>
-                    <b>Payment:</b> {{ $order->is_paid }}
+                        Invoice <b>#00{{ $order->id }}</b><br>
+                        Order ID:<b> {{ $order->id }} </b><br>
+                        Payment:<b>{{ $order->payment->id }}</b>
                     </div>
-                    <!-- /.col -->
                 </div>
                 <div class="row card-body pt-0">
                     <div class="col-12 table-responsive">

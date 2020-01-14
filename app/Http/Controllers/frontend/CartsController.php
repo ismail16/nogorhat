@@ -65,7 +65,7 @@ class CartsController extends Controller
 
     public function show($id)
     {
-        return response("shoe");
+        return response("show");
     }
 
     public function edit($id)
