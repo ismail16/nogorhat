@@ -8,8 +8,8 @@
     <div class="sidebar">
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link">
+                <li class="nav-item">
+                    <a href="{{ route('admin.dashboard') }}" class="nav-link {{Request::is('admin/dashboard*') ? 'active':''}}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         Dashboard
                     </a>
@@ -17,47 +17,53 @@
 
                 <li class="nav-header pt-2">Orders</li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.customer.index') }}" class="nav-link">
+                    <a href="{{ route('admin.customer.index') }}" class="nav-link {{Request::is('admin/customer*') ? 'active':''}}">
                         <i class="nav-icon far fa fa-users"></i>
                         <p>Customer</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.order.index') }}" class="nav-link">
+                    <a href="{{ route('admin.order.index') }}" class="nav-link {{Request::is('admin/order*') ? 'active':''}}">
                         <i class="nav-icon far fa fa-cart-plus"></i>
                         <p>Order</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.payment.index') }}" class="nav-link">
+                    <a href="{{ route('admin.payment.index') }}" class="nav-link {{Request::is('admin/payment*') ? 'active':''}}">
                         <i class="nav-icon far fa fa-cart-plus"></i>
                         <p>Payment</p>
                     </a>
                 </li>
                  <li class="nav-header pt-2">Categories</li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.category.index') }}" class="nav-link">
+                    <a href="{{ route('admin.category.index') }}" class="nav-link {{Request::is('admin/category*') ? 'active':''}}">
                         <i class="nav-icon far fa fa-bars"></i>
                         <p>Category</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.subcategory.index') }}" class="nav-link">
+                <li class="nav-item ">
+                    <a href="{{ route('admin.subcategory.index') }}" class="nav-link {{Request::is('admin/subcategory*') ? 'active':''}}">
                         <i class="nav-icon far fa fa-list-ol"></i>
                         <p>Sub-Category</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.supplier.index') }}" class="nav-link">
+                    <a href="{{ route('admin.supplier.index') }}" class="nav-link {{Request::is('admin/supplier*') ? 'active':''}}">
                         <i class="nav-icon far fa fa-list-ol"></i>
                         <p>Brand/Supplier</p>
                     </a>
                 </li>
                 <li class="nav-header pt-2">Products</li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.product.index') }}" class="nav-link">
+                    <a href="{{ route('admin.product.index') }}" class="nav-link {{Request::is('admin/product*') ? 'active':''}}">
                         <i class="nav-icon far fa-plus-square"></i>
                         <p>Product</p>
+                    </a>
+                </li> 
+
+                <li class="nav-header pt-2">
+                    <a href="{{ route('admin.contact.index') }}">
+                        Message
                     </a>
                 </li>
 {{--                <li class="nav-item has-treeview">--}}

@@ -1393,11 +1393,11 @@
 	line-height: 30px;
 	text-transform: uppercase;
 	display: block;
-	color: #fff;
+	color: #000;
 	margin-bottom: 20px;
 }
 .single_footer ul li a,.single_footer ul li {
-	color: #fff;
+	color: #000;
 	display: block;
 	text-transform: capitalize;
 	line-height: 29px;
@@ -1640,7 +1640,7 @@
     color: #fff;
 }
 .header_middle.middle_two {
-	background: #d0d0d0;
+	background: #fff;
 }
 .search_form.form_two form {
 	border: 6px solid #c3bcbc;

@@ -1,4 +1,4 @@
-<div class="home_two_block_section">
+<div class="home_two_block_section bg-white">
     <div class="container" >
         <div class="row">
             <div class="col-lg-9 col-md-8">

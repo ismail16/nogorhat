@@ -89,7 +89,7 @@
         </li>
         <li class="nav-item dropdown">
             <a href="{{ route('admin.dashboard') }}" class="_dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                <img src="{{asset('backend_assets/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image" width="30" style="margin: 5px 20px 0px 10px;">
+                <img src="{{asset('backend_assets/dist/img/user2-160x160.jpg')}}" class="user-image img-circle" alt="User Image" width="30" style="margin: 5px 20px 0px 10px;">
 {{--                <span class="hidden-xs">Alexander Pierce</span>--}}
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">

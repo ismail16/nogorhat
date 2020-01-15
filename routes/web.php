@@ -34,6 +34,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::resource('order', 'OrderController');
     Route::resource('customer', 'CustomerController');
     Route::resource('payment', 'PaymentController');
+    Route::resource('contact', 'ContactController');
 
 });
 
@@ -65,8 +66,6 @@ Route::post('payment-pay-cash-in', 'frontend\PayNowController@payment_pay_cash_i
 // Route::post('payment-pay-rocket', 'frontend\PayNowController@payment_pay_rocket')->name('payment_pay_rocket');
 
 Route::get('/invoice/{id}', 'frontend\CheckoutsController@invoice')->name('card.invoice');
-
-
 
 Route::get('/sendemail', 'SendEmailController@index');
 Route::get('/sendmail', 'SendEmailController@sendmail');

@@ -1,12 +1,12 @@
 {{--</div>--}}
     </div>
         <div class="">
-            <div class="newsletter_area" style="background-color: #d0d0d0 !important;">
+            <div class="newsletter_area" style="background-color: #000 !important;">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-2 col-md-6">
                             <div class="footer_logo">
-                                <h3 class="text-red">shop</h3>
+                                <h3 class="text-white">shop</h3>
                                 {{--<a href="#"><img src="{{ asset('frontend_assets/assets/img/logo/logo.png')}}"" alt=""></a>--}}
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <div class="footer_area" style="background-color: #695b5b !important;">
+            <div class="footer_area" style="background-color: #fff !important;">
                 <div class="container">
                     <div class="footer_top">
                         <div class="row">
@@ -83,13 +83,13 @@
                     </div>
                 </div>
             </div>
-            <div class="footer_area" style="background-color: #d0d0d0 !important;">
+            <div class="footer_area" style="background-color: #000 !important;">
                 <div class="container">
                     <div class="copyright_area">
                         <div class="row">
                             <div class="col-md-12 d-flex justify-content-center">
                                 <div class="widget_copyright">
-                                    <p style="color: black;">copyright &copy; 2019 <a href="{{ route('index') }}">shop</a>. all right reserved</p>
+                                    <p style="color: fff;">copyright &copy; 2019 <a href="{{ route('index') }}">shop</a>. all right reserved</p>
                                 </div>
                             </div>
 
