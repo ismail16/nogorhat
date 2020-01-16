@@ -1,28 +1,46 @@
 {{--</div>--}}
     </div>
+    @php
+        $setting = \App\Models\Setting::orderBy('id', 'desc')->first();
+    @endphp
         <div class="">
             <div class="newsletter_area" style="background-color: #000 !important;">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-2 col-md-6">
                             <div class="footer_logo">
-                                <h3 class="text-white">shop</h3>
-                                {{--<a href="#"><img src="{{ asset('frontend_assets/assets/img/logo/logo.png')}}"" alt=""></a>--}}
+                                <a href="{{route('index')}}">
+                                    <img src="{{ asset('images/store_logo/'.$setting->store_logo)}}" style="height: 40px;" alt="">
+                                </a>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="social_icone">
                                 <ul>
-                                    <li><a target="_blank" href="https://www.facebook.com/shopbd1, " title="facebook"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a target="_blank" href=" https://www.youtube.com/channel/UCRshBFxljqZRB1cY1ldKkgQ/ " title="Youtube"><i class="fa fa-youtube"></i></a></li>
+                                    @isset ($setting->facebook)
+                                        <li><a target="_blank" href="{{ $setting->facebook }}" title="facebook"><i class="fa fa-facebook"></i></a></li>
+                                    @endisset
+                                    @isset ($setting->instagram)
+                                        <li><a target="_blank" href="{{ $setting->instagram }}" title="instagram"><i class="fa fa-instagram"></i></a></li>
+                                    @endisset
+                                    @isset ($setting->youtube)
+                                         <li><a target="_blank" href="{{ $setting->youtube }}" title="Youtube"><i class="fa fa-youtube"></i></a></li>
+                                    @endisset
+                                    @isset ($setting->twitter)
+                                        <li><a target="_blank" href="{{ $setting->twitter }}" title="twitter"><i class="fa fa-twitter"></i></a></li>
+                                    @endisset
+                                    @isset ($setting->linkedIn)
+                                        <li><a target="_blank" href="{{ $setting->linkedIn }}" title="linkedIn"><i class="fa fa-linkedin"></i></a></li>
+                                    @endisset
                                 </ul>
                             </div>
                         </div>
                         <div class="col-lg-7">
                             <div class="newslatter_inner fix">
                                 <h4>send Newsletters</h4>
-                                <form action="#">
-                                    <input placeholder="enter your email" type="text">
+                                <form action="{{ route('subscribtion') }}" method="POST">
+                                    @csrf
+                                    <input name="email" placeholder="enter your email" type="email">
                                     <button type="submit">Subscribe</button>
                                 </form>
                             </div>
@@ -40,9 +58,9 @@
                                     <h4>store information</h4>
 
                                     <ul>
-                                        <li><i class="fa fa-phone"></i> (+1)866-550-3669</li>
-                                        <li><a href="#"><i class="fa fa-envelope-square"></i> demo@posthemes.com</a></li>
-                                        <li><i class="fa fa-home"></i> PO Box 16122 Collins Street West Victoria 8007 Australia</li>
+                                        <li><i class="fa fa-phone"></i> {{ $setting->store_phone }}</li>
+                                        <li><a href="#"><i class="fa fa-envelope-square"></i> {{ $setting->store_email }}</a></li>
+                                        <li><i class="fa fa-home"></i> {{ $setting->store_address }}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -89,7 +107,7 @@
                         <div class="row">
                             <div class="col-md-12 d-flex justify-content-center">
                                 <div class="widget_copyright">
-                                    <p style="color: fff;">copyright &copy; 2019 <a href="{{ route('index') }}">shop</a>. all right reserved</p>
+                                    <p style="color: fff;">copyright &copy; 2019 <a href="{{ route('index') }}">{{ $setting->store_name }}</a>. all right reserved</p>
                                 </div>
                             </div>
 

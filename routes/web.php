@@ -22,6 +22,9 @@ Route::get('/about', 'frontend\PagesController@about')->name('about');
 Route::get('/faq', 'frontend\PagesController@faq')->name('faq');
 Route::get('/terms-conditions', 'frontend\PagesController@terms_conditions')->name('terms.conditions');
 Route::get('/returns-replacement', 'frontend\PagesController@returns_replacement')->name('returns.replacement');
+
+Route::post('/subscribtion', 'frontend\PagesController@subscribtion')->name('subscribtion');
+
 Auth::routes();
 
 //======================================== Admin route==================================
@@ -35,6 +38,10 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::resource('customer', 'CustomerController');
     Route::resource('payment', 'PaymentController');
     Route::resource('contact', 'ContactController');
+
+    Route::resource('setting', 'SettingController');
+
+    Route::get('subscribtions', 'PagesController@allSubscribtion')->name('allSubscribtion');
 
 });
 

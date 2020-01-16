@@ -54,14 +54,21 @@
 <body>
 
 <div class="header_area">
+    @php
+        $setting = \App\Models\Setting::orderBy('id', 'desc')->first();
+    @endphp
     <div class="header_middle middle_two">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-3">
                     <div class="logo">
-                        <h2 class="m-0">shop</h2>
-                        <span style="font-style: italic;color: #ab0400;font-weight: bold;">Forget the Rules, if you like it, wear it!</span>
-{{--                        <a href="{{route('index')}}"><img src="{{ asset('frontend_assets/assets/img/logo/logo2.png')}}" alt=""></a>--}}
+                        {{-- <h2 class="m-0">shop</h2> --}}
+                        <a href="{{route('index')}}">
+                            <img src="{{ asset('images/store_logo/'.$setting->store_logo)}}" style="height: 40px;" alt="">
+                        </a><br>
+                        <span style="font-style: italic;color: #ab0400;font-weight: bold;">
+                           {{ $setting->store_title }}
+                        </span>
                     </div>
                 </div>
                 <div class="col-lg-6">

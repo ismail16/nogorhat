@@ -1,5 +1,5 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-secondary elevation-4">
     <a href="{{ route('admin.dashboard') }}" class="brand-link">
         <img src="{{asset('backend_assets/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">NOGORHAT</span>
@@ -14,8 +14,6 @@
                         Dashboard
                     </a>
                 </li>
-
-                <li class="nav-header pt-2">Orders</li>
                 <li class="nav-item">
                     <a href="{{ route('admin.customer.index') }}" class="nav-link {{Request::is('admin/customer*') ? 'active':''}}">
                         <i class="nav-icon far fa fa-users"></i>
@@ -30,11 +28,10 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.payment.index') }}" class="nav-link {{Request::is('admin/payment*') ? 'active':''}}">
-                        <i class="nav-icon far fa fa-cart-plus"></i>
+                        <i class="nav-icon fas fa-money-check-alt"></i>
                         <p>Payment</p>
                     </a>
                 </li>
-                 <li class="nav-header pt-2">Categories</li>
                 <li class="nav-item">
                     <a href="{{ route('admin.category.index') }}" class="nav-link {{Request::is('admin/category*') ? 'active':''}}">
                         <i class="nav-icon far fa fa-bars"></i>
@@ -53,19 +50,34 @@
                         <p>Brand/Supplier</p>
                     </a>
                 </li>
-                <li class="nav-header pt-2">Products</li>
                 <li class="nav-item">
                     <a href="{{ route('admin.product.index') }}" class="nav-link {{Request::is('admin/product*') ? 'active':''}}">
-                        <i class="nav-icon far fa-plus-square"></i>
+                        <i class="nav-icon fab fa-product-hunt"></i>
                         <p>Product</p>
                     </a>
                 </li> 
 
-                <li class="nav-header pt-2">
-                    <a href="{{ route('admin.contact.index') }}">
+                <li class="nav-item">
+                    <a href="{{ route('admin.contact.index') }}" class="nav-link {{Request::is('admin/contact*') ? 'active':''}}">
+                        <i class="nav-icon far fa-comments"></i>
                         Message
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.allSubscribtion') }}" class="nav-link {{Request::is('admin/subscribtions*') ? 'active':''}}">
+                        <i class="nav-icon fas fa-envelope-open-text"></i>
+                        Subscribtion
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.setting.edit',1) }}" class="nav-link {{Request::is('admin/subscribtions*') ? 'active':''}}">
+                        <i class="nav-icon fas fa-tools"></i>
+                        Settings
+                    </a>
+                </li>
+
 {{--                <li class="nav-item has-treeview">--}}
 {{--                    <a href="#" class="nav-link">--}}
 {{--                        <i class="nav-icon far fa-plus-square"></i>--}}

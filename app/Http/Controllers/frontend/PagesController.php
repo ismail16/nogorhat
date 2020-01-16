@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Category;
 use App\Models\Subcategory;
+use App\Models\Subscription;
 
 class PagesController extends Controller
 {
@@ -96,6 +97,15 @@ class PagesController extends Controller
     public function returns_replacement()
     {
         return view('frontend.pages.returns_replacement');
+    }
+
+    public function subscribtion(Request $request)
+    {
+        $subscription = new Subscription;
+        $subscription->ip = request()->ip();
+        $subscription->email = $request->email;
+        $subscription->save();
+        return back();
     }
 
     public function store(Request $request)
