@@ -39,6 +39,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::resource('payment', 'PaymentController');
     Route::resource('contact', 'ContactController');
 
+    Route::resource('slider', 'SliderController');
     Route::resource('setting', 'SettingController');
 
     Route::get('subscribtions', 'PagesController@allSubscribtion')->name('allSubscribtion');

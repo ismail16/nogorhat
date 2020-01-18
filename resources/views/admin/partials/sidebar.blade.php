@@ -78,6 +78,13 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="{{ route('admin.slider.index') }}" class="nav-link {{Request::is('admin/slider*') ? 'active':''}}">
+                        <i class="nav-icon fas fa-image"></i>
+                        Sliders
+                    </a>
+                </li>
+
 {{--                <li class="nav-item has-treeview">--}}
 {{--                    <a href="#" class="nav-link">--}}
 {{--                        <i class="nav-icon far fa-plus-square"></i>--}}
