@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\Subscription;
+use App\Models\Slider;
 
 class PagesController extends Controller
 {
@@ -18,8 +19,8 @@ class PagesController extends Controller
     {
         $products = Product::all();
         $orders = Order::orderBy('id', 'desc')->get();
-
-        return view('frontend.pages.index',compact('products','orders'));
+        $sliders = Slider::orderBy('id', 'desc')->get();
+        return view('frontend.pages.index',compact('products','orders','sliders'));
     }
 
     public function products()

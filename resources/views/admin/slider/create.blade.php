@@ -37,14 +37,14 @@
                                     <div class="col-sm-8">
                                         <div class="form-group">
                                             <label>Title</label>
-                                            <input type="text" name="title" class="form-control" placeholder="Slider Title">
+                                            <input type="text" name="title" class="form-control form-control-sm" placeholder="Slider Title">
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Slider Image</label>
-                                            <input type="file" name="image" class="form-control p-1" id="myFile">
+                                            <input type="file" name="image" class="form-control form-control-sm p-1" id="myFile">
                                         </div>
                                     </div>
 
@@ -55,21 +55,48 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-2">
                                         <div class="form-group">
                                             <label>Button Text</label>
-                                            <input type="text" name="button_text" class="form-control" placeholder="Button Text">
+                                            <input type="text" name="button_text" class="form-control form-control-sm" placeholder="Button Text">
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Button Link</label>
-                                            <input type="text" name="button_link" class="form-control" placeholder="Button Link">
+                                            <input type="text" name="button_link" class="form-control form-control-sm" placeholder="Button Link">
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Text Position</label>
+                                        </div>
+                                        <div class="">
+                                            <div class="form-check-inline ml-3">
+                                                <label class="form-check-label">
+                                                    <input type="radio" name="text_position" value="left" class="form-check-input">
+                                                    <span class="form-check-label font-weight-bold" for="deactive">Left</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input type="radio" name="text_position" value="center" class="form-check-input" >
+                                                    <span class="form-check-label font-weight-bold">Center</span>
+                                                </label>
+                                            </div>
+
+                                            <div class="form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input type="radio" name="text_position" value="right" class="form-check-input">
+                                                    <span class="form-check-label font-weight-bold">Right</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Status</label>
                                         </div>
@@ -88,9 +115,7 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-
                             </div>
                             <div class="card-footer">
                                 <a href="{{route('admin.slider.index')}}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Cancel</a>

@@ -2,46 +2,29 @@
 @section('title','Home')
 
 @section('content')
-{{--    @include('frontend/partials/navbar')--}}
 <div class="home_two_block_section">
     <div class="container">
         <div class="row">
             <div class="col-lg-9 col-md-8">
-                <!--banner slider start-->
                 <div class="banner_slider mb-10">
                     <div class="slider_active owl-carousel">
-                        <div class="single_slider single_sl_two" style="background-image: url('{{ asset('images/slider_image/3.png')}}');">
+                        @foreach($sliders as $slider)
+                        <div class="single_slider single_sl_two" style="background-image: url('{{ asset('images/slider_image/'.$slider->image)}}');">
                             <div class="row">
-                                <div class="col-lg-7 offset-lg-5 col-md-8 offset-md-4">
-                                    <div class="slider_content slider_c_two">
-                                        <h2>new furniture !</h2>
-                                        <h1>50 % off</h1>
+                                <div class="col-md-12 p-4">
+                                    <div class="slider_content slider_c_two" style="text-align: {{ $slider->text_position }};">
+                                        <h2> {!! $slider->slider_text !!}</h2>
                                         <div class="slider_button">
-                                            <a href="#">shop it! </a>
+                                            <a href="{{ $slider->button_link }}"> {{ $slider->button_text }} </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="single_slider single_sl_two" style="background-image: url('{{ asset('images/slider_image/4.png')}}');">
-                            <div class="row">
-                                <div class="col-lg-6 offset-lg-5 col-md-8 offset-md-4">
-                                    <div class="slider_content sale_c_two sale">
-                                        <h2>Tablets </h2>
-                                        <h1>Sale </h1>
-                                        <div class="slider_desc_up ">
-                                            <p>Up to 40 % off on all tablets </p>
-                                        </div>
-                                        <div class="slider_button">
-                                            <a href="#">shop it! </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
-                <!--banner slider end-->
+                
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="single_shipping">
