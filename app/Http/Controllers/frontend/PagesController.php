@@ -11,6 +11,7 @@ use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\Subscription;
 use App\Models\Slider;
+use App\Models\ProductReview;
 
 class PagesController extends Controller
 {
@@ -107,6 +108,22 @@ class PagesController extends Controller
         $subscription->email = $request->email;
         $subscription->save();
         return back();
+    }
+
+    public function product_review_post(Request $request)
+    {
+
+        $ProductReview = new ProductReview;
+
+        $ProductReview->ip = request()->ip();
+        $ProductReview->product_id = $request->product_id;
+        $ProductReview->rating = $request->rating;
+        $ProductReview->name = $request->name;
+        $ProductReview->email = $request->email;
+        $ProductReview->review = $request->review;
+
+        $ProductReview->save();
+        return back();        
     }
 
     public function store(Request $request)

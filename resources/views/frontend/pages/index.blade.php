@@ -165,7 +165,7 @@
                                                             </ul>
                                                         </div>
                                                         <div class="small_product_name" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;">
-                                                            <a title="Printed Summer Dress" href="single-product.html">{{ $product->title }}</a>
+                                                            <a title="Printed Summer Dress" href="{{ route('single.producs',$product->slug) }}">{{ $product->title }}</a>
                                                         </div>
                                                         <div class="small_product_price s_price_three">
                                                             <span class="new_price"> Tk {{ $product->price }} </span>

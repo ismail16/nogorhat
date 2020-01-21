@@ -96,12 +96,12 @@
                                 <li >
                                     <a class="nav-link active" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="false">More info</a>
                                 </li>
-{{--                                <li>--}}
-{{--                                    <a class="nav-link" data-toggle="tab" href="#sheet" role="tab" aria-controls="sheet" aria-selected="false">Data sheet</a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a class="nav-link button_three" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>--}}
-{{--                                </li>--}}
+                               {{--  <li>
+                                    <a class="nav-link" data-toggle="tab" href="#sheet" role="tab" aria-controls="sheet" aria-selected="false">Data sheet</a>
+                                </li> --}}
+                                <li>
+                                    <a class="nav-link button_three" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
+                                </li>
                             </ul>
                         </div>
                         <div class="tab-content product_details_content">
@@ -110,7 +110,8 @@
                                     {!! $product->description !!}
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="sheet" role="tabpanel">
+
+                           {{--  <div class="tab-pane fade" id="sheet" role="tabpanel">
                                 <div class="product_d_table">
                                     <table>
                                         <tbody>
@@ -132,8 +133,49 @@
                                 <div class="product_d_tab_content">
                                     <p>Fashion has been creating well-designed collections since 2010. The brand offers feminine designs delivering stylish separates and statement dresses which have since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe. The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. All the beautiful pieces are made in Italy and manufactured with the greatest attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!</p>
                                 </div>
-                            </div>
+                            </div> --}}
+
                             <div class="tab-pane fade" id="reviews" role="tabpanel">
+                                <div class="product_review_form pt-2">
+                                    <form action="#">
+                                        <h2>Add a review </h2>
+                                        <p>Your email address will not be published. Required fields are marked </p>
+                                        <div class="samll_product_ratting review_rating">
+                                            <span>Your rating</span>
+                                            <ul>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-star"></i></a>
+                                                </li>
+                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="review_form_comment_">
+                                                    <label for="review_comment">Your review </label>
+                                                    <textarea name="comment" cols="" rows="2" id="review_comment" class="bg-transparent border" ></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="review_form_author">
+                                                    <label for="author">Name</label>
+                                                    <input id="author"  type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="review_form_author">
+                                                    <label for="email">Email </label>
+                                                    <input id="email"  type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit">Submit</button>
+                                    </form>
+                                </div>
+
                                 <div class="product_d_tab_content">
                                     <p>Fashion has been creating well-designed collections since 2010. The brand offers feminine designs delivering stylish separates and statement dresses which have since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe. The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. All the beautiful pieces are made in Italy and manufactured with the greatest attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!</p>
                                 </div>
@@ -157,44 +199,6 @@
                                         <p>That's OK!</p>
                                     </div>
                                 </div>
-                                <div class="product_review_form">
-                                    <form action="#">
-                                        <h2>Add a review </h2>
-                                        <p>Your email address will not be published. Required fields are marked </p>
-                                        <div class="samll_product_ratting review_rating">
-                                            <span>Your rating</span>
-                                            <ul>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="review_form_comment">
-                                                    <label for="review_comment">Your review </label>
-                                                    <textarea name="comment" id="review_comment" ></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="review_form_author">
-                                                    <label for="author">Name</label>
-                                                    <input id="author"  type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="review_form_author">
-                                                    <label for="email">Email </label>
-                                                    <input id="email"  type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="submit">Submit</button>
-                                    </form>
-                                </div>
-
                             </div>
                         </div>
 

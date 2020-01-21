@@ -25,6 +25,8 @@ Route::get('/returns-replacement', 'frontend\PagesController@returns_replacement
 
 Route::post('/subscribtion', 'frontend\PagesController@subscribtion')->name('subscribtion');
 
+Route::post('/product-review-post', 'frontend\PagesController@product_review_post')->name('product_review_post');
+
 Auth::routes();
 
 //======================================== Admin route==================================
