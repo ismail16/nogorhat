@@ -226,7 +226,9 @@
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
         <script src="{{asset('js/bootbox.min.js')}}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8/dist/sweetalert2.min.js"></script>
         <script>
+
             $(document).on("click", ".on_delete", function (e) {
                 var index = $(this).data('content');
 
@@ -249,6 +251,111 @@
                     }
                 });
             });
+
+
+            function product_review_post(){
+                var token = $('meta[name="csrf-token"]').attr('content');
+                var product_id = $('#product_id').val()
+                var rating = $('#rating').val()
+                var name = $('#name').val()
+                var email = $('#email').val()
+                var review = $('#review').val()
+                $.ajax({
+                    url: "{{route('product_review_post')}}",
+                    method: "POST",
+                    data: { _token : token, product_id:product_id, rating:rating, name: name, email:email, review:review },
+                    success: function (data) {
+                        if (data.success) {
+                            Swal.fire({
+                              icon: 'success',
+                              title: data.success
+                            })
+                            $('#rating').val('') 
+                            $('#name').val('')
+                            $('#email').val('')
+                            $('#review').val('')
+                            console.log(data)
+                        }else {
+                            Swal.fire({
+                              icon: 'error',
+                              title: 'Oops...',
+                              text: 'Something went wrong!'
+                            })
+                            $('#rating').val('') 
+                            $('#name').val('')
+                            $('#email').val('')
+                            $('#review').val('')
+                        }
+                    }
+                });
+            }
+
+
+
+
+
+
+
+
+            $(document).ready(function(){
+  
+              /* 1. Visualizing things on Hover - See next part for action on click */
+              $('#stars li').on('mouseover', function(){
+                var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+               
+                // Now highlight all the stars that's not after the current hovered star
+                $(this).parent().children('li.star').each(function(e){
+                  if (e < onStar) {
+                    $(this).addClass('hover');
+                  }
+                  else {
+                    $(this).removeClass('hover');
+                  }
+                });
+                
+              }).on('mouseout', function(){
+                $(this).parent().children('li.star').each(function(e){
+                  $(this).removeClass('hover');
+                });
+              });
+              
+              
+              /* 2. Action to perform on click */
+              $('#stars li').on('click', function(){
+                var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+                var stars = $(this).parent().children('li.star');
+                
+                for (i = 0; i < stars.length; i++) {
+                  $(stars[i]).removeClass('selected');
+                }
+                
+                for (i = 0; i < onStar; i++) {
+                  $(stars[i]).addClass('selected');
+                }
+                
+                // JUST RESPONSE (Not needed)
+                var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+                var msg = "";
+                if (ratingValue > 1) {
+                    msg = "Thanks! You rated this " + ratingValue + " stars.";
+                }
+                else {
+                    msg = "We will improve ourselves. You rated this " + ratingValue + " stars.";
+                }
+                responseMessage(msg,ratingValue);
+                
+              });
+              
+              
+            });
+
+
+            function responseMessage(msg,ratingValue) {
+              $('.success-box').fadeIn(200);  
+              $('.success-box div.text-message').html("<span>" + msg + "</span>");
+              $('#rating').val(ratingValue)
+            }
+
         </script>
         @stack('scripts')
     </body>

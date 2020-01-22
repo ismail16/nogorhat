@@ -82,11 +82,26 @@
                                             <div class="small_product_content">
                                                 <div class="samll_product_ratting">
                                                     <ul>
-                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        @php
+                                                            $product_reviews = \App\Models\ProductReview::where('product_id',$product->id)->get();
+                                                            $count = 0;
+                                                        @endphp
+
+                                                        @if(count($product_reviews) > 0)
+                                                            @foreach($product_reviews as $product_review)
+                                                                @php
+                                                                   $count +=  $product_review->rating;
+                                                                @endphp
+                                                            @endforeach
+                                                            @php
+                                                                $reviews = $count / count($product_reviews);
+                                                                for ($i = 0; $i < $reviews; $i++){
+                                                                    @endphp
+                                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                                    @php
+                                                                }
+                                                            @endphp
+                                                        @endif
                                                     </ul>
                                                 </div>
                                                 <div class="small_product_name" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;">
@@ -157,11 +172,30 @@
                                                     <div class="product_content p_content_three">
                                                         <div class="samll_product_ratting">
                                                             <ul>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                                <li>Rating : </li>
+                                                                @php
+                                                                    $product_reviews = \App\Models\ProductReview::where('product_id',$product->id)->get();
+                                                                    $count = 0;
+                                                                @endphp
+
+                                                                @if(count($product_reviews) > 0)
+                                                                    @foreach($product_reviews as $product_review)
+                                                                        @php
+                                                                           $count +=  $product_review->rating;
+                                                                        @endphp
+                                                                    @endforeach
+                                                                    @php
+                                                                        $reviews = $count / count($product_reviews);
+                                                                        for ($i = 0; $i < $reviews; $i++){
+                                                                            @endphp
+                                                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                                            @php
+                                                                        }
+                                                                    @endphp
+                                                                @else
+                                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                                @endif
                                                             </ul>
                                                         </div>
                                                         <div class="small_product_name" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;">

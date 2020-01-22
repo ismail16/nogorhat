@@ -12,6 +12,7 @@ use App\Models\Subcategory;
 use App\Models\Subscription;
 use App\Models\Slider;
 use App\Models\ProductReview;
+use Session;
 
 class PagesController extends Controller
 {
@@ -36,7 +37,8 @@ class PagesController extends Controller
         $product = Product::where('slug', $slug)->first();
         $product_id = $product->id;
         $productImage = ProductImage::where('product_id',$product_id)->get();
-        return view('frontend.pages.single_product',compact('product','productImage'));
+        $product_reviews = ProductReview::where('product_id',$product_id)->get();
+        return view('frontend.pages.single_product',compact('product','productImage','product_reviews'));
     } 
 
     public function category($cat_id)
@@ -115,14 +117,16 @@ class PagesController extends Controller
 
         $ProductReview = new ProductReview;
 
-        $ProductReview->ip = request()->ip();
+        // $ProductReview->ip = request()->ip();
         $ProductReview->product_id = $request->product_id;
         $ProductReview->rating = $request->rating;
         $ProductReview->name = $request->name;
         $ProductReview->email = $request->email;
         $ProductReview->review = $request->review;
+        $ProductReview->status = 0;
 
         $ProductReview->save();
+        Session::flash('message', 'Thank You For Rating!');
         return back();        
     }
 

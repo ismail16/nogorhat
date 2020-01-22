@@ -20,6 +20,7 @@ class CreateProductReviewsTable extends Migration
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->text('review')->nullable();
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }
