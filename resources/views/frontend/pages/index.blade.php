@@ -82,6 +82,7 @@
                                             <div class="small_product_content">
                                                 <div class="samll_product_ratting">
                                                     <ul>
+                                                        <li>Rating : </li>
                                                         @php
                                                             $product_reviews = \App\Models\ProductReview::where('product_id',$product->id)->get();
                                                             $count = 0;
@@ -101,6 +102,9 @@
                                                                     @php
                                                                 }
                                                             @endphp
+                                                        @else
+                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
                                                         @endif
                                                     </ul>
                                                 </div>
