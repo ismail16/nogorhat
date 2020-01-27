@@ -88,6 +88,7 @@
                                     <div class="_col-md-6">
                                         <select class="form-control" name="payment_method" v-model="order.payment_method" required id="payments">
                                             <option value="stripe">Pay Your payment By Card</option>
+                                            <option value="2checkout">2checkout</option>
                                             <option value="cash_in">cash_in</option>
                                             <option value="bkash">bkash</option>
                                             <option value="rocket">rocket</option>
@@ -131,6 +132,26 @@
                                                     </div>
                                                 </div>
                                             </form>
+                                        </div>
+
+                                        <div id="2checkout" class="d-none">
+                                            2checkout
+                                            <form role="form" action="{{ route('payment_pay_cash_in') }}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="order_id" value="{{$order_id}}">
+                                                <input type="hidden" name="totalAmount" value="{{$totalAmount + 100}}">
+                                                <input type="hidden" name="payment_method" value="cash_in_delivery">
+
+
+                                                <div class="alert alert-success mt-2 mb-2 text-center">
+                                                    <div class="text-center alert-warning">
+                                                        <p style="font-size: 11px;">[N.B Shipping Cost is Dhaka 100 Tk]</p>
+                                                    </div>
+                                                </div>
+                                                <div class="order_button">
+                                                    <button type="submit">Order Confirmed</button>
+                                                </div>
+                                             </form>
                                         </div>
 
                                         <div id="payment_cash_in" class="d-none">
@@ -241,13 +262,23 @@
         if ($payment_method == "stripe") {
             console.log('stripe');
             $("#payment_stripe").removeClass('d-none');
+            $("#2checkout").addClass('d-none')
             $("#payment_cash_in").addClass('d-none')
             $("#payment_bkash").addClass('d-none')
             $("#payment_rocket").addClass('d-none')
 
+        }else if($payment_method == "2checkout") {
+            console.log('cash_in');
+            $("#2checkout").removeClass('d-none');
+            $("#payment_cash_in").addClass('d-none');
+            $("#payment_stripe").addClass('d-none');
+            $("#payment_bkash").addClass('d-none');
+            $("#payment_rocket").addClass('d-none');
+
         }else if($payment_method == "cash_in") {
             console.log('cash_in');
             $("#payment_cash_in").removeClass('d-none');
+            $("#2checkout").addClass('d-none');
             $("#payment_stripe").addClass('d-none');
             $("#payment_bkash").addClass('d-none');
             $("#payment_rocket").addClass('d-none');
@@ -256,6 +287,7 @@
             console.log('bkash');
             $("#payment_bkash").removeClass('d-none');
             $("#payment_stripe").addClass('d-none');
+            $("#2checkout").addClass('d-none');
             $("#payment_cash_in").addClass('d-none');
             $("#payment_rocket").addClass('d-none');
 
@@ -263,6 +295,7 @@
             console.log('rocket');
             $("#payment_rocket").removeClass('d-none');
             $("#payment_stripe").addClass('d-none');
+            $("#2checkout").addClass('d-none');
             $("#payment_bkash").addClass('d-none');
             $("#payment_cash_in").addClass('d-none');
         }
