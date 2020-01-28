@@ -13,6 +13,8 @@ use App\User;
 use Auth;
 use Session;
 use Stripe;
+use Twocheckout;
+use Twocheckout_Charge;
 
 class PayNowController extends Controller
 {
@@ -139,6 +141,63 @@ class PayNowController extends Controller
         Cart::orWhere('user_id', Auth::id())->orWhere('ip_address', request()->ip())->delete();
 
         return view('frontend.pages.order_confirmation', compact('order_id'));
+    }
+
+
+    public function payment_pay_2checkout(Request $request){
+
+        Twocheckout::privateKey('EA49AA15-9D41-46FF-A535-91879012A3AC');
+        Twocheckout::sellerId('901418658');
+        Twocheckout::sandbox(true);
+
+        try {
+            $charge = Twocheckout_Charge::auth(array(
+                "merchantOrderId" => $request->order_id,
+                "token" => $request->token,
+                "currency" => 'USD',
+                "total" => $request->totalAmount,
+                "billingAddr" => array(
+                    "name" => $request->card_holder_name,
+                    "addrLine1" => '123 Test St',
+                    "city" => 'Columbus',
+                    "state" => 'OH',
+                    "zipCode" => '43123',
+                    "country" => 'USA',
+                    "email" => 'testingtester@2co.com',
+                    "phoneNumber" => '555-555-5555'
+                )
+            ));
+
+            if ($charge['response']['responseCode'] == 'APPROVED') {
+                $payment = new Payment;
+                $payment->order_id = $request->order_id;
+                $payment->name = $request->card_holder_name;
+                // $payment->user_id = $user_id;
+                $payment->transaction_id = $charge['response']['transactionId'];
+                $payment->payment_method = "card";
+                $payment->amount = $charge['response']['total'];
+                $payment->save();
+
+                $order = Order::find($request->order_id);
+                $order->payment_id = $payment->id;
+                $order->transaction_id = $charge['response']['transactionId'];
+                $order->save();
+                $order_id = $order->id;
+
+                Cart::orWhere('user_id', Auth::id())->orWhere('ip_address', request()->ip())->delete();
+
+                return view('frontend.pages.order_confirmation', compact('order_id'));
+            }else{
+                session()->flash('error', 'Your card not APPROVED !!!.');
+            }
+
+           
+            // $this->assertEquals('APPROVED', $charge['response']['responseCode']);
+        } catch (Twocheckout_Error $e) {
+            session()->flash('error', $e->getMessage());
+            return back();
+            // $this->assertEquals('Unauthorized', $e->getMessage());
+        }
     }
 
 

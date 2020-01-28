@@ -40,11 +40,11 @@
                                     <td class="text-center">{{ $order->phone_no }}</td>
                                     <td class="text-center">{{ $order->shipping_address }}</td>
                                     <td class="text-center">
-                                        @if($order->payment->status == 1)
+                                      {{--   @if($order->payment->status == 1)
                                             <a href="{{route('admin.payment.edit', $order->payment->id)}}" class="btn btn-xs btn-success"> <i class="fa fa-check-circle"> Confirmed</i>
                                         @else
                                             <a href="{{route('admin.payment.edit', $order->payment->id)}}" class="btn btn-xs btn-warning"> <i class="fa fa-spinner"> Pending</i></a>
-                                        @endif
+                                        @endif --}}
                                     </td>
                                     <td class="text-center">
                                         @if($order->is_seen_by_admin == 1)

@@ -185,20 +185,24 @@
                                     $count = 0;
                                 @endphp
 
-                                @foreach($product_reviews as $product_review)
-                                    @php
-                                       $count +=  $product_review->rating;
-                                    @endphp
-                                @endforeach
-
-                                @php
-                                    $reviews = $count / count($product_reviews);
-                                    for ($i = 0; $i < $reviews; $i++){
-                                        @endphp
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                @if(count($product_reviews) > 0)
+                                    @foreach($product_reviews as $product_review)
                                         @php
-                                    }
-                                @endphp
+                                           $count +=  $product_review->rating;
+                                        @endphp
+                                    @endforeach
+                                    @php
+                                        $reviews = $count / count($product_reviews);
+                                        for ($i = 0; $i < $reviews; $i++){
+                                            @endphp
+                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                            @php
+                                        }
+                                    @endphp
+                                @else
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                @endif
                             </ul>
                         </div>
                         <div class="product_condition">

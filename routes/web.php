@@ -20,6 +20,7 @@ Route::post('/contact-store', 'frontend\ContactController@contact_store')->name(
 
 Route::get('/about', 'frontend\PagesController@about')->name('about');
 Route::get('/faq', 'frontend\PagesController@faq')->name('faq');
+Route::get('/privacy-policy', 'frontend\PagesController@privacy_policy')->name('privacy_policy');
 Route::get('/terms-conditions', 'frontend\PagesController@terms_conditions')->name('terms.conditions');
 Route::get('/returns-replacement', 'frontend\PagesController@returns_replacement')->name('returns.replacement');
 
@@ -72,6 +73,7 @@ Route::get('payment-pay-now', 'frontend\PayNowController@payment_pay_now')->name
 
 Route::post('payment-pay-store', 'frontend\PayNowController@payment_pay_store')->name('payment_pay_store');
 Route::post('payment-pay-cash-in', 'frontend\PayNowController@payment_pay_cash_in')->name('payment_pay_cash_in');
+Route::post('payment-pay-2checkout', 'frontend\PayNowController@payment_pay_2checkout')->name('payment_pay_2checkout');
 // Route::post('payment-pay-bkash', 'frontend\PayNowController@payment_pay_bkash')->name('payment_pay_bkash');
 // Route::post('payment-pay-rocket', 'frontend\PayNowController@payment_pay_rocket')->name('payment_pay_rocket');
 

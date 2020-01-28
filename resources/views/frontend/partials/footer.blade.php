@@ -80,6 +80,7 @@
                                     <h4>GET TO KNOW</h4>
                                     <ul>
                                         <li><a href="{{ route('terms.conditions') }}"><i class="fa fa-circle"></i> Terms & Conditions</a></li>
+                                        <li><a href="{{ route('privacy_policy') }}"><i class="fa fa-circle"></i> privacy_policy</a></li>
                                         <li><a href="{{ route('returns.replacement') }}"><i class="fa fa-circle"></i> Returns and Replacement</a></li>
                                     </ul>
                                 </div>

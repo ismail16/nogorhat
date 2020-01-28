@@ -96,6 +96,11 @@ class PagesController extends Controller
     public function terms_conditions()
     {
         return view('frontend.pages.terms_conditions');
+    } 
+
+    public function privacy_policy()
+    {
+        return view('frontend.pages.privacy_policy');
     }
 
     public function returns_replacement()

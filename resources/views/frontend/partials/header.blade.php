@@ -73,7 +73,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-7">
                     <div class="main_menu_inner menu_inner_two">
                         <div class="main_menu menu_two d-none d-lg-block">
                             <nav>
@@ -82,12 +82,25 @@
                                     <li><a href="{{ route('products') }}">Products</a></li>
                                     <li><a href="{{ route('about') }}">About Us</a></li>
                                     <li><a href="{{ route('contact') }}">Contact Us</a></li>
+                                    <li class="dropdown_item"><a href="shop.html">Information <i class="fa fa-angle-down"></i></a>
+                                        <ul class="sub_menu">
+                                            <li><a href="shop-list.html">shop list</a></li>
+                                            <li><a href="shop-fullwidth.html">shop Full Width Grid</a></li>
+                                            <li><a href="shop-fullwidth-list.html">shop Full Width list</a></li>
+                                            <li><a href="shop-right-sidebar.html">shop Right Sidebar</a></li>
+                                            <li><a href="shop-right-sidebar-list.html">shop list Right Sidebar</a></li>
+                                            <li><a href="single-product.html">Product Details</a></li>
+                                            <li><a href="single-product-video.html">Product Details Video</a></li>
+                                            <li><a href="single-product-gallery.html">Product Details Gallery</a></li>
+                                        </ul>
+                                    </li>
+
                                 </ul>
                             </nav>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-2">
                     <div class="header_widget about_widget widget_two text-right">
                         <ul>
                             <li class="shopping_cart">

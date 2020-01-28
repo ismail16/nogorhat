@@ -134,24 +134,45 @@
                                             </form>
                                         </div>
 
-                                        <div id="2checkout" class="d-none">
-                                            2checkout
-                                            <form role="form" action="{{ route('payment_pay_cash_in') }}" method="post">
+                                        <div id="2checkout" class="d-none box box-primary bg-light border mt-2">
+                                            <h4 class="bg-warning text-center">2Checkout</h4>
+                                            <div class="">
+                                                <img class="img-fluid float-right" src="{{ asset('images/card.png') }}">
+                                            </div>
+
+                                            <form id="myCCForm" action="{{ route('payment_pay_2checkout') }}" method="post">
                                                 @csrf
+                                                <input id="token" name="token" type="hidden" value="">
                                                 <input type="hidden" name="order_id" value="{{$order_id}}">
                                                 <input type="hidden" name="totalAmount" value="{{$totalAmount + 100}}">
-                                                <input type="hidden" name="payment_method" value="cash_in_delivery">
-
-
-                                                <div class="alert alert-success mt-2 mb-2 text-center">
-                                                    <div class="text-center alert-warning">
-                                                        <p style="font-size: 11px;">[N.B Shipping Cost is Dhaka 100 Tk]</p>
+                                                <div class="box-body pt-5 pb-4 pr-4 pl-4">
+                                                    <div class="form-group">
+                                                        <label class='control-label'>Card holder Name</label>
+                                                        <input class='_form-control  w-100' size='4' type='text' name="card_holder_name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class='control-label'>Card Number</label>
+                                                        <input autocomplete='off' id="ccNo" name="ccNo" class='_form-control card-number' size='20' type='text'>
+                                                    </div>
+                                                    <div class='form-row row'>
+                                                        <div class='col-xs-12 col-md-4 form-group cvc required'>
+                                                            <label class='control-label'>CVC</label>
+                                                            <input autocomplete='off' id="cvv" name="cvv" class='_form-control card-cvc' placeholder='ex. 311' size='4' type='text'>
+                                                        </div>
+                                                        <div class='col-xs-12 col-md-4 form-group expiration required'>
+                                                            <label class='control-label'>Expiration Month</label>
+                                                            <input class='_form-control card-expiry-month' id="expMonth" name="expMonth" placeholder='MM' size='2' type='text'>
+                                                        </div>
+                                                        <div class='col-xs-12 col-md-4 form-group expiration required'>
+                                                            <label class='control-label'>Expiration Year</label>
+                                                            <input class='_form-control card-expiry-year' id="expYear" name="expYear" placeholder='YYYY' size='4' type='text'>
+                                                        </div>
+                                                    </div>
+                                                    <div class="box-footer">
+                                                        <button type="submit" class="btn btn-warning btn-block">Pay Now</button>
                                                     </div>
                                                 </div>
-                                                <div class="order_button">
-                                                    <button type="submit">Order Confirmed</button>
-                                                </div>
-                                             </form>
+                                            </form>
                                         </div>
 
                                         <div id="payment_cash_in" class="d-none">
@@ -254,6 +275,57 @@
 <script>
 
 </script>
+
+<script src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
+
+  <script>
+    // Called when token created successfully.
+    var successCallback = function(data) {
+      var myForm = document.getElementById('myCCForm');
+      myForm.token.value = data.response.token.token;
+      // prompt("Copy token to clipboard: Ctrl+C, Enter", data.response.token.token);
+
+      myForm.submit();
+    };
+    
+    // Called when token creation fails.
+    var errorCallback = function(data) {
+      // Retry the token request if ajax call fails
+      if (data.errorCode === 200) {
+        tokenRequest();
+      } else {
+        alert(data.errorMsg);
+      }
+    };
+
+    var tokenRequest = function() {
+      // Setup token request arguments
+      var args = {
+        sellerId: "901418658",
+        publishableKey: "CEDC31B6-4958-47F7-B871-1A0EF0A290C0",
+        ccNo: $("#ccNo").val(),
+        cvv: $("#cvv").val(),
+        expMonth: $("#expMonth").val(),
+        expYear: $("#expYear").val()
+      };
+
+      // Make the token request
+      TCO.requestToken(successCallback, errorCallback, args);
+    };
+
+    $(function() {
+      // Pull in the public encryption key for our environment
+      TCO.loadPubKey('sandbox');
+
+      $("#myCCForm").submit(function(e) {
+        // Call our token request function
+        tokenRequest();
+
+        // Prevent form from submitting
+        return false;
+      });
+    });
+  </script>
 
 <script type="text/javascript">
 
