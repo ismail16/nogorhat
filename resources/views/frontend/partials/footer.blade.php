@@ -53,18 +53,8 @@
                 <div class="container">
                     <div class="footer_top">
                         <div class="row">
-                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                <div class="single_footer">
-                                    <h4>store information</h4>
-
-                                    <ul>
-                                        <li><i class="fa fa-phone"></i> {{ $setting->store_phone }}</li>
-                                        <li><a href="#"><i class="fa fa-envelope-square"></i> {{ $setting->store_email }}</a></li>
-                                        <li><i class="fa fa-home"></i> {{ $setting->store_address }}</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6">
+                           
+                            <div class="col-md-4">
                                 <div class="single_footer">
                                     <h4>GET IN TOUCH WITH US</h4>
                                     <ul>
@@ -75,17 +65,28 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="col-md-4">
                                 <div class="single_footer">
                                     <h4>GET TO KNOW</h4>
                                     <ul>
                                         <li><a href="{{ route('terms.conditions') }}"><i class="fa fa-circle"></i> Terms & Conditions</a></li>
-                                        <li><a href="{{ route('privacy_policy') }}"><i class="fa fa-circle"></i> privacy_policy</a></li>
+                                        <li><a href="{{ route('privacy_policy') }}"><i class="fa fa-circle"></i> Privacy Policy</a></li>
                                         <li><a href="{{ route('returns.replacement') }}"><i class="fa fa-circle"></i> Returns and Replacement</a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6">
+                             <div class="col-md-4">
+                                <div class="single_footer">
+                                    <h4>store information</h4>
+
+                                    <ul>
+                                        <li><i class="fa fa-phone"></i> {{ $setting->store_phone }}</li>
+                                        <li><a href="#"><i class="fa fa-envelope-square"></i> {{ $setting->store_email }}</a></li>
+                                        <li><i class="fa fa-home"></i> {{ $setting->store_address }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            {{-- <div class="col-lg-3 col-md-6 col-sm-6">
                                 <div class="single_footer">
                                     <h4>instagram</h4>
                                     <div class="instagram_img">
@@ -97,7 +98,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

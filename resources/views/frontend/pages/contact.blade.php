@@ -47,19 +47,37 @@
                             <h4>contact us</h4>
                         </div>
                         <div class="contact_info mb-15">
-                            <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram anteposuerit litterarum formas human.</p>
-                        </div>
-                        <div class="contact_info mb-15">
                             <ul>
-                                <li><i class="fa fa-fax"></i>  Address : No 40 Baria Sreet 133/2 NewYork City</li>
-                                <li><i class="fa fa-phone"></i> <a href="#">Infor@roadthemes.com</a></li>
-                                <li><i class="fa fa-envelope-o"></i> 0(1234) 567 890</li>
+                                <li><i class="fa fa-map-marker"></i>  Address : {{ $setting->store_address }}</li>
+                                <li><i class="fa fa-phone"></i> {{ $setting->store_phone }}</li>
+                                <li><i class="fa fa-envelope-o"></i> <a href="#"> {{ $setting->store_email }} </a></li>
                             </ul>
                         </div>
                         <div class="contact_info mb-15">
+                            <div class="social_icone">
+                                <ul>
+                                    @isset ($setting->facebook)
+                                        <li><a target="_blank" href="{{ $setting->facebook }}" title="facebook"><i class="fa fa-facebook"></i></a></li>
+                                    @endisset
+                                    @isset ($setting->instagram)
+                                        <li><a target="_blank" href="{{ $setting->instagram }}" title="instagram"><i class="fa fa-instagram"></i></a></li>
+                                    @endisset
+                                    @isset ($setting->youtube)
+                                         <li><a target="_blank" href="{{ $setting->youtube }}" title="Youtube"><i class="fa fa-youtube"></i></a></li>
+                                    @endisset
+                                    @isset ($setting->twitter)
+                                        <li><a target="_blank" href="{{ $setting->twitter }}" title="twitter"><i class="fa fa-twitter"></i></a></li>
+                                    @endisset
+                                    @isset ($setting->linkedIn)
+                                        <li><a target="_blank" href="{{ $setting->linkedIn }}" title="linkedIn"><i class="fa fa-linkedin"></i></a></li>
+                                    @endisset
+                                </ul>
+                            </div>
+                        </div>
+                        {{-- <div class="contact_info mb-15">
                             <h3><strong>Working hours</strong></h3>
                             <p><strong>Monday – Saturday</strong>:  08AM – 22PM</p>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

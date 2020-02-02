@@ -12,6 +12,13 @@ use App\Models\Subcategory;
 use App\Models\Subscription;
 use App\Models\Slider;
 use App\Models\ProductReview;
+use App\Models\About;
+use App\Models\Setting;
+
+use App\Models\TermsCondition;
+use App\Models\ReturnReplacement;
+use App\Models\PrivacyPolicy;
+
 use Session;
 
 class PagesController extends Controller
@@ -80,12 +87,14 @@ class PagesController extends Controller
 
     public function contact()
     {
-        return view('frontend.pages.contact');
+        $setting = Setting::first();
+        return view('frontend.pages.contact',compact('setting'));
     }
 
     public function about()
     {
-        return view('frontend.pages.about');
+        $abouts = About::all();
+        return view('frontend.pages.about', compact('abouts'));
     }
 
     public function faq()
@@ -95,17 +104,20 @@ class PagesController extends Controller
 
     public function terms_conditions()
     {
-        return view('frontend.pages.terms_conditions');
+        $terms_conditions = TermsCondition::all();
+        return view('frontend.pages.terms_conditions',compact('terms_conditions'));
     } 
 
     public function privacy_policy()
     {
-        return view('frontend.pages.privacy_policy');
+        $privacy_policies = PrivacyPolicy::all();
+        return view('frontend.pages.privacy_policy',compact('privacy_policies'));
     }
 
     public function returns_replacement()
     {
-        return view('frontend.pages.returns_replacement');
+        $return_replacements = ReturnReplacement::all();
+        return view('frontend.pages.returns_replacement',compact('return_replacements'));
     }
 
     public function subscribtion(Request $request)

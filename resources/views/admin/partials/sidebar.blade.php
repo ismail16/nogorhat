@@ -71,6 +71,43 @@
                     </a>
                 </li>
 
+                <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tree"></i>
+              <p>
+                Payment Setup
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ route('admin.paypalEdit',1) }}" class="nav-link">
+                        <i class="fab fa-cc-paypal nav-icon"></i>
+                        <p>Paypal</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.stripeEdit',1) }}" class="nav-link">
+                        <i class="fab fa-cc-stripe nav-icon"></i>
+                        <p>Stripe</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.twoCheckoutEdit',1) }}" class="nav-link">
+                        <i class="far fa-credit-card nav-icon"></i>
+                        <p>2 Checkout</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.CashOnDelivery',1) }}" class="nav-link">
+                        <i class="fas fa-money-bill-alt nav-icon"></i>
+                        <p>Cash On Delivery</p>
+                    </a>
+                </li>
+            </ul>
+          </li>
+                <li class="nav-header pt-1 pb-1 bg-secondary">Side Configaration</li>
+
                 <li class="nav-item">
                     <a href="{{ route('admin.setting.edit',1) }}" class="nav-link {{Request::is('admin/subscribtions*') ? 'active':''}}">
                         <i class="nav-icon fas fa-tools"></i>
@@ -82,6 +119,34 @@
                     <a href="{{ route('admin.slider.index') }}" class="nav-link {{Request::is('admin/slider*') ? 'active':''}}">
                         <i class="nav-icon fas fa-image"></i>
                         Sliders
+                    </a>
+                </li> 
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.about.index') }}" class="nav-link {{Request::is('admin/about*') ? 'active':''}}">
+                        <i class="nav-icon fas fa-info"></i>
+                        About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.privacy-policy.index') }}" class="nav-link {{Request::is('admin/privacy-policy*') ? 'active':''}}">
+                        <i class="nav-icon fas fa-info"></i>
+                       privacy-policy
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.terms-condition.index') }}" class="nav-link {{Request::is('admin/terms-condition*') ? 'active':''}}">
+                        <i class="nav-icon fas fa-info"></i>
+                        terms-condition
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.return-replacement.index') }}" class="nav-link {{Request::is('admin/return-replacement*') ? 'active':''}}">
+                        <i class="nav-icon fas fa-info"></i>
+                       return-replacement
                     </a>
                 </li>
 

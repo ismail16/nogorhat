@@ -40,12 +40,31 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::resource('order', 'OrderController');
     Route::resource('customer', 'CustomerController');
     Route::resource('payment', 'PaymentController');
+    Route::resource('about', 'AboutController');
     Route::resource('contact', 'ContactController');
+    Route::resource('privacy-policy', 'PrivacyPolicyController');
+    Route::resource('terms-condition', 'TermsConditionController');
+    Route::resource('return-replacement', 'ReturnReplacementController');
 
     Route::resource('slider', 'SliderController');
     Route::resource('setting', 'SettingController');
 
     Route::get('subscribtions', 'PagesController@allSubscribtion')->name('allSubscribtion');
+
+
+
+    Route::get('set-payment-paypal/{id}', 'SetPaymentController@paypalEdit')->name('paypalEdit');
+    Route::post('set-payment-paypal/{id}', 'SetPaymentController@paypalUpdate')->name('paypalUpdate');
+
+    Route::get('set-payment-stripe/{id}', 'SetPaymentController@stripeEdit')->name('stripeEdit');
+    Route::post('set-payment-stripe/{id}', 'SetPaymentController@stripeUpdate')->name('stripeUpdate');
+
+    Route::get('set-payment-twoCheckout/{id}', 'SetPaymentController@twoCheckout')->name('twoCheckoutEdit');
+    Route::post('set-payment-twoCheckout/{id}', 'SetPaymentController@twoCheckout')->name('twoCheckoutUpdate');
+
+    Route::get('set-payment-cash-on-delivery/{id}', 'SetPaymentController@CashOnDeliveryEdit')->name('CashOnDelivery');
+    Route::post('set-payment-cash-on-delivery/{id}', 'SetPaymentController@CashOnDeliveryUpdate')->name('CashOnDelivery');
+
 
 });
 
