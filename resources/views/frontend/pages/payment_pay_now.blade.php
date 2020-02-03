@@ -86,15 +86,32 @@
                                 <div class="form-group mt-2">
                                     <h5>Select a payment method</h5>
                                     <div class="_col-md-6">
+                                        @php
+                                            $PaypalSet = App\Models\PaypalSet::first();
+                                            $StripeSet = App\Models\StripeSet::first();
+                                            $twoCheckoutSet = App\Models\twoCheckoutSet::first();
+                                            $CashOnDeliverySet = App\Models\CashOnDeliverySet::first();
+                                        @endphp
                                         <select class="form-control" name="payment_method" v-model="order.payment_method" required id="payments">
-                                            <option value="stripe">Pay Your payment By Card</option>
-                                            <option value="2checkout">2checkout</option>
-                                            <option value="cash_in">cash_in</option>
-                                            <option value="bkash">bkash</option>
-                                            <option value="rocket">rocket</option>
+                                            @if ($StripeSet->Status == 1)
+                                                <option value="stripe">Stripe</option>
+                                            @endif
+                                            @if ($PaypalSet->Status == 1)
+                                                <option value="paypal">Paypal</option>
+                                            @endif
+                                            @if ($twoCheckoutSet->status == 1)
+                                                <option value="2checkout">2checkout</option>
+                                            @endif
+                                            @if ($CashOnDeliverySet->status == 1)
+                                                <option value="cash_in">Cash On Delivery</option>
+                                            @endif
+                                            
+                                          {{--   <option value="bkash">bkash</option>
+                                            <option value="rocket">rocket</option> --}}
                                         </select>
 
                                         <div id="payment_stripe" class="box box-primary bg-light border mt-2">
+                                            <h4 class="bg-warning text-center">Stripe</h4>
                                             <div class="">
                                                 <img class="img-fluid float-right" src="{{ asset('images/card.png') }}">
                                             </div>
@@ -133,6 +150,16 @@
                                                 </div>
                                             </form>
                                         </div>
+
+                                        <div id="payment_paypal" class="box box-primary bg-light border mt-2 d-none">
+                                            <h4 class="bg-warning text-center">Paypal</h4>
+                                           {{--  <div class="">
+                                                <img class="img-fluid float-right" src="{{ asset('images/card.png') }}">
+                                            </div> --}}
+                                            <div class="p-3 m-3 border" id="paypal-button-container"></div>
+                                        </div>
+
+                                        
 
                                         <div id="2checkout" class="d-none box box-primary bg-light border mt-2">
                                             <h4 class="bg-warning text-center">2Checkout</h4>
@@ -194,7 +221,7 @@
                                              </form>
                                         </div>
 
-                                        <div id="payment_bkash" class="d-none">
+                                       {{--  <div id="payment_bkash" class="d-none">
                                             <form role="form" action="{{ route('payment_pay_cash_in') }}" method="post">
                                                 @csrf
                                                 <input type="hidden" name="order_id" value="{{$order_id}}">
@@ -256,7 +283,7 @@
                                                     <button type="submit">Order Confirmed</button>
                                                 </div>
                                             </form>
-                                        </div>
+                                        </div> --}}
                                        
                                     </div>
                                 </div>
@@ -275,6 +302,48 @@
 <script>
 
 </script>
+
+
+<script src="https://www.paypal.com/sdk/js?client-id=ASQt_1BoaUsbC8yy8yGDZ3M2D70Bt3eoBO5Mq7LijI0ISR-eYBp1GPe5xhtC7fWtfpakoB_jvAN60_W2&currency=USD"></script>
+    <script>
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                // Set up the transaction
+
+                return actions.order.create({
+
+                    purchase_units: [{
+                        amount: {
+                            value: '500',
+                            currency: 'USD'
+                        }
+                    }],
+
+                });
+            },
+            onApprove: function(data, actions) {
+
+                // Capture the funds from the transaction
+                return actions.order.capture().then(function(details) {
+                    // Show a success message to your buyer
+                    var paperID = '12457893';
+                    $.ajax({
+                        url: "gggggg",
+                        method: "POST",
+                        dataType: "JSON",
+                        data: {cdetails:details, paper_id: paperID, _token: '{{csrf_token()}}'},
+                        success: function (res) {
+                            console.log(res);
+                            Swal.fire('Transaction completed by ' + details.payer.name.given_name + '! Please check your mail');
+                            window.setTimeout(function () {
+                                window.location = 'ssssssssssss';
+                            }, 3000);
+                        }
+                    });
+                });
+            }
+        }).render('#paypal-button-container');
+    </script>
 
 <script src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
 
@@ -336,13 +405,24 @@
             $("#payment_stripe").removeClass('d-none');
             $("#2checkout").addClass('d-none')
             $("#payment_cash_in").addClass('d-none')
+            $("#payment_paypal").addClass('d-none')
             $("#payment_bkash").addClass('d-none')
             $("#payment_rocket").addClass('d-none')
+
+        }else if($payment_method == "paypal") {
+            console.log('paypal');
+            $("#payment_paypal").removeClass('d-none');
+            $("#2checkout").addClass('d-none');
+            $("#payment_cash_in").addClass('d-none');
+            $("#payment_stripe").addClass('d-none');
+            $("#payment_bkash").addClass('d-none');
+            $("#payment_rocket").addClass('d-none');
 
         }else if($payment_method == "2checkout") {
             console.log('cash_in');
             $("#2checkout").removeClass('d-none');
             $("#payment_cash_in").addClass('d-none');
+            $("#payment_paypal").addClass('d-none');
             $("#payment_stripe").addClass('d-none');
             $("#payment_bkash").addClass('d-none');
             $("#payment_rocket").addClass('d-none');
@@ -352,6 +432,7 @@
             $("#payment_cash_in").removeClass('d-none');
             $("#2checkout").addClass('d-none');
             $("#payment_stripe").addClass('d-none');
+            $("#payment_paypal").addClass('d-none');
             $("#payment_bkash").addClass('d-none');
             $("#payment_rocket").addClass('d-none');
 
@@ -359,6 +440,7 @@
             console.log('bkash');
             $("#payment_bkash").removeClass('d-none');
             $("#payment_stripe").addClass('d-none');
+            $("#payment_paypal").addClass('d-none');
             $("#2checkout").addClass('d-none');
             $("#payment_cash_in").addClass('d-none');
             $("#payment_rocket").addClass('d-none');
@@ -367,6 +449,7 @@
             console.log('rocket');
             $("#payment_rocket").removeClass('d-none');
             $("#payment_stripe").addClass('d-none');
+            $("#payment_paypal").addClass('d-none');
             $("#2checkout").addClass('d-none');
             $("#payment_bkash").addClass('d-none');
             $("#payment_cash_in").addClass('d-none');

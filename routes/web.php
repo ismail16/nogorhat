@@ -54,16 +54,16 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 
 
     Route::get('set-payment-paypal/{id}', 'SetPaymentController@paypalEdit')->name('paypalEdit');
-    Route::post('set-payment-paypal/{id}', 'SetPaymentController@paypalUpdate')->name('paypalUpdate');
+    Route::put('set-payment-paypal/{id}', 'SetPaymentController@paypalUpdate')->name('paypalUpdate');
 
     Route::get('set-payment-stripe/{id}', 'SetPaymentController@stripeEdit')->name('stripeEdit');
-    Route::post('set-payment-stripe/{id}', 'SetPaymentController@stripeUpdate')->name('stripeUpdate');
+    Route::put('set-payment-stripe/{id}', 'SetPaymentController@stripeUpdate')->name('stripeUpdate');
 
-    Route::get('set-payment-twoCheckout/{id}', 'SetPaymentController@twoCheckout')->name('twoCheckoutEdit');
-    Route::post('set-payment-twoCheckout/{id}', 'SetPaymentController@twoCheckout')->name('twoCheckoutUpdate');
+    Route::get('set-payment-twoCheckout/{id}', 'SetPaymentController@twoCheckoutEdit')->name('twoCheckoutEdit');
+    Route::put('set-payment-twoCheckout/{id}', 'SetPaymentController@twoCheckoutUpdate')->name('twoCheckoutUpdate');
 
-    Route::get('set-payment-cash-on-delivery/{id}', 'SetPaymentController@CashOnDeliveryEdit')->name('CashOnDelivery');
-    Route::post('set-payment-cash-on-delivery/{id}', 'SetPaymentController@CashOnDeliveryUpdate')->name('CashOnDelivery');
+    Route::get('set-payment-cash-on-delivery/{id}', 'SetPaymentController@CashOnDeliveryEdit')->name('CashOnDeliveryEdit');
+    Route::put('set-payment-cash-on-delivery/{id}', 'SetPaymentController@CashOnDeliveryUpdate')->name('CashOnDeliveryUpdate');
 
 
 });

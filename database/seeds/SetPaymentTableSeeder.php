@@ -34,22 +34,18 @@ class SetPaymentTableSeeder extends Seeder
 
         DB::table('two_checkout_sets')->insert([
             'title' => 'Paypal',
-            'SellerId' => '5487599592',
-            'PublishableKey' => 'jjjjjjjjjjjjjj',
-            'PrivateKey' => 'sfjjfjsgjfgjsgafjgsj',
+            'SellerId' => 'Input SellerId',
+            'PublishableKey' => 'Input PublishableKey',
+            'PrivateKey' => 'Input PrivateKey',
             'description' => 'Set Paypal Account !',
             'status' => 0,
             'SandboxStatus' => 1,
         ]);
 
         DB::table('cash_on_delivery_sets')->insert([
-           'title' => 'Paypal',
-            'ClientId' => '5487599592',
-            'currency' => 'USD',
-            'Secret' => 'gdfgrt1234567gvjhvjjhzjhzsjh89',
-            'Description' => 'Set Paypal Account !',
-            'Status' => 0,
-            'SandboxStatus' => 1,
+            'title' => 'Cash On Delivery',
+            'Description' => 'Set Cash On Delivery !',
+            'Status' => 1,
         ]);
     }
 }

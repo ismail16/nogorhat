@@ -15,6 +15,9 @@ class CreateCashOnDeliverySetsTable extends Migration
     {
         Schema::create('cash_on_delivery_sets', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title');
+            $table->text('description');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }
