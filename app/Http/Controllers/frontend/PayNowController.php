@@ -24,6 +24,12 @@ class PayNowController extends Controller
     {
         return view('frontend.pages.payment_pay_now');
     }
+    public function payment_pay_now_order($id)
+    {
+        $order = Order::find($id);
+        $order_details = Order_detail::Where('order_id', $id)->get();
+        return view('frontend.pages.payment_pay_now_order', compact('order','order_details'));
+    }
 
     public function payment_pay_store(Request $request){
 
@@ -78,7 +84,7 @@ class PayNowController extends Controller
         $payment->last4 = $last4;
         $payment->save();
 
-        Cart::orWhere('user_id', Auth::id())->orWhere('ip_address', request()->ip())->delete();
+        // Cart::orWhere('user_id', Auth::id())->orWhere('ip_address', request()->ip())->delete();
 
         return view('frontend.pages.order_confirmation', compact('order_id'));
     }
@@ -138,7 +144,7 @@ class PayNowController extends Controller
         $order->transaction_id = $transaction_id;
         $order->save();
 
-        Cart::orWhere('user_id', Auth::id())->orWhere('ip_address', request()->ip())->delete();
+        // Cart::orWhere('user_id', Auth::id())->orWhere('ip_address', request()->ip())->delete();
 
         return view('frontend.pages.order_confirmation', compact('order_id'));
     }
@@ -184,7 +190,7 @@ class PayNowController extends Controller
                 $order->save();
                 $order_id = $order->id;
 
-                Cart::orWhere('user_id', Auth::id())->orWhere('ip_address', request()->ip())->delete();
+                // Cart::orWhere('user_id', Auth::id())->orWhere('ip_address', request()->ip())->delete();
 
                 return view('frontend.pages.order_confirmation', compact('order_id'));
             }else{

@@ -44,8 +44,10 @@ class CheckoutsController extends Controller
             $order->phone_no = $user->phone;
             $order->shipping_address = $user->address;
             $order->ip_address = request()->ip();
-
+            $order->status = 1;
             $order->save();
+            Cart::Where('user_id', Auth::id())->delete();
+
         }else if(Auth::check()){
             $this->validate($request, [
                 'name'  => 'required',
@@ -59,7 +61,9 @@ class CheckoutsController extends Controller
             $order->shipping_address = $request->shipping_address;
             $order->message  = $request->message;
             $order->ip_address = request()->ip();
+            $order->status = 1;
             $order->save();
+            Cart::Where('user_id', Auth::id())->delete();
 
         }else{
             $this->validate($request, [
@@ -73,7 +77,9 @@ class CheckoutsController extends Controller
             $order->shipping_address = $request->shipping_address;
             $order->message  = $request->message;
             $order->ip_address = request()->ip();
+            $order->status = 1;
             $order->save();
+            Cart::Where('ip_address', request()->ip())->delete();
         } 
 
         $order_id = $order->id;
@@ -86,8 +92,10 @@ class CheckoutsController extends Controller
                 $order_details->save();
             }
         }
+        $order_details = Order_detail::Where('order_id', $order_id)->get();
+        
         session()->flash('success', 'Your order has taken successfully !!! Please wait admin will soon confirm it.');
-        return view('frontend.pages.payment_pay_now',compact('order_id'));
+        return view('frontend.pages.payment_pay_now_order',compact('order','order_details'));
     }
 
     public function show($id)

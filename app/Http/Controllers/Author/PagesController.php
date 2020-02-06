@@ -21,7 +21,9 @@ class PagesController extends Controller
     
     public function orders()
     {
-        $orders = Order::orderBy('id', 'desc')->where('user_id', Auth::id())->get();
+        $orders = Order::orderBy('id', 'desc')->where('status', 1)->where('user_id', Auth::id())->get();
+
+        // return $orders;
         return view('author.pages.orders', compact('orders'));
     }
 

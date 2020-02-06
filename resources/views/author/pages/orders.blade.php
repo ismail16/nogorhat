@@ -34,19 +34,33 @@
                             <td class="text-center">{{ $order->name }}</td>
                             <td class="text-center">{{ $order->phone_no }}</td>
                             <td class="text-center">{{ $order->shipping_address }}</td>
-                            <td class="text-center">{{ $order->payment->amount }} Tk</td>
-                            <td class="text-center">
-                                @if($order->payment->status == 1 )
-                                <span class="badge badge-success p-1">
-                                    <i class="fa fa-check-circle"></i> Paid
-                                </span>
-                                @else
-                                <span class="badge badge-warning p-1">
-                                    <i class="fa fa-spinner"></i> Pending
-                                </span>
-                                @endif
+                            @if($order->payment_id)
+                                <td class="text-center">{{ $order->payment->amount }} Tk</td>
+                                <td class="text-center">
+                                    @if($order->payment->status == 1 )
+                                    <span class="badge badge-success p-1">
+                                        <i class="fa fa-check-circle"></i> Paid
+                                    </span>
+                                    @else
+                                    <span class="badge badge-warning p-1">
+                                        <i class="fa fa-spinner"></i> Pending
+                                    </span>
+                                    @endif
 
-                            </td>
+                                </td>
+                            @else
+                                <td class="text-center">
+                                    <span class="badge badge-danger p-1">
+                                        <i class="fa fa-remove"></i> Payment Incomplete
+                                    </span>
+                                </td>
+                                <td class="text-center">
+                                   <span class="badge badge-danger p-1">
+                                        <i class="fa fa-remove"></i> Payment Incomplete
+                                    </span> <br>
+                                    <a class="badge badge-primary btn-link" href="{{ route('payment_pay_now_order', $order->id) }}" title="">Pay Now</a>
+                                </td>
+                            @endif
                             <td class="text-center">
                                 <a href="{{route('author.invoice', $order->id)}}"
                                     class="btn-success btn-sm"><i class="fa fa-eye"></i></a>
