@@ -74,10 +74,6 @@
                                 </ul>
                             </div>
                         </div>
-                        {{-- <div class="contact_info mb-15">
-                            <h3><strong>Working hours</strong></h3>
-                            <p><strong>Monday – Saturday</strong>:  08AM – 22PM</p>
-                        </div> --}}
                     </div>
                 </div>
             </div>

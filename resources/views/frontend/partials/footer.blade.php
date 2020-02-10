@@ -4,44 +4,42 @@
         $setting = \App\Models\Setting::orderBy('id', 'desc')->first();
     @endphp
         <div class="">
-            <div class="newsletter_area" style="background-color: #000 !important;">
+            <div class="newsletter_area">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-lg-2 col-md-6">
+                        <div class="col-md-2">
                             <div class="footer_logo">
                                 <a href="{{route('index')}}">
-                                    <img src="{{ asset('images/store_logo/'.$setting->store_logo)}}" style="height: 40px;" alt="">
+                                    <img src="{{ asset('images/store_logo/'.$setting->store_logo)}}" class="footer_logo_img" alt="">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-md-4">
                             <div class="social_icone">
                                 <ul>
                                     @isset ($setting->facebook)
-                                        <li><a target="_blank" href="{{ $setting->facebook }}" title="facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a target="_blank" href="{{ $setting->facebook }}" title="facebook"><i class="fa fa-facebook p-1"></i></a></li>
                                     @endisset
                                     @isset ($setting->instagram)
-                                        <li><a target="_blank" href="{{ $setting->instagram }}" title="instagram"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a target="_blank" href="{{ $setting->instagram }}" title="instagram"><i class="fa fa-instagram p-1"></i></a></li>
                                     @endisset
                                     @isset ($setting->youtube)
-                                         <li><a target="_blank" href="{{ $setting->youtube }}" title="Youtube"><i class="fa fa-youtube"></i></a></li>
+                                         <li><a target="_blank" href="{{ $setting->youtube }}" title="Youtube"><i class="fa fa-youtube p-1"></i></a></li>
                                     @endisset
                                     @isset ($setting->twitter)
-                                        <li><a target="_blank" href="{{ $setting->twitter }}" title="twitter"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a target="_blank" href="{{ $setting->twitter }}" title="twitter"><i class="fa fa-twitter p-1"></i></a></li>
                                     @endisset
                                     @isset ($setting->linkedIn)
-                                        <li><a target="_blank" href="{{ $setting->linkedIn }}" title="linkedIn"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a target="_blank" href="{{ $setting->linkedIn }}" title="linkedIn"><i class="fa fa-linkedin p-1"></i></a></li>
                                     @endisset
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-7">
+                        <div class="col-md-6 d-flex justify-content-end">
                             <div class="newslatter_inner fix">
-                                <h4>send Newsletters</h4>
-                                <form action="{{ route('subscribtion') }}" method="POST">
-                                    @csrf
-                                    <input name="email" placeholder="enter your email" type="email">
-                                    <button type="submit">Subscribe</button>
+                                <form  id="subscribe_form">
+                                    <input id="subscribe_email" name="email" placeholder="enter your email" type="email">
+                                    <button onclick="subscribe_post()" type="submit">Subscribe</button>
                                 </form>
                             </div>
                         </div>
@@ -49,7 +47,7 @@
                 </div>
             </div>
 
-            <div class="footer_area" style="background-color: #fff !important;">
+            <div class="footer_area">
                 <div class="container">
                     <div class="footer_top">
                         <div class="row">
@@ -60,8 +58,6 @@
                                     <ul>
                                         <li><a href="{{ route('about') }}"><i class="fa fa-circle"></i>About Us</a></li>
                                         <li><a href="{{ route('contact') }}"><i class="fa fa-circle"></i> Contact Us</a></li>
-                                        <!-- <li><a href="{{ route('author.dashboard') }}"><i class="fa fa-circle"></i> Your Account</a></li>
-                                        <li><a href="{{ route('faq') }}"><i class="fa fa-circle"></i> FAQ</a></li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -86,33 +82,20 @@
                                     </ul>
                                 </div>
                             </div>
-                            {{-- <div class="col-lg-3 col-md-6 col-sm-6">
-                                <div class="single_footer">
-                                    <h4>instagram</h4>
-                                    <div class="instagram_img">
-                                        <div class="single_instagram_img">
-                                            <a href="#"><img src="{{ asset('frontend_assets/assets/img/instagram/instagram1.jpg')}}" alt=""></a>
-                                        </div>
-                                        <div class="single_instagram_img">
-                                            <a href="#"><img src="{{ asset('frontend_assets/assets/img/instagram/instagram2.jpg')}}" alt=""></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="footer_area" style="background-color: #000 !important;">
+
+            <div class="footer_area_copy_right">
                 <div class="container">
                     <div class="copyright_area">
                         <div class="row">
                             <div class="col-md-12 d-flex justify-content-center">
                                 <div class="widget_copyright">
-                                    <p style="color: fff;">copyright &copy; 2019 <a href="{{ route('index') }}">{{ $setting->store_name }}</a>. all right reserved</p>
+                                    <p class="text-white">copyright &copy; 2019 <a href="{{ route('index') }}">{{ $setting->store_name }}</a>. all right reserved</p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -233,7 +216,6 @@
 
             $(document).on("click", ".on_delete", function (e) {
                 var index = $(this).data('content');
-
                 bootbox.confirm({
                     message: "Do you want to remove this?",
                     buttons: {
@@ -253,7 +235,6 @@
                     }
                 });
             });
-
 
             function product_review_post(){
                 var token = $('meta[name="csrf-token"]').attr('content');
@@ -292,12 +273,38 @@
                 });
             }
 
+            function subscribe_post(){
+                $("#subscribe_form").submit(function(e){
+                    return false;
+                });
+                var token = $('meta[name="csrf-token"]').attr('content');
+                var subscribe_email = $('#subscribe_email').val()
+                var ip_address = '{{ \Request::ip() }}'
 
-
-
-
-
-
+                $.ajax({
+                    url: "{{route('subscribtion')}}",
+                    method: "POST",
+                    data: { _token : token, email:subscribe_email, ip_address:ip_address},
+                    success: function (data) {
+                        if (data.success) {
+                            Swal.fire({
+                              icon: 'success',
+                              title: 'Thank You !',
+                              text: data.success
+                            })
+                            $('#subscribe_email').val('')
+                            console.log(data)
+                        }else {
+                            Swal.fire({
+                              icon: 'error',
+                              title: 'Oops...',
+                              text: 'Something went wrong!'
+                            })
+                            $('#subscribe_email').val('')
+                        }
+                    }
+                });
+            }
 
             $(document).ready(function(){
   

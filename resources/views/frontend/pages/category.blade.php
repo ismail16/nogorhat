@@ -6,52 +6,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="categorie_d_right mt-1">
-                    <div class="categorie_product_toolbar mb-30">
-                        <div class="categorie_product_button">
-                            <ul class="nav" role="tablist">
-                                <li>
-                                    <a class="active" data-toggle="tab" href="#large" role="tab" aria-controls="large" aria-selected="true"><i class="fa fa-th-large"></i></a>
-                                </li>
-                                <li>
-                                    <a data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false"><i class="fa fa-th-list"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <form action="#">
-                            <label>Sort By</label>
-                            <select name="orderby" id="short" style="display: none;">
-                                <option selected="" value="1">Default sorting</option>
-                                <option value="1">Sort by popularity</option>
-                                <option value="1">Sort by average rating</option>
-                                <option value="1">Sort by rating</option>
-                                <option value="1">Sort by price: low to high</option>
-                                <option value="1">Sort by price: high to low</option>
-                                <option value="1">Price: Lowest first</option>
-                                <option value="1">Product Name: A to Z</option>
-                                <option value="1">In stock</option>
-                                <option value="1">Reference: Lowest first</option>
-                                <option value="1">Reference: Highest first</option>
-                            </select>
-                            <div class="nice-select" tabindex="0">
-                                <span class="current">Default sorting</span>
-                                <ul class="list">
-                                    <li data-value="1" class="option selected">Default sorting</li>
-                                    <li data-value="1" class="option">Sort by popularity</li>
-                                    <li data-value="1" class="option">Sort by average rating</li>
-                                    <li data-value="1" class="option">Sort by rating</li>
-                                    <li data-value="1" class="option">Sort by price: low to high</li>
-                                    <li data-value="1" class="option">Sort by price: high to low</li>
-                                    <li data-value="1" class="option">Price: Lowest first</li>
-                                    <li data-value="1" class="option">Product Name: A to Z</li>
-                                    <li data-value="1" class="option">In stock</li>
-                                    <li data-value="1" class="option">Reference: Lowest first</li>
-                                    <li data-value="1" class="option">Reference: Highest first</li>
-                                </ul>
-                            </div>
-                        </form>
-                        <p>Showing 1–12 of 46 results</p>
-                    </div>
-
 
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="large" role="tabpanel">
@@ -101,7 +55,7 @@
                                                         <li><a href="#"><i class="fa fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <div class="small_product_name" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;">
+                                                <div class="small_product_name">
                                                     <a title="Printed Summer Dress" href="single-product.html">{{ $product->title }}</a>
                                                 </div>
                                                 <div class="small_product_price">
@@ -128,11 +82,11 @@
                                 @endforeach
                                 @else
                                 <div class="col-md-12 well">
-                                    <div class="item" style="text-align: center;">
-                                       <h1 style="color: red">Opps !!</h1>
+                                    <div class="item text-center">
+                                       <h1 class="text-danger">Opps !!</h1>
                                        <h3>No data Found</h3><br>
                                         <div class="abstract-div">
-                                            <div class="abstract-cropped" style="display:block; text-align: center;">
+                                            <div class="abstract-cropped text-center w-100">
                                                 Go to <a href="/">Home</a>
                                             </div>
                                             <br>
@@ -177,7 +131,7 @@
                                                 <span class="new_price"> {{ $product->price }} Tk</span>
                                                 <span class="old_price"> {{ $product->old_price }} Tk </span>
                                             </div>
-                                            <div class="single__product_drsc" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;">
+                                            <div class="single__product_drsc">
                                                 {!! $product->description !!}
                                             </div>
 

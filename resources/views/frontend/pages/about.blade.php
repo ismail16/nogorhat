@@ -9,7 +9,6 @@
             <div class="row no-gutters align-items-center">
                 <div class="col-lg-12 col-md-18 col-sm-22">
                     @foreach($abouts as $about)
-                        {{-- <h1>{{ $about->title }}</h1> --}}
                         <p>
                             {!! $about->description !!}
                         </p>

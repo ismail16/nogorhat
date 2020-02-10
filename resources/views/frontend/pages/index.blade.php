@@ -9,10 +9,11 @@
                 <div class="banner_slider mb-10">
                     <div class="slider_active owl-carousel">
                         @foreach($sliders as $slider)
-                        <div class="single_slider single_sl_two" style="background-image: url('{{ asset('images/slider_image/'.$slider->image)}}');">
+                        <div class="single_slider single_sl_two">
+                            <img src="{{ asset('images/slider_image/'.$slider->image)}}" class="single_slider_image" alt="">
                             <div class="row">
                                 <div class="col-md-12 p-4">
-                                    <div class="slider_content slider_c_two" style="text-align: {{ $slider->text_position }};">
+                                    <div class="slider_content slider_c_two text-{{ $slider->text_position }}">
                                         <h2> {!! $slider->slider_text !!}</h2>
                                         <div class="slider_button">
                                             <a href="{{ $slider->button_link }}"> {{ $slider->button_text }} </a>
@@ -73,7 +74,7 @@
                                         <div class="small_product">
                                             <div class="small_product_thumb">
                                                 <a href="{{ route('single.producs',$product->slug) }}">
-                                                <img src="{{ asset('images/product_image/'.$product->product_image->first()->image) }}" alt="" style="width: 85%;">
+                                                <img src="{{ asset('images/product_image/'.$product->product_image->first()->image) }}" class="w-100" alt="">
                                                 </a>
                                                 <div class="product_discount">
                                                     <span>-10%</span>
@@ -108,7 +109,7 @@
                                                         @endif
                                                     </ul>
                                                 </div>
-                                                <div class="small_product_name" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;">
+                                                <div class="small_product_name">
                                                     <a title="Printed Summer Dress" href="{{ route('single.producs',$product->slug) }}">
                                                         {{ $product->title }}
                                                     </a>
@@ -139,9 +140,9 @@
                     <div class="row no-gutters">
                         <div class="col-lg-2 col-md-6">
                             <div class="hot_category hot_ct_three">
-                                <ul style="padding-bottom: 10px;">
+                                <ul class="hot_category_ul">
                                     @foreach( \App\Models\Subcategory::Where('category_id', $category->id)->get() as $subcategory)
-                                        <li style="border-bottom: 1px solid #dddddd;">
+                                        <li class="hot_category_li">
                                             <a class="border-bottom" href="{{ route('sub_category', [$category->slug, $subcategory->slug] ) }}">{{ $subcategory->name }}</a>
                                         </li>
                                     @endforeach
@@ -157,20 +158,11 @@
                                             <div class="single_featured ">
                                                 <div class="single_product s_product_three card mr-2">
                                                     <div class="product_thumb">
-                                                        <a href="{{ route('single.producs',$product->slug) }}"><img src="{{ asset('images/product_image/'.$product->product_image->first()->image) }}" alt=""></a>
+                                                        <a href="{{ route('single.producs',$product->slug) }}">
+                                                            <img src="{{ asset('images/product_image/'.$product->product_image->first()->image) }}" class="product_image img-fluid" alt=""></a>
                                                         <div class="product_discount">
                                                             <span>New</span>
                                                         </div>
-                                                        {{-- <div class="product_action">
-                                                            <ul>
-                                                                <li><a href="#" title=" Add to Wishlist "><i class="fa fa-heart"></i></a></li>
-                                                                <li><a href="#" title=" Add to Compare "><i class="fa fa-retweet"></i></a></li>
-                                                                <li><a href="#" title=" Add to cart "><i class="fa fa-shopping-cart"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="quick_view">
-                                                            <a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view"><i class="fa fa-search"></i></a>
-                                                        </div> --}}
                                                     </div>
 
                                                     <div class="product_content p_content_three">
@@ -202,23 +194,23 @@
                                                                 @endif
                                                             </ul>
                                                         </div>
-                                                        <div class="small_product_name" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;">
+                                                        <div class="small_product_name">
                                                             <a title="Printed Summer Dress" href="{{ route('single.producs',$product->slug) }}">{{ $product->title }}</a>
                                                         </div>
                                                         <div class="small_product_price s_price_three">
                                                             <span class="new_price"> Tk {{ $product->price }} </span>
                                                         </div>
                                                     </div>
-                                                    <div class="_card-footer" style="padding: 5px !important;">
+                                                    <div class="card-footer p-1">
                                                         <div class="row">
                                                             <div class="col-md-6">
-                                                                <a href="{{ route('single.producs',$product->slug) }}" class="btn btn-outline-primary"><i class="fa fa-eye"></i> View</a>
+                                                                <a href="{{ route('single.producs',$product->slug) }}" class="btn btn-outline-primary btn-block m-1"><i class="fa fa-eye"></i> View</a>
                                                             </div>
                                                             <div class="col-md-6 text-right">
                                                                 <form class="" action="{{ route('card.store') }}" method="post">
                                                                     @csrf
                                                                     <input type="hidden" name="product_id" value="{{ $product->id  }}">
-                                                                    <button class="btn btn-outline-primary"><i class="fa fa-shopping-cart"></i> ADD</button>
+                                                                    <button class="btn btn-outline-primary m-1 btn-block w-100"><i class="fa fa-shopping-cart"></i> ADD</button>
                                                                 </form>
                                                             </div>
                                                         </div>

@@ -6,9 +6,27 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="categorie_d_right mt-1">
-                    <div class="single_slider single_sl_categorie" style="background-image: url({{ asset('frontend_assets/assets/img/slider/slider9.jpg')}}">
 
+
+                    <div class="slider_active owl-carousel mb-1">
+                        @foreach(\App\Models\Slider::orderBy('id', 'desc')->get() as $slider)
+                        <div class="single_slider single_sl_two">
+                            <img src="{{ asset('images/slider_image/'.$slider->image)}}" class="single_slider_image" alt="">
+                            <div class="row">
+                                <div class="col-md-12 p-4">
+                                    <div class="slider_content slider_c_two text-{{ $slider->text_position }}">
+                                        <h2> {!! $slider->slider_text !!}</h2>
+                                        <div class="slider_button">
+                                            <a href="{{ $slider->button_link }}"> {{ $slider->button_text }} </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
+
+
                     <div class="categorie_product_toolbar mb-30">
                         <div class="categorie_product_button">
                             <ul class="nav" role="tablist">
@@ -37,78 +55,72 @@
                                     <div class="col-lg-3 col-md-4 col-sm-6">
                                         <div class="single_product categorie card">
                                             <div class="product_thumb">
-                                                <a href="single-product.html">
-                                                    <img src="{{ asset('images/product_image/'.$product->product_image->first()->image) }}" alt="">
-                                                </a>
+                                                <a href="{{ route('single.producs',$product->slug) }}">
+                                                    <img src="{{ asset('images/product_image/'.$product->product_image->first()->image) }}" class="product_image img-fluid" alt=""></a>
                                                 <div class="product_discount">
-                                                    <span>-10%</span>
+                                                    <span>New</span>
                                                 </div>
-                                                {{-- <div class="product_action">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="#" title=" Add to Wishlist ">
-                                                                <i class="fa fa-heart"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" title=" Add to Compare ">
-                                                                <i class="fa fa-retweet"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" title=" Add to cart ">
-                                                                <i class="fa fa-shopping-cart"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="quick_view">
-                                                    <a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view"><i class="fa fa-search"></i></a>
-                                                </div> --}}
-
                                             </div>
                                             <div class="product_content p-3">
                                                 <div class="samll_product_ratting">
                                                     <ul>
-                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        <li>Rating : </li>
+                                                        @php
+                                                            $product_reviews = \App\Models\ProductReview::where('product_id',$product->id)->get();
+                                                            $count = 0;
+                                                        @endphp
+
+                                                        @if(count($product_reviews) > 0)
+                                                            @foreach($product_reviews as $product_review)
+                                                                @php
+                                                                   $count +=  $product_review->rating;
+                                                                @endphp
+                                                            @endforeach
+                                                            @php
+                                                                $reviews = $count / count($product_reviews);
+                                                                for ($i = 0; $i < $reviews; $i++){
+                                                                    @endphp
+                                                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                                    @php
+                                                                }
+                                                            @endphp
+                                                        @else
+                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                        @endif
                                                     </ul>
                                                 </div>
-                                                <div class="small_product_name" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;">
-                                                    <a title="Printed Summer Dress" href="single-product.html">{{ $product->title }}</a>
+                                                <div class="small_product_name">
+                                                    <a title="Printed Summer Dress" href="{{ route('single.producs',$product->slug) }}">{{ $product->title }}</a>
                                                 </div>
-                                                <div class="small_product_price">
-                                                    <span class="new_price"> {{ $product->price }} Tk</span>
-                                                    <span class="old_price">  {{ $product->old_price }}  Tk</span>
+                                                <div class="small_product_price s_price_three">
+                                                    <span class="new_price"> Tk {{ $product->price }} </span>
                                                 </div>
-{{--                                                <div class="_card-footer">--}}
+                                                <div class="card-footer p-1">
                                                     <div class="row">
-                                                        <div class="col-sm-6">
-                                                            <a href="{{ route('single.producs',$product->id) }}" class="btn btn-outline-primary"><i class="fa fa-eye"></i> View</a>
+                                                        <div class="col-md-6">
+                                                            <a href="{{ route('single.producs',$product->slug) }}" class="btn btn-outline-primary btn-block m-1"><i class="fa fa-eye"></i> View</a>
                                                         </div>
-                                                        <div class="col-sm-6 text-right">
+                                                        <div class="col-md-6 text-right">
                                                             <form class="" action="{{ route('card.store') }}" method="post">
                                                                 @csrf
                                                                 <input type="hidden" name="product_id" value="{{ $product->id  }}">
-                                                                <button class="btn btn-outline-primary"><i class="fa fa-shopping-cart"></i> ADD</button>
+                                                                <button class="btn btn-outline-primary m-1 btn-block w-100"><i class="fa fa-shopping-cart"></i> ADD</button>
                                                             </form>
                                                         </div>
                                                     </div>
-{{--                                                </div>--}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
                                 @else
                                 <div class="col-md-12 well">
-                                    <div class="item" style="text-align: center;">
-                                       <h1 style="color: red">Opps !!</h1>
+                                    <div class="item text-center">
+                                       <h1 class="text-danger">Opps !!</h1>
                                        <h3>No data Found</h3><br>
                                         <div class="abstract-div">
-                                            <div class="abstract-cropped" style="display:block; text-align: center;">
+                                            <div class="abstract-cropped text-center w-100">
                                                 Go to <a href="/">Home</a>
                                             </div>
                                             <br>
@@ -153,7 +165,7 @@
                                                 <span class="new_price"> {{ $product->price }} Tk</span>
                                                 <span class="old_price"> {{ $product->old_price }} Tk </span>
                                             </div>
-                                            <div class="single__product_drsc" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;">
+                                            <div class="single__product_drsc">
                                                 {!! $product->description !!}
                                             </div>
 

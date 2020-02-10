@@ -100,23 +100,18 @@
         color: #888;
     }
 
-
     /* Rating Star Widgets Style */
-
     .rating-stars ul {
         list-style-type: none;
         padding: 0;
         -moz-user-select: none;
         -webkit-user-select: none;
     }
-
     .rating-stars ul>li.star {
         display: inline-block;
     }
 
-
     /* Idle State of the stars */
-
     .rating-stars ul>li.star>i.fa {
         font-size: 2.5em;
         /* Change the size of the stars */
@@ -124,16 +119,12 @@
         /* Color on idle state */
     }
 
-
     /* Hover state of the stars */
-
     .rating-stars ul>li.star.hover>i.fa {
         color: #FFCC36;
     }
 
-
     /* Selected state of the stars */
-
     .rating-stars ul>li.star.selected>i.fa {
         color: #FF912C;
     }
@@ -251,9 +242,6 @@
                                 <li >
                                     <a class="nav-link active" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="false">More info</a>
                                 </li>
-                               {{--  <li>
-                                    <a class="nav-link" data-toggle="tab" href="#sheet" role="tab" aria-controls="sheet" aria-selected="false">Data sheet</a>
-                                </li> --}}
                                 <li>
                                     <a class="nav-link button_three" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
                                 </li>
@@ -265,91 +253,58 @@
                                     {!! $product->description !!}
                                 </div>
                             </div>
-
-                           {{--  <div class="tab-pane fade" id="sheet" role="tabpanel">
-                                <div class="product_d_table">
-                                    <table>
-                                        <tbody>
-                                        <tr>
-                                            <td class="first_child">Compositions</td>
-                                            <td>Polyester</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="first_child">Styles</td>
-                                            <td>Girly</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="first_child">Properties</td>
-                                            <td>Short Dress</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="product_d_tab_content">
-                                    <p>Fashion has been creating well-designed collections since 2010. The brand offers feminine designs delivering stylish separates and statement dresses which have since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe. The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. All the beautiful pieces are made in Italy and manufactured with the greatest attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!</p>
-                                </div>
-                            </div> --}}
-
                             <div class="tab-pane fade" id="reviews" role="tabpanel">
                                 <div class="product_review_form pt-2">
-                                    {{-- <form action="#"> --}}
-                                        <h2>Add a review </h2>
-                                        <p>Your email address will not be published. Required fields are marked </p>
-                                        <div class="samll_product_ratting review_rating">
-                                            <span>Your rating</span>
-                                            <div class='rating-stars'>
-                                                <ul id='stars'>
-                                                    <li class='star' title='Poor' data-value='1'>
-                                                        <i class='fa fa-star fa-fw'></i>
-                                                    </li>
-                                                    <li class='star' title='Fair' data-value='2'>
-                                                        <i class='fa fa-star fa-fw'></i>
-                                                    </li>
-                                                    <li class='star' title='Good' data-value='3'>
-                                                        <i class='fa fa-star fa-fw'></i>
-                                                    </li>
-                                                    <li class='star' title='Excellent' data-value='4'>
-                                                        <i class='fa fa-star fa-fw'></i>
-                                                    </li>
-                                                    <li class='star' title='WOW!!!' data-value='5'>
-                                                        <i class='fa fa-star fa-fw'></i>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                    <h2>Add a review </h2>
+                                    <p>Your email address will not be published. Required fields are marked </p>
 
-                                            {{-- <div class='success-box'>
-                                                <div class='clearfix'></div>
-                                                <div class='text-message'></div>
-                                                <div class='clearfix'></div> --}}
-                                                <input id="rating"  type="hidden">
-                                            {{-- </div> --}}
-
-                                        
-
+                                    <div class="samll_product_ratting review_rating">
+                                        <span>Your rating</span>
+                                        <div class='rating-stars'>
+                                            <ul id='stars'>
+                                                <li class='star' title='Poor' data-value='1'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='Fair' data-value='2'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='Good' data-value='3'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='Excellent' data-value='4'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='WOW!!!' data-value='5'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="review_form_comment_">
-                                                    <label for="review">Your review </label>
-                                                    <textarea cols="" rows="2" id="review" class="bg-transparent border" ></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="review_form_author">
-                                                    <label for="name">Name</label>
-                                                    <input id="name"  type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="review_form_author">
-                                                    <label for="email">Email </label>
-                                                    <input id="email"  type="text">
-                                                </div>
+                                        <input id="rating"  type="hidden">
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="review_form_comment_">
+                                                <label for="review">Your review </label>
+                                                <textarea cols="" rows="2" id="review" class="bg-transparent border" ></textarea>
                                             </div>
                                         </div>
-                                        <input type="hidden" value="{{ $product->id }}" id="product_id" >
-                                        <button onclick="product_review_post()" type="submit">Submit</button>
-                                    {{-- </form> --}}
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="review_form_author">
+                                                <label for="name">Name</label>
+                                                <input id="name"  type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="review_form_author">
+                                                <label for="email">Email </label>
+                                                <input id="email"  type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <input type="hidden" value="{{ $product->id }}" id="product_id" >
+                                    <button onclick="product_review_post()" type="submit">Submit</button>
                                 </div>
 
                                 <div class="container">
@@ -363,13 +318,11 @@
                                                             <li><strong>Rating :</strong> </li>
                                                             <?php
                                                                 for ($i = 0; $i < $product_review->rating; $i++){
-                                                                    
                                                                     ?>
                                                                          <li><a href="#"><i class="fa fa-star"></i></a></li>
                                                                     <?php
                                                                 }
-                                                            ?>
-                                                           
+                                                            ?>                                                           
                                                         </ul>
                                                     </div>
                                                     <strong>Name : {{ $product_review->name  }}</strong>
@@ -384,12 +337,9 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-    <!--product details tab end-->
 @endsection

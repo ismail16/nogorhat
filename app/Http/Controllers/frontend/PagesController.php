@@ -36,7 +36,8 @@ class PagesController extends Controller
     {
         $products = Product::paginate(4);
         $categories = Product::all();
-        return view('frontend.pages.products',compact('products','categories'));
+        $sliders = Slider::orderBy('id', 'desc')->get();
+        return view('frontend.pages.products',compact('products','categories','sliders'));
     }
 
     public function single_product($slug)
@@ -122,19 +123,26 @@ class PagesController extends Controller
 
     public function subscribtion(Request $request)
     {
+
         $subscription = new Subscription;
-        $subscription->ip = request()->ip();
+        $subscription->ip = $request->ip_address;
         $subscription->email = $request->email;
-        $subscription->save();
-        return back();
+
+        try {
+            $subscription->save();
+            return response()->json(['success' => 'Subscribe Successfully !!'], 200);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e], 404);
+        }
+
+        
+        
     }
 
     public function product_review_post(Request $request)
     {
 
         $ProductReview = new ProductReview;
-
-        // $ProductReview->ip = request()->ip();
         $ProductReview->product_id = $request->product_id;
         $ProductReview->rating = $request->rating;
         $ProductReview->name = $request->name;
