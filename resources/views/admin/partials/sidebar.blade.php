@@ -58,6 +58,13 @@
                 </li> 
 
                 <li class="nav-item">
+                    <a href="{{ route('admin.discount.index') }}" class="nav-link {{Request::is('admin/discount*') ? 'active':''}}">
+                        <i class="nav-icon fab fa-product-hunt"></i>
+                        <p>Discount</p>
+                    </a>
+                </li> 
+
+                <li class="nav-item">
                     <a href="{{ route('admin.contact.index') }}" class="nav-link {{Request::is('admin/contact*') ? 'active':''}}">
                         <i class="nav-icon far fa-comments"></i>
                         Message

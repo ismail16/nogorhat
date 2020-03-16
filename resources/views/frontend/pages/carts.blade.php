@@ -9,6 +9,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="table_desc">
+                        @php
+                           $cards =  App\Models\Cart::totalCarts();
+                            $totalAmount = 0;
+                        @endphp
+                        @if(count($cards) > 0)
                         <div class="cart_page table-responsive">
                             <table>
                                 <thead>
@@ -22,11 +27,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @php
-                                   $cards =  App\Models\Cart::totalCarts();
-                                    $totalAmount = 0;
-                                @endphp
-                                @if(count($cards) > 0)
+                                
                                 @foreach($cards as $cart)
                                     <tr id="update_order">
                                         <td class="product_remove">
@@ -45,26 +46,17 @@
                                     </tr>
                                    @php  $totalAmount += $cart->product->price * $cart->product_quantity @endphp
                                 @endforeach
-                                @else
-                                    <tr>
-                                        <th colspan="6">
-                                            <div class="text-center alert alert-warning alert-dismissible fade show p-4 m-4">
-                                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                                <strong>Opps!</strong> Cart is Emty !!
-                                            </div>
-                                        </th>
-                                    </tr>
-                                @endif
+                                
                                 </tbody>
                             </table>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
-{{--                                <div class="coupon_code_inner">--}}
-{{--                                    <p>Enter your coupon code if you have one.</p>--}}
-{{--                                    <input placeholder="Coupon code" type="text">--}}
-{{--                                    <button type="submit">Apply coupon</button>--}}
-{{--                                </div>--}}
+                                <div class="coupon_code_inner">
+                                    <p>Enter your coupon code if you have one.</p>
+                                    <input placeholder="Coupon code" type="text">
+                                    <button type="submit">Apply coupon</button>
+                                </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="cart_total_amount">
@@ -79,6 +71,13 @@
                                         </div>
                                     </div>
 
+                                    <div class="flat_rate ">
+                                        <div class="shipping_flat_rate">
+                                            <p class="subtotal">Discount</p>
+                                            <p class="text-danger">- 100 Tk</p>
+                                        </div>
+                                    </div>
+
                                     <div class="cart_subtotal order">
                                         <p class="order_total">Total</p>
                                         <p class="order_amount">{{ $totalAmount + 100}} Tk</p>
@@ -89,6 +88,16 @@
                                 </div>
                             </div>
                         </div>
+                        @else
+                           <div class="row">
+                                <div class="col-md-12">
+                                    <div class="text-center alert alert-warning alert-dismissible fade show p-4 m-4">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <h3><strong>Opps!</strong> Cart is Emty !!</h3>
+                                    </div>
+                                </div>
+                           </div>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReturnReplacementsTable extends Migration
+class CreateDiscountCodesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateReturnReplacementsTable extends Migration
      */
     public function up()
     {
-        Schema::create('return_replacements', function (Blueprint $table) {
+        Schema::create('discount_codes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->text('description');
+            $table->string('start_time');
+            $table->string('end_time');
+            $table->string('discount_code');
+            $table->string('discount');
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
@@ -29,6 +32,6 @@ class CreateReturnReplacementsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('return_replacements');
+        Schema::dropIfExists('discount_codes');
     }
 }

@@ -68,9 +68,14 @@ class PagesController extends Controller
         $sub_cat_slug = $request->category;
         $title = $request['query'];
         $subcategory = Subcategory::where('slug', $sub_cat_slug)->first();
+        if ($subcategory) {
+            $subcategory_id = $subcategory->id;
+        }else{
+            $subcategory_id = '';
+        }
 
         $products = Product::orderByDesc('id')
-                        ->Where('sub_category_id', 'LIKE', '%' . $subcategory->id . '%')
+                        ->Where('sub_category_id', 'LIKE', '%' . $subcategory_id . '%')
                         ->Where(function ($query) use ($title) {
                             $query->where('title', 'LIKE', '%' . $title . '%')
                                     ->orWhere('price', 'LIKE', '%' . $title . '%');

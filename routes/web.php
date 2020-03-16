@@ -38,6 +38,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::resource('supplier', 'SupplierController');
     Route::resource('product', 'ProductController');
     Route::resource('order', 'OrderController');
+    Route::resource('discount', 'DiscountCodeController');
     Route::resource('customer', 'CustomerController');
     Route::resource('payment', 'PaymentController');
     Route::resource('about', 'AboutController');
