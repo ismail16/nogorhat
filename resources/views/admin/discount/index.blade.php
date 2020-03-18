@@ -12,6 +12,9 @@
                 <div class="col-lg-12 col-xl-12 d-flex justify-content-center">
                     <div class="alert alert-success text-center pr-3 pl-3 p-1 mb-1">
                         {{session('message')}}
+                        <button type="button" class="close ml-3" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                 </div>
             @endif
@@ -39,11 +42,17 @@
                                 <tr>
                                     <td>{{ $loop->index+1 }}</td>
                                     <td>{{ $discount->title }}</td>
-                                    <td>{{ $discount->start_date }}</td>
-                                    <td>{{ $discount->end_date }}</td>
+                                    <td>{{ $discount->start_time }}</td>
+                                    <td>{{ $discount->end_time }}</td>
                                     <td>{{ $discount->discount_code }}</td>
                                     <td>{{ $discount->discount }}</td>
-                                    <td>{{ $discount->status }}</td>
+                                    <td>
+                                        @if($discount->status == 1)
+                                            <span class="btn btn-xs btn-success">Active</span>
+                                        @else
+                                            <span class="btn btn-xs btn-danger">Deactive</span>
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         <a href="{{route('admin.discount.edit', $discount->id)}}"
                                            class="btn btn-xs btn-success"><i class="fa fa-edit"></i></a>

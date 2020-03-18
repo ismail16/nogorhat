@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title','Create New discount')
+@section('title','Create New Discount')
 
 @push('css')
 
@@ -10,10 +10,10 @@
             <div class="row">
                 @if ($errors->any())
                     @foreach ($errors->all() as $error)
-                        <div class="col-12">
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <div class="col-lg-12 col-xl-12 d-flex justify-content-center">
+                            <div class="alert alert-danger text-center pr-3 pl-3 p-1 mb-1">
                                 {{$error}}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <button type="button" class="close ml-3" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -33,38 +33,38 @@
                                     <div class="col-md-6">
                                         <label>Discount Title</label>
                                         <div class="">
-                                            <input type="text" name="name" required class="form-control form-control-sm" id="name" placeholder="Name">
+                                            <input type="text" name="title" class="form-control form-control-sm" placeholder="Title" required>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <label>Discount Amount</label>
                                         <div class="">
-                                            <input type="text" name="name" required class="form-control form-control-sm" id="name" placeholder="Name">
+                                            <input type="text" name="discount" class="form-control form-control-sm" placeholder="Discount Amount" required>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <label>Start Time</label>
                                         <div class="">
-                                            <input type="text" name="name" required class="form-control form-control-sm" id="name" placeholder="Name">
+                                            <input type="date" name="start_time" class="form-control form-control-sm" placeholder="Name" required>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <label>End Time</label>
                                         <div class="">
-                                            <input type="text" name="name" required class="form-control form-control-sm" id="name" placeholder="Name">
+                                            <input type="date" name="end_time" class="form-control form-control-sm" placeholder="End Time" required>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <label>Discount Code</label>
                                         <div class="row">
-                                            <div class="col-md-8">
-                                                <input type="text" name="name" required class="form-control form-control-sm" id="name" placeholder="Name">
+                                            <div class="col-md-10">
+                                                <input type="text" name="discount_code" class="form-control form-control-sm" placeholder="Discount Code" required>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <button class="btn btn-sm btn-info">Genarate</button>
                                             </div>
                                         </div>

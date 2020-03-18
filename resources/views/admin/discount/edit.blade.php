@@ -1,15 +1,19 @@
 @extends('admin.layouts.master')
-@section('title','Edit New Category')
+@section('title','Create New Discount')
+
+@push('css')
+
+@endpush
 
 @section('content')
-        <section class="content">
+    <section class="content">
             <div class="row">
                 @if ($errors->any())
                     @foreach ($errors->all() as $error)
-                        <div class="col-12">
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <div class="col-lg-12 col-xl-12 d-flex justify-content-center">
+                            <div class="alert alert-danger text-center pr-3 pl-3 p-1 mb-1">
                                 {{$error}}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <button type="button" class="close ml-3" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -19,40 +23,71 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <a href="{{route('admin.category.index')}}" class="btn btn-sm btn-info float-right"> <i class="fa fa-list"></i> All Category</a>
+                            <a href="{{route('admin.discount.index')}}" class="btn btn-sm btn-info float-right"> <i class="fa fa-list"></i> All discount</a>
                         </div>
-                        <!-- /.card-header -->
-                        <!-- form start -->
-                        <form method="POST" action="{{route('admin.category.update',$category->id)}}" enctype="multipart/form-data">
+                        <form method="POST" action="{{route('admin.discount.update',$discount->id)}}" enctype="multipart/form-data">
                             @csrf
-                            @method('PUT')
+                            @method('put')
                             <div class="card-body">
-                                <div class="form-group row">
-                                    <label for="name" class="col-sm-2 control-label">Name</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="name" value="{{ $category->name }}" required class="form-control" id="name" placeholder="Name">
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <label>Discount Title</label>
+                                        <div class="">
+                                            <input type="text" name="title" value="{{ $discount->title }}" class="form-control form-control-sm" placeholder="Title" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 control-label">Photo</label>
-                                    <div class="form-group col-sm-4">
-                                        <img height="65" width="100" src="{{asset('images/category_image/'.$category->image)}}"
-                                             alt="{{$category->name}}">
-                                        <input type="file" name="image">
+
+                                    <div class="col-md-6">
+                                        <label>Discount Amount</label>
+                                        <div class="">
+                                            <input type="text" name="discount" value="{{ $discount->discount }}" class="form-control form-control-sm" placeholder="Discount Amount" required>
+                                        </div>
                                     </div>
-                                    <label for="status" class="col-sm-2 control-label">Status</label>
-                                    <div class="col-md-1 col-sm-4" style="padding-left: 25px;">
-                                        <input type="radio" name="status" value="1" {{ $category->status==1 ? 'checked':''  }} required class="form-check-input" id="active">
-                                        <label class="form-check-label text-success font-weight-bold" for="active">Active</label>
+
+                                    <div class="col-md-6">
+                                        <label>Start Time</label>
+                                        <div class="">
+                                            <input type="date" name="start_time" value="{{ $discount->start_time }}" class="form-control form-control-sm" placeholder="Name" required>
+                                        </div>
                                     </div>
-                                    <div class="col-md-3 col-sm-4">
-                                        <input type="radio" name="status" value="0" {{ $category->status==0 ? 'checked':''  }} class="form-check-input" id="deactive">
-                                        <label class="form-check-label text-danger font-weight-bold" for="deactive">Deactive</label>
+
+                                    <div class="col-md-6">
+                                        <label>End Time</label>
+                                        <div class="">
+                                            <input type="date" name="end_time" value="{{ $discount->end_time }}" class="form-control form-control-sm" placeholder="End Time" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label>Discount Code</label>
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <input type="text" name="discount_code" value="{{ $discount->discount_code }}" class="form-control form-control-sm" placeholder="Discount Code" required>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button class="btn btn-sm btn-info">Genarate</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label>Status</label>
+                                        <div class="form-group row">
+                                            <div class="col-md-3 pl-5">
+                                                <input type="radio" name="status" value="1" {{ $discount->status == 1? 'checked':'' }} class="form-check-input">
+                                                <label class="form-check-label text-success font-weight-bold" for="active">Active</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="radio" name="status" value="0" {{ $discount->status == 0? 'checked':'' }} class="form-check-input">
+                                                <label class="form-check-label text-danger font-weight-bold">Deactive</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href="{{route('admin.category.index')}}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Cancel</a>
+                                <a href="{{route('admin.discount.index')}}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Cancel</a>
                                 <button type="submit" class="btn btn-sm btn-info float-right"><i class="fa fa-sync"></i> Update</button>
                             </div>
                         </form>
@@ -60,7 +95,6 @@
                 </div>
             </div>
         </section>
-    </div>
 @endsection
 
 

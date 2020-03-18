@@ -26,7 +26,7 @@ class DiscountCodeController extends Controller
             'title' => 'required',
             'start_time' => 'required',
             'end_time' => 'required',
-            'discount_code' => 'required',
+            'discount_code' => 'required|unique:discount_codes',
             'discount' => 'required',
         ]);
 
@@ -60,7 +60,7 @@ class DiscountCodeController extends Controller
             'title' => 'required',
             'start_time' => 'required',
             'end_time' => 'required',
-            'discount_code' => 'required',
+            'discount_code' => 'required|unique:discount_codes',
             'discount' => 'required',
         ]);
 
