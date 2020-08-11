@@ -2,24 +2,19 @@
 @section('title','Product')
 
 <style type="text/css" media="screen">
-
     .clearfix {
         clear: both;
     }
-
     .text-center {
         text-align: center;
     }
-
     a {
         color: tomato;
         text-decoration: none;
     }
-
     a:hover {
         color: #2196f3;
     }
-
     pre {
         display: block;
         padding: 9.5px;
@@ -33,13 +28,11 @@
         border: 1px solid #CCC;
         border-radius: 4px;
     }
-
     .header {
         padding: 20px 0;
         position: relative;
         margin-bottom: 10px;
     }
-
     .header:after {
         content: "";
         display: block;
@@ -49,21 +42,17 @@
         left: 30%;
         right: 30%;
     }
-
     .header h2 {
         font-size: 3em;
         font-weight: 300;
         margin-bottom: 0.2em;
     }
-
     .header p {
         font-size: 14px;
     }
-
     #a-footer {
         margin: 20px 0;
     }
-
     .new-react-version {
         padding: 20px 20px;
         border: 1px solid #eee;
@@ -73,33 +62,28 @@
         font-size: 14px;
         line-height: 1.7;
     }
-
     .new-react-version .react-svg-logo {
         text-align: center;
         max-width: 60px;
         margin: 20px auto;
         margin-top: 0;
     }
-
     .success-box {
         margin: 50px 0;
         padding: 10px 10px;
         border: 1px solid #eee;
         background: #f9f9f9;
     }
-
     .success-box img {
         margin-right: 10px;
         display: inline-block;
         vertical-align: top;
     }
-
     .success-box>div {
         vertical-align: top;
         display: inline-block;
         color: #888;
     }
-
     /* Rating Star Widgets Style */
     .rating-stars ul {
         list-style-type: none;
@@ -110,7 +94,6 @@
     .rating-stars ul>li.star {
         display: inline-block;
     }
-
     /* Idle State of the stars */
     .rating-stars ul>li.star>i.fa {
         font-size: 2.5em;
@@ -118,12 +101,10 @@
         color: #ccc;
         /* Color on idle state */
     }
-
     /* Hover state of the stars */
     .rating-stars ul>li.star.hover>i.fa {
         color: #FFCC36;
     }
-
     /* Selected state of the stars */
     .rating-stars ul>li.star.selected>i.fa {
         color: #FF912C;
@@ -132,7 +113,6 @@
 
 @section('content')
     @include('frontend/partials/content_top')
-
     <!--product details start-->
     <div class="product_details">
         <div class="container">
@@ -204,10 +184,10 @@
                             <span class="new_price"> {{ $product->price }} Tk</span>
                             <span class="old_price">  {{ $product->old_price }} Tk </span>
                         </div>
-                        <div class="product_d_quantity mb-20">
+                        <div class="product_d_quantity mt-5 mb-20">
                             <form class="" action="{{ route('card.store') }}" method="post">
                                 @csrf
-                                <label>quantity</label>
+                                <label>Quantity</label>
                                 <input min="1"  value="1" name="product_quantity" type="number">
                                 <input type="hidden" name="product_id" value="{{ $product->id  }}">
                                 <button  type="submit"><i class="fa fa-shopping-cart"></i> add to cart</button>
@@ -217,13 +197,13 @@
                             <p>{{$product->quantity}} items</p>
                             <span> In stock </span>
                         </div>
-                        <div class="product_d_social mb-40">
+                        <!-- <div class="product_d_social mb-40">
                             <ul>
                                 <li><a href="#"> <i class="fa fa-twitter"></i> Tweet </a></li>
                                 <li><a href="#"> <i class="fa fa-facebook-f"></i>  Share  </a></li>
                                 <li><a href="#"> <i class="fa fa-google-plus" aria-hidden="true"></i>Google+ </a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

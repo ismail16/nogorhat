@@ -98,24 +98,35 @@
                                             $CashOnDeliverySet = App\Models\CashOnDeliverySet::first();
                                         @endphp
                                         <select class="form-control" name="payment_method" v-model="order.payment_method" required id="payments">
-                                            @if ($StripeSet->Status == 1)
-                                                <option value="stripe">Stripe</option>
+                                            <option>Seletct Payment Method</option>
+                                            @if ($StripeSet)
+                                                @if ($StripeSet->Status == 1)
+                                                    <option value="stripe">Stripe</option>
+                                                @endif
                                             @endif
-                                            @if ($PaypalSet->Status == 1)
-                                                <option value="paypal">Paypal</option>
+
+                                            @if ($PaypalSet)
+                                                @if ($PaypalSet->Status == 1)
+                                                    <option value="paypal">Paypal</option>
+                                                @endif
                                             @endif
-                                            @if ($twoCheckoutSet->status == 1)
-                                                <option value="2checkout">2checkout</option>
+
+                                            @if ($twoCheckoutSet)
+                                                @if ($twoCheckoutSet->status == 1)
+                                                    <option value="2checkout">2checkout</option>
+                                                @endif
                                             @endif
-                                            @if ($CashOnDeliverySet->status == 1)
-                                                <option value="cash_in">Cash On Delivery</option>
+
+                                            @if ($CashOnDeliverySet)
+                                                @if ($CashOnDeliverySet->status == 1)
+                                                    <option value="cash_in">Cash On Delivery</option>
+                                                @endif
                                             @endif
-                                            
                                           {{--   <option value="bkash">bkash</option>
                                             <option value="rocket">rocket</option> --}}
                                         </select>
 
-                                        <div id="payment_stripe" class="box box-primary bg-light border mt-2">
+                                        <div id="payment_stripe" class="d-none box box-primary bg-light border mt-2">
                                             <h4 class="bg-warning text-center">Stripe</h4>
                                             <div class="">
                                                 <img class="img-fluid float-right" src="{{ asset('images/card.png') }}">
@@ -156,15 +167,13 @@
                                             </form>
                                         </div>
 
-                                        <div id="payment_paypal" class="box box-primary bg-light border mt-2 d-none">
+                                        <div id="payment_paypal" class="d-none box box-primary bg-light border mt-2 d-none">
                                             <h4 class="bg-warning text-center">Paypal</h4>
                                            {{--  <div class="">
                                                 <img class="img-fluid float-right" src="{{ asset('images/card.png') }}">
                                             </div> --}}
                                             <div class="p-3 m-3 border" id="paypal-button-container"></div>
-                                        </div>
-
-                                        
+                                        </div>  
 
                                         <div id="2checkout" class="d-none box box-primary bg-light border mt-2">
                                             <h4 class="bg-warning text-center">2Checkout</h4>
@@ -226,10 +235,10 @@
                                              </form>
                                         </div>
 
-                                       {{--  <div id="payment_bkash" class="d-none">
+                                        <div id="payment_bkash" class="d-none">
                                             <form role="form" action="{{ route('payment_pay_cash_in') }}" method="post">
                                                 @csrf
-                                                <input type="hidden" name="order_id" value="{{$order_id}}">
+                                                <input type="hidden" name="order_id" value="{{$order->id}}">
                                                 <input type="hidden" name="totalAmount" value="{{$totalAmount + 100}}">
                                                 <input type="hidden" name="payment_method" value="bkash">
 
@@ -262,7 +271,7 @@
                                         <div id="payment_rocket" class="d-none">
                                             <form role="form" action="{{ route('payment_pay_cash_in') }}" method="post">
                                                 @csrf
-                                                <input type="hidden" name="order_id" value="{{$order_id}}">
+                                                <input type="hidden" name="order_id" value="{{$order->id}}">
                                                 <input type="hidden" name="totalAmount" value="{{$totalAmount + 100}}">
                                                 <input type="hidden" name="payment_method" value="rocket">
 
@@ -288,7 +297,7 @@
                                                     <button type="submit">Order Confirmed</button>
                                                 </div>
                                             </form>
-                                        </div> --}}
+                                        </div>
                                        
                                     </div>
                                 </div>

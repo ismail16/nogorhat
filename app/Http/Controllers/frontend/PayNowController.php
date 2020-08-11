@@ -144,7 +144,7 @@ class PayNowController extends Controller
         $order->transaction_id = $transaction_id;
         $order->save();
 
-        // Cart::orWhere('user_id', Auth::id())->orWhere('ip_address', request()->ip())->delete();
+        Cart::orWhere('user_id', Auth::id())->orWhere('ip_address', request()->ip())->delete();
 
         return view('frontend.pages.order_confirmation', compact('order_id'));
     }

@@ -25,7 +25,11 @@
                     <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <h3>Billing Details</h3>
-                                <h3><input id="sell_my_self" type="checkbox" name="sell_my_self" value="1"> Myself</h3>
+                                @if(Auth::check())
+                                <h3>
+                                    <input id="sell_my_self" type="checkbox" name="sell_my_self" value="1"> Myself
+                                </h3>
+                                @endif
                                 <div id="sell_for_other" class="row">
                                     <div class="col-lg-12 mb-30">
                                         <label>Name <span>*</span></label>
@@ -46,7 +50,7 @@
                                     </div>
 
                                     <div class="col-lg-12 mb-30">
-                                        <label>Additional Message (optional)<span>*</span></label>
+                                        <label>Additional Message (optional)</label>
                                         <textarea id="message" class="form-control" rows="2" name="message" v-model="order.message" spellcheck="false"></textarea>
                                     </div>
                                 </div>
@@ -61,6 +65,7 @@
                                                 <thead>
                                                     <tr style="border-bottom: 1px solid #c1c1c1;">
                                                         <th class="product-name">Product</th>
+                                                        <th class="product-name">Price</th>
                                                         <th class="product-name">Quantity</th>
                                                         <th class="product-total text-center">Total</th>
                                                     </tr>
@@ -73,11 +78,14 @@
                                                                 <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;">
                                                                     <span> {{ $cart->product->title }}</span>
                                                                 </div>
-                                                                <input type="text" name="product_quantity[]" v-model="order.product_quantity[]" value="{{ $cart->product_quantity }}">
-							                                    <input type="text" name="order_products[]" v-model="order.order_products[]" value="{{ $cart->product->id }}">
+                                                                <input type="text" name="product_quantity[]" v-model="order.product_quantity[]" value="{{ $cart->product_quantity }}" class="d-none">
+							                                    <input type="text" name="order_products[]" v-model="order.order_products[]" value="{{ $cart->product->id }}" class="d-none">
                                                             </td>
                                                             <td class="">
-                                                                <strong> × 2</strong>
+                                                                <strong> {{ $cart->product->price }}</strong>
+                                                            </td>
+                                                            <td class="">
+                                                                <strong> × {{ $cart->product_quantity }}</strong>
                                                             </td>
                                                             <td class="amount text-center"> {{ $cart->product->price }} TK</td>
                                                         </tr>
@@ -88,15 +96,18 @@
                                                     <tr style="border-bottom: 1px solid #c1c1c1;">
                                                         <th>Cart Subtotal</th>
                                                         <th></th>
+                                                        <th></th>
                                                         <td class="text-center">{{ $totalAmount }} Tk</td>
                                                     </tr>
                                                     <tr style="border-bottom: 1px solid #c1c1c1;">
                                                         <th>Shipping</th>
                                                         <th></th>
+                                                        <th></th>
                                                         <td class="text-center"><strong>100 Tk</strong></td>
                                                     </tr>
                                                     <tr class="order_total" >
                                                         <th>Order Total</th>
+                                                        <th></th>
                                                         <th></th>
                                                         <td style="width: 120px;" class="text-center"><strong>{{ $totalAmount + 100 }} Tk</strong></td>
                                                     </tr>
