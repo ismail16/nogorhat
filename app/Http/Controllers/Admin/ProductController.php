@@ -91,7 +91,7 @@ class ProductController extends Controller
         $product->slug =  str_slug($product->title);
         $product->author =  'admin';
         $product->publisher =  'admin';
-        $product->status =  1;
+        $product->status = $request->status;
         $product->save();
 
         $image0 = $request->file('product_image0');
@@ -178,7 +178,7 @@ class ProductController extends Controller
                 $product_image->save();
             }
         }
-        return back()->with('message', 'Product Updated Successfully !');
+        return redirect()->route('admin.product.index')->with('message', 'Product Updated Successfully !');
     }
 
     public function destroy($id)

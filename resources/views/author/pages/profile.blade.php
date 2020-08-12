@@ -9,11 +9,8 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" class="img-fluid" alt=""/>
+                            <img src="{{ asset('frontend_assets/assets/img/default-image.png')}}" class="img-fluid" alt=""/>
                         </div>
-                        <br>
-                        <h5> Kshiti Ghelani</h5>
-                        <h6>Web Developer and Designer</h6>
                     </div>
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">

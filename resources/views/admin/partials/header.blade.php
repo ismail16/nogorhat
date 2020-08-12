@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@yield('title') | AdminLTE 3</title>
+    <title>@yield('title') | Admin</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -34,6 +34,14 @@
             font-size: 12px;
             line-height: 1.5;
             border-radius: 3px;
+        }
+        .session_contect{
+            position: relative;
+        }
+        .session_message{
+            position: absolute;
+            z-index: 1;
+            top: -38px;
         }
     </style>
     @stack('css')

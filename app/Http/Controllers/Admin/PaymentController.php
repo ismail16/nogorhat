@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
+use App\Models\Order;
 
 
 class PaymentController extends Controller
@@ -40,9 +41,14 @@ class PaymentController extends Controller
 
     public function update(Request $request, $id)
     {
+
         $payment = Payment::find($id);
         $payment->status = $request->payment_status;
         $payment->save();
+
+        $order = Order::find($payment->order_id);
+        $order->is_paid = 1;
+        $order->save();
 
         return redirect()->route('admin.order.index');
     }

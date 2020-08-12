@@ -153,9 +153,9 @@
                                                 <span class="new_price"> {{ $product->price }} Tk</span>
                                                 <span class="old_price"> {{ $product->old_price }} Tk </span>
                                             </div>
-                                            <!-- <div class="single__product_drsc" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;">
+                                            <div class="single__product_drsc">
                                                 {!! $product->description !!}
-                                            </div> -->
+                                            </div>
 
                                             <div class="product_in_stock mt-2">
                                                 <span> In stock </span>

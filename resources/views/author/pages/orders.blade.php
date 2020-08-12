@@ -24,29 +24,38 @@
                             <th class="text-center">Shipping Address</th>
                             <th class="text-center">Total Ammount</th>
                             <th class="text-center">Payment</th>
+                            <th class="text-center">Status</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($orders as $order)
                         <tr>
-                            <td class="text-center">{{ $loop->index+1 }}</td>
+                            <td class="text-center">{{ $order->id }}</td>
+                            <!-- <td class="text-center">{{ $loop->index+1 }}</td> -->
                             <td class="text-center">{{ $order->name }}</td>
                             <td class="text-center">{{ $order->phone_no }}</td>
                             <td class="text-center">{{ $order->shipping_address }}</td>
                             @if($order->payment_id)
                                 <td class="text-center">{{ $order->payment->amount }} Tk</td>
                                 <td class="text-center">
-                                    @if($order->payment->status == 1 )
-                                    <span class="badge badge-success p-1">
-                                        <i class="fa fa-check-circle"></i> Paid
-                                    </span>
+                                    @if($order->payment->status == 1 && $order->is_paid == 1)
+                                        <span class="badge badge-success p-1">
+                                            <i class="fa fa-check-circle"></i> Paid
+                                        </span>
+                                    @elseif($order->payment->payment_method == 'cash_in_delivery' )
+                                        <span class="badge badge-warning p-1">
+                                            <i class="fa fa-spinner"></i> Pending
+                                        </span>
+                                        <span class="badge badge-primary p-1">
+                                            Cash on delivery
+                                        </span>
+                                        <!-- <a class="btn badge badge-primary btn-link" href="{{ route('payment_pay_now_order', $order->id) }}" title="">Pay Now</a> -->
                                     @else
                                     <span class="badge badge-warning p-1">
                                         <i class="fa fa-spinner"></i> Pending
                                     </span>
                                     @endif
-
                                 </td>
                             @else
                                 <td class="text-center">
@@ -61,6 +70,21 @@
                                     <a class="badge badge-primary btn-link" href="{{ route('payment_pay_now_order', $order->id) }}" title="">Pay Now</a>
                                 </td>
                             @endif
+                            <td class="text-center">
+                                @if($order->is_seen_by_admin == 1 && $order->is_completed == 0)
+                                <span class="badge badge-primary p-1">
+                                    <i class="fa fa-check-circle"></i> On the Way
+                                </span>
+                                @elseif($order->is_seen_by_admin == 1 && $order->is_completed == 1 )
+                                <span class="badge badge-success p-1">
+                                    <i class="fa fa-check-circle"></i> Order Completed
+                                </span>
+                                @else
+                                <span class="badge badge-warning p-1">
+                                    <i class="fa fa-spinner"></i> Pending
+                                </span>
+                                @endif
+                            </td>
                             <td class="text-center">
                                 <a href="{{route('author.invoice', $order->id)}}"
                                     class="btn-success btn-sm"><i class="fa fa-eye"></i></a>

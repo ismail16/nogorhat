@@ -38,7 +38,7 @@
                         <div class="col-md-6 d-flex justify-content-end">
                             <div class="newslatter_inner fix">
                                 <form  id="subscribe_form">
-                                    <input id="subscribe_email" name="email" placeholder="enter your email" type="email">
+                                    <input id="subscribe_email" class="large_input" name="email" placeholder="enter your email" type="email">
                                     <button onclick="subscribe_post()" type="submit">Subscribe</button>
                                 </form>
                             </div>

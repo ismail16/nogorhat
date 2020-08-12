@@ -58,7 +58,7 @@
                         .my-card
                         {
                             position:absolute;
-                            left:40%;
+                            left:45%;
                             top:-20px;
                             border-radius:50%;
                         }

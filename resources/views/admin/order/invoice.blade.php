@@ -127,10 +127,19 @@
                                 </tr>
                             </tbody></table>
                         </div>
+                        <div class="col-md-7 float-right">
+                            <label class="">Is Order Completed?</label>
+                            <select class="form-control form-control-sm" name="is_completed">
+                                <option value="0" {{ $order->is_completed == 0? 'selected':''}}>NO</option>
+                                <option value="1" {{ $order->is_completed == 1? 'selected':''}}>Yes</option>
+                            </select>
+                        </div>
+
                         </div>
                     </div>
 
-                <div class="row no-print card-footer">
+                <div class="row no-print card-footer d-flex justify-content-end">
+                    
                     <div class="col-12 text-right">
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <a href="{{route('admin.order.index')}}" type="button" class="btn btn-default mr-2">Cancel</a>

@@ -45,11 +45,17 @@
 }
 
 .single__product_drsc{
-	overflow: hidden; 
+	/*overflow: hidden; 
 	text-overflow: ellipsis; 
 	display: -webkit-box;
 	-webkit-box-orient: vertical; 
-	-webkit-line-clamp: 4;
+	-webkit-line-clamp: 4;*/
+	display: block;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 8.6em;
+    line-height: 1.8em;
 }
 
 .product_image{

@@ -180,7 +180,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-8 col-sm-10 p-0  mb-1">
-                                    <input class="form-control rounded-0" name="query" placeholder="Enter your search..." type="text">
+                                    <input class="form-control rounded-0 large_input" name="query" placeholder="Enter your search..." type="text">
                                 </div>
                                 <div class="col-md-1 col-sm-2 p-0">
                                     <button class="form-control search_btn rounded-0 btn btn-outline-warning" type="submit">

@@ -6,15 +6,18 @@
 @endpush
 
 @section('content')
-<section class="content">
-    <div class="row">
-        @if(session()->has('message'))
-        <div class="col-lg-12 col-xl-12 d-flex justify-content-center">
-            <div class="alert alert-success text-center pr-3 pl-3 p-1 mb-1">
-                {{session('message')}}
-            </div>
-        </div>
-        @endif
+<section class="content session_contect">
+        <div class="row">
+            @if(session()->has('message'))
+                <div class="col-lg-12 col-xl-12 d-flex justify-content-center session_message">
+                    <div class="alert alert-success text-center pr-3 pl-3 p-1 mb-1">
+                        {{session('message')}}
+                        <button type="button" class="close ml-4" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            @endif
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
@@ -40,24 +43,40 @@
                                     <td class="text-center">{{ $order->phone_no }}</td>
                                     <td class="text-center">{{ $order->shipping_address }}</td>
                                     <td class="text-center">
-                                      {{--   @if($order->payment->status == 1)
+                                        @if($order->payment->status == 1)
                                             <a href="{{route('admin.payment.edit', $order->payment->id)}}" class="btn btn-xs btn-success"> <i class="fa fa-check-circle"> Confirmed</i>
                                         @else
                                             <a href="{{route('admin.payment.edit', $order->payment->id)}}" class="btn btn-xs btn-warning"> <i class="fa fa-spinner"> Pending</i></a>
-                                        @endif --}}
-                                    </td>
-                                    <td class="text-center">
-                                        @if($order->is_seen_by_admin == 1)
-                                            <a href="{{route('admin.order.show', $order->id)}}" class="btn btn-xs btn-success"> <i class="fa fa-check-circle"> Confirmed</i>
-                                        @else
-                                            <a href="{{route('admin.order.show', $order->id)}}" class="btn btn-xs btn-warning"> <i class="fa fa-spinner"> Pending</i></a>
                                         @endif
                                     </td>
                                     <td class="text-center">
-                                        @if($order->is_completed == 1)
-                                            <a href="#" class="btn btn-xs btn-success"> <i class="fa fa-check-circle"> Completed</i>
+                                        @if($order->is_seen_by_admin == 1 && $order->is_completed == 0)
+                                            <a href="{{route('admin.order.show', $order->id)}}" class="btn btn-xs btn-success"> 
+                                                <i class="fa fa-check-circle"> Confirmed </i>
+                                            </a>
+                                        @elseif($order->is_seen_by_admin == 1 && $order->is_completed == 1)
+                                            <a href="{{route('admin.order.show', $order->id)}}" class="btn btn-xs btn-success"> 
+                                                <i class="fa fa-check-circle"> Order Completed</i>
+                                            </a>
                                         @else
-                                            <a href="#" class="btn btn-xs btn-warning"> <i class="fa fa-spinner"> Pending</i></a>
+                                            <a href="{{route('admin.order.show', $order->id)}}" class="btn btn-xs btn-warning"> <i class="fa fa-spinner"> Pending</i></a>
+
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if($order->is_seen_by_admin == 1 && $order->is_completed == 1)
+                                            <a href="#" class="btn btn-xs btn-success"> <i class="fa fa-check-circle"> Order Completed</i>
+                                        @elseif($order->is_seen_by_admin == 1 && $order->is_completed == 0)
+                                            <a href="#" class="btn btn-xs btn-warning"> 
+                                                <i class="fa fa-spinner"> Pending</i>
+                                            </a>
+                                            <span class="badge badge-primary p-1">
+                                                <i class="fa fa-check-circle"></i> On the Way
+                                            </span>
+                                        @else
+                                            <a href="#" class="btn btn-xs btn-warning"> 
+                                                <i class="fa fa-spinner"> Pending</i>
+                                            </a>
                                         @endif
                                     </td>                                    
                                     <td class="text-center">

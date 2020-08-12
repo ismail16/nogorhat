@@ -29,19 +29,37 @@
                                 <h3>
                                     <input id="sell_my_self" type="checkbox" name="sell_my_self" value="1"> Myself
                                 </h3>
+                                @else
+                                    <div class="card p-3">
+                                        <h5>
+                                            <i class="fa fa-hand-o-right"></i>
+                                            If You want Buy Your User ID
+                                            <a href="{{ route('login') }}" class="btn-sm h2 btn-primary">Login</a>
+                                        </h5>
+                                        
+                                        <h5>
+                                            <i class="fa fa-hand-o-right"></i>
+                                            If You want Create Account then Buy 
+                                            <a href="{{ route('register') }}" class="btn-sm btn-info">Register</a>
+                                        </h5>
+                                        <hr class="p-0 m-0">
+                                        <h5>
+                                            OR Buy Without Account
+                                        </h5>
+                                    </div>
                                 @endif
                                 <div id="sell_for_other" class="row">
                                     <div class="col-lg-12 mb-30">
                                         <label>Name <span>*</span></label>
-                                        <input type="text" name="name" v-model="order.name">
+                                        <input type="text" class="large_input" name="name" v-model="order.name">
                                     </div>
                                     <div class="col-lg-6 mb-30">
                                         <label> Email Address   <span>*</span></label>
-                                        <input type="email" name="email" v-model="order.email">
+                                        <input type="email" class="large_input" name="email" v-model="order.email">
                                     </div>
                                     <div class="col-lg-6 mb-30">
                                         <label>Phone<span>*</span></label>
-                                        <input type="number" name="phone_no" v-model="order.phone_no">
+                                        <input type="number" class="large_input" name="phone_no" v-model="order.phone_no">
 
                                     </div>
                                     <div class="col-lg-12 mb-30">

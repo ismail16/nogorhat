@@ -261,6 +261,17 @@ textarea {
         Input
 *************************/
 input {
+/*    background: #eceff8;
+    border: 1px solid #eee;
+    height: 45px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #626262;
+    width: 100%;*/
+}
+.large_input {
     background: #eceff8;
     border: 1px solid #eee;
     height: 45px;

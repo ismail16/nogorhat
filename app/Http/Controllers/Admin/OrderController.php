@@ -65,11 +65,11 @@ class OrderController extends Controller
         return view('admin.category.edit', compact('category'));
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
         $order = Order::find($id);
-
         $order->is_seen_by_admin = 1;
+        $order->is_completed = $request->is_completed;
         $order->save();
         return redirect()->route('admin.order.index')->with('message', 'Order Seen And Confirmed by Admin Successfully !');
 
