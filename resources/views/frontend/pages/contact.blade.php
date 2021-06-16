@@ -16,21 +16,21 @@
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <input name="name" placeholder="Name *" type="text" required>
+                                    <input name="name" class="form-control" placeholder="Name *" type="text" required>
                                 </div>
                                 <div class="col-lg-6">
-                                    <input name="email" placeholder="Email *" type="email">
+                                    <input name="email" class="form-control" placeholder="Email *" type="email">
                                 </div>
                                 <div class="col-lg-6">
-                                    <input name="subject" placeholder="Subject *" type="text">
+                                    <input name="subject" class="form-control" placeholder="Subject *" type="text">
                                 </div>
                                 <div class="col-lg-6">
-                                    <input name="phone" placeholder="Phone *" type="text">
+                                    <input name="phone" class="form-control" placeholder="Phone *" type="text">
                                 </div>
 
                                 <div class="col-12">
                                     <div class="contact_textarea">
-                                        <textarea placeholder="Message *" name="message" class="form-control2" required></textarea>
+                                        <textarea placeholder="Message *" name="message" class="form-control" required></textarea>
                                     </div>
                                     <button type="submit"> Send Message </button>
                                 </div>
