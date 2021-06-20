@@ -263,7 +263,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-12">
+                                        <div class="col-12 mb-2">
                                             <div class="review_form_comment_">
                                                 <label for="review">Your review </label>
                                                 <textarea cols="" rows="2" id="review" class="bg-transparent border" ></textarea>
@@ -272,13 +272,13 @@
                                         <div class="col-lg-6 col-md-6">
                                             <div class="review_form_author">
                                                 <label for="name">Name</label>
-                                                <input id="name"  type="text">
+                                                <input id="name" class="form-control"  type="text">
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6">
                                             <div class="review_form_author">
                                                 <label for="email">Email </label>
-                                                <input id="email"  type="text">
+                                                <input id="email" class="form-control"  type="text">
                                             </div>
                                         </div>
                                     </div>

@@ -37,7 +37,7 @@
                                     <div class="col-lg-3 col-md-4 col-sm-6">
                                         <div class="single_product categorie card">
                                             <div class="product_thumb">
-                                                <a href="single-product.html">
+                                                <a href="{{ route('single.producs',$product->slug) }}">
                                                     <img src="{{ asset('images/product_image/'.$product->product_image->first()->image) }}" alt="">
                                                 </a>
                                                 <div class="product_discount">
@@ -78,7 +78,7 @@
                                                     </ul>
                                                 </div>
                                                 <div class="small_product_name" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1;">
-                                                    <a title="Printed Summer Dress" href="single-product.html">{{ $product->title }}</a>
+                                                    <a title="Printed Summer Dress" href="{{ route('single.producs',$product->slug) }}">{{ $product->title }}</a>
                                                 </div>
                                                 <div class="small_product_price">
                                                     <span class="new_price"> {{ $product->price }} Tk</span>
@@ -124,7 +124,7 @@
                                 <div class="row cate_tab_product">
                                     <div class="col-lg-4 col-md-6 col-sm-6">
                                         <div class="product_thumb">
-                                            <a href="single-product.html"><img src="{{ asset('images/product_image/'.$product->product_image->first()->image) }}" alt=""></a>
+                                            <a href="{{ route('single.producs',$product->slug) }}"><img src="{{ asset('images/product_image/'.$product->product_image->first()->image) }}" alt=""></a>
                                             <div class="product_discount">
                                                 <span>-10%</span>
                                             </div>
@@ -147,7 +147,7 @@
                                                 </ul>
                                             </div>
                                             <div class="small_product_name categorie_name">
-                                                <a title="Printed Summer Dress" href="single-product.html"> {{ $product->title }} </a>
+                                                <a title="Printed Summer Dress" href="{{ route('single.producs',$product->slug) }}"> {{ $product->title }} </a>
                                             </div>
                                             <div class="small_product_price categorie_prie mb-10">
                                                 <span class="new_price"> {{ $product->price }} Tk</span>
@@ -163,7 +163,7 @@
                                             <div class="_card-footer">
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <a href="{{ route('single.producs',$product->id) }}" class="btn btn-outline-primary"><i class="fa fa-eye"></i> View</a>
+                                                        <a href="{{ route('single.producs',$product->slug) }}" class="btn btn-outline-primary"><i class="fa fa-eye"></i> View</a>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <form class="" action="{{ route('card.store') }}" method="post">

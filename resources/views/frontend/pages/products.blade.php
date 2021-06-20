@@ -87,7 +87,7 @@
                                                     </ul>
                                                 </div>
                                                 <div class="small_product_name">
-                                                    <a title="Printed Summer Dress" href="single-product.html">{{ $product->title }}</a>
+                                                    <a title="Printed Summer Dress" href="{{ route('single.producs',$product->slug) }}">{{ $product->title }}</a>
                                                 </div>
                                                 <div class="small_product_price">
                                                     <span class="new_price"> {{ $product->price }} Tk</span>
@@ -96,7 +96,7 @@
                                                 <div class="card-footer">
                                                     <div class="row">
                                                         <div class="col-sm-6">
-                                                            <a href="{{ route('single.producs',$product->id) }}" class="btn btn-outline-primary btn-block m-1"><i class="fa fa-eye"></i> View</a>
+                                                            <a href="{{ route('single.producs',$product->slug) }}" class="btn btn-outline-primary btn-block m-1"><i class="fa fa-eye"></i> View</a>
                                                         </div>
                                                         <div class="col-sm-6 text-right">
                                                             <form class="" action="{{ route('card.store') }}" method="post">
